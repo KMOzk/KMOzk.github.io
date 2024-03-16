@@ -29,6 +29,30 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;}
 
+#heroImage{
+	background-image: url("images/headfoto.jpg");
+	background-size: contain;
+	height: 531px;
+	width: 334px;
+	border-radius: 20px;
+	animation: rotateImages 6s linear infinite;
+}
+
+#heroImage { 
+	background-image: url("images/pointfoto.jpeg") ;
+	background-size: contain ;
+	height: 531px;
+	width: 334px;
+	border-radius: 20px;
+}
+
+@keyframes rotateImages {
+	0% { background-image: url('images/headfoto.jpg'); }
+	33% { background-image: url('images/pointfoto.jpeg'); }
+	66% { background-image: url('images/headfoto.jpg'); }
+	100% { background-image: url('images/pointfoto.jpeg'); }
+}
+
 body {
 	line-height: 1;
 }
@@ -2055,7 +2079,7 @@ input, select, textarea {
 	.button {
 		position: relative;
 		display: inline-block;
-		background: #df7366;
+		background: #00fff5;
 		color: #fff;
 		text-align: center;
 		border-radius: 0.5em;
@@ -2077,7 +2101,7 @@ input, select, textarea {
 		button:hover,
 		.button:hover {
 			color: #fff;
-			background: #ef8376;
+			background: #ff1e00;
 		}
 
 		input[type="button"].alt,
