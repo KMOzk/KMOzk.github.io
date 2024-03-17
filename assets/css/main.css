@@ -35,22 +35,12 @@ footer, header, hgroup, menu, nav, section {
 	height: 531px;
 	width: 334px;
 	border-radius: 20px;
-	animation: rotateImages 6s linear infinite;
+	transition: .4s;
+	
 }
 
-#heroImage { 
+#heroImage:hover { 
 	background-image: url("images/pointfoto.jpeg") ;
-	background-size: contain ;
-	height: 531px;
-	width: 334px;
-	border-radius: 20px;
-}
-
-@keyframes rotateImages {
-	0% { background-image: url('images/headfoto.jpg'); }
-	33% { background-image: url('images/pointfoto.jpeg'); }
-	66% { background-image: url('images/headfoto.jpg'); }
-	100% { background-image: url('images/pointfoto.jpeg'); }
 }
 
 body {

@@ -7,6 +7,7 @@
 <html>
 	<head>
 		<title>Kenan's Portofolio</title>
+		<link rel="icon" href="images/faviicon.ico">
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -18,13 +19,12 @@
 			<!-- Header -->
 				<div id="header">
 
-					<!-- Inner -->
 					<div class="inner">
 						<header>
 							<div id="heroImage"></div>
 							<h1><a href="index.html" id="logo">Kenan</a></h1>
 							<hr />
-							<p><?php echo calculateAge('2004-01-01'); ?> year old making games :)</p>
+							<p id="age"> year old making games :)</p>
 						</header>
 						<footer>
 							<a href="#banner" class="button circled scrolly">Start</a>
@@ -64,10 +64,9 @@
 			<!-- Banner -->
 				<section id="banner">
 					<header>
-						<h2>hi. You're looking at <strong>Helios</strong>.</h2>
+						<h2>Projects I have done so far!</h2>
 						<p>
-							A (free) responsive site template by <a href="http://html5up.net">HTML5 UP</a>.
-							Built with HTML5/CSS3 and released under the <a href="http://html5up.net/license">CCA</a> license.
+							Feel free to look around here or on <a href="https://kenan38.itch.io/">itch</a>.
 						</p>
 					</header>
 				</section>
@@ -85,9 +84,9 @@
 						</article>
 
 						<article>
-							<a href="#" class="image featured"><img src="images/pic02.jpg" alt="" /></a>
+							<a href="music.html" class="image featured"><img src="images/pic02.jpg" alt="" /></a>
 							<header>
-								<h3><a href="#">Fermentum sagittis proin</a></h3>
+								<h3><a href="music.html">Music</a></h3>
 							</header>
 							<p>Commodo id natoque malesuada sollicitudin elit suscipit magna.</p>
 						</article>
@@ -383,6 +382,7 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="assets/js/moment.js"></script>
 
 	</body>
 </html>
