@@ -4,34 +4,27 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
-<html lang="en">
+<html>
 <head>
-    <title>Kenan's Portofolio</title>
-    <link rel="icon" href="images/faviicon.ico">
+    <title>Packman-Remake</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
     <link rel="stylesheet" href="assets/css/main.css"/>
-
     <noscript>
         <link rel="stylesheet" href="assets/css/noscript.css"/>
     </noscript>
 </head>
-<body class="homepage is-preload">
+<body class="no-sidebar is-preload">
 <div id="page-wrapper">
 
     <!-- Header -->
     <div id="header">
 
+        <!-- Inner -->
         <div class="inner">
             <header>
-                <div id="heroImage"></div>
-                <h1><a href="index.html" id="logo">Kenan</a></h1>
-                <hr/>
-                <p id="age"> year old making games :)</p>
+                <img src="images/pacmanlogo.jpg" alt="">
             </header>
-            <footer>
-                <a href="#banner" class="button circled scrolly">Start</a>
-            </footer>
         </div>
 
         <!-- Nav -->
@@ -45,86 +38,42 @@
 
     </div>
 
-    <!-- Banner -->
-    <section id="banner">
-        <header>
-            <h2>Projects I have done so far!</h2>
-            <p>
-                Feel free to look around here or on <a href="https://kenan38.itch.io/">itch</a>.
-            </p>
-        </header>
-    </section>
-
-    <!-- Carousel -->
-    <section class="carousel">
-        <div class="reel">
-
-
-            <article>
-                <a href="music.html" class="image featured"><img src="images/pic02.jpg" alt=""/></a>
-                <header>
-                    <h3><a href="music.html">Music</a></h3>
-                </header>
-                <p>A couple musical piece's composed in my room :) (or at school of course).</p>
-            </article>
-
-            <article>
-                <a href="projects.html" class="image featured"><img src="images/pic03.jpg" alt=""/></a>
-                <header>
-                    <h3><a href="projects.html">Projects</a></h3>
-                </header>
-                <p>All the game projects I have done so far.</p>
-            </article>
-
-            <article>
-                <a href="#" class="image featured"><img src="images/pic04.jpg" alt=""/></a>
-                <header>
-                    <h3><a href="#">Ultrices urna sit lobortis</a></h3>
-                </header>
-                <p>Commodo id natoque malesuada sollicitudin elit suscipit magna.</p>
-            </article>
-
-
-        </div>
-    </section>
-
     <!-- Main -->
-    <div class="wrapper style2">
-
-        <article id="main" class="container special">
-            <a href="#" class="image featured"><img src="images/pic06.jpg" alt=""/></a>
-            <header>
-                <h2><a href="#">Sed massa imperdiet magnis</a></h2>
-                <p>
-                    Sociis aenean eu aenean mollis mollis facilisis primis ornare penatibus aenean. Cursus ac enim
-                    pulvinar curabitur morbi convallis. Lectus malesuada sed fermentum dolore amet.
-                </p>
-            </header>
-            <p>
-                Commodo id natoque malesuada sollicitudin elit suscipit. Curae suspendisse mauris posuere accumsan massa
-                posuere lacus convallis tellus interdum. Amet nullam fringilla nibh nulla convallis ut venenatis purus
-                sit arcu sociis. Nunc fermentum adipiscing tempor cursus nascetur adipiscing adipiscing. Primis aliquam
-                mus lacinia lobortis phasellus suscipit. Fermentum lobortis non tristique ante proin sociis accumsan
-                lobortis. Auctor etiam porttitor phasellus tempus cubilia ultrices tempor sagittis. Nisl fermentum
-                consequat integer interdum integer purus sapien. Nibh eleifend nulla nascetur pharetra commodo mi augue
-                interdum tellus. Ornare cursus augue feugiat sodales velit lorem. Semper elementum ullamcorper lacinia
-                natoque aenean scelerisque.
-            </p>
-            <footer>
-                <a href="#" class="button">Continue Reading</a>
-            </footer>
-        </article>
-
-    </div>
-
-    <!-- Features -->
     <div class="wrapper style1">
 
-        <section id="features" class="container special">
-            <header>
-                <h2>Morbi ullamcorper et varius leo lacus</h2>
-                <p>Ipsum volutpat consectetur orci metus consequat imperdiet duis integer semper magna.</p>
-            </header>
+        <div class="container">
+            <article id="main" class="special">
+                <a href="#" class="image featured"><img src="images/pic06.jpg" alt=""/></a>
+                <p>
+                    I got challenged by my friends to make a packman clone as fast as I could, although a few things are
+                    missing there are still to come!
+                </p>
+                <section>
+                    <header>
+                        <h2>Player</h2>
+                    </header>
+                    <p>
+                        For the movement I used a rigidbody based movement and the for input the new player input. 
+                        # code hier #
+                    </p>
+                    <p>
+                        Eleifend auctor turpis magnis sed porta nisl pretium. Aenean suspendisse nulla eget sed etiam
+                        parturient
+                        orci cursus nibh. Quisque eu nec neque felis laoreet diam morbi egestas. Dignissim cras rutrum
+                        consectetur
+                        ut penatibus fermentum nibh erat malesuada varius.
+                    </p>
+                </section>
+                <section>
+                    <header>
+                        <h2>Enemy</h2>
+                    </header>
+                    <p>
+                        For the enemy movement I use unity's navmesh component 
+                    </p>
+                </section>
+            </article>
+            <hr/>
             <div class="row">
                 <article class="col-4 col-12-mobile special">
                     <a href="#" class="image featured"><img src="images/pic07.jpg" alt=""/></a>
@@ -163,8 +112,7 @@
                     </p>
                 </article>
             </div>
-        </section>
-
+        </div>
     </div>
 
     <!-- Footer -->
@@ -281,7 +229,6 @@
 <script src="assets/js/breakpoints.min.js"></script>
 <script src="assets/js/util.js"></script>
 <script src="assets/js/main.js"></script>
-<script src="assets/js/moment.js"></script>
 
 </body>
 </html>
