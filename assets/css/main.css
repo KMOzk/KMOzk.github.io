@@ -33,6 +33,7 @@ footer, header, hgroup, menu, nav, section {
 
 #heroImage {
     background-image: url("images/headfoto.jpg");
+    text-align: center;
     background-size: contain;
     height: 531px;
     width: 334px;
@@ -2197,7 +2198,7 @@ header .icon.circled {
     background-attachment: fixed;
     color: #fff;
     text-align: center;
-    padding: 7.5em 0 2em 0;
+    padding: 6.5em 0 2em 0;
     cursor: default;
 }
 
@@ -2474,7 +2475,7 @@ body.homepage.is-preload #header:after {
 #footer {
     position: relative;
     overflow: hidden;
-    padding: 6em 0 6em 0;
+    padding: 0em 0 1em 0;
     background: #2b252c;
     color: #fff;
 }
@@ -2599,7 +2600,8 @@ body.homepage.is-preload #header:after {
     white-space: nowrap;
     position: relative;
     -webkit-overflow-scrolling: touch;
-    padding: 0 2em 0 2em;
+    padding: 0 2em 0 7em;
+    display: flex;
 }
 
 .carousel article {

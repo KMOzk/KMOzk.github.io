@@ -22,7 +22,7 @@
     $(document).ready(function () {
         var a = moment(Date.now());
         var b = moment([2004, 5, 13]);
-        document.getElementById("age").innerText = a.diff(b, 'years') + " year old making games :)";
+        document.getElementById("age").innerText = a.diff(b, 'years') + " year old. \nCurrently studying at Grafisch Lyceum Utrecht.\nTeam player, Thoughtful, Eager to learn, Thinking outside of the box.";
     });
 
     // Breakpoints.
