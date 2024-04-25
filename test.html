@@ -1,0 +1,31 @@
+<pre>
+    <code>
+        
+    private EnemyMovement enemyMovement;
+
+    private void Start() { Destroy(gameObject, 1f); }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            other.gameObject.TryGetComponent<EnemyMovement>(out var enemy);
+            enemyMovement = enemy;
+            SetEnemyDestination();
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            other.gameObject.TryGetComponent<EnemyMovement>(out var enemy);
+            enemyMovement = enemy;
+            SetEnemyDestination();
+        }
+    }
+
+    private void SetEnemyDestination() { enemyMovement.enemyAgent.SetDestination(transform.position); }
+            
+    </code>
+</pre>

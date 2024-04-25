@@ -4,16 +4,19 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
-<html>
+<html lang="en">
+
 <head>
     <title>Packman-Remake</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
     <link rel="stylesheet" href="assets/css/main.css"/>
+    <link rel="stylesheet" href="assets/css/prism.css"/>
     <noscript>
         <link rel="stylesheet" href="assets/css/noscript.css"/>
     </noscript>
 </head>
+
 <body class="no-sidebar is-preload">
 <div id="page-wrapper">
 
@@ -23,7 +26,6 @@
         <!-- Inner -->
         <div class="inner">
             <header>
-                <img src="images/pacmanlogo.jpg" alt="">
             </header>
         </div>
 
@@ -43,9 +45,10 @@
 
         <div class="container">
             <article id="main" class="special">
-                <a href="#" class="image featured"><img src="images/pic06.jpg" alt=""/></a>
-                <p>
-                    I got challenged by my friends to make a packman clone as fast as I could, although a few things are
+                <!--                <a href="#" class="image featured"><img src="images/placeholder.jpg" alt=""/></a>-->
+                <p> 
+                    I got challenged by my friends to make a packman clone as fast as I could, although a few things
+                    are
                     missing there are still to come!
                 </p>
                 <section>
@@ -53,68 +56,127 @@
                         <h2>Player</h2>
                     </header>
                     <p>
-                        For the movement I used a rigidbody based movement and the for input the new player input. 
-                        # code hier #
-                        As for the picking up the collectibles I use a OnTriggerEnter that gets the 
+                        For the movement I used a rigidbody based movement and the for input the new player input.
+                    <pre><code class="language-csharp scrollable-code">
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+[SelectionBase]
+public class PlayerMovement : MonoBehaviour
+{
+    private Rigidbody _Rigidbody;
+    private InputAction _MoveAction;
+    private PlayerInput _PlayerInput;
+
+    [SerializeField] private float _PlayerSpeed;
+
+    private void Start()
+    {      
+        _PlayerInput = GetComponent<PlayerInput>();
+        _MoveAction = _PlayerInput.actions.FindAction("Move");
+
+        _Rigidbody = GetComponent<Rigidbody>();
+    }
+
+    private void Update()
+    {
+        CalculateMovement();
+    }
+
+    private void CalculateMovement()
+    {
+        Vector2 direction = _MoveAction.ReadValue<Vector2>().normalized;
+
+        Vector3 movement = new Vector3(direction.x, 0f, direction.y);
+
+        _Rigidbody.velocity = movement * _PlayerSpeed;
+    }
+}</code></pre>
+                        As for the picking up the collectibles I use a OnTriggerEnter that gets the
+
+                    <pre><code class="language-csharp scrollable-code">
+using UnityEngine;
+
+public class CollectibleHandler : MonoBehaviour
+{
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Coin"))
+        {
+            GameManager.Instance.GetPointValue(other.GetComponent<CollectibleObject>().GetPoints());
+            Destroy(other.gameObject); 
+        }
+    }
+}</code></pre>
+                    
                     </p>
-                    <p>
-                        Eleifend auctor turpis magnis sed porta nisl pretium. Aenean suspendisse nulla eget sed etiam
-                        parturient
-                        orci cursus nibh. Quisque eu nec neque felis laoreet diam morbi egestas. Dignissim cras rutrum
-                        consectetur
-                        ut penatibus fermentum nibh erat malesuada varius.
-                    </p>
+                    <pre><code class="language-csharp scrollable-code">
+    
+    </code></pre>
+
                 </section>
+
                 <section>
                     <header>
                         <h2>Enemy</h2>
                     </header>
                     <p>
                         For the enemy movement I use unity's navmesh component.
+                        EnemyManager is the way I dictate when the ghost are able to move.
+                        How I sat it up was to put the ghosts in Enemies array and then loop through each of them
+                        and
+                        turn the navmesh agent back on.
+                        How I normally would do it is to have a EnemyBrain script that in the awake registers the
+                        enemy
+                        to the manager but since I had little time I didnt take that approach.
                     </p>
                 </section>
             </article>
+
             <hr/>
             <div class="row">
                 <article class="col-4 col-12-mobile special">
-                    <a href="#" class="image featured"><img src="images/pic07.jpg" alt=""/></a>
+                    <!--                    <a href="#" class="image featured"><img src="images/placeholder.jpg" alt=""/></a>-->
                     <header>
                         <h3><a href="#">Gravida aliquam penatibus</a></h3>
                     </header>
                     <p>
-                        Amet nullam fringilla nibh nulla convallis tique ante proin sociis accumsan lobortis. Auctor
-                        etiam
-                        porttitor phasellus tempus cubilia ultrices tempor sagittis. Nisl fermentum consequat integer
-                        interdum.
+
                     </p>
                 </article>
                 <article class="col-4 col-12-mobile special">
-                    <a href="#" class="image featured"><img src="images/pic08.jpg" alt=""/></a>
+                    <!--                    <a href="#" class="image featured"><img src="images/placeholder.jpg" alt=""/></a>-->
                     <header>
                         <h3><a href="#">Sed quis rhoncus placerat</a></h3>
                     </header>
                     <p>
-                        Amet nullam fringilla nibh nulla convallis tique ante proin sociis accumsan lobortis. Auctor
-                        etiam
-                        porttitor phasellus tempus cubilia ultrices tempor sagittis. Nisl fermentum consequat integer
-                        interdum.
+
                     </p>
                 </article>
                 <article class="col-4 col-12-mobile special">
-                    <a href="#" class="image featured"><img src="images/pic09.jpg" alt=""/></a>
+                    <!--                    <a href="#" class="image featured"><img src="images/placeholder.jpg" alt=""/></a>-->
                     <header>
                         <h3><a href="#">Magna laoreet et aliquam</a></h3>
                     </header>
                     <p>
-                        Amet nullam fringilla nibh nulla convallis tique ante proin sociis accumsan lobortis. Auctor
-                        etiam
-                        porttitor phasellus tempus cubilia ultrices tempor sagittis. Nisl fermentum consequat integer
-                        interdum.
+
                     </p>
                 </article>
             </div>
         </div>
     </div>
+    <article class="container special">
+        <header>
+            <h2>Itch</h2>
+            <p>
+                <!--                <iframe src="https://itch.io/embed-upload/9646689?color=000000" allowfullscreen=""-->
+                <!--                        width="1000" height="600"><a href="https://kenan38.itch.io/pacman-remake">Play Pacman Remake on-->
+                <!--                    itch.io</a></iframe>-->
+                <br>
+            </p>
+        </header>
+
+    </article>
 
     <!-- Footer -->
     <div id="footer">
@@ -165,13 +227,15 @@
                     </header>
                     <div class="row gtr-25">
                         <div class="col-6">
-                            <a href="pacmanremake.html" class="image fit"><img src="images/pic10.jpg" alt=""/></a>
+                            <a href="pacmanremake.html" class="image fit"><img src="images/placeholder.jpg"
+                                                                               alt=""/></a>
                         </div>
                         <div class="col-6">
                             <a href="music.html" class="image fit"><img src="images/pic11.jpg" alt=""/></a>
                         </div>
                         <div class="col-6">
-                            <a href="particleeffect.html" class="image fit"><img src="images/pic12.jpg" alt=""/></a>
+                            <a href="particleeffect.html" class="image fit"><img src="images/pic12.jpg"
+                                                                                 alt=""/></a>
                         </div>
                         <div class="col-6">
                             <a href="projects.html" class="image fit"><img src="images/pic13.jpg" alt=""/></a>
@@ -186,6 +250,7 @@
                 </section>
 
             </div>
+
             <hr/>
             <div class="row">
                 <div class="col-12">
@@ -196,8 +261,8 @@
                             <h3>Want to be kept updated? Check out the socials!</h3>
                         </header>
                         <ul class="icons">
-                            <li><a href="https://www.instagram.com/kenan.3_8/" class="icon brands fa-instagram"><span
-                                    class="label">Instagram</span></a></li>
+                            <li><a href="https://www.instagram.com/kenan.3_8/"
+                                   class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
                             <li><a href="https://www.linkedin.com/in/kenan%C3%B6zbakan/"
                                    class="icon brands fa-linkedin-in"><span class="label">Linkedin</span></a></li>
                             <li><a href="https://kenansocial.carrd.co/" class="icon brands fa-dribbble"><span
@@ -230,6 +295,8 @@
 <script src="assets/js/breakpoints.min.js"></script>
 <script src="assets/js/util.js"></script>
 <script src="assets/js/main.js"></script>
+<script src="assets/js/prism.js"></script>
 
 </body>
+
 </html>

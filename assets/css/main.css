@@ -39,6 +39,7 @@ footer, header, hgroup, menu, nav, section {
     width: 334px;
     border-radius: 20px;
     transition: .4s;
+    margin: 0px auto;
 }
 
 #heroImage:hover {
@@ -1789,7 +1790,7 @@ header > p {
 }
 
 footer {
-    margin: 2.5em 0 0 0;
+    margin: 0em 0 0 0;
 }
 
 /* Image */
@@ -2180,8 +2181,8 @@ header .icon.circled {
 
 .wrapper {
     background: #fff;
-    margin: 0 0 2em 0;
-    padding: 6em 0 6em 0;
+    margin: 0 0 0em 0;
+    padding: 6em 0 1.5em 0;
 }
 
 .wrapper.style2 {
@@ -2259,7 +2260,7 @@ header .icon.circled {
 }
 
 #header footer {
-    margin: 1em 0 0 0;
+    margin: 0.5em 0 0 0;
 }
 
 body.homepage #header {
@@ -3125,5 +3126,4 @@ body.homepage.is-preload #header:after {
     .carousel article .image {
         margin-bottom: 2em;
     }
-
 }
