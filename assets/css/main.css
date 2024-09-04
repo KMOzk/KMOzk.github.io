@@ -39,7 +39,7 @@ footer, header, hgroup, menu, nav, section {
     width: 334px;
     border-radius: 20px;
     transition: .4s;
-    margin: 0px auto;
+    margin: 0 auto;
 }
 
 #heroImage:hover {
@@ -2204,7 +2204,6 @@ header .icon.circled {
 }
 
 #header:before {
-    content: '';
     display: inline-block;
     vertical-align: middle;
     height: 100%;

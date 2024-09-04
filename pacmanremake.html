@@ -129,6 +129,72 @@ public class CollectibleHandler : MonoBehaviour
                         How I normally would do it is to have a EnemyBrain script that in the awake registers the
                         enemy
                         to the manager but since I had little time I didnt take that approach.
+<pre><code class="language-csharp scrollable-code">
+using MyBox;
+using UnityEngine;
+using UnityEngine.AI;
+using System.Collections;
+using System.Collections.Generic;
+
+public class EnemyManager : Singleton<EnemyManager>
+{
+    public float EnemyWaitTime;
+    public GameObject[] Enemies;
+
+    private void Awake()
+    {
+        InitializeSingleton(false);
+        StartSendingEnemies();
+    }
+
+    private void StartSendingEnemies()
+    {
+        StartCoroutine(SendEnemiesWithDelay());
+    }
+
+    private IEnumerator SendEnemiesWithDelay()
+    {
+        foreach (GameObject enemy in Enemies)
+        {
+            yield return new WaitForSeconds(EnemyWaitTime);
+            enemy.GetComponent<NavMeshAgent>().enabled  = true;
+            enemy.GetComponent<EnemyMovement>().CanMove = true;
+        }
+    }
+}
+</code></pre><pre><code class="language-csharp scrollable-code">
+    using MyBox;
+    using UnityEngine;
+    using UnityEngine.AI;
+    using System.Collections;
+    using System.Collections.Generic;
+    
+    public class EnemyManager : Singleton<EnemyManager>
+    {
+        public float EnemyWaitTime;
+        public GameObject[] Enemies;
+    
+        private void Awake()
+        {
+            InitializeSingleton(false);
+            StartSendingEnemies();
+        }
+    
+        private void StartSendingEnemies()
+        {
+            StartCoroutine(SendEnemiesWithDelay());
+        }
+    
+        private IEnumerator SendEnemiesWithDelay()
+        {
+            foreach (GameObject enemy in Enemies)
+            {
+                yield return new WaitForSeconds(EnemyWaitTime);
+                enemy.GetComponent<NavMeshAgent>().enabled = true;
+                enemy.GetComponent<EnemyMovement>().CanMove = true;
+            }
+        }
+    }</code></pre>
                     </p>
                 </section>
             </article>
