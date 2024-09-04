@@ -2263,7 +2263,6 @@ header .icon.circled {
 }
 
 body.homepage #header {
-    height: 100vh;
     min-height: 40em;
 }
 
