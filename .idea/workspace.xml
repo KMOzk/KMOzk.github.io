@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7bef88cc-bc97-44b3-84e0-051840fb11cc" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pacmanremake.html" beforeDir="false" afterPath="$PROJECT_DIR$/pacmanremake.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/particleeffect.html" beforeDir="false" afterPath="$PROJECT_DIR$/particleeffect.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projects.html" beforeDir="false" afterPath="$PROJECT_DIR$/projects.html" afterDir="false" />
@@ -48,7 +47,7 @@
       <option name="presentableId" value="Default" />
       <updated>1725278341876</updated>
       <workItem from="1725278343713" duration="3324000" />
-      <workItem from="1725437442250" duration="4810000" />
+      <workItem from="1725437442250" duration="13468000" />
     </task>
     <servers />
   </component>
