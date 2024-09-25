@@ -1,7 +1,8 @@
-<!DOCTYPE HTML><!--Helios by HTML5 UP	html5up.net | @ajlkn	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)-->
+<!DOCTYPE HTML><!--	Helios by HTML5 UPhtml5up.net | @ajlkn	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)-->
 <html lang="en">
+
 <head>
-    <title>Packman-Remake</title>
+    <title>TwinStick</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
     <link rel="stylesheet" href="assets/css/main.css"/>
@@ -17,7 +18,7 @@
     <div id="header">
         <div class="inner">
             <header>
-                <h1>Packman - Remake</h1>
+                <h1>Twinstick</h1>
             </header>
         </div>
 
@@ -28,7 +29,6 @@
                 <li><a href="music.html">Music</a></li>
             </ul>
         </nav>
-
     </div>
 
     <div class="wrapper style1">
@@ -36,13 +36,12 @@
         <div class="container">
             <article id="main" class="special">
                 <p>
-                    I got challenged by my friends to make a packman clone as fast as I could, although a few things
-                    are
-                    missing there are still to come!
+                    This school project I had to make with my classmates 2 from game artist and a other developer, The
+                    objective was to make a 3D twin stick shooter.
                 </p>
                 <section>
                     <header>
-                        <h2>Player</h2>
+                        <h2>Enemy</h2>
                     </header>
                     <p>
                         For the movement I used a rigidbody based movement and the for input the new player input.
@@ -80,7 +79,8 @@ public class PlayerMovement : MonoBehaviour
 
         _Rigidbody.velocity = movement * _PlayerSpeed;
     }
-}</code></pre>
+}
+                </code></pre>
                     As for the picking up the collectibles I use a OnTriggerEnter that gets the
 
                     <pre><code class="language-csharp scrollable-code">
@@ -96,10 +96,9 @@ public class CollectibleHandler : MonoBehaviour
             Destroy(other.gameObject); 
         }
     }
-}</code></pre>
-
-                    </p>
-                </section>
+}
+                    </code></pre>
+                    </p></section>
 
                 <section>
                     <header>
@@ -147,18 +146,6 @@ public class CollectibleHandler : MonoBehaviour
             </div>
         </div>
     </div>
-    <article class="container special">
-        <header>
-            <h2>Itch</h2>
-            <p>
-                <iframe src="https://itch.io/embed-upload/9646689?color=000000" allowfullscreen=""
-                        width="1000" height="600"><a href="https://kenan38.itch.io/pacman-remake">Play Pacman Remake on
-                    itch.io</a></iframe>
-                <br>
-            </p>
-        </header>
-
-    </article>
 
     <div id="footer">
         <div class="container">
@@ -248,17 +235,19 @@ public class CollectibleHandler : MonoBehaviour
                         </ul>
                     </section>
 
-
                     <div class="copyright">
                         <ul class="menu">
                             <li>&copy; Kenan Özbakan. All rights reserved.</li>
                             <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
                         </ul>
                     </div>
+
                 </div>
+
             </div>
         </div>
     </div>
+
 </div>
 
 <script src="assets/js/jquery.min.js"></script>
