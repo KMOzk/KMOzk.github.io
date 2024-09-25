@@ -22,7 +22,7 @@
     $(document).ready(function () {
         var a = moment(Date.now());
         var b = moment([2004, 5, 13]);
-        document.getElementById("age").innerText = a.diff(b, 'years') + " year old. \nCurrently studying at Grafisch Lyceum Utrecht.\nTeam player, Thoughtful, Eager to learn, Thinking outside of the box.";
+        document.getElementById("age").innerText = a.diff(b, 'years') + " years old. \nGame developer with creative and technical skills. \nLiving in Utrecht, where I study at the Grafisch Lyceum Utrecht. \nAs a team player with a thoughtful and eager-to-learn attitude, I enjoy working collaboratively and constantly seek new insights. \nThanks to my ability to think 'out of the box,' I find innovative solutions to complex challenges.";
     });
 
     // Breakpoints.
