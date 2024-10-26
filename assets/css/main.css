@@ -2447,6 +2447,9 @@ body.homepage.is-preload #header:after {
 .project-card.project-headline {
     font-size: 1rem;
 }
+.project-img{
+    width: 100%;
+}
 
 /* Sidebar */
 
