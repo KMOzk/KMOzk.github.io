@@ -32,7 +32,10 @@
                 <hr/>
                 <p id="age"> year old. Currently studying at glu. Team player, Thoughtful, Eager to learn, Thinking
                     outside the box.
-                    Game developer with creative and technical skills. Living in Utrecht, where I study at the Grafisch Lyceum Utrecht. As a team player with a thoughtful and eager-to-learn attitude, I enjoy working collaboratively and constantly seek new insights. Thanks to my ability to think 'out of the box,' I find innovative solutions to complex challenges.</p>
+                    Game developer with creative and technical skills. Living in Utrecht, where I study at the Grafisch
+                    Lyceum Utrecht. As a team player with a thoughtful and eager-to-learn attitude, I enjoy working
+                    collaboratively and constantly seek new insights. Thanks to my ability to think 'out of the box,' I
+                    find innovative solutions to complex challenges.</p>
             </header>
         </div>
     </div>
@@ -92,13 +95,13 @@
                 <h2>Contact</h2>
                 <p>
                     If you have questions feel free to reach out! <br>
-                    I am always reachable via my <a href="mailto:kenan.ozbakan@gmail.com"> e-mail</a> or on
+                    I am always reachable via my <span id="email-link-contact"></span> or on
                     <a href="https://kenansocial.carrd.co/">a other social networks I am on.</a>
                 </p>
             </header>
 
             <footer>
-                <a href="mailto:kenan.ozbakan@gmail.com" class="button">Send an e-mail!</a>
+                <a id="email-link-footer" class="button">Send an e-mail!</a>
             </footer>
         </article>
     </div>
@@ -128,6 +131,30 @@
         </div>
     </div>
 </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // E-mailadres onderdelen
+        var user = "kenan.ozbakan";
+        var domain = "gmail.com";
+
+        // Samenstellen van het volledige e-mailadres
+        var email = user + "@" + domain;
+
+        // Toevoegen aan de contactsectie
+        var emailLinkContact = '<a href="mailto:' + email + '">' + 'e-mail' + '</a>';
+        var contactElement = document.getElementById("email-link-contact");
+        if (contactElement) {
+            contactElement.innerHTML = emailLinkContact;
+        }
+
+        // Toevoegen aan de footer
+        var footerElement = document.getElementById("email-link-footer");
+        if (footerElement) {
+            footerElement.setAttribute("href", 'mailto:' + email);
+        }
+    });
+</script>
 
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/jquery.dropotron.min.js"></script>
