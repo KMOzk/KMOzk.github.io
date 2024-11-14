@@ -1,8 +1,4 @@
-/*
-	Helios by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
+/*	Helios by HTML5 UP	html5up.net | @ajlkn	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)*/
 
 (function ($) {
 
@@ -23,6 +19,21 @@
         var a = moment(Date.now());
         var b = moment([2004, 5, 13]);
         document.getElementById("age").innerText = a.diff(b, 'years') + " years old. \nGame developer with creative and technical skills. \nLiving in Utrecht, where I study at the Grafisch Lyceum Utrecht. \nAs a team player with a thoughtful and eager-to-learn attitude, I enjoy working collaboratively and constantly seek new insights. \nThanks to my ability to think 'out of the box,' I find innovative solutions to complex challenges.";
+
+        const user = "kenan.ozbakan";
+        const domain = "gmail.com";
+
+        const email = user + "@" + domain;
+
+        var emailLinkContact = '<a href="mailto:' + email + '">' + 'e-mail' + '</a>';
+        var contactElement = document.getElementById("email-link-contact");
+        if (contactElement) {
+            contactElement.innerHTML = emailLinkContact;
+        }
+        var footerElement = document.getElementById("email-link-footer");
+        if (footerElement) {
+            footerElement.setAttribute("href", 'mailto:' + email);
+        }
     });
 
     // Breakpoints.
@@ -33,8 +44,6 @@
         narrower: ['737px', '840px'],
         mobile: [null, '736px']
     });
-
-
     
     // Play initial animations on page load.
     $window.on('load', function () {
