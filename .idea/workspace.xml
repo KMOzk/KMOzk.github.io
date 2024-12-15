@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7bef88cc-bc97-44b3-84e0-051840fb11cc" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/images/iconmonstr-github-1-240.jpeg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/socials.html" beforeDir="false" afterPath="$PROJECT_DIR$/socials.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +45,11 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\kenan\Documents\GitHub\KMOzk.github.io\images" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -78,6 +82,11 @@
       <workItem from="1730743185279" duration="810000" />
       <workItem from="1730761941896" duration="810000" />
       <workItem from="1731010683915" duration="2580000" />
+      <workItem from="1731598328818" duration="4415000" />
+      <workItem from="1733948327584" duration="1269000" />
+      <workItem from="1733998787540" duration="1354000" />
+      <workItem from="1734095180446" duration="1339000" />
+      <workItem from="1734135777262" duration="1192000" />
     </task>
     <servers />
   </component>
