@@ -2712,7 +2712,114 @@ nav.socials > ul > li > a:hover {
 
 }
 
-/* Narrow */
+/* Skills Section */
+#skills {
+    padding: 4em 0;
+    background: #5295b2;
+    text-align: center;
+}
+
+.skill .skill-heading {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+    color: #fff;
+}
+
+#skills .container header h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.skills-title .skills-subheading {
+    font-size: 1.2em;
+    color: #fffefe;
+    margin-bottom: 2em;
+}
+
+.skills-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2em;
+}
+
+#skills .skills-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2em;
+}
+
+.skill {
+    background: #444;
+    padding: 1.5em;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: left;
+    width: 250px;
+    margin: 1em;
+}
+
+#skills .skill {
+    background: #fff;
+    padding: 1.5em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: left;
+    width: 250px;
+}
+
+#skills .skill h3 {
+    margin-bottom: 0.5em;
+    color: #333;
+}
+
+
+#skills .skill ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#skills .skill li {
+    margin: 0.5em 0;
+    color: #000000;
+}
+
+.skills-title .skills-heading {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 0.2em;
+}
+
+
+@keyframes spin-clockwise {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spin-counterclockwise {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+.skill.spin-clockwise {
+    animation: spin-clockwise 85s linear infinite;
+}
+
+/* Counterclockwise spinning */
+.skill.spin-counterclockwise {
+    animation: spin-counterclockwise 85s linear infinite;
+}
 
 /* Narrower */
 
