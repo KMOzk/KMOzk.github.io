@@ -2799,9 +2799,16 @@ nav.socials > ul > li > a:hover {
 }
 
 .skill li {
+    display: flex;
+    align-items: center;
     margin-bottom: 0.5em;
     font-size: 1.1em;
-    color: #666;
+    color: #757474;
+}
+.skill-icon {
+    width: 24px; /* Set a consistent width for icons */
+    height: 24px;
+    margin-right: 0.75em; /* Space between icon and text */
 }
 
 /* Narrower */
