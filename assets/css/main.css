@@ -2712,7 +2712,7 @@ nav.socials > ul > li > a:hover {
 
 }
 
-/* Skills Section */
+/* Skills */
 #skills {
     padding: 4em 0;
     background: #5295b2;
@@ -2752,6 +2752,9 @@ nav.socials > ul > li > a:hover {
 }
 
 /* Keyframes for a random pop-up */
+.skill.visible {
+    animation-play-state: running;
+}
 @keyframes pop {
     0%, 100% {
         transform: scale(1);
@@ -2778,6 +2781,7 @@ nav.socials > ul > li > a:hover {
     transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1),
     box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1);
     animation: pop 5s ease-in-out infinite, shake 6s infinite; /* Combine pop and shake */
+    animation-play-state: paused;
     animation-delay: calc(0.5s * (random() * 10)); /* Random delay */
 }
 

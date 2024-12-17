@@ -35,7 +35,25 @@
             footerElement.setAttribute("href", 'mailto:' + email);
         }
     });
+    const animatedElements = document.querySelectorAll('.animate-on-scroll');
 
+// Set up the Intersection Observer
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Add the visible class when in view
+                entry.target.classList.add('visible');
+            } else {
+                // Remove the visible class when out of view
+                entry.target.classList.remove('visible');
+            }
+        });
+    });
+
+// Observe each element
+    animatedElements.forEach(element => {
+        observer.observe(element);
+    });
     // Breakpoints.
     breakpoints({
         wide: ['1281px', '1680px'],
@@ -44,7 +62,7 @@
         narrower: ['737px', '840px'],
         mobile: [null, '736px']
     });
-    
+
     // Play initial animations on page load.
     $window.on('load', function () {
         window.setTimeout(function () {
