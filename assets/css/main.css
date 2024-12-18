@@ -2818,26 +2818,38 @@ nav.socials > ul > li > a:hover {
 
 .animated-text span {
     display: inline-block;
-    text-transform: lowercase; /* Default lowercase */
-    transition: all 0.5s ease; /* Smooth change */
-    animation: capitalize-letters 5s infinite steps(1);
-    opacity: 0; /* Hide initially */
-}
-
-.animated-text span {
-    display: inline-block;
     text-transform: lowercase; /* Default state */
     opacity: 0; /* Hide initially */
     animation: smooth-uppercase 2.5s infinite ease-in-out;
-    transform: translateY(0); /* Start position */
+    transform: translateY(0);
+    color: #ffffff; /* Default color */
 }
 
 /* Sequential delays for each letter */
-.animated-text span:nth-child(1) { animation-delay: 0s; }
-.animated-text span:nth-child(2) { animation-delay: 0.2s; }
-.animated-text span:nth-child(3) { animation-delay: 0.4s; }
-.animated-text span:nth-child(4) { animation-delay: 0.6s; }
-.animated-text span:nth-child(5) { animation-delay: 0.8s; }
+.animated-text span:nth-child(1) {
+    animation-delay: 0s;
+    color: #424a70;
+}
+
+.animated-text span:nth-child(2) {
+    animation-delay: 0.2s;
+    color: #432f53;
+}
+
+.animated-text span:nth-child(3) {
+    animation-delay: 0.4s;
+    color: #152f43;
+}
+
+.animated-text span:nth-child(4) {
+    animation-delay: 0.6s;
+    color: #1d0e26;
+}
+
+.animated-text span:nth-child(5) {
+    animation-delay: 0.8s;
+    color: #55a0be;
+}
 
 /* Smooth Uppercase Animation */
 @keyframes smooth-uppercase {
@@ -2847,8 +2859,9 @@ nav.socials > ul > li > a:hover {
         transform: translateY(0);
     }
     50% {
-        text-transform: uppercase; /* Smoothly transition to uppercase */
-        transform: translateY(-5px); /* Slight bounce effect */
+        text-transform: uppercase;
+        transform: translateY(-5px);
+        color: #ffffff;
     }
 }
 
