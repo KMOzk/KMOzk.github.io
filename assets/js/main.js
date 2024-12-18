@@ -50,6 +50,27 @@
         });
     });
 
+    document.addEventListener("DOMContentLoaded", function () {
+        const target = document.querySelector(".animated-text");
+        const spans = document.querySelectorAll(".animated-text span");
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    spans.forEach(span => {
+                        span.style.animationPlayState = "running";
+                    });
+                } else {
+                    spans.forEach(span => {
+                        span.style.animationPlayState = "paused";
+                    });
+                }
+            });
+        }, {threshold: 0.5}); // Trigger when 50% of the element is in view
+
+        observer.observe(target);
+    });
+
 // Observe each element
     animatedElements.forEach(element => {
         observer.observe(element);

@@ -2755,6 +2755,7 @@ nav.socials > ul > li > a:hover {
 .skill.visible {
     animation-play-state: running;
 }
+
 @keyframes pop {
     0%, 100% {
         transform: scale(1);
@@ -2780,15 +2781,14 @@ nav.socials > ul > li > a:hover {
     padding: 1.5em;
     transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1),
     box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-    animation: pop 5s ease-in-out infinite, shake 6s infinite; /* Combine pop and shake */
+    animation: pop 5s ease-in-out infinite, shake 6s infinite;
     animation-play-state: paused;
-    animation-delay: calc(0.5s * (random() * 10)); /* Random delay */
+    animation-delay: calc(0.5s * (random() * 10));
 }
 
 .skill:hover {
-    transform: translateY(-10px) scale(1.03); /* Slight lift and scale */
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Deeper shadow for hover */
-    animation: none;
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
 }
 
 .skill .skill-heading {
@@ -2809,10 +2809,47 @@ nav.socials > ul > li > a:hover {
     font-size: 1.1em;
     color: #000000;
 }
+
 .skill-icon {
     width: 24px; /* Set a consistent width for icons */
     height: 24px;
     margin-right: 0.75em; /* Space between icon and text */
+}
+
+.animated-text span {
+    display: inline-block;
+    text-transform: lowercase; /* Default lowercase */
+    transition: all 0.5s ease; /* Smooth change */
+    animation: capitalize-letters 5s infinite steps(1);
+    opacity: 0; /* Hide initially */
+}
+
+.animated-text span {
+    display: inline-block;
+    text-transform: lowercase; /* Default state */
+    opacity: 0; /* Hide initially */
+    animation: smooth-uppercase 2.5s infinite ease-in-out;
+    transform: translateY(0); /* Start position */
+}
+
+/* Sequential delays for each letter */
+.animated-text span:nth-child(1) { animation-delay: 0s; }
+.animated-text span:nth-child(2) { animation-delay: 0.2s; }
+.animated-text span:nth-child(3) { animation-delay: 0.4s; }
+.animated-text span:nth-child(4) { animation-delay: 0.6s; }
+.animated-text span:nth-child(5) { animation-delay: 0.8s; }
+
+/* Smooth Uppercase Animation */
+@keyframes smooth-uppercase {
+    0%, 100% {
+        text-transform: lowercase;
+        opacity: 1;
+        transform: translateY(0);
+    }
+    50% {
+        text-transform: uppercase; /* Smoothly transition to uppercase */
+        transform: translateY(-5px); /* Slight bounce effect */
+    }
 }
 
 /* Narrower */
@@ -3230,9 +3267,17 @@ nav.socials > ul > li > a:hover {
         width: 14em;
         padding-bottom: 2em;
         margin: 0 0.5em 0 0;
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+        transform: scale(1);
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
     }
 
     .carousel article .image {
         margin-bottom: 2em;
+    }
+
+    .carousel article:hover {
+        transform: scale(1.05); /* Slight pop-up */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Deeper shadow for effect */
     }
 }
