@@ -2715,22 +2715,32 @@ nav.socials > ul > li > a:hover {
 /* Skills */
 #skills {
     padding: 4em 0;
-    background: #5295b2;
-    color: #fff;
+    background-image: url("/images/icebackground.jpg");
+    color: #000000;
     text-align: center;
+    padding-top: 2.5em;
 }
 
 .skills-title .skills-heading {
     font-size: 2.5em;
     font-weight: bold;
-    color: #fff;
+    color: #ffffff;
     margin-bottom: 0.2em;
+    text-shadow: -1px -1px 0 #000000,
+    1px -1px 0 #000000,
+    -1px 1px 0 #000000,
+    1px 1px 0 #000000;
 }
 
 .skills-title .skills-subheading {
-    font-size: 1.2em;
+    font-size: 1.5em;
+    padding-top: 0.5em;
     color: #f1f1f1;
     margin-bottom: 2em;
+    text-shadow: -1px -1px 0 #000000,
+    1px -1px 0 #000000,
+    -1px 1px 0 #000000,
+    1px 1px 0 #000000;
 }
 
 @keyframes shake {
@@ -2777,6 +2787,7 @@ nav.socials > ul > li > a:hover {
     background: #ffffff;
     color: #333;
     border-radius: 8px;
+    border: 2px solid #000000;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     padding: 1.5em;
     transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1),
@@ -2789,6 +2800,7 @@ nav.socials > ul > li > a:hover {
 .skill:hover {
     transform: translateY(-10px) scale(1.03);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    animation: paused;
 }
 
 .skill .skill-heading {
@@ -2811,18 +2823,18 @@ nav.socials > ul > li > a:hover {
 }
 
 .skill-icon {
-    width: 24px; /* Set a consistent width for icons */
+    width: 24px;
     height: 24px;
-    margin-right: 0.75em; /* Space between icon and text */
+    margin-right: 0.75em;
 }
 
 .animated-text span {
     display: inline-block;
-    text-transform: lowercase; /* Default state */
-    opacity: 0; /* Hide initially */
+    text-transform: lowercase;
+    opacity: 0;
     animation: smooth-uppercase 2.5s infinite ease-in-out;
     transform: translateY(0);
-    color: #ffffff; /* Default color */
+    color: #ffffff;
 }
 
 /* Sequential delays for each letter */
