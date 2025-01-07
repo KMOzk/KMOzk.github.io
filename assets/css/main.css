@@ -215,7 +215,7 @@ hr {
     display: block;
     border: 0;
     top: 4.5em;
-    margin-bottom: 9em;
+    margin-bottom: 6em;
     height: 6px;
     border-top: solid 1px rgba(128, 128, 128, 0.2);
     border-bottom: solid 1px rgba(128, 128, 128, 0.2);
@@ -2313,13 +2313,12 @@ body.socials {
 }
 
 nav.socials > ul > li > a {
-    color: #fbf2f2;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    color: #ffffff;
     font-weight: bold;
 }
 
 nav.socials > ul > li > a:hover {
-    color: rgba(255, 0, 0, 0.5);
+    color: rgba(0, 0, 0, 0.5);
 }
 
 #nav > ul:before {
@@ -2343,7 +2342,14 @@ nav.socials > ul > li > a:hover {
     -ms-transition: color 0.35s ease-in-out, border-color 0.35s ease-in-out;
     transition: color 0.35s ease-in-out, border-color 0.35s ease-in-out;
 }
-
+#nav > ul > li> a:hover {
+ color: #1d0e26;
+    font-size: larger;
+    transform: scale(1.2);
+}
+#nav > ul > li > a:not(:hover) {
+    animation: ripple 0.6s ease-out;
+}
 #nav > ul > li.active {
     border-color: rgba(192, 192, 192, 0.35);
 }
@@ -2358,6 +2364,17 @@ nav.socials > ul > li > a:hover {
 
 #nav > ul > li > ul {
     display: none;
+}
+@keyframes ripple {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
 .dropotron {
@@ -2714,11 +2731,12 @@ nav.socials > ul > li > a:hover {
 
 /* Skills */
 #skills {
-    padding: 4em 0;
+    padding: 2em 0;
     background-image: url("/images/icebackground.jpg");
     color: #000000;
     text-align: center;
-    padding-top: 2.5em;
+    background-size: cover;
+    background-position: center;
 }
 
 .skills-title .skills-heading {
@@ -2733,14 +2751,13 @@ nav.socials > ul > li > a:hover {
 }
 
 .skills-title .skills-subheading {
+    padding-top: 0.2em;
     font-size: 1.5em;
-    padding-top: 0.5em;
-    color: #f1f1f1;
     margin-bottom: 2em;
-    text-shadow: -1px -1px 0 #000000,
-    1px -1px 0 #000000,
-    -1px 1px 0 #000000,
-    1px 1px 0 #000000;
+    text-align: center;
+    color: #ffffff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+
 }
 
 @keyframes shake {
@@ -2789,7 +2806,7 @@ nav.socials > ul > li > a:hover {
     border-radius: 8px;
     border: 2px solid #000000;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    padding: 1.5em;
+    padding: 2.5em;
     transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1),
     box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1);
     animation: pop 5s ease-in-out infinite, shake 6s infinite;
@@ -2807,6 +2824,7 @@ nav.socials > ul > li > a:hover {
     font-size: 1.5em;
     font-weight: bold;
     margin-bottom: 1em;
+    color: #000000;
 }
 
 .skill ul {
@@ -2897,19 +2915,18 @@ nav.socials > ul > li > a:hover {
 
     /* Footer */
     #footer {
-        padding: 4em 2em 4em 2em;
+        padding: 1em 2em 4em 2em;
     }
 
     /* Carousel */
     .carousel {
-        padding: 1.25em 0 1.25em 0;
+        padding: .25em 0 .25em 0;
     }
 
     .carousel article {
         width: 18em;
-        margin: 0 1em 0 0;
+        margin: 0 1em;
     }
-
 }
 
 /* Mobile */
@@ -3302,7 +3319,7 @@ nav.socials > ul > li > a:hover {
     }
 
     .carousel article:hover {
-        transform: scale(1.05); /* Slight pop-up */
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Deeper shadow for effect */
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     }
 }

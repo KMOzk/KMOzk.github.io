@@ -19,32 +19,14 @@
         var a = moment(Date.now());
         var b = moment([2004, 5, 13]);
         document.getElementById("age").innerText = a.diff(b, 'years') + " years old. \nGame developer with creative and technical skills. \nLiving in Utrecht, where I study at the Grafisch Lyceum Utrecht. \nAs a team player with a thoughtful and eager-to-learn attitude, I enjoy working collaboratively and constantly seek new insights. \nThanks to my ability to think 'out of the box,' I find innovative solutions to complex challenges.";
-
-        const user = "kenan.ozbakan";
-        const domain = "gmail.com";
-
-        const email = user + "@" + domain;
-
-        var emailLinkContact = '<a href="mailto:' + email + '">' + 'e-mail' + '</a>';
-        var contactElement = document.getElementById("email-link-contact");
-        if (contactElement) {
-            contactElement.innerHTML = emailLinkContact;
-        }
-        var footerElement = document.getElementById("email-link-footer");
-        if (footerElement) {
-            footerElement.setAttribute("href", 'mailto:' + email);
-        }
     });
     const animatedElements = document.querySelectorAll('.animate-on-scroll');
 
-// Set up the Intersection Observer
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Add the visible class when in view
                 entry.target.classList.add('visible');
             } else {
-                // Remove the visible class when out of view
                 entry.target.classList.remove('visible');
             }
         });
@@ -66,16 +48,15 @@
                     });
                 }
             });
-        }, {threshold: 0.5}); // Trigger when 50% of the element is in view
+        }, {threshold: 0.5});
 
         observer.observe(target);
     });
 
-// Observe each element
     animatedElements.forEach(element => {
         observer.observe(element);
     });
-    // Breakpoints.
+
     breakpoints({
         wide: ['1281px', '1680px'],
         normal: ['961px', '1280px'],
