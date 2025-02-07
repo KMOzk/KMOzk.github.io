@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7bef88cc-bc97-44b3-84e0-051840fb11cc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/css/galagastyle.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gamedesign.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/galaga.html" beforeDir="false" afterPath="$PROJECT_DIR$/galaga.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -34,6 +32,9 @@
     &quot;assignee&quot;: &quot;KMOzk&quot;
   }
 }</component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="27360edd-9287-4994-ab80-9292ba25dbcf" />
+  </component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/KMOzk/KMOzk.github.io.git&quot;,
@@ -141,6 +142,7 @@
       <workItem from="1738193309550" duration="2124000" />
       <workItem from="1738332175749" duration="1069000" />
       <workItem from="1738335217859" duration="547000" />
+      <workItem from="1738868201954" duration="6111000" />
     </task>
     <servers />
   </component>
