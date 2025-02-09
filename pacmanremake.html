@@ -125,63 +125,53 @@ public class CollectibleHandler : MonoBehaviour
                         <h2>Enemy</h2>
                     </header>
                     <p>
-
                         For enemy movement, I used Unity's NavMesh component. The EnemyManager script controls when the ghosts can move. I added the ghosts to an Enemies array and looped through each of them to enable their NavMeshAgent.
                     </p>
+                    <pre><code class="language-csharp scrollable-code">
+using MyBox;
+using UnityEngine;
+using UnityEngine.AI;
+
+[SelectionBase] [RequireTag("Enemy")]
+public class EnemyMovement : MonoBehaviour
+{
+    private NavMeshAgent _EnemyNavmeshAgent;
+
+    public bool CanMove = false;
+
+    [SerializeField] private GameObject _Player;
+    [SerializeField] private string _PlayerString;
+
+    private void Start()
+    {
+        _EnemyNavmeshAgent = GetComponent&lt;NavMeshAgent&gt;();
+        FindPlayerByTag(_PlayerString);
+    }
+
+    private void Update()
+    {
+        if (CanMove) GoToPlayer();
+    }
+
+    public void GoToPlayer() => GoToDestination(_Player.transform);
+
+    private void FindPlayerByTag(string tag)
+    {
+        _Player = GameObject.FindGameObjectWithTag(tag);
+    }
+
+    private void GoToDestination(Transform destination)
+    {
+        _EnemyNavmeshAgent.SetDestination(destination.position);
+    }
+}
+</code></pre>
                 </section>
             </article>
         </div>
     </div>
 
     <div id="footer">
-        <div class="container">
-            <div class="row">
-
-                <section class="col-4 col-12-mobile">
-                    <header>
-                        <h2 class="icon solid fa-file circled"><span class="label">Posts</span></h2>
-                    </header>
-                    <ul class="divided">
-                        <li>
-                            <article class="post stub">
-                                <header>
-                                    <h3><a href="music.html">Listen to music I made!</a></h3>
-                                </header>
-                            </article>
-                        </li>
-                        <li>
-                            <article class="post stub">
-                                <header>
-                                    <h3><a href="pacmanremake.html">Check out my Pacman remake!</a></h3>
-                                </header>
-                            </article>
-                        </li>
-                        <li>
-                            <article class="post stub">
-                                <header>
-                                    <h3><a href="particleeffect.html">See some effects!</a></h3>
-                                </header>
-                            </article>
-                        </li>
-                        <li>
-                            <article class="post stub">
-                                <header>
-                                    <h3><a href="projects.html">Rest of the projects!</a></h3>
-                                </header>
-                            </article>
-                        </li>
-                    </ul>
-                </section>
-
-                <section class="col-4 col-12-mobile">
-                    <header>
-                        <h2 class="icon solid fa-camera circled"><span class="label">Photos</span></h2>
-                    </header>
-
-                </section>
-
-            </div>
-
             <hr/>
             <div class="row">
                 <div class="col-12">
@@ -199,7 +189,6 @@ public class CollectibleHandler : MonoBehaviour
                                     class="label">All socials in 1 place</span></a></li>
                         </ul>
                     </section>
-
 
                     <div class="copyright">
                         <ul class="menu">
