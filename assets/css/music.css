@@ -1,0 +1,106 @@
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Aligns images to the top */
+    gap: 20px; /* Controls space between images */
+}
+
+.image-container article {
+    text-align: center;
+    flex: 1;
+    max-width: 45%; /* Ensures images don’t become too wide */
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    max-height: 300px; /* Ensures both images have the same height */
+    object-fit: cover; /* Crops if needed to maintain consistency */
+}
+
+.image-container h3 {
+    margin-top: 10px; /* Adds spacing above captions */
+    text-align: center;
+}
+
+.content {
+    max-width: 500px;
+    margin: auto;
+}
+
+.audio-section {
+    text-align: center;
+}
+
+/* Music player fixed at the bottom */
+.fixed-audio-player {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #222; /* Dark background for contrast */
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Style the audio element */
+.fixed-audio-player audio {
+    width: 90%;
+    max-width: 500px;
+}
+
+/* Playlist styling */
+.fixed-audio-player .playlist {
+    width: 90%;
+    max-width: 500px;
+    margin-top: 10px;
+}
+
+.fixed-audio-player .playlist ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.fixed-audio-player .playlist li {
+    padding: 10px;
+    background: #444;
+    color: white;
+    margin-bottom: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    transition: background 0.3s;
+}
+
+.fixed-audio-player .playlist li:hover {
+    background: #666;
+}
+
+.music-player {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #000; /* Spotify-like black background */
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.track-info {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+audio {
+    width: 90%;
+    max-width: 600px;
+}
