@@ -2,20 +2,15 @@
 <html lang="en">
 <head>
     <title>Music</title>
-    <link rel="icon" href="images/musicicon.jpg">
+    <link href="images/musicicon.jpg" rel="icon">
     <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
-    <link rel="stylesheet" href="assets/css/main.css"/>
+    <meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport"/>
+    <link href="assets/css/main.css" rel="stylesheet"/>
+    <link href="assets/css/music.css" rel="stylesheet"/>
     <noscript>
-        <link rel="stylesheet" href="assets/css/noscript.css"/>
+        <link href="assets/css/noscript.css" rel="stylesheet"/>
     </noscript>
 
-    <style>
-        .content {
-            max-width: 500px;
-            margin: auto;
-        }
-    </style>
 </head>
 
 <body class="no-sidebar is-preload">
@@ -24,6 +19,7 @@
     <div id="header">
 
         <div class="inner">
+            <header>
             <header>
                 <h1><a href="index.html" id="logo">Music</a></h1>
             </header>
@@ -36,18 +32,34 @@
                 <li><a href="music.html">Music</a></li>
             </ul>
         </nav>
+
+        <div class="fixed-audio-player">
+            <audio controls id="audio-player">
+                <source id="audio-source-mp3" src="assets/music/song1.mp3" type="audio/mp3">
+                <source id="audio-source-wav" src="assets/music/song1.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+
+            <div class="playlist">
+                <ul>
+                    <li onclick="playSong('assets/music/song1')">Song 1</li>
+                    <li onclick="playSong('assets/music/song2')">Song 2</li>
+                    <li onclick="playSong('assets/music/song3')">Song 3</li>
+                </ul>
+            </div>
+        </div>
+
     </div>
 
-    <!-- Main -->
     <div class="wrapper style1">
 
         <div class="container">
 
-            <article id="main" class="content">
+            <article class="content" id="main">
                 <p>
-                    <iframe title="YouTube video player"
-                            src="https://www.youtube.com/embed/videoseries?si=F-P9IEWtkKjmuFtj&amp;list=PLc8a2-3writAiVSNR91ZWlzDRecbIQcFv"
-                            width="500" height="315" allowfullscreen="allowfullscreen"></iframe>
+                    <iframe allowfullscreen="allowfullscreen"
+                            height="315"
+                            src="https://www.youtube.com/embed/videoseries?si=F-P9IEWtkKjmuFtj&amp;list=PLc8a2-3writAiVSNR91ZWlzDRecbIQcFv" title="YouTube video player" width="500"></iframe>
                 </p>
                 <p>
                     Some of the music I uploaded to youtube.
@@ -65,166 +77,59 @@
                         </audio>
                     </p>
                 </section>
+
                 <section>
                     <header>
                         <h3>Work progress</h3>
                     </header>
                     <p>
-                        At GLU there is a audio recording booth you can use and I used it to record SFX sounds.
+                        At GLU there is an audio recording booth you can use, and I used it to record SFX sounds.
                     </p>
-                    <section class="carousel">
-                        <div class="reel">
 
-                            <article>
-                                <a class="image featured"><img src="images/StudioMic.jpg" alt=""/></a>
-                                <header>
-                                    <h3>Microphone recording</h3>
-                                </header>
-                            </article>
+                    <!-- Images in a flex container -->
+                    <div class="image-container">
+                        <article>
+                            <a class="image featured"><img alt="Microphone recording" src="images/StudioMic.jpg"/></a>
+                            <header>
+                                <h3>Microphone recording</h3>
+                            </header>
+                        </article>
 
-                            <article>
-                                <a class="image featured"><img src="images/studio2.jpg" alt=""/></a>
-                                <header>
-                                    <h3> Setting up the recording</h3>
-                                </header>
-                            </article>
-
-                        </div>
-                    </section>
+                        <article>
+                            <a class="image featured"><img alt="Setting up the recording" src="images/studio2.jpg"/></a>
+                            <header>
+                                <h3>Setting up the recording</h3>
+                            </header>
+                        </article>
+                    </div>
                 </section>
             </article>
             <hr/>
 
-            <div class="row">
-                <article class="col-4 col-12-mobile special">
-                    <a href="#" class="image featured"><img src="images/pic07.jpg" alt=""/></a>
-                    <header>
-                        <h3><a href="#">Gravida aliquam penatibus</a></h3>
-                    </header>
-                    <p>
-                        ************************************************
-                    </p>
-                </article>
-                <article class="col-4 col-12-mobile special">
-                    <a href="#" class="image featured"><img src="images/pic08.jpg" alt=""/></a>
-                    <header>
-                        <h3><a href="#">Sed quis rhoncus placerat</a></h3>
-                    </header>
-                    <p>
-                        Amet nullam fringilla nibh nulla convallis tique ante proin sociis accumsan lobortis. Auctor
-                        etiam
-                        porttitor phasellus tempus cubilia ultrices tempor sagittis. Nisl fermentum consequat integer
-                        interdum.
-                    </p>
-                </article>
-                <article class="col-4 col-12-mobile special">
-                    <a href="#" class="image featured"><img src="images/pic09.jpg" alt=""/></a>
-                    <header>
-                        <h3><a href="#">Magna laoreet et aliquam</a></h3>
-                    </header>
-                    <p>
-                        Amet nullam fringilla nibh nulla convallis tique ante proin sociis accumsan lobortis. Auctor
-                        etiam
-                        porttitor phasellus tempus cubilia ultrices tempor sagittis. Nisl fermentum consequat integer
-                        interdum.
-                    </p>
-                </article>
-            </div>
         </div>
 
     </div>
 
-
-    <!-- Footer -->
     <div id="footer">
         <div class="container">
-            <div class="row">
-
-                <!-- Posts -->
-                <section class="col-4 col-12-mobile">
-                    <header>
-                        <h2 class="icon solid fa-file circled"><span class="label">Posts</span></h2>
-                    </header>
-                    <ul class="divided">
-                        <li>
-                            <article class="post stub">
-                                <header>
-                                    <h3><a href="music.html">Listen to music I made!</a></h3>
-                                </header>
-                            </article>
-                        </li>
-                        <li>
-                            <article class="post stub">
-                                <header>
-                                    <h3><a href="pacmanremake.html">Check out my Pacman remake!</a></h3>
-                                </header>
-                            </article>
-                        </li>
-                        <li>
-                            <article class="post stub">
-                                <header>
-                                    <h3><a href="particleeffect.html">See some effects!</a></h3>
-                                </header>
-                            </article>
-                        </li>
-                        <li>
-                            <article class="post stub">
-                                <header>
-                                    <h3><a href="projects.html">Rest of the projects!</a></h3>
-                                </header>
-                            </article>
-                        </li>
-                    </ul>
-                </section>
-
-                <!-- Photos -->
-                <section class="col-4 col-12-mobile">
-                    <header>
-                        <h2 class="icon solid fa-camera circled"><span class="label">Photos</span></h2>
-                    </header>
-                    <div class="row gtr-25">
-                        <div class="col-6">
-                            <a href="pacmanremake.html" class="image fit"><img src="images/pacmanlogo.jpg" alt=""/></a>
-                        </div>
-                        <div class="col-6">
-                            <a href="music.html" class="image fit"><img src="images/pic11.jpg" alt=""/></a>
-                        </div>
-                        <div class="col-6">
-                            <a href="particleeffect.html" class="image fit"><img src="images/pic12.jpg" alt=""/></a>
-                        </div>
-                        <div class="col-6">
-                            <a href="projects.html" class="image fit"><img src="images/pic13.jpg" alt=""/></a>
-                        </div>
-                        <div class="col-6">
-                            <a href="#" class="image fit"><img src="images/pic14.jpg" alt=""/></a>
-                        </div>
-                        <div class="col-6">
-                            <a href="#" class="image fit"><img src="images/pic15.jpg" alt=""/></a>
-                        </div>
-                    </div>
-                </section>
-
-            </div>
             <hr/>
             <div class="row">
                 <div class="col-12">
 
-                    <!-- Contact -->
                     <section class="contact">
                         <header>
                             <h3>Want to be kept updated? Check out the socials!</h3>
                         </header>
                         <ul class="icons">
-                            <li><a href="https://www.instagram.com/kenan.3_8/" class="icon brands fa-instagram"><span
+                            <li><a class="icon brands fa-instagram" href="https://www.instagram.com/kenan.3_8/"><span
                                     class="label">Instagram</span></a></li>
-                            <li><a href="https://www.linkedin.com/in/kenan%C3%B6zbakan/"
-                                   class="icon brands fa-linkedin-in"><span class="label">Linkedin</span></a></li>
-                            <li><a href="https://kenansocial.carrd.co/" class="icon brands fa-dribbble"><span
+                            <li><a class="icon brands fa-linkedin-in"
+                                   href="https://www.linkedin.com/in/kenan%C3%B6zbakan/"><span class="label">Linkedin</span></a></li>
+                            <li><a class="icon brands fa-dribbble" href="https://kenansocial.carrd.co/"><span
                                     class="label">All socials in 1 place</span></a></li>
                         </ul>
                     </section>
 
-                    <!-- Copyright -->
                     <div class="copyright">
                         <ul class="menu">
                             <li>&copy; Kenan Özbakan. All rights reserved.</li>
@@ -238,8 +143,6 @@
         </div>
     </div>
 </div>
-
-<!-- Scripts -->
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/jquery.dropotron.min.js"></script>
 <script src="assets/js/jquery.scrolly.min.js"></script>
