@@ -1,9 +1,13 @@
 <!DOCTYPE HTML><!--Helios by HTML5 UP	html5up.net | @ajlkn	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)-->
 <html lang="en">
 <head>
-    <title>Packman-Remake</title>
+    <title>Pacman Remake - Play Online Pacman Clone | Kenan Özbakan</title>
+    <link href="images/Pacman.svg" rel="icon">
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <meta name="description" content="Experience a modern Pacman remake developed by Kenan Özbakan. Play online, explore projects, and learn about the game's development.">
+    <meta name="keywords" content="Pacman Remake, Pacman clone, play Pacman online, Unity projects, game development, Kenan Özbakan, Unity games">
+
     <link rel="stylesheet" href="assets/css/main.css"/>
     <link rel="stylesheet" href="assets/css/prism.css"/>
     <noscript>
@@ -33,19 +37,31 @@
 
     <div class="wrapper style1">
 
+        <article class="container special">
+            <header>
+                <h2>Itch</h2>
+                <p>
+                    <iframe src="https://itch.io/embed-upload/9646689?color=000000" allowfullscreen=""
+                            width="1000" height="600"><a href="https://kenan38.itch.io/pacman-remake">Play Pacman Remake on
+                        itch.io</a></iframe>
+                    <br>
+                </p>
+            </header>
+
+        </article>
         <div class="container">
             <article id="main" class="special">
                 <p>
-                    I got challenged by my friends to make a packman clone as fast as I could, although a few things
-                    are
-                    missing there are still to come!
+                    I was challenged by my friends to create a Pacman clone as quickly as possible. Although a few features are still missing, they will be added soon!
+                    Want to know more about Pacman? it is an iconic video game originally developed by Namco. Learn more about its history on <a href="https://en.wikipedia.org/wiki/Pac-Man" target="_blank" rel="noopener">Wikipedia</a>.
+
                 </p>
                 <section>
                     <header>
                         <h2>Player</h2>
                     </header>
                     <p>
-                        For the movement I used a rigidbody based movement and the for input the new player input.
+                        For player movement, I used Rigidbody-based movement and the new Player Input system.
                     <pre><code class="language-csharp scrollable-code">
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -60,11 +76,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _PlayerSpeed;
 
     private void Start()
-    {      
-        _PlayerInput = GetComponent<PlayerInput>();
+    {
+        _PlayerInput = GetComponent&lt;PlayerInput&gt;();
         _MoveAction = _PlayerInput.actions.FindAction("Move");
 
-        _Rigidbody = GetComponent<Rigidbody>();
+        _Rigidbody = GetComponent&lt;Rigidbody&gt;();
     }
 
     private void Update()
@@ -74,14 +90,16 @@ public class PlayerMovement : MonoBehaviour
 
     private void CalculateMovement()
     {
-        Vector2 direction = _MoveAction.ReadValue<Vector2>().normalized;
+        Vector2 direction = _MoveAction.ReadValue&lt;Vector2&gt;().normalized;
+
 
         Vector3 movement = new Vector3(direction.x, 0f, direction.y);
 
         _Rigidbody.velocity = movement * _PlayerSpeed;
     }
 }</code></pre>
-                    As for the picking up the collectibles I use a OnTriggerEnter that gets the
+                    To handle collectible pickups, I used the OnTriggerEnter method to detect collisions with collectible objects.
+
 
                     <pre><code class="language-csharp scrollable-code">
 using UnityEngine;
@@ -92,8 +110,9 @@ public class CollectibleHandler : MonoBehaviour
     {
         if (other.CompareTag("Coin"))
         {
-            GameManager.Instance.GetPointValue(other.GetComponent<CollectibleObject>().GetPoints());
-            Destroy(other.gameObject); 
+            GameManager.Instance.GetPointValue(other.GetComponent&lt;CollectibleObject&gt;().GetPoints());
+
+            Destroy(other.gameObject);
         }
     }
 }</code></pre>
@@ -106,130 +125,53 @@ public class CollectibleHandler : MonoBehaviour
                         <h2>Enemy</h2>
                     </header>
                     <p>
-                        For the enemy movement I use unity's navmesh component.
-                        EnemyManager is the way I dictate when the ghost are able to move.
-                        How I sat it up was to put the ghosts in Enemies array and then loop through each of them
-                        and
-                        turn the navmesh agent back on.
-                        How I normally would do it is to have a EnemyBrain script that in the awake registers the
-                        enemy
-                        to the manager but since I had little time I didnt take that approach.
+                        For enemy movement, I used Unity's NavMesh component. The EnemyManager script controls when the ghosts can move. I added the ghosts to an Enemies array and looped through each of them to enable their NavMeshAgent.
                     </p>
+                    <pre><code class="language-csharp scrollable-code">
+using MyBox;
+using UnityEngine;
+using UnityEngine.AI;
+
+[SelectionBase] [RequireTag("Enemy")]
+public class EnemyMovement : MonoBehaviour
+{
+    private NavMeshAgent _EnemyNavmeshAgent;
+
+    public bool CanMove = false;
+
+    [SerializeField] private GameObject _Player;
+    [SerializeField] private string _PlayerString;
+
+    private void Start()
+    {
+        _EnemyNavmeshAgent = GetComponent&lt;NavMeshAgent&gt;();
+        FindPlayerByTag(_PlayerString);
+    }
+
+    private void Update()
+    {
+        if (CanMove) GoToPlayer();
+    }
+
+    public void GoToPlayer() => GoToDestination(_Player.transform);
+
+    private void FindPlayerByTag(string tag)
+    {
+        _Player = GameObject.FindGameObjectWithTag(tag);
+    }
+
+    private void GoToDestination(Transform destination)
+    {
+        _EnemyNavmeshAgent.SetDestination(destination.position);
+    }
+}
+</code></pre>
                 </section>
             </article>
-
-            <hr/>
-            <div class="row">
-                <article class="col-4 col-12-mobile special">
-                    <header>
-                        <h3><a href="#">Gravida aliquam penatibus</a></h3>
-                    </header>
-                    <p>
-
-                    </p>
-                </article>
-                <article class="col-4 col-12-mobile special">
-                    <header>
-                        <h3><a href="#">Sed quis rhoncus placerat</a></h3>
-                    </header>
-                    <p>
-
-                    </p>
-                </article>
-                <article class="col-4 col-12-mobile special">
-                    <header>
-                        <h3><a href="#">Magna laoreet et aliquam</a></h3>
-                    </header>
-                    <p>
-
-                    </p>
-                </article>
-            </div>
         </div>
     </div>
-    <article class="container special">
-        <header>
-            <h2>Itch</h2>
-            <p>
-                <iframe src="https://itch.io/embed-upload/9646689?color=000000" allowfullscreen=""
-                        width="1000" height="600"><a href="https://kenan38.itch.io/pacman-remake">Play Pacman Remake on
-                    itch.io</a></iframe>
-                <br>
-            </p>
-        </header>
-
-    </article>
 
     <div id="footer">
-        <div class="container">
-            <div class="row">
-
-                <section class="col-4 col-12-mobile">
-                    <header>
-                        <h2 class="icon solid fa-file circled"><span class="label">Posts</span></h2>
-                    </header>
-                    <ul class="divided">
-                        <li>
-                            <article class="post stub">
-                                <header>
-                                    <h3><a href="music.html">Listen to music I made!</a></h3>
-                                </header>
-                            </article>
-                        </li>
-                        <li>
-                            <article class="post stub">
-                                <header>
-                                    <h3><a href="pacmanremake.html">Check out my Pacman remake!</a></h3>
-                                </header>
-                            </article>
-                        </li>
-                        <li>
-                            <article class="post stub">
-                                <header>
-                                    <h3><a href="particleeffect.html">See some effects!</a></h3>
-                                </header>
-                            </article>
-                        </li>
-                        <li>
-                            <article class="post stub">
-                                <header>
-                                    <h3><a href="projects.html">Rest of the projects!</a></h3>
-                                </header>
-                            </article>
-                        </li>
-                    </ul>
-                </section>
-
-                <section class="col-4 col-12-mobile">
-                    <header>
-                        <h2 class="icon solid fa-camera circled"><span class="label">Photos</span></h2>
-                    </header>
-                    <div class="row gtr-25">
-                        <div class="col-6">
-                            <a href="pacmanremake.html" class="image fit"><img src="images/placeholder.jpg"
-                                                                               alt=""/></a>
-                        </div>
-                        <div class="col-6">
-                            <a href="music.html" class="image fit"><img src="images/pic11.jpg" alt=""/></a>
-                        </div>
-                        <div class="col-6">
-                            <a href="particleeffect.html" class="image fit"><img src="images/pic12.jpg"
-                                                                                 alt=""/></a>
-                        </div>
-                        <div class="col-6">
-                            <a href="projects.html" class="image fit"><img src="images/pic13.jpg" alt=""/></a>
-                        </div>
-                        <div class="col-6">
-                            <a href="#" class="image fit"><img src="images/pic14.jpg" alt=""/></a>
-                        </div>
-                        <div class="col-6">
-                            <a href="#" class="image fit"><img src="images/pic15.jpg" alt=""/></a>
-                        </div>
-                    </div>
-                </section>
-
-            </div>
-
             <hr/>
             <div class="row">
                 <div class="col-12">
@@ -247,7 +189,6 @@ public class CollectibleHandler : MonoBehaviour
                                     class="label">All socials in 1 place</span></a></li>
                         </ul>
                     </section>
-
 
                     <div class="copyright">
                         <ul class="menu">

@@ -2306,7 +2306,7 @@ body.socials {
 #nav > ul:before, #nav > ul:after {
     content: '';
     display: block;
-    width: 300%;
+    width: 500%;
     position: absolute;
     top: 50%;
     margin-top: -2px;
@@ -2345,14 +2345,23 @@ nav.socials > ul > li > a:hover {
     -ms-transition: color 0.35s ease-in-out, border-color 0.35s ease-in-out;
     transition: color 0.35s ease-in-out, border-color 0.35s ease-in-out;
 }
-#nav > ul > li> a:hover {
- color: #1d0e26;
-    font-size: larger;
-    transform: scale(1.2);
+
+#nav > ul > li > a {
+    text-decoration: none;
+    color: inherit;
+    font-size: inherit;
+    transition: transform 0.3s ease-in-out;
 }
+
+/* Smooth hover animation */
+#nav > ul > li > a:hover {
+    transform: scale(1.1);
+}
+
 #nav > ul > li > a:not(:hover) {
     animation: ripple 0.6s ease-out;
 }
+
 #nav > ul > li.active {
     border-color: rgba(192, 192, 192, 0.35);
 }
@@ -2368,12 +2377,21 @@ nav.socials > ul > li > a:hover {
 #nav > ul > li > ul {
     display: none;
 }
+
+#nav > ul > li > a:not(:hover) {
+    transition: transform 0.6s ease, color 0.6s ease;
+}
+
+#nav > ul > li > a:not(:hover):nth-child(n+1):nth-last-child(n+1) {
+    animation: ripple 0.8s ease-out;
+}
+
 @keyframes ripple {
     0% {
         transform: scale(1);
     }
     50% {
-        transform: scale(1.1);
+        transform: scale(1.05);
     }
     100% {
         transform: scale(1);
@@ -2397,6 +2415,9 @@ nav.socials > ul > li > a:hover {
     border-top: solid 1px rgba(128, 128, 128, 0.2);
     color: #5b5b5b;
     padding-left: 0;
+    display: flex;
+    justify-content: flex-start;
+
 }
 
 .dropotron li:first-child {
@@ -2788,10 +2809,13 @@ nav.socials > ul > li > a:hover {
 
 @keyframes pop {
     0%, 100% {
-        transform: scale(1);
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(-2deg);
     }
     50% {
-        transform: scale(1.05);
+        transform: rotate(2deg);
     }
 }
 
@@ -2847,6 +2871,12 @@ nav.socials > ul > li > a:hover {
     width: 24px;
     height: 24px;
     margin-right: 0.75em;
+}
+
+.projects-icon {
+    width: 20px; /* Adjust icon size as needed */
+    height: auto;
+    margin-right: 10px;
 }
 
 .animated-text span {
