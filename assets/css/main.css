@@ -2105,6 +2105,12 @@ button.alt:hover,
     margin: 0;
 }
 
+article p {
+    line-height: 1.4em;
+    margin-bottom: 0.4em;
+    text-align: justify;
+}
+
 .icon {
     text-decoration: none;
     text-decoration: none;
@@ -2494,6 +2500,12 @@ nav.socials > ul > li > a:hover {
 
 .project-img {
     width: 100%;
+}
+
+.black-bg {
+    background-color: black;
+    display: inline-block;
+    padding: 5px; /* Adjust padding as needed */
 }
 
 /* Sidebar */

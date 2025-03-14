@@ -15,7 +15,6 @@
 <body class="left-sidebar is-preload">
 <div id="page-wrapper">
 
-    <!-- Header -->
     <div id="header">
         <nav id="nav">
             <ul>
@@ -23,11 +22,16 @@
                 <li>
                     <a href="projects.html">Projects</a>
                     <ul>
-                        <li><a href="pacmanremake.html">Pacman - Remake</a></li>
-                        <li><a href="twinstick.html">Twinstick</a></li>
-                        <li><a href="particleeffect.html">Particle Effect</a></li>
+                        <li class="dropdown-item"><img alt="pacman" class="projects-icon" src="images/Pacman.svg">
+                            <a href="pacmanremake.html">Pacman-remake</a>
+                        </li>
+                        <li class="dropdown-item"><a href="twinstick.html"><img alt="twinnstick" class="projects-icon" src="images/joystick.svg">Twinnstick</a></li>
+                        <li class="dropdown-item"><img alt="galaga" class="projects-icon" src="images/Galaga.ico"><a href="galaga.html">Galaga</a></li>
+                        <li class="dropdown-item"><img alt="Particle" class="projects-icon" src="images/ParticleIcon.jpg"><a href="particleeffect.html">Particle effect</a></li>
                     </ul>
                 </li>
+                <li><a href="music.html">Music</a></li>
+                <li><a href="index.html#skills">Skills</a></li>
             </ul>
         </nav>
 
@@ -43,60 +47,52 @@
         <div class="container">
             <div class="row gtr-200">
                 <div class="col-12-wide col-12-mobile imp-mobile" id="content">
-                    <article id="main">
-                        <header>
-                            <img alt="Pacman Remake" class="image featured" src="images/pacman.jpg">
-                            <h2><a href="pacmanremake.html">Pacman - Remake</a></h2>
-                            <p>I developed this game under a tight deadline, focusing on efficiency without compromising quality. The ghosts use NavMesh for smooth, intelligent movement, while player controls leverage Unity’s new Input System, enhancing responsiveness and flexibility. </p>
-                            <p><strong>Check it out:</strong> <a href="https://kenan38.itch.io/pacman-remake">Play it on itch.io</a></p>
-                        </header>
 
-                        <section>
+                    <div class="row">
+                        <article class="col-4 col-12-mobile special">
+                            <a class="image featured" href="pacmanremake.html"><img alt="Placeholder project image 1" src="images/pacman.jpg"></a>
                             <header>
-                                <h2><a href="twinstick.html">Twinstick Shooter</a></h2>
+                                <h3><a href="pacmanremake.html">Pacman - remake</a></h3>
                             </header>
-                            <p>The Twinstick Shooter project focuses on precision shooting mechanics, smooth player control, and dynamic enemy AI behavior. This project demonstrates my ability to create engaging gameplay loops and responsive combat mechanics, critical in game design and development.</p>
-                        </section>
-
-                        <section>
+                            <p>
+                                I developed this game under a tight deadline, focusing on efficiency without compromising quality. The ghosts use NavMesh for smooth, intelligent movement, while player controls leverage Unity’s new Input System, enhancing responsiveness and flexibility.
+                                <br> <br>
+                                <strong>Check it out:</strong> <a href="https://kenan38.itch.io/pacman-remake">Play it on itch.io</a>
+                            </p>
+                        </article>
+                        <article class="col-4 col-12-mobile special">
+                            <a class="image featured" href="twinstick.html"><img alt="Placeholder project image 2" src="images/joystick.svg"></a>
                             <header>
-                                <h2><a href="particleeffect.html">Particle Effects</a></h2>
+                                <h3><a href="twinstick.html">Twinnstick shooter</a></h3>
                             </header>
-                            <p>This project explores visually appealing particle effects using Unity’s Particle System. The implementation features complex visual effects like explosions, trails, and dynamic environmental reactions, demonstrating my attention to detail and creativity in graphics programming.</p>
-                        </section>
-                    </article>
+                            <p>
+                                The Twinstick Shooter project focuses on precision shooting mechanics, smooth player control, and dynamic enemy AI behavior. This project demonstrates my ability to create engaging gameplay loops and responsive combat mechanics, critical in game design and development.
+                            </p>
+                        </article>
+                        <article class="col-4 col-12-mobile special">
+                            <a class="image featured" href="particleeffect.html"><img alt="Placeholder project image 3" src="images/particles.jpg"></a>
+                            <header>
+                                <h3><a href="particleeffect.html">Particle effects</a></h3>
+                            </header>
+                            <p>
+                                This project explores visually appealing particle effects using Unity’s Particle System. The implementation features complex visual effects like explosions, trails, and dynamic environmental reactions, demonstrating my attention to detail and creativity in graphics programming.
+                            </p>
+                        </article>
+                        <article class="col-4 col-12-mobile special">
+                            <a class="image featured black-bg" href="galaga.html"><img alt="Placeholder project image 3" src="images/Galaga.ico"></a>
+                            <header>
+                                <h3><a href="galaga.html">Galaga - remake</a></h3>
+                            </header>
+                            <p>
+                                This project explores visually appealing particle effects using Unity’s Particle System. The implementation features complex visual effects like explosions, trails, and dynamic environmental reactions, demonstrating my attention to detail and creativity in graphics programming.
+                            </p>
+                        </article>
+                    </div>
                 </div>
-            </div>
-
-            <!-- Highlighted Projects -->
-            <hr>
-            <div class="row">
-                <article class="col-4 col-12-mobile special">
-                    <a class="image featured" href="#"><img alt="Placeholder project image 1" src="images/placeholder.jpg"></a>
-                    <header>
-                        <h3><a href="#">Gravida Aliquam Penatibus</a></h3>
-                    </header>
-                    <p>Discover how this project focuses on innovative gameplay mechanics and immersive design, ensuring player engagement and interaction.</p>
-                </article>
-                <article class="col-4 col-12-mobile special">
-                    <a class="image featured" href="#"><img alt="Placeholder project image 2" src="images/placeholder.jpg"></a>
-                    <header>
-                        <h3><a href="#">Sed Quis Rhoncus Placerat</a></h3>
-                    </header>
-                    <p>Explore advanced gameplay solutions and optimized performance, contributing to seamless gaming experiences across platforms.</p>
-                </article>
-                <article class="col-4 col-12-mobile special">
-                    <a class="image featured" href="#"><img alt="Placeholder project image 3" src="images/placeholder.jpg"></a>
-                    <header>
-                        <h3><a href="#">Magna Laoreet et Aliquam</a></h3>
-                    </header>
-                    <p>This project highlights cutting-edge visual design and refined user interaction, making it stand out in any portfolio of creative work.</p>
-                </article>
             </div>
         </div>
     </div>
 
-    <!-- Footer -->
     <div id="footer">
         <div class="container">
             <hr>
