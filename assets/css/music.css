@@ -1,106 +1,155 @@
-.image-container {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start; /* Aligns images to the top */
-    gap: 20px; /* Controls space between images */
-}
-
-.image-container article {
-    text-align: center;
-    flex: 1;
-    max-width: 45%; /* Ensures images don’t become too wide */
-}
-
-.image-container img {
-    width: 100%;
-    height: auto;
-    max-height: 300px; /* Ensures both images have the same height */
-    object-fit: cover; /* Crops if needed to maintain consistency */
-}
-
-.image-container h3 {
-    margin-top: 10px; /* Adds spacing above captions */
-    text-align: center;
-}
-
-.content {
-    max-width: 500px;
-    margin: auto;
-}
-
-.audio-section {
-    text-align: center;
-}
-
-/* Music player fixed at the bottom */
-.fixed-audio-player {
+/* Floating Pill Music Player */
+.floating-audio-player {
     position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: #222; /* Dark background for contrast */
-    padding: 15px;
+    left: 50%;
+    bottom: 40px;
+    transform: translateX(-50%);
+    background: #222;
+    color: #fff;
+    padding: 24px 36px 24px 36px;
+    border-radius: 2em;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18), 0 2px 4px rgba(0, 0, 0, 0.18);
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+    min-width: 320px;
+    max-width: 90vw;
+    z-index: 9999;
+    border: 2px solid #444;
+    cursor: default;
 }
 
-/* Style the audio element */
-.fixed-audio-player audio {
-    width: 90%;
-    max-width: 500px;
+.drag-handle {
+    cursor: grab;
+    width: 100%;
+    text-align: center;
+    background: #1a1a1a;
+    color: #aaa;
+    border-radius: 1.5em 1.5em 0 0;
+    padding: 6px 0 4px 0;
+    font-size: 0.95em;
+    user-select: none;
+    letter-spacing: 1px;
 }
 
-/* Playlist styling */
-.fixed-audio-player .playlist {
-    width: 90%;
-    max-width: 500px;
-    margin-top: 10px;
+.floating-audio-player.dragging {
+    opacity: 0.85;
+    transition: opacity 0.2s;
 }
 
-.fixed-audio-player .playlist ul {
+.floating-audio-player audio {
+    width: 320px;
+    max-width: 80vw;
+    margin-bottom: 12px;
+}
+
+.floating-audio-player #current-track {
+    margin-bottom: 8px;
+    font-size: 1.1em;
+    text-align: center;
+}
+
+.floating-audio-player .playlist {
+    width: 100%;
+}
+
+.floating-audio-player .playlist ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.fixed-audio-player .playlist li {
-    padding: 10px;
-    background: #444;
-    color: white;
-    margin-bottom: 5px;
+.floating-audio-player .playlist li {
+    padding: 7px 0;
+    margin-bottom: 12px;
+    background: #333;
+    color: #fff;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 10px;
     text-align: center;
     transition: background 0.3s;
+    font-size: 1em;
+    font-weight: 400;
+}
+.floating-audio-player .playlist li:last-child {
+    margin-bottom: 0;             /* No extra space after the last button */
 }
 
-.fixed-audio-player .playlist li:hover {
-    background: #666;
+.floating-audio-player .playlist li:hover,
+.floating-audio-player .playlist li.active {
+    background: #28a745;
+    font-weight: bold;
 }
 
-.music-player {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: #000; /* Spotify-like black background */
-    color: white;
-    padding: 10px 0;
-    text-align: center;
+@media (max-width: 600px) {
+    .floating-audio-player {
+        padding: 10px 5px;
+        min-width: 180px;
+        max-width: 98vw;
+    }
+
+    .floating-audio-player audio {
+        width: 95vw;
+        max-width: 98vw;
+    }
+}
+
+/* --- Optional: image grid styling (for your Work Progress images) --- */
+.image-container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 24px;
+    margin-bottom: 24px;
 }
 
-.track-info {
-    font-size: 16px;
-    margin-bottom: 5px;
+.image-container article {
+    text-align: center;
+    flex: 1;
+    min-width: 220px;
+    max-width: 320px;
 }
 
-audio {
-    width: 90%;
-    max-width: 600px;
+.image-container img {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.10);
+}
+
+.image-container h3 {
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* --- Optional: Custom audio sections (like for Abelton 11) --- */
+.audio-section {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.audio-section audio {
+    width: 300px;
+    max-width: 90vw;
+}
+
+/* Center and constrain the content (restore classic container) */
+.container {
+    margin: 0 auto;
+    max-width: 900px; /* Or 1200px or whatever you like! */
+    width: 100%;
+    padding-left: 24px;
+    padding-right: 24px;
+    box-sizing: border-box;
+}
+
+.content iframe,
+.content audio {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }

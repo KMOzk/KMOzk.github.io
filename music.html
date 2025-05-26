@@ -20,7 +20,6 @@
 
         <div class="inner">
             <header>
-            <header>
                 <h1><a href="index.html" id="logo">Music</a></h1>
             </header>
         </div>
@@ -33,21 +32,6 @@
             </ul>
         </nav>
 
-        <div class="fixed-audio-player">
-            <audio controls id="audio-player">
-                <source id="audio-source-mp3" src="assets/music/song1.mp3" type="audio/mp3">
-                <source id="audio-source-wav" src="assets/music/song1.wav" type="audio/wav">
-                Your browser does not support the audio element.
-            </audio>
-
-            <div class="playlist">
-                <ul>
-                    <li onclick="playSong('assets/music/song1')">Song 1</li>
-                    <li onclick="playSong('assets/music/song2')">Song 2</li>
-                    <li onclick="playSong('assets/music/song3')">Song 3</li>
-                </ul>
-            </div>
-        </div>
 
     </div>
 
@@ -128,6 +112,7 @@
                             <li><a class="icon brands fa-dribbble" href="https://kenansocial.carrd.co/"><span
                                     class="label">All socials in 1 place</span></a></li>
                         </ul>
+
                     </section>
 
                     <div class="copyright">
@@ -142,6 +127,23 @@
             </div>
         </div>
     </div>
+    <div class="floating-audio-player" id="draggable-player">
+        <div class="drag-handle" id="player-handle">⋮⋮ Drag me</div>
+        <audio controls id="audio-player">
+            <source id="audio-source" src="assets/music/MainMenuMusicShortburn.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio>
+        <div id="current-track">Now Playing: Song 1</div>
+        <div class="playlist">
+            <ul>
+                <li onclick="playSong(0)">Song 1</li>
+                <li onclick="playSong(1)">Song 2</li>
+                <li onclick="playSong(2)">Song 3</li>
+            </ul>
+        </div>
+    </div>
+
+
 </div>
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/jquery.dropotron.min.js"></script>
@@ -151,6 +153,7 @@
 <script src="assets/js/breakpoints.min.js"></script>
 <script src="assets/js/util.js"></script>
 <script src="assets/js/main.js"></script>
+<script src="assets/js/music.js"></script>
 
 </body>
 </html>
