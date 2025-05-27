@@ -1,7 +1,7 @@
 const songs = [
-    {title: "Song 1", path: "assets/music/acceptance.wav"},
-    {title: "Song 2", path: "assets/music/song2.mp3"},
-    {title: "Song 3", path: "assets/music/song3.mp3"}
+    {title: "Acceptance", path: "assets/css/audio/acceptance.wav"},
+    {title: "Song 2", path: "assets/css/audio/.wav"},
+    {title: "Song 3", path: "assets/css/audio/.wav"}
 ];
 
 let currentSongIndex = 0;
