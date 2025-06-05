@@ -1,13 +1,14 @@
 const songs = [
     {title: "Acceptance", path: "assets/css/audio/acceptance.wav"},
-    {title: "Song 2", path: "assets/css/audio/.wav"},
-    {title: "Song 3", path: "assets/css/audio/.wav"}
+    {title: "Playec", path: "assets/css/audio/playstatinon.wav"},
+    {title: "Bowler", path: "assets/css/audio/BowlerStart.wav"}
 ];
 
 let currentSongIndex = 0;
 const audioPlayer = document.getElementById("audio-player");
 const audioSource = document.getElementById("audio-source");
 const trackInfo = document.getElementById("current-track");
+audioPlayer.volume = 0.1;
 
 function playSong(index) {
     currentSongIndex = index;
@@ -28,7 +29,6 @@ audioPlayer.addEventListener("ended", () => {
     playSong(currentSongIndex);
 });
 
-// Optional: highlight playing song in playlist
 window.onload = () => {
     playSong(0);
 };

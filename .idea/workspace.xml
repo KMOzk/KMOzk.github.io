@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7bef88cc-bc97-44b3-84e0-051840fb11cc" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/audio/islandinthesun.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/audio/sweater.wav" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/music.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/music.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -88,6 +86,7 @@
       <recent name="C:\Users\kenan\Documents\GitHub\KMOzk.github.io\images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\kenan\Documents\GitHub\KMOzk.github.io\assets\css\audio" />
       <recent name="C:\Users\kenan\Documents\GitHub\KMOzk.github.io\images" />
     </key>
   </component>
@@ -171,6 +170,8 @@
       <workItem from="1741682737514" duration="19976000" />
       <workItem from="1748283740845" duration="3095000" />
       <workItem from="1748364682488" duration="632000" />
+      <workItem from="1748946636832" duration="634000" />
+      <workItem from="1749040599036" duration="3359000" />
     </task>
     <servers />
   </component>
