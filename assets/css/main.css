@@ -143,9 +143,11 @@ h2.socials {
     color: #f3eaea;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     font-size: 2.5em;
-    margin: 2em 0;
+    margin: 2em 0 1em;
     text-align: center;
+    padding: 0;
 }
+
 
 h3 {
     font-size: 1.25em;
@@ -191,10 +193,12 @@ sup {
     top: -0.5em;
     font-size: 0.8em;
 }
-h4{
+
+h4 {
     color: #003753;
     color: #640000;
 }
+
 blockquote {
     border-left: solid 0.5em #ddd;
     padding: 1em 0 1em 2em;
@@ -293,6 +297,56 @@ hr:after {
         width: 100%;
     }
 
+}
+
+#socials-grid .forward,
+#socials-grid .backward {
+    display: none !important; /* hide arrows only here */
+}
+
+#socials-grid {
+    overflow: visible;
+    padding: 2em 0;
+}
+
+#socials-grid .reel {
+    display: grid !important;
+    grid-template-columns: repeat(5, 1fr); /* 5 per row */
+    gap: 1rem;
+    white-space: normal;
+    padding: 0;
+}
+
+#socials-grid article {
+    width: auto;
+    margin: 0;
+    padding: 0 1em 2em;
+    font-size: 0.9em;
+}
+
+/* Responsive layout */
+@media (max-width: 1280px) {
+    #socials-grid .reel {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 960px) {
+    #socials-grid .reel {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 736px) {
+    #socials-grid .reel {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    #socials-grid .reel {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Row */
