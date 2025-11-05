@@ -1,13 +1,18 @@
+About This Portfolio
+
+This website serves as my personal professional portfolio, built using the Helios template by HTML5 UP.
+It highlights my work and experience as a Unity developer specializing in C# programming and virtual reality (VR) development.
+
+In addition to software development, I also compose and produce original music, combining technical proficiency with creative design to develop immersive and interactive experiences.
+
+For contact inquiries consider to reach out to me on https://www.linkedin.com/in/kenan%C3%B6zbakan/
+
 Helios by HTML5 UP
 html5up.net | @ajlkn
 Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 
-This is Helios, a brand new site template for HTML5 UP. It's clean, modern, and designed
-to take advantage of larger (well, wider) displays while still being capable of gracefully
-scaling down to fit all manner of smaller ones.
 
-AJ
-aj@lkn.io | @ajlkn
+AJ aj@lkn.io | @ajlkn
 
 
 Credits:
