@@ -1,0 +1,58 @@
+/* Layout for hero text and image side-by-side */
+#header .hero-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 4em;
+    text-align: left;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2em;
+}
+
+.hero-text {
+    flex: 1;
+}
+
+#header .hero-text p {
+    text-align: left;
+}
+
+/* Override existing #heroImage margins */
+#header #heroImage {
+    margin: 0;
+    flex-shrink: 0;
+}
+
+/* Adjust HR styling */
+#header .hero-text hr {
+    position: static;
+    margin: 1.5em 0;
+    width: 100%;
+}
+
+#header .hero-text hr:before, #header .hero-text hr:after {
+    display: none;
+}
+
+/* Responsive design */
+@media screen and (max-width: 960px) {
+    #header .hero-container {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 2em;
+    }
+
+    #header .hero-text p {
+        text-align: center;
+    }
+
+    #header #heroImage {
+        margin: 0 auto;
+    }
+
+    #header .hero-text hr {
+        margin: 1.5em auto;
+    }
+}

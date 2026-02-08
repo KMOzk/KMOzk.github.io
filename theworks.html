@@ -1,0 +1,222 @@
+<!DOCTYPE HTML>
+<html lang="nl">
+<head>
+    <title>TheWorks | Kenan Özbakan</title>
+    <link href="images/placeholder.jpg" rel="icon">
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport"/>
+    <meta content="TheWorks - Een geavanceerd matchingplatform voor studenten en bedrijven, gebouwd met Flutter en Firebase." name="description">
+
+    <!-- CSS -->
+    <link href="assets/css/main.css" rel="stylesheet"/>
+    <link href="assets/css/theworks-redesign.css" rel="stylesheet"/>
+    <link href="assets/css/prism.css" rel="stylesheet"/>
+
+    <noscript>
+        <link href="assets/css/noscript.css" rel="stylesheet"/>
+    </noscript>
+</head>
+
+<body class="theworks-redesign">
+
+<!-- Header & Nav -->
+<nav id="nav">
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li>
+            <a href="projects.html">Projects</a>
+            <ul>
+                <li class="dropdown-item"><img alt="pacman" class="projects-icon" src="images/Pacman.svg">
+                    <a href="pacmanremake.html">Pacman-remake</a>
+                </li>
+                <li class="dropdown-item"><a href="twinstick.html"><img alt="twinnstick" class="projects-icon" src="images/joystick.svg">Twinnstick</a></li>
+                <li class="dropdown-item"><img alt="galaga" class="projects-icon" src="images/Galaga.ico"><a href="galaga.html">Galaga</a></li>
+                <li class="dropdown-item"><img alt="Particle" class="projects-icon" src="images/ParticleIcon.jpg"><a href="particleeffect.html">Particle effect</a></li>
+                <li class="dropdown-item"><img alt="TheWorks" class="projects-icon" src="images/placeholder.jpg"><a href="theworks.html">TheWorks</a></li>
+                <li class="dropdown-item"><img alt="Teleportation" class="projects-icon" src="images/faviicon.ico"><a href="teleportation.html">Teleportation</a></li>
+            </ul>
+        </li>
+        <li><a href="music.html">Music</a></li>
+        <li><a href="index.html#skills">Skills</a></li>
+    </ul>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero-section">
+    <h1 class="hero-title">TheWorks</h1>
+    <p class="hero-subtitle">
+        Een modern internship matching-platform dat studenten en bedrijven verbindt via slimme algoritmes.
+    </p>
+</section>
+
+<!-- Table of Contents -->
+<nav class="toc-section">
+    <div class="toc-title">Navigatie</div>
+    <ul class="toc-links">
+        <li><a href="#overview">Over het Project</a></li>
+        <li><a href="#algorithm">Matching Algoritme</a></li>
+        <li><a href="#auth">Authenticatie</a></li>
+        <li><a href="#models">Data Structuur</a></li>
+    </ul>
+</nav>
+
+<!-- Content Sections -->
+<div class="content-section" id="overview">
+    <h2>Over het Project</h2>
+    <div class="tech-pills">
+        <span class="pill">Flutter</span>
+        <span class="pill">Firebase Auth</span>
+        <span class="pill">Cloud Firestore</span>
+        <span class="pill">Cross-Platform</span>
+    </div>
+    <p>
+        TheWorks is een mobiele applicatie ontworpen om de zoektocht naar stages te moderniseren. Gebouwd met <strong>Flutter</strong> voor een naadloze ervaring op zowel iOS als Android, fungeert de app als een brug tussen talentvolle studenten en innovatieve bedrijven.
+    </p>
+    <p>
+        Het systeem maakt gebruik van een real-time database via <strong>Google Firebase</strong> om directe matching en profielupdates mogelijk te maken.
+    </p>
+</div>
+
+<div class="content-section" id="algorithm">
+    <h2>Matching Algoritme</h2>
+    <p>
+        Een kernonderdeel van de applicatie is het algoritme dat projecten rangschikt op basis van de vaardigheden (tags) van de gebruiker. Dit wordt gedaan door tags uit te breiden op basis van implicaties (bijv. 'Front-end' impliceert 'HTML/CSS') en vervolgens een relevantiescore te berekenen.
+    </p>
+    <pre><code class="language-dart">List&lt;(Project, int)&gt; sortProjectsByTags(List&lt;Project&gt; projects, List&lt;String&gt; userTags) {
+  if (userTags.isEmpty) {
+    return projects.map((p) => (p, 0)).toList();
+  }
+
+  final expandedUserTags = expandTags(userTags);
+  final List&lt;(Project, int)&gt; matches = [];
+  final List&lt;Project&gt; others = [];
+
+  for (final project in projects) {
+    int score = 0;
+    for (final projectTag in project.tags) {
+      if (expandedUserTags.contains(projectTag.toLowerCase())) {
+        score++;
+      }
+    }
+    if (score > 0) {
+      matches.add((project, score));
+    } else {
+      others.add(project);
+    }
+  }
+
+  matches.sort((a, b) => b.$2.compareTo(a.$2));
+  return [...matches, ...others.map((p) => (p, 0))];
+}</code></pre>
+</div>
+
+<div class="content-section" id="auth">
+    <h2>Veilige Authenticatie</h2>
+    <p>
+        Voor het beheer van gebruikersaccounts wordt gebruik gemaakt van <strong>Firebase Authentication</strong>. Dit ondersteunt het veilig inloggen, registreren en wachtwoordherstel, terwijl de integriteit van de gebruikersgegevens gewaarborgd blijft.
+    </p>
+    <pre><code class="language-dart">class AuthService {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+
+  Future&lt;UserCredential&gt; signIn({required String email, required String password}) async {
+    return await _auth.signInWithEmailAndPassword(
+        email: email, password: password);
+  }
+
+  Future&lt;UserCredential&gt; createAccount({required String email, required String password, required String displayName}) async {
+    var user = await _auth.createUserWithEmailAndPassword(
+        email: email, password: password);
+    user.user!.updateDisplayName(displayName);
+    return user;
+  }
+}</code></pre>
+</div>
+
+<div class="content-section" id="models">
+    <h2>Data Structuur</h2>
+    <p>
+        De applicatie maakt gebruik van sterk getypeerde data-modellen in Dart om consistentie te garanderen tussen de Firestore documenten en de UI-laag. Hieronder ziet u het model voor een 'Project'.
+    </p>
+    <pre><code class="language-dart">class Project {
+  final String? id;
+  final String name;
+  final String description;
+  final List&lt;String&gt; tags;
+  final String companyName;
+  final String locationType;
+
+  Project({
+    this.id,
+    required this.name,
+    required this.description,
+    required this.tags,
+    required this.companyName,
+    required this.locationType,
+  });
+
+  Map&lt;String, dynamic&gt; toMap() {
+    return {
+      'name': name,
+      'description': description,
+      'tags': tags,
+      'companyName': companyName,
+      'locationType': locationType,
+      'searchTags': tags.map((t) => t.toLowerCase()).toList(),
+    };
+  }
+}</code></pre>
+</div>
+
+<!-- Footer -->
+<div id="footer">
+    <ul class="social-icons">
+        <li><a class="icon brands fa-instagram" href="https://www.instagram.com/kenan.3_8/"><span class="label">Instagram</span></a></li>
+        <li><a class="icon brands fa-linkedin-in" href="https://www.linkedin.com/in/kenan%C3%B6zbakan/"><span class="label">Linkedin</span></a></li>
+        <li><a class="icon brands fa-dribbble" href="https://kenansocial.carrd.co/"><span class="label">All socials</span></a></li>
+    </ul>
+    <div class="copyright">
+        &copy; Kenan Özbakan. Alle rechten voorbehouden. | Design: <a href="https://html5up.net">HTML5 UP</a>
+    </div>
+</div>
+
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.dropotron.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/prism.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const observerOptions = {
+            root: null,
+            rootMargin: '-30% 0px -70% 0px',
+            threshold: 0
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    document.querySelectorAll('.toc-links a').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    const activeLink = document.querySelector(`.toc-links a[href="#${entry.target.id}"]`);
+                    if (activeLink) {
+                        activeLink.classList.add('active');
+                    }
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.content-section').forEach(section => {
+            observer.observe(section);
+        });
+    });
+</script>
+
+</body>
+</html>

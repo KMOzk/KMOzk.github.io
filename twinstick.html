@@ -1,52 +1,79 @@
-<!DOCTYPE HTML><!--	Helios by HTML5 UPhtml5up.net | @ajlkn	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)-->
+<!DOCTYPE HTML>
 <html lang="en">
-
 <head>
-    <title>TwinStick</title>
+    <title>TwinStick | Kenan Özbakan</title>
+    <link href="images/joystick.svg" rel="icon">
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
-    <link rel="stylesheet" href="assets/css/main.css"/>
-    <link rel="stylesheet" href="assets/css/prism.css"/>
+    <meta name="description" content="Explore TwinStick, a 3D twin-stick shooter developed by Kenan Özbakan. Learn about its mechanics, AI, and development process.">
+    <meta name="keywords" content="TwinStick, twin-stick shooter, Unity projects, game development, Kenan Özbakan, 3D games, NavMesh AI">
+
+    <!-- CSS -->
+    <link href="assets/css/main.css" rel="stylesheet"/>
+    <link href="assets/css/twinstick-redesign.css" rel="stylesheet"/>
+    <link href="assets/css/prism.css" rel="stylesheet"/>
+    
     <noscript>
-        <link rel="stylesheet" href="assets/css/noscript.css"/>
+        <link href="assets/css/noscript.css" rel="stylesheet"/>
     </noscript>
 </head>
 
-<body class="no-sidebar is-preload">
-<div id="page-wrapper">
+<body class="twinstick-redesign">
 
-    <div id="header">
-        <div class="inner">
-            <header>
-                <h1>Twinstick</h1>
-            </header>
-        </div>
+    <!-- Header & Nav -->
+    <nav id="nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li>
+                <a href="projects.html">Projects</a>
+                <ul>
+                    <li class="dropdown-item"><img alt="pacman" class="projects-icon" src="images/Pacman.svg">
+                        <a href="pacmanremake.html">Pacman-remake</a>
+                    </li>
+                    <li class="dropdown-item"><a href="twinstick.html"><img alt="twinnstick" class="projects-icon" src="images/joystick.svg">Twinnstick</a></li>
+                    <li class="dropdown-item"><img alt="galaga" class="projects-icon" src="images/Galaga.ico"><a href="galaga.html">Galaga</a></li>
+                    <li class="dropdown-item"><img alt="Particle" class="projects-icon" src="images/ParticleIcon.jpg"><a href="particleeffect.html">Particle effect</a></li>
+                    <li class="dropdown-item"><img alt="TheWorks" class="projects-icon" src="images/placeholder.jpg"><a href="theworks.html">TheWorks</a></li>
+                    <li class="dropdown-item"><img alt="Teleportation" class="projects-icon" src="images/faviicon.ico"><a href="teleportation.html">Teleportation</a></li>
+                </ul>
+            </li>
+            <li><a href="music.html">Music</a></li>
+            <li><a href="index.html#skills">Skills</a></li>
+        </ul>
+    </nav>
 
-        <nav id="nav">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="music.html">Music</a></li>
-            </ul>
-        </nav>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <h1 class="hero-title">TwinStick</h1>
+        <p class="hero-subtitle">
+            A fast-paced 3D twin-stick shooter focused on precision movement and tactical combat.
+        </p>
+    </section>
+
+    <!-- Table of Contents -->
+    <nav class="toc-section">
+        <div class="toc-title">Jump to highlights</div>
+        <ul class="toc-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#mechanics">Mechanics</a></li>
+            <li><a href="#ai">Enemy AI</a></li>
+        </ul>
+    </nav>
+
+    <!-- Content Sections -->
+    <div id="about" class="content-section">
+        <h2>About the Project</h2>
+        <p>
+            This school project was a collaboration with two game artists and another developer. The objective was to design and implement a 3D twin-stick shooter from the ground up, balancing fast action with smooth controls.
+        </p>
     </div>
 
-    <div class="wrapper style1">
-
-        <div class="container">
-            <article id="main" class="special">
-                <p>
-                    This school project I had to make with my classmates 2 from game artist and a other developer, The
-                    objective was to make a 3D twin stick shooter.
-                </p>
-                <section>
-                    <header>
-                        <h2>Enemy</h2>
-                    </header>
-                    <p>
-                        For the movement I used a rigidbody based movement and the for input the new player input.
-                    <pre><code class="language-csharp scrollable-code">
-using UnityEngine;
+    <div id="mechanics" class="content-section">
+        <h2>Player Mechanics</h2>
+        <p>
+            The player's movement is built using Unity's Rigidbody system for physical interactions and the new Input System for responsive, cross-platform control.
+        </p>
+        <pre><code class="language-csharp">using UnityEngine;
 using UnityEngine.InputSystem;
 
 [SelectionBase]
@@ -79,12 +106,11 @@ public class PlayerMovement : MonoBehaviour
 
         _Rigidbody.velocity = movement * _PlayerSpeed;
     }
-}
-                </code></pre>
-                    As for the picking up the collectibles I use a OnTriggerEnter that gets the
-
-                    <pre><code class="language-csharp scrollable-code">
-using UnityEngine;
+}</code></pre>
+        <p>
+            Handling collectibles like coins involves an <code>OnTriggerEnter</code> approach that communicates with the <code>GameManager</code> to update the player's score.
+        </p>
+        <pre><code class="language-csharp">using UnityEngine;
 
 public class CollectibleHandler : MonoBehaviour
 {
@@ -96,169 +122,161 @@ public class CollectibleHandler : MonoBehaviour
             Destroy(other.gameObject); 
         }
     }
+}</code></pre>
+    </div>
+
+    <div id="ai" class="content-section">
+        <h2>Enemy AI</h2>
+        <span class="image fit"><img src="images/tsEnemymove.gif" alt="Enemy AI movement demonstration" /></span>
+        <p>
+            Enemy movement is powered by Unity's NavMesh system. An <code>EnemyManager</code> dictates when enemies are active and allows for centralized control over the battlefield's difficulty.
+        </p>
+        <p>
+            The enemies use a state machine to switch between patrolling and chasing the player based on their line of sight.
+        </p>
+        <pre><code class="language-csharp">public enum EnemyStates
+{
+    patroling,
+    playerInSight,
 }
-                    </code></pre>
-                    </p></section>
 
-                <section>
-                    <header>
-                        <h2>Enemy</h2>
-                    </header>
-                    <p>
-                        For the enemy movement I use unity's navmesh component.
-                        EnemyManager is the way I dictate when the ghost are able to move.
-                        How I sat it up was to put the ghosts in Enemies array and then loop through each of them
-                        and
-                        turn the navmesh agent back on.
-                        How I normally would do it is to have a EnemyBrain script that in the awake registers the
-                        enemy
-                        to the manager but since I had little time I didnt take that approach.
-                    </p>
-                </section>
-            </article>
+private void Update()
+{
+    if (enemyStates == EnemyStates.patroling)
+    {
+        Patroling();
+        if (sightOfEnemy.visibleTargets.Count > 0)
+        {
+            enemyStates = EnemyStates.playerInSight;
+        }
+    }
 
-            <hr/>
-            <div class="row">
-                <article class="col-4 col-12-mobile special">
-                    <header>
-                        <h3><a href="#">Gravida aliquam penatibus</a></h3>
-                    </header>
-                    <p>
+    if (enemyStates == EnemyStates.playerInSight)
+    {
+        if (sightOfEnemy.visibleTargets.Count == 0)
+        {
+             agent.SetDestination(transform.position);
+             enemyStates = EnemyStates.patroling;
+        }
+        ChasePlayer();
+    }
+}
 
-                    </p>
-                </article>
-                <article class="col-4 col-12-mobile special">
-                    <header>
-                        <h3><a href="#">Sed quis rhoncus placerat</a></h3>
-                    </header>
-                    <p>
+public void Patroling()
+{
+    agent.stoppingDistance = 0;
+    if (agent.remainingDistance <= 1)
+    {
+        int prevIndex = currentIndex;
+        if (walkingPointRandom)
+        {
+            currentIndex = Random.Range(0, fixedLocation.Count);
+            if (currentIndex == prevIndex)
+            {
+                currentIndex++;
+            }
+        }
+        else currentIndex++;
 
-                    </p>
-                </article>
-                <article class="col-4 col-12-mobile special">
-                    <header>
-                        <h3><a href="#">Magna laoreet et aliquam</a></h3>
-                    </header>
-                    <p>
+        currentIndex %= fixedLocation.Count;
 
-                    </p>
-                </article>
-            </div>
-        </div>
+        agent.SetDestination(fixedLocation[currentIndex].position);
+    }
+}
+
+public void ChasePlayer()
+{
+    if (player == null)
+        return;
+
+    agent.stoppingDistance = 4;
+    agent.SetDestination(player.transform.position);
+    
+    Quaternion lookRotation = Quaternion.LookRotation(player.transform.position - transform.position);
+    transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * 4);
+
+    if (agent.remainingDistance < 4)
+    {
+        if (!attackedAlready)
+        {
+            Vector3 adjustedPlayerPos = new Vector3(player.transform.position.x, shootingPoint.position.y, player.transform.position.z);
+            Vector3 shootingDirection = (adjustedPlayerPos - shootingPoint.position).normalized;
+            
+            Rigidbody enemyRigidBody = Instantiate(projectile, shootingPoint.position, Quaternion.identity).GetComponent<Rigidbody>();
+            enemyRigidBody.AddForce(shootingDirection * 12f, ForceMode.Impulse);
+            attackedAlready = true;
+        }
+        else
+        {
+            timeInterval += Time.deltaTime;
+            if (timeInterval > timeBetweenNextAttack)
+            {
+                attackedAlready = false;
+                timeInterval = 0;
+            }
+        }
+    }
+}</code></pre>
+        <p>
+            While a more decentralized "EnemyBrain" script might be preferred for larger projects, this approach was highly efficient for the project's timeline and allowed for quick iteration on enemy behaviors.
+        </p>
     </div>
 
+    <!-- Footer -->
     <div id="footer">
-        <div class="container">
-            <div class="row">
-
-                <section class="col-4 col-12-mobile">
-                    <header>
-                        <h2 class="icon solid fa-file circled"><span class="label">Posts</span></h2>
-                    </header>
-                    <ul class="divided">
-                        <li>
-                            <article class="post stub">
-                                <header>
-                                    <h3><a href="music.html">Listen to music I made!</a></h3>
-                                </header>
-                            </article>
-                        </li>
-                        <li>
-                            <article class="post stub">
-                                <header>
-                                    <h3><a href="pacmanremake.html">Check out my Pacman remake!</a></h3>
-                                </header>
-                            </article>
-                        </li>
-                        <li>
-                            <article class="post stub">
-                                <header>
-                                    <h3><a href="particleeffect.html">See some effects!</a></h3>
-                                </header>
-                            </article>
-                        </li>
-                        <li>
-                            <article class="post stub">
-                                <header>
-                                    <h3><a href="projects.html">Rest of the projects!</a></h3>
-                                </header>
-                            </article>
-                        </li>
-                    </ul>
-                </section>
-
-                <section class="col-4 col-12-mobile">
-                    <header>
-                        <h2 class="icon solid fa-camera circled"><span class="label">Photos</span></h2>
-                    </header>
-                    <div class="row gtr-25">
-                        <div class="col-6">
-                            <a href="pacmanremake.html" class="image fit"><img src="images/placeholder.jpg"
-                                                                               alt=""/></a>
-                        </div>
-                        <div class="col-6">
-                            <a href="music.html" class="image fit"><img src="images/pic11.jpg" alt=""/></a>
-                        </div>
-                        <div class="col-6">
-                            <a href="particleeffect.html" class="image fit"><img src="images/pic12.jpg"
-                                                                                 alt=""/></a>
-                        </div>
-                        <div class="col-6">
-                            <a href="projects.html" class="image fit"><img src="images/pic13.jpg" alt=""/></a>
-                        </div>
-                        <div class="col-6">
-                            <a href="#" class="image fit"><img src="images/pic14.jpg" alt=""/></a>
-                        </div>
-                        <div class="col-6">
-                            <a href="#" class="image fit"><img src="images/pic15.jpg" alt=""/></a>
-                        </div>
-                    </div>
-                </section>
-
-            </div>
-
-            <hr/>
-            <div class="row">
-                <div class="col-12">
-
-                    <section class="contact">
-                        <header>
-                            <h3>Want to be kept updated? Check out the socials!</h3>
-                        </header>
-                        <ul class="icons">
-                            <li><a href="https://www.instagram.com/kenan.3_8/"
-                                   class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-                            <li><a href="https://www.linkedin.com/in/kenan%C3%B6zbakan/"
-                                   class="icon brands fa-linkedin-in"><span class="label">Linkedin</span></a></li>
-                            <li><a href="https://kenansocial.carrd.co/" class="icon brands fa-dribbble"><span
-                                    class="label">All socials in 1 place</span></a></li>
-                        </ul>
-                    </section>
-
-                    <div class="copyright">
-                        <ul class="menu">
-                            <li>&copy; Kenan Özbakan. All rights reserved.</li>
-                            <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
-                        </ul>
-                    </div>
-
-                </div>
-
-            </div>
+        <ul class="social-icons">
+            <li><a class="icon brands fa-instagram" href="https://www.instagram.com/kenan.3_8/"><span class="label">Instagram</span></a></li>
+            <li><a class="icon brands fa-linkedin-in" href="https://www.linkedin.com/in/kenan%C3%B6zbakan/"><span class="label">Linkedin</span></a></li>
+            <li><a class="icon brands fa-dribbble" href="https://kenansocial.carrd.co/"><span class="label">All socials</span></a></li>
+        </ul>
+        <div class="copyright">
+            &copy; Kenan Özbakan. All rights reserved. | Design: <a href="https://html5up.net">HTML5 UP</a>
         </div>
     </div>
 
-</div>
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.dropotron.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/prism.js"></script>
 
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/jquery.dropotron.min.js"></script>
-<script src="assets/js/jquery.scrolly.min.js"></script>
-<script src="assets/js/jquery.scrollex.min.js"></script>
-<script src="assets/js/browser.min.js"></script>
-<script src="assets/js/breakpoints.min.js"></script>
-<script src="assets/js/util.js"></script>
-<script src="assets/js/main.js"></script>
-<script src="assets/js/prism.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                // Trigger when section is 30% from the top of the viewport
+                rootMargin: '-30% 0px -70% 0px',
+                threshold: 0
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Remove active class from all links
+                        document.querySelectorAll('.toc-links a').forEach(link => {
+                            link.classList.remove('active');
+                        });
+                        
+                        // Add active class to the link matching the current section ID
+                        const activeLink = document.querySelector(`.toc-links a[href="#${entry.target.id}"]`);
+                        if (activeLink) {
+                            activeLink.classList.add('active');
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all content sections
+            document.querySelectorAll('.content-section').forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
 
 </body>
 </html>

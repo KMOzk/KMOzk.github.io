@@ -1,0 +1,367 @@
+/* Index Redesign CSS */
+
+body.index-redesign {
+    background-color: #0f1016; /* Dark background */
+    color: #e0e0e0;
+    font-family: 'Source Sans Pro', sans-serif;
+    line-height: 1.6;
+}
+
+/* Header & Nav */
+#nav {
+    background: rgba(15, 16, 22, 0.95);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 1.5em 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+#header {
+    background: transparent; /* Removed sticky styles */
+}
+
+#nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#nav ul li a {
+    color: #ccc;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+    font-size: 1em;
+}
+
+#nav ul li a:hover,
+#nav ul li.current a {
+    color: #4db6ac; /* Teal accent */
+}
+
+/* Dropdown Menu Override */
+#nav > ul > li > ul {
+    background: #1a1b23;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border-radius: 8px;
+    padding: 1em 0;
+}
+
+#nav > ul > li > ul > li {
+    border-top: none;
+}
+
+#nav > ul > li > ul > li > a {
+    color: #bbb;
+    padding: 0.5em 1.5em;
+    display: block;
+    font-size: 0.9em;
+}
+
+#nav > ul > li > ul > li > a:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* Hero Section */
+#header .hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4em;
+    padding: 6em 2em;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.hero-text h1.animated-text {
+    font-size: 4em;
+    font-weight: 800;
+    margin-bottom: 0.2em;
+    background: linear-gradient(135deg, #4db6ac 0%, #80cbc4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.hero-text p {
+    font-size: 1.2em;
+    color: #aaa;
+    margin-top: 1.5em;
+    max-width: 600px;
+    line-height: 1.8;
+}
+
+.hero-text hr {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(90deg, #4db6ac 0%, transparent 100%);
+    margin: 1.5em 0;
+    width: 100px;
+}
+
+#header #heroImage {
+    width: 350px;
+    height: 350px;
+    border-radius: 20px;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 20px 20px 0 rgba(77, 182, 172, 0.1);
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: transform 0.3s;
+}
+
+#header #heroImage:hover {
+    transform: scale(1.02);
+}
+
+/* Skills Section */
+.wrapper.style2 {
+    background: #15161c;
+    padding: 6em 0;
+}
+
+.skills-title {
+    text-align: center;
+    margin-bottom: 4em;
+}
+
+.skills-heading {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.5em;
+}
+
+.skills-subheading {
+    color: #888;
+    font-size: 1.1em;
+}
+
+.skills-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2em;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2em;
+}
+
+.skill {
+    background: #1e1f26;
+    padding: 2em;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.skill:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    border-color: #4db6ac;
+}
+
+.skill-heading {
+    font-size: 1.2em;
+    color: #4db6ac;
+    margin-bottom: 1.5em;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.skill ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.skill ul li {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    margin-bottom: 1em;
+    color: #ccc;
+    font-size: 1em;
+}
+
+.skill-icon {
+    width: 24px;
+    height: 24px;
+    opacity: 0.8;
+}
+
+/* Projects Carousel Section */
+.carousel {
+    background: #0f1016;
+    padding: 6em 0;
+    overflow: hidden;
+}
+
+#banner {
+    background: transparent; /* Reset default white background */
+    padding: 0; /* Reset default padding */
+    margin-bottom: 4em;
+}
+
+#banner header {
+    text-align: center;
+}
+
+#banner h2 {
+    font-size: 2.5em;
+    color: #fff;
+    font-weight: 700;
+}
+
+#banner p {
+    color: #888;
+}
+
+.reel {
+    display: flex;
+    gap: 2em;
+    padding: 0 2em;
+    overflow-x: auto;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE 10+ */
+    padding-bottom: 2em; /* Space for shadow */
+}
+
+.reel::-webkit-scrollbar { 
+    display: none;  /* Chrome Safari */
+}
+
+.reel article {
+    min-width: 300px;
+    background: #1e1f26;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: transform 0.3s;
+    flex-shrink: 0;
+}
+
+.reel article:hover {
+    transform: translateY(-5px);
+}
+
+.reel article .image.featured img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.reel article header {
+    padding: 1.5em 1.5em 0.5em;
+    text-align: left;
+    margin: 0;
+}
+
+.reel article h3 {
+    font-size: 1.3em;
+    color: #fff;
+    margin: 0;
+}
+
+.reel article h3 a {
+    text-decoration: none;
+    color: inherit;
+    border: none;
+}
+
+.reel article p {
+    padding: 0 1.5em 1.5em;
+    color: #aaa;
+    font-size: 0.95em;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Footer */
+#footer {
+    background: #0b0c11;
+    padding: 4em 0;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+#footer header h2 {
+    font-size: 2em;
+    color: #fff;
+    margin-bottom: 0.5em;
+}
+
+#footer p {
+    color: #888;
+    margin-bottom: 2em;
+}
+
+.custom-socials {
+    display: flex;
+    justify-content: center;
+    gap: 1.5em;
+    padding: 0;
+    list-style: none;
+    margin-bottom: 2em;
+}
+
+.custom-socials li a {
+    color: #666;
+    font-size: 1.5em;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.custom-socials li a:hover {
+    color: #4db6ac;
+    transform: translateY(-3px);
+}
+
+.copyright {
+    color: #444;
+    font-size: 0.9em;
+}
+
+.copyright a {
+    color: #666;
+    text-decoration: none;
+    border: none;
+}
+
+/* Responsive */
+@media screen and (max-width: 960px) {
+    #header .hero-container {
+        flex-direction: column-reverse;
+        padding: 4em 1em;
+        text-align: center;
+    }
+
+    .hero-text h1.animated-text {
+        font-size: 3em;
+    }
+
+    .hero-text p {
+        margin: 1.5em auto;
+    }
+
+    .hero-text hr {
+        margin: 1.5em auto;
+    }
+
+    #header #heroImage {
+        width: 250px;
+        height: 250px;
+        margin: 0 auto;
+    }
+}

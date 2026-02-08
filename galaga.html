@@ -1,180 +1,367 @@
-<!DOCTYPE HTML> <!-- Helios by HTML5 UP	html5up.net | @ajlkn Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)-->
-<html lang="en">
+<!DOCTYPE HTML>
+<html lang="nl">
 <head>
-    <title>Galaga Remake</title>
-    <link href="images/galaga.ico" rel="icon">
+    <title>Galaga Remake | Kenan Özbakan</title>
+    <link href="images/Galaga.ico" rel="icon">
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport"/>
+    <meta content="Bekijk de Galaga remake van Kenan Özbakan - een project uit het begin van zijn studie met Scriptable Objects en event-systemen." name="description">
+
+    <!-- CSS -->
     <link href="assets/css/main.css" rel="stylesheet"/>
-    <link href="assets/css/galagastyle.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="assets/css/prism.css"/>
+    <link href="assets/css/galaga-redesign.css" rel="stylesheet"/>
+    <link href="assets/css/prism.css" rel="stylesheet"/>
+    
     <noscript>
         <link href="assets/css/noscript.css" rel="stylesheet"/>
     </noscript>
 </head>
-<body class="galaga">
-<div id="page-wrapper">
+<body class="galaga-redesign">
 
-    <div id="header galaga">
+    <!-- Header & Nav -->
+    <nav id="nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li>
+                <a href="projects.html">Projects</a>
+                <ul>
+                    <li class="dropdown-item"><img alt="pacman" class="projects-icon" src="images/Pacman.svg">
+                        <a href="pacmanremake.html">Pacman-remake</a>
+                    </li>
+                    <li class="dropdown-item"><a href="twinstick.html"><img alt="twinnstick" class="projects-icon" src="images/joystick.svg">Twinnstick</a></li>
+                    <li class="dropdown-item"><img alt="galaga" class="projects-icon" src="images/Galaga.ico"><a href="galaga.html">Galaga</a></li>
+                    <li class="dropdown-item"><img alt="Particle" class="projects-icon" src="images/ParticleIcon.jpg"><a href="particleeffect.html">Particle effect</a></li>
+                    <li class="dropdown-item"><img alt="TheWorks" class="projects-icon" src="images/placeholder.jpg"><a href="theworks.html">TheWorks</a></li>
+                    <li class="dropdown-item"><img alt="Teleportation" class="projects-icon" src="images/faviicon.ico"><a href="teleportation.html">Teleportation</a></li>
+                </ul>
+            </li>
+            <li><a href="music.html">Music</a></li>
+            <li><a href="index.html#skills">Skills</a></li>
+        </ul>
+    </nav>
 
-        <nav id="nav">
-            <ul>
-                <li>
-                    <a href="index.html">Home</a>
-                </li>
-                <li>
-                    <a href="projects.html">Projects</a></li>
-                <li>
-                    <a href="music.html">Music</a>
-                </li>
-            </ul>
-        </nav>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <h1 class="hero-title">Galaga Remake</h1>
+        <p class="hero-subtitle">
+            Een retro arcade-ervaring, opnieuw opgebouwd met moderne Unity technieken.
+        </p>
+    </section>
+
+    <!-- Game Container -->
+    <section class="game-container">
+        <div class="game-frame">
+            <iframe frameborder="0" src="https://itch.io/embed-upload/9635616?color=003701" allowfullscreen="" width="960" height="620">
+                <a href="https://kenan38.itch.io/galaga-remake">Play Galaga Remake on itch.io</a>
+            </iframe>
+        </div>
+    </section>
+
+    <!-- Table of Contents -->
+    <nav class="toc-section">
+        <div class="toc-title">Navigatie</div>
+        <ul class="toc-links">
+            <li><a href="#about">Over het Project</a></li>
+            <li><a href="#player">Player Behaviour</a></li>
+            <li><a href="#enemy">Enemy Behaviour</a></li>
+            <li><a href="#spawner">Enemy Spawner</a></li>
+            <li><a href="#manager">Game Manager</a></li>
+        </ul>
+    </nav>
+
+    <!-- Content Sections -->
+    <div id="about" class="content-section">
+        <h2>Over het Project</h2>
+        <p>
+            Een afgerond project gebaseerd op Galaga, waarin ik een Scriptable Object en het event-systeem heb geïmplementeerd. 
+            Dit project heb ik aan het begin van mijn schoolcarrière gemaakt als een manier om de basis van Unity en C# onder de knie te krijgen.
+        </p>
+        <p>
+            Met de ervaring die ik inmiddels heb opgedaan, zie ik hoe de code anders en efficiënter had kunnen worden geschreven, maar het blijft een waardevol leerproject.
+        </p>
     </div>
 
-    <div class="wrapper style1">
-
-        <div class="container">
-            <article id="main" class="special">
-                <p>
-                    I got challenged by my friends to make a packman clone as fast as I could, although a few things
-                    are
-                    missing there are still to come!
-                </p>
-                <iframe frameborder="0" src="https://itch.io/embed-upload/9635616?color=003701" allowfullscreen="" width="960" height="620"><a href="https://kenan38.itch.io/galaga-remake">Play Galaga Remake on itch.io</a></iframe>
-                <section>
-                    <header>
-                        <h2>Player</h2>
-                    </header>
-                    <p>
-                        For the movement I used a rigidbody based movement and the for input the new player input.
-                    <pre><code class="language-csharp scrollable-code">
-using UnityEngine;
-using UnityEngine.InputSystem;
-
-[SelectionBase]
-public class PlayerMovement : MonoBehaviour
+    <div id="player" class="content-section">
+        <h2>Player Behaviour</h2>
+        <p>
+            In deze vroege versie van de remake heeft de speler nog een 'God class' structuur. Het beheert beweging, schieten en schade in één script.
+        </p>
+        <pre><code class="language-csharp">namespace com.GLU.GD.P5.ScriptableObjects
 {
-    private Rigidbody _Rigidbody;
-    private InputAction _MoveAction;
-    private PlayerInput _PlayerInput;
-
-    [SerializeField] private float _PlayerSpeed;
-
-    private void Start()
+    public class PlayerBehaviour : MonoBehaviour, IDamagable
     {
-        _PlayerInput = GetComponent<PlayerInput>();
-        _MoveAction = _PlayerInput.actions.FindAction("Move");
+        private float health = 1;
 
-        _Rigidbody = GetComponent<Rigidbody>();
-    }
+        public float Health => health;
+        public PlayerManager playerManager;
 
-    private void Update()
-    {
-        CalculateMovement();
-    }
+        [SerializeField] private UnityEvent PlayerDied;
 
-    private void CalculateMovement()
-    {
-        Vector2 direction = _MoveAction.ReadValue<Vector2>().normalized;
+        public AudioSource DeathAudio;
+        public AudioSource shootingAudio;
+        
+        [Space]
+        [SerializeField] private GameObject bullet;
+        [SerializeField] private Transform bulletSpawnOrigin;
 
-        Vector3 movement = new Vector3(direction.x, 0f, direction.y);
+        [Space][SerializeField] private GameObject explosionEffect;
 
-        _Rigidbody.velocity = movement * _PlayerSpeed;
-    }
-}</code></pre>
-                    As for the picking up the collectibles I use a OnTriggerEnter that gets the
+        private void Start()
+        { 
+            PlayerDied.AddListener(GameManager.Instance.PlayerIsDead);
+        }
 
-                    <pre><code class="language-csharp scrollable-code">
-using UnityEngine;
-
-public class CollectibleHandler : MonoBehaviour
-{
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Coin"))
+        void Update()
         {
-            GameManager.Instance.GetPointValue(other.GetComponent<CollectibleObject>().GetPoints());
-            Destroy(other.gameObject);
+            float horizontalInput = Input.GetAxis("Horizontal");
+            transform.position += Vector3.right * (horizontalInput * playerManager.moveSpeed * Time.deltaTime);
+
+            if (Input.GetButtonDown("Fire1"))
+            {
+                shootingAudio.Play();
+                GameObject instanciatedBullet = Instantiate(bullet, bulletSpawnOrigin.position, Quaternion.identity);
+                Rigidbody2D bulletRigidbody = instanciatedBullet.GetComponent<Rigidbody2D>();
+                bulletRigidbody.AddForce(Vector2.up * playerManager.bulletSpeed, ForceMode2D.Impulse);
+            }
+        }
+
+        public void DoDamage(float damage, IDamagable other)
+        {
+            health -= damage;
+            if (health == 0)
+            {
+                PlayerDied.Invoke();
+
+                DeathAudio.Play();
+                Destroy(this.gameObject);
+                other.DoDamage(float.PositiveInfinity, this);
+                Instantiate(explosionEffect, transform.position, Quaternion.identity);
+            }
         }
     }
 }</code></pre>
 
-                    </p>
-                </section>
+        <h3>Player Data (ScriptableObject)</h3>
+        <p>
+            Door gebruik te maken van ScriptableObjects kon ik variabelen zoals snelheid eenvoudig aanpassen buiten de scripts om.
+        </p>
+        <pre><code class="language-csharp">using UnityEngine;
 
-                <section>
-                    <header>
-                        <h2>Enemy</h2>
-                    </header>
-                    <p>
-                        For the enemy movement I use unity's navmesh component.
-                        EnemyManager is the way I dictate when the ghost are able to move.
-                        How I sat it up was to put the ghosts in Enemies array and then loop through each of them
-                        and
-                        turn the navmesh agent back on.
-                        How I normally would do it is to have a EnemyBrain script that in the awake registers the
-                        enemy
-                        to the manager but since I had little time I didnt take that approach.
-                    </p>
-                </section>
-            </article>
-        </div>
+[CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/PlayerManager", order = 1)]
+public class PlayerManager : ScriptableObject
+{
+    public float moveSpeed = 2;
+    public float bulletSpeed = 20;
+}</code></pre>
     </div>
 
-    <div class="wrapper style2">
-        <br>
-        <article class="container special" >
-            <header>
-                <h2>Contact</h2>
-                <p>
-                    If you have questions, feel free to reach out! <br>
-                    I am always reachable via my <span id="email-link-contact"></span> or on
-                    <a href="https://kenansocial.carrd.co/">another social network I am on.</a>
-                </p>
-            </header>
+    <div id="enemy" class="content-section">
+        <h2>Enemy Behaviour</h2>
+        <p>
+            De vijanden maken ook gebruik van ScriptableObjects voor hun data en communiceren via Unity Events voor score-updates.
+        </p>
+        <pre><code class="language-csharp">namespace com.GLU.GD.P5.ScriptableObjects
+{
+    public class EnemyBehaviour : MonoBehaviour, IDamagable
+    {
+        private float health;
+        public float Health => health;
 
-            <footer>
-                <a class="button" id="email-link-footer">Send an e-mail!</a>
-            </footer>
-        </article>
+        public EnemyManager enemyManager;
+        [SerializeField] private UnityEvent EnemyDied;
+        [SerializeField] private UnityEvent ScoreUpdate;
+
+        [SerializeField] private GameObject explosionEffect;
+        
+        void Start()
+        {
+            health = enemyManager.maxHealth;
+        }
+
+        void Update()
+        {
+            StartCoroutine(EnemyMoverCoroutine());
+        }
+
+        public IEnumerator EnemyMoverCoroutine()
+        {
+            yield return new WaitForSeconds(1.5f);
+            transform.position += Vector3.down * (enemyManager.moveSpeed * Time.deltaTime);
+        }
+
+        public void DoDamage(float damage, IDamagable other)
+        {
+            health -= damage;
+            if (health <= 0)
+            {
+                ScoreUpdate.Invoke();
+                Destroy(this.gameObject);
+                Instantiate(explosionEffect, transform.position, Quaternion.identity);
+            }
+        }
+        
+        public void ScoreDead()
+        {
+            UiManager.Instance.EnemyDeathScoreRecieved(UiManager.Instance.enemyDeathScore);
+        }
+    }
+}</code></pre>
+
+        <h3>Enemy Data (ScriptableObject)</h3>
+        <pre><code class="language-csharp">using UnityEngine;
+
+[CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/EnemyManager", order = 1)]
+public class EnemyManager : ScriptableObject
+{
+    public float maxHealth = 10;
+    public float moveSpeed = 2;
+}</code></pre>
     </div>
 
+    <div id="spawner" class="content-section">
+        <h2>Enemy Spawner</h2>
+        <p>
+            Een eenvoudige spawner die vijanden op willekeurige posities genereert met behulp van een Coroutine.
+        </p>
+        <pre><code class="language-csharp">namespace com.GLU.GD.P5.ScriptableObjects
+{
+    public class EnemySpawner : MonoBehaviour
+    {
+        private bool spawningTimer = true;
+
+        [SerializeField] private GameObject enemy;
+        [SerializeField] private Transform[] spawningPointsEnemy;
+
+        private void Start()
+        {
+            StartCoroutine(EnemySpawnerCoroutine());
+        }
+
+        public IEnumerator EnemySpawnerCoroutine()
+        {
+            while (spawningTimer)
+            {
+                Instantiate(enemy, spawningPointsEnemy[Random.Range(0,spawningPointsEnemy.Length)].position, Quaternion.identity);
+                yield return new WaitForSeconds(3.5f);
+            }
+        }
+    }
+}</code></pre>
+    </div>
+
+    <div id="manager" class="content-section">
+        <h2>Game Manager</h2>
+        <p>
+            De <code>GameManager</code> is een Singleton die de levens van de speler, scores en respawning beheert.
+        </p>
+        <pre><code class="language-csharp">namespace com.GLU.GD.P5.ScriptableObjects
+{
+    public class GameManager : MonoBehaviour
+    {
+        public static GameManager Instance;
+
+        public int PlayerLives = 3;
+        public float RespawnTimer = 1f;
+        public int HighScoreBeforeDeath;
+        public int SceneToLoadAfterNoLive;
+
+        private void Awake()
+        {
+            if (Instance != this && Instance != null)
+            {
+                Object.Destroy(this.gameObject);
+            }
+            else
+            {
+                DontDestroyOnLoad(this.gameObject);
+                Instance = this;
+            }
+        }
+
+        private void Update()
+        {
+            if (UiManager.Instance.GameScore > UiManager.Instance.HighScore)
+            {
+                UiManager.Instance.HighScore = UiManager.Instance.GameScore;
+            }
+        }
+
+        public void PlayerIsDead()
+        {
+            PlayerLives--;
+
+            HighScoreBeforeDeath += UiManager.Instance.HighScore;
+
+            if (PlayerLives > 0)
+            {
+                Invoke("RespawnPlayer", RespawnTimer);
+            }
+            if (PlayerLives <= 0)
+            {
+                SceneManager.LoadScene(SceneToLoadAfterNoLive);
+            }
+        }
+
+        public void RespawnPlayer()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            UiManager.Instance.HighScore += HighScoreBeforeDeath;
+            UiManager.Instance.UpdatingUi();
+        }
+    }
+}</code></pre>
+    </div>
+
+    <!-- Footer -->
     <div id="footer">
-        <hr/>
-        <section class="contact">
-            <header>
-                <h3>Want to be kept updated? Check out <a href="https://kenansocial.carrd.co/">the socials!</a></h3>
-            </header>
-            <br>
-            <ul class="icons">
-                <li><a class="icon brands fa-instagram" href="https://www.instagram.com/kenan.3_8/"><span
-                        class="label">Instagram</span></a></li>
-                <li><a class="icon brands fa-linkedin-in"
-                       href="https://www.linkedin.com/in/kenan%C3%B6zbakan/"><span class="label">Linkedin</span></a>
-                </li>
-                <li><a class="icon brands fa-dribbble" href="https://kenansocial.carrd.co/"><span
-                        class="label">All socials in 1 place</span></a></li>
-            </ul>
-        </section>
-
+        <ul class="social-icons">
+            <li><a class="icon brands fa-instagram" href="https://www.instagram.com/kenan.3_8/"><span class="label">Instagram</span></a></li>
+            <li><a class="icon brands fa-linkedin-in" href="https://www.linkedin.com/in/kenan%C3%B6zbakan/"><span class="label">Linkedin</span></a></li>
+            <li><a class="icon brands fa-dribbble" href="https://kenansocial.carrd.co/"><span class="label">All socials</span></a></li>
+        </ul>
         <div class="copyright">
-            <ul class="menu">
-                <li>&copy; Kenan Özbakan. All rights reserved.</li>
-                <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
-            </ul>
+            &copy; Kenan Özbakan. Alle rechten voorbehouden. | Design: <a href="https://html5up.net">HTML5 UP</a>
         </div>
     </div>
-</div>
 
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/jquery.dropotron.min.js"></script>
-<script src="assets/js/jquery.scrolly.min.js"></script>
-<script src="assets/js/jquery.scrollex.min.js"></script>
-<script src="assets/js/browser.min.js"></script>
-<script src="assets/js/breakpoints.min.js"></script>
-<script src="assets/js/util.js"></script>
-<script src="assets/js/main.js"></script>
-<script src="assets/js/prism.js"></script>
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.dropotron.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/prism.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '-30% 0px -70% 0px',
+                threshold: 0
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        document.querySelectorAll('.toc-links a').forEach(link => {
+                            link.classList.remove('active');
+                        });
+                        const activeLink = document.querySelector(`.toc-links a[href="#${entry.target.id}"]`);
+                        if (activeLink) {
+                            activeLink.classList.add('active');
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.content-section').forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
 
 </body>
 </html>

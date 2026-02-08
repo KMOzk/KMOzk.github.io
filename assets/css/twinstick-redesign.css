@@ -1,0 +1,309 @@
+/* TwinStick Redesign CSS */
+
+body.twinstick-redesign {
+    background-color: #0d0216; /* Deep purple background */
+    color: #e0e0e0;
+    font-family: 'Source Sans Pro', sans-serif;
+    overflow-x: hidden;
+    /* Hexagon pattern background */
+    background-image: 
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='hexagons' fill='%239C27B0' fill-opacity='0.05' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31L17 42.65V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Header & Nav */
+#nav {
+    background: rgba(13, 2, 22, 0.95);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 1.5em 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+#nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#nav ul li a {
+    color: #ccc;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+    font-size: 1em;
+    border: none; /* Remove default underline */
+}
+
+#nav ul li a:hover {
+    color: #4db6ac; /* Teal accent like index */
+}
+
+/* Dropdown Menu Style (matching index) */
+#nav > ul > li > ul {
+    background: #1a1b23;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border-radius: 8px;
+    padding: 1em 0;
+}
+
+#nav > ul > li > ul > li {
+    border-top: none;
+}
+
+#nav > ul > li > ul > li > a {
+    color: #bbb;
+    padding: 0.5em 1.5em;
+    display: block;
+    font-size: 0.9em;
+    text-transform: none;
+}
+
+#nav > ul > li > ul > li > a:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.projects-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 4em 1em;
+    background: radial-gradient(circle at center, rgba(233, 30, 99, 0.1) 0%, rgba(13, 2, 22, 0) 70%);
+}
+
+.hero-title {
+    font-size: 4em;
+    font-weight: 800;
+    color: #e91e63;
+    text-transform: uppercase;
+    text-shadow: 
+        0 0 10px #e91e63,
+        0 0 20px #9c27b0;
+    margin-bottom: 0.2em;
+    letter-spacing: 8px;
+    font-family: 'Courier New', monospace;
+}
+
+.hero-subtitle {
+    font-size: 1.3em;
+    color: #aaa;
+    max-width: 800px;
+    margin: 0 auto 2em;
+    line-height: 1.6;
+}
+
+/* TOC Section */
+.toc-section {
+    position: fixed;
+    left: 2em;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 180px;
+    text-align: left;
+    padding: 1.5em;
+    background: rgba(13, 2, 22, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(233, 30, 99, 0.3);
+    border-radius: 15px;
+    z-index: 100;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.toc-title {
+    color: #e91e63;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1.5em;
+    font-weight: 700;
+    border-bottom: 1px solid rgba(233, 30, 99, 0.2);
+    padding-bottom: 0.5em;
+}
+
+.toc-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2em;
+    list-style: none;
+    padding: 0;
+}
+
+.toc-links li a {
+    color: #888;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95em;
+    transition: all 0.3s ease;
+    display: block;
+}
+
+.toc-links li a:hover {
+    color: #e91e63;
+    text-shadow: 0 0 8px #e91e63;
+    transform: translateX(5px);
+}
+
+.toc-links li a.active {
+    color: #e91e63;
+    text-shadow: 0 0 10px #e91e63;
+    border-left: 3px solid #e91e63;
+    padding-left: 10px;
+    transform: translateX(5px);
+}
+
+/* Content Sections */
+.content-section {
+    max-width: 900px;
+    margin: 0 auto 4em auto; /* Centered globally */
+    padding: 3em;
+    background: rgba(25, 10, 35, 0.8);
+    border: 1px solid rgba(233, 30, 99, 0.2);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 1400px) {
+    .toc-section {
+        left: 1em;
+        width: 150px;
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    .toc-section {
+        position: static;
+        width: auto;
+        max-width: 800px;
+        margin: 0 auto 3em;
+        transform: none;
+        text-align: center;
+    }
+    
+    .toc-links {
+        flex-direction: row;
+        justify-content: center;
+        gap: 2em;
+    }
+    
+    .content-section {
+        margin: 0 auto 4em auto;
+    }
+}
+
+@media screen and (max-width: 736px) {
+    .toc-links {
+        gap: 1em;
+    }
+    
+    .toc-links li a {
+        font-size: 0.85em;
+    }
+}
+
+.content-section h2 {
+    color: #e91e63;
+    font-size: 2.2em;
+    border-left: 6px solid #e91e63;
+    padding-left: 0.6em;
+    margin-bottom: 1.2em;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-family: 'Courier New', monospace;
+}
+
+.content-section p {
+    font-size: 1.15em;
+    line-height: 1.9;
+    color: #ccc;
+    margin-bottom: 1.5em;
+}
+
+/* Code Blocks */
+pre[class*="language-"] {
+    border: 1px solid rgba(233, 30, 99, 0.3) !important;
+    background: #150520 !important;
+    border-radius: 10px !important;
+    margin: 2em 0 !important;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+}
+
+code[class*="language-"] {
+    text-shadow: none !important;
+    color: #e0e0e0 !important;
+}
+
+/* Footer */
+#footer {
+    background: #08010d;
+    padding: 3em 0;
+    text-align: center;
+    border-top: 2px solid #e91e63;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    list-style: none;
+    padding: 0;
+    margin-bottom: 2em;
+}
+
+.social-icons li a {
+    color: #fff;
+    font-size: 1.8em;
+    transition: transform 0.3s, color 0.3s;
+}
+
+.social-icons li a:hover {
+    color: #e91e63;
+    transform: scale(1.2) rotate(5deg);
+}
+
+.copyright {
+    color: #555;
+    font-size: 0.95em;
+    letter-spacing: 1px;
+}
+
+.copyright a {
+    color: #e91e63;
+    text-decoration: none;
+    border-bottom: 1px dotted;
+}
+
+/* Responsive */
+@media screen and (max-width: 736px) {
+    .hero-title {
+        font-size: 2.5em;
+        letter-spacing: 4px;
+    }
+    
+    .content-section {
+        padding: 1.5em;
+    }
+    
+    #nav ul {
+        gap: 1rem;
+    }
+    
+    #nav ul li a {
+        font-size: 0.9em;
+        padding: 0.5em;
+    }
+}

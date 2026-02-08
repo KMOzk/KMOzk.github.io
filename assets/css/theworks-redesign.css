@@ -1,0 +1,269 @@
+/* TheWorks Redesign CSS */
+
+body.theworks-redesign {
+    background-color: #DEE0E2; /* App offWhite */
+    color: #2D2C2B; /* App darkGrey */
+    font-family: 'Source Sans Pro', sans-serif;
+    line-height: 1.6;
+}
+
+/* Header & Nav */
+#nav {
+    background: #303A5A; /* App darkBlue */
+    padding: 1.5em 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+#nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#nav ul li a {
+    color: #DEE0E2; /* App offWhite */
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+    font-size: 1em;
+    border: none;
+}
+
+#nav ul li a:hover {
+    color: #CCBE96; /* App accentGold */
+}
+
+/* Dropdown Menu Style */
+#nav > ul > li > ul {
+    background: #303A5A;
+    border: 1px solid #CCBE96;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    border-radius: 8px;
+    padding: 1em 0;
+}
+
+#nav > ul > li > ul > li > a {
+    color: #DEE0E2;
+    padding: 0.5em 1.5em;
+    display: block;
+    font-size: 0.9em;
+    text-transform: none;
+}
+
+#nav > ul > li > ul > li > a:hover {
+    color: #CCBE96;
+    background: rgba(255,255,255,0.05);
+}
+
+.projects-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 5em 1em;
+    background: #303A5A; /* App darkBlue */
+    color: #DEE0E2; /* App offWhite */
+    border-bottom: 4px solid #CCBE96; /* App accentGold */
+}
+
+.hero-title {
+    font-size: 3.5em;
+    font-weight: 800;
+    margin-bottom: 0.2em;
+    letter-spacing: 2px;
+    color: #fff;
+}
+
+.hero-subtitle {
+    font-size: 1.2em;
+    color: #CCBE96; /* App accentGold */
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* TOC Section */
+.toc-section {
+    position: fixed;
+    left: 2em;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 200px;
+    text-align: left;
+    padding: 1.5em;
+    background: #303A5A;
+    border: 1px solid #CCBE96;
+    border-radius: 12px;
+    z-index: 100;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+.toc-title {
+    color: #CCBE96; /* App accentGold */
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1.5em;
+    font-weight: 700;
+    border-bottom: 1px solid rgba(204, 190, 150, 0.3);
+    padding-bottom: 0.5em;
+}
+
+.toc-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    list-style: none;
+    padding: 0;
+}
+
+.toc-links li a {
+    color: #DEE0E2;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9em;
+    transition: all 0.3s ease;
+}
+
+.toc-links li a:hover, .toc-links li a.active {
+    color: #CCBE96;
+    padding-left: 8px;
+}
+
+.toc-links li a.active {
+    border-left: 3px solid #CCBE96;
+}
+
+/* Content Sections */
+.content-section {
+    max-width: 1100px;
+    margin: 4em auto;
+    padding: 3.5em;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+    border: 1px solid #DEE0E2;
+}
+
+.content-section h2 {
+    color: #303A5A; /* App darkBlue */
+    font-size: 2em;
+    margin-bottom: 1.2em;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 0.5em;
+}
+
+.content-section h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 4px;
+    background: #CCBE96; /* App accentGold */
+    border-radius: 2px;
+}
+
+.content-section p {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 1.5em;
+}
+
+/* Tech Pills */
+.tech-pills {
+    display: flex;
+    gap: 0.8em;
+    flex-wrap: wrap;
+    margin-bottom: 2em;
+}
+
+.pill {
+    background: #303A5A;
+    color: #CCBE96;
+    padding: 0.4em 1em;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: 600;
+}
+
+/* Code Blocks */
+pre[class*="language-"] {
+    background: #2D2C2B !important; /* App darkGrey */
+    border: 1px solid #303A5A !important;
+    border-radius: 8px !important;
+    margin: 2em 0 !important;
+}
+
+code[class*="language-"] {
+    color: #DEE0E2 !important; /* App offWhite */
+}
+
+/* Footer */
+#footer {
+    background: #2D2C2B; /* App darkGrey */
+    padding: 4em 0;
+    text-align: center;
+    color: #DEE0E2;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    list-style: none;
+    padding: 0;
+    margin-bottom: 2em;
+}
+
+.social-icons li a {
+    color: #CCBE96;
+    font-size: 1.8em;
+    transition: color 0.3s;
+}
+
+.social-icons li a:hover {
+    color: #fff;
+}
+
+.copyright {
+    color: #888;
+    font-size: 0.9em;
+}
+
+/* Responsive */
+@media screen and (max-width: 1400px) {
+    .toc-section {
+        left: 1em;
+        width: 160px;
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    .toc-section {
+        position: static;
+        width: auto;
+        max-width: 1100px;
+        margin: 2em auto;
+        transform: none;
+        text-align: center;
+    }
+    .toc-links {
+        flex-direction: row;
+        justify-content: center;
+        gap: 2em;
+    }
+}

@@ -1,68 +1,265 @@
-<!DOCTYPE HTML><!--	Helios by HTML5 UP	html5up.net | @ajlkn Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)-->
+<!DOCTYPE HTML> <!-- Helios by HTML5 UP	html5up.net | @ajlkn Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)-->
 <html lang="en">
 <head>
-    <title>Kenan's Portofolio</title>
-    <link rel="icon" href="images/faviicon.ico">
+    <title>Kenan Özbakan | Freelance Developer Portfolio - Unity, XR, AI</title>
+    <link href="images/faviicon.ico" rel="icon">
     <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
-    <link rel="stylesheet" href="assets/css/main.css"/>
+    <meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport"/>
+    <meta content="Kenan Özbakan – freelance game & web developer uit Utrecht. Gespecialiseerd in Unity, XR en webdevelopment. HBO-ICT student aan de Hogeschool Utrecht. Bekijk mijn projecten of neem contact op voor een samenwerking." name="description">
+    <link href="assets/css/main.css" rel="stylesheet"/>
+    <link href="assets/css/index-redesign.css" rel="stylesheet"/>
+    <meta content="Kenan Özbakan | Freelance Game & Web Developer Utrecht" property="og:title">
+    <meta content="Freelance game & web developer gespecialiseerd in Unity, XR en webdevelopment. HBO-ICT student aan de Hogeschool Utrecht. Bekijk projecten en neem contact op." property="og:description">
+    <meta content="website" property="og:type">
+    <meta content="https://kmozk.github.io" property="og:url">
+    <meta content="https://kmozk.github.io/images/og-image.jpg" property="og:image">
 
-    <noscript>
-        <link rel="stylesheet" href="assets/css/noscript.css"/>
+    <meta content="summary_large_image" name="twitter:card">
+    <meta content="Kenan Özbakan | Freelance Developer" name="twitter:title">
+    <meta content="Game & web development, Unity, XR, HBO-ICT student in Utrecht." name="twitter:description">
+    <meta content="https://kmozk.github.io/images/og-image.jpg" name="twitter:image">
+
+    <link href="assets/css/noscript.css" rel="stylesheet"/>
     </noscript>
+    <link href="test.css" rel="stylesheet"/>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Kenan Özbakan",
+            "jobTitle": "Freelance Game & Web Developer",
+            "url": "https://kmozk.github.io",
+            "image": "https://kmozk.github.io/images/profile.jpg",
+            "description": "Freelance game & web developer uit Utrecht, gespecialiseerd in Unity, XR en webdevelopment. HBO-ICT student aan de Hogeschool Utrecht.",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Utrecht",
+                "addressCountry": "NL"
+            },
+            "affiliation": {
+                "@type": "CollegeOrUniversity",
+                "name": "Hogeschool Utrecht",
+                "url": "https://www.hu.nl/"
+            },
+            "sameAs": [
+                "https://github.com/KMOzk",
+                "https://www.linkedin.com/in/kenan%C3%B6zbakan/"
+            ]
+        }
+    </script>
 </head>
-<body class="homepage is-preload">
+<body class="homepage is-preload index-redesign">
 <div id="page-wrapper">
 
+    <nav id="nav">
+        <ul>
+            <li><a href="index.html" data-lang-key="nav_home">Home</a></li>
+            <li>
+                <a href="projects.html" data-lang-key="nav_projects">Projects</a>
+                <ul>
+                    <li class="dropdown-item"><img alt="pacman" class="projects-icon" src="images/Pacman.svg">
+                        <a href="pacmanremake.html">Pacman-remake</a>
+                    </li>
+                    <li class="dropdown-item"><a href="twinstick.html"><img alt="twinnstick" class="projects-icon" src="images/joystick.svg">Twinnstick</a></li>
+                    <li class="dropdown-item"><img alt="galaga" class="projects-icon" src="images/Galaga.ico"><a href="galaga.html">Galaga</a></li>
+                    <li class="dropdown-item"><img alt="Particle" class="projects-icon" src="images/ParticleIcon.jpg"><a href="particleeffect.html">Particle effect</a></li>
+                    <li class="dropdown-item"><img alt="TheWorks" class="projects-icon" src="images/placeholder.jpg"><a href="theworks.html">TheWorks</a></li>
+                </ul>
+            </li>
+            <li><a href="music.html" data-lang-key="nav_music">Music</a></li>
+            <li><a href="#skills" data-lang-key="nav_skills">Skills</a></li>
+            <li>
+                <a href="#" data-lang-key="nav_language">Language</a>
+                <ul>
+                    <li><a href="#" onclick="setLanguage('en')">English</a></li>
+                    <li><a href="#" onclick="setLanguage('nl')">Nederlands</a></li>
+                    <li><a href="#" onclick="setLanguage('de')">Deutsch</a></li>
+                    <li><a href="#" onclick="setLanguage('tr')">Türkçe</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
     <div id="header">
-        <nav id="nav">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="music.html">Music</a></li>
-            </ul>
-        </nav>
 
-        <!--        <div class="profile-container">-->
-        <!--            <div class="profile-text">-->
-        <!--                <h1>Kenan</h1>-->
-        <!--                <hr/>-->
-        <!--                <p id="age">20 years old. Game developer with creative and technical skills. Living in Utrecht, where I study at the Grafisch Lyceum Utrecht. As a team player with a thoughtful and eager-to-learn attitude, I enjoy working collaboratively and constantly seek new insights. Thanks to my ability to think 'out of the box,' I find innovative solutions to complex challenges.</p>-->
-        <!--            </div>-->
-        <!--            <div class="profile-image">-->
-
-        <!--            </div>-->
-        <!--        </div>-->
-
-        <div class="profile-container" style="display: flex; align-items: center; gap: 2rem; padding: 2rem;">
-            <div class="profile-text" style="max-width: 60%;">
-                <h1 style="font-size: 2.5rem; font-weight: bold;">Kenan Özbakan</h1>
-                <p style="font-size: 1.25rem; line-height: 1.5;">Game developer met creatieve en technische
-                    vaardigheden. Woonachtig in Utrecht waar ik studeer bij het Grafisch Lyceum Utrecht. Als teamplayer
-                    met een bedachtzame en leergierige houding werk ik graag samen en zoek ik voortdurend naar nieuwe
-                    inzichten. Dankzij mijn vermogen om 'out of the box' te denken, vind ik innovatieve oplossingen voor
-                    complexe uitdagingen.</p>
-                <div style="margin-top: 1rem;">
-                    <button style="background-color: #007bff; color: #fff; border: none; padding: 0.75rem 1.5rem; margin-right: 1rem; border-radius: 0.25rem; cursor: pointer;">
-                        Kijk naar projecten
-                    </button>
-                    <button style="background-color: #6c757d; color: #fff; border: none; padding: 0.75rem 1.5rem; border-radius: 0.25rem; cursor: pointer;">
-                        About me
-                    </button>
+        <div class="inner">
+            <header class="hero-container">
+                <div class="hero-text">
+                    <h1 class="animated-text"><span>K</span><span>e</span><span>n</span><span>a</span><span>n</span></h1>
+                    <hr/>
+                    <p data-lang-key="hero_bio">
+                        <span id="age-number"></span> years old.<br>
+                        Game developer with creative and technical skills.<br>
+                        Living in Utrecht, where I study at the Grafisch Lyceum Utrecht.<br>
+                        As a team player with a thoughtful and eager-to-learn attitude, I enjoy working collaboratively and constantly seek new insights.<br>
+                        Thanks to my ability to think 'out of the box,' I find innovative solutions to complex challenges.
+                    </p>
                 </div>
+                <div id="heroImage"></div>
+            </header>
+        </div>
+    </div>
+
+    <section class="wrapper style2" id="skills">
+        <div class="container">
+
+            <div class="skills-title">
+                <div class="skills-heading" data-lang-key="skills_heading">Skills</div>
+                <div class="skills-subheading" data-lang-key="skills_subheading">Here are some of the skills I have developed so far!</div>
             </div>
 
-        </div>
+            <div class="skills-list">
 
-        <script src=" assets/js/jquery.min.js"></script>
-        <script src="assets/js/jquery.dropotron.min.js"></script>
-        <script src="assets/js/jquery.scrolly.min.js"></script>
-        <script src="assets/js/jquery.scrollex.min.js"></script>
-        <script src="assets/js/browser.min.js"></script>
-        <script src="assets/js/breakpoints.min.js"></script>
-        <script src="assets/js/util.js"></script>
-        <script src="assets/js/main.js"></script>
-        <script src="assets/js/moment.js"></script>
+                <div class="skill animate-on-scroll">
+                    <div class="skill-heading" data-lang-key="skills_prog">Programming Languages</div>
+                    <ul>
+                        <li><img alt="C# icon" class="skill-icon" src="images/c--4.svg">C#</li>
+                        <li><a href="theworks.html"><img alt="Dart icon" class="skill-icon" src="images/dart-svgrepo-com.svg">Dart</a></li>
+                        <li><img alt="HTML icon" class="skill-icon" src="images/html-1.svg">HTML</li>
+                        <li><img alt="CSS icon" class="skill-icon" src="images/css-3.svg">CSS</li>
+                    </ul>
+                </div>
+                <div class="skill animate-on-scroll">
+                    <div class="skill-heading" data-lang-key="skills_game">Game Development</div>
+
+                    <ul>
+                        <li><a href="galaga.html"><img alt="Unity logo" class="skill-icon" src="images/unity3d-icon.svg">Unity 2D</a></li>
+
+                        <li><a href="projects.html"><img alt="Unity logo" class="skill-icon"
+                                                         src="images/unity3d-icon.svg">Unity 3D</a></li>
+
+                        <li><img alt="Unity logo" class="skill-icon" src="images/unity3d-icon.svg">Unity XR</li>
+                    </ul>
+                </div>
+
+                <div class="skill animate-on-scroll" style="animation-delay: 1.2s;">
+                    <div class="skill-heading" data-lang-key="skills_team">Teamwork</div>
+                    <ul>
+                        <li><a href="https://github.com/KMOzk"><img alt="Github logo" class="skill-icon"
+                                                                    src="images/github-icon-1.svg">Github</a></li>
+                        <li><img alt="Trello logo" class="skill-icon" src="images/trello.svg">Trello/ Scrum</li>
+                        <li><img alt="Trello logo" class="skill-icon" src="images/trello.svg">Agile</li>
+                    </ul>
+                </div>
+                <div class="skill animate-on-scroll" style="animation-delay: 1.2s;">
+                    <div class="skill-heading" data-lang-key="skills_design">Design</div>
+                    <ul>
+                        <li><img alt="Photoshop logo" class="skill-icon" src="images/photoshop.svg">Photoshop</li>
+                        <li><img alt="Premiere pro logo" class="skill-icon" src="images/premiere-pro-cc.svg">Premiere
+                            pro
+                        </li>
+                        <li><img alt="Blender logo" class="skill-icon" src="images/blender-1.svg">Blender</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="carousel">
+        <section id="banner">
+            <header>
+                <h2 data-lang-key="projects_heading">Projects highlights</h2>
+                <p data-lang-key="projects_intro">
+                    Feel free to look around here or on <a href="https://kenan38.itch.io/">itch</a>.
+                </p>
+            </header>
+        </section>
+        <div class="reel">
+
+            <article>
+                <a class="image featured" href="music.html"><img alt="" src="images/musicicon.jpg"/></a>
+                <h2>
+                    <a href="music.html">Music</a>
+                </h2>
+                <p>A couple musical piece's composed in my room :) (or at school, of course).</p>
+            </article>
+
+            <article>
+                <a class="image featured" href="projects.html"><img alt="" src="images/unitylogo.jpg"/></a>
+                <header>
+                    <h3><a href="projects.html">Projects</a></h3>
+                </header>
+                <p>All the projects I have done in Unity so far.</p>
+            </article>
+
+            <article>
+                <a class="image featured" href="pacmanremake.html"><img alt="" src="images/pacman.jpg"/></a>
+                <header>
+                    <h3><a href="pacmanremake.html">Pacman-remake</a></h3>
+                </header>
+                <p>I made packman in unity and posted it on <a href="https://kenan38.itch.io/pacman-remake">itch.</a>
+                </p>
+            </article>
+
+            <article>
+                <a class="image featured" href="particleeffect.html"><img alt="" src="images/particles.jpg"/></a>
+                <header>
+                    <h3><a href="particleeffect.html">Particle Effects</a></h3>
+                </header>
+                <p> Want to see some particles in action?</p>
+            </article>
+
+            <article>
+                <a class="image featured black-bg" href="galaga.html"><img alt="" src="images/Galaga.ico"/></a>
+                <header>
+                    <h3><a href="particleeffect.html">Galaga Remake</a></h3>
+                </header>
+                <p> Galaga in a new light play it on <a href="https://kenan38.itch.io/galaga-remake">itch!</a></p>
+            </article>
+
+            <article>
+                <a class="image featured" href="theworks.html"><img alt="" src="images/placeholder.jpg"/></a>
+                <header>
+                    <h3><a href="theworks.html" data-lang-key="project_theworks_title">TheWorks</a></h3>
+                </header>
+                <p data-lang-key="project_theworks_desc">A Flutter based project where the goal is to match students with companies to get an internship.</p>
+            </article>
+        </div>
+    </section>
+
+    <div id="footer">
+        <hr/>
+        <header>
+            <h2 data-lang-key="contact_heading">Contact</h2>
+            <p data-lang-key="contact_text">
+                If you have questions, feel free to reach out! <br>
+                I am always reachable via my e-mail kenan[dot]ozbakan[at]com <br> or on
+                <a href="https://kenansocial.carrd.co/">another social network I am on.</a>
+            </p>
+        </header>
+        <section class="contact">
+            <ul class="icons custom-socials">
+                <li><a class="icon brands fa-instagram" href="https://www.instagram.com/kenan.3_8/"><span
+                        class="label">Instagram</span></a></li>
+                <li><a class="icon brands fa-linkedin-in"
+                       href="https://www.linkedin.com/in/kenan%C3%B6zbakan/"><span class="label">Linkedin</span></a>
+                </li>
+                <li><a class="icon brands fa-dribbble" href="https://kenansocial.carrd.co/"><span
+                        class="label">All socials in 1 place</span></a>
+                </li>
+            </ul>
+        </section>
+
+        <div class="copyright">
+            <ul class="menu">
+                <li>&copy; Kenan Özbakan. All rights reserved.</li>
+                <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.dropotron.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/lang.js"></script>
+
 
 </body>
 </html>

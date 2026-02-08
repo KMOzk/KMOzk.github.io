@@ -2517,10 +2517,18 @@ nav.socials > ul > li > a:hover {
 /* Banner */
 
 #banner {
-    background: #fff;
+    background: #000;
     text-align: center;
     padding: 4.5em 0 4.5em 0;
     margin-bottom: 0;
+}
+
+#banner h2, #banner p {
+    color: #fff;
+}
+
+#banner h2 a, #banner p a {
+    color: #ef8376;
 }
 
 #banner .socials {
@@ -2597,6 +2605,11 @@ nav.socials > ul > li > a:hover {
     color: #fff;
 }
 
+#footer hr {
+    top: 1em;
+    margin-bottom: 2em;
+}
+
 #footer .icon.circled {
     background: #fff;
     color: #2b252c;
@@ -2642,6 +2655,7 @@ nav.socials > ul > li > a:hover {
     overflow: hidden;
     padding: 2em 0 2em 0;
     margin-bottom: 0;
+    background: #000;
 }
 
 .carousel .forward, .carousel .backward {
@@ -2724,7 +2738,7 @@ nav.socials > ul > li > a:hover {
 .carousel article {
     display: inline-block;
     width: 18em;
-    background: #fff;
+    background: #111;
     text-align: center;
     padding: 0 1em 3em 1em;
     margin: 0 2em 0 0;
@@ -2734,6 +2748,11 @@ nav.socials > ul > li > a:hover {
     -webkit-transition: opacity 0.75s ease-in-out;
     -ms-transition: opacity 0.75s ease-in-out;
     transition: opacity 0.75s ease-in-out;
+    border: 1px solid #333;
+}
+
+.carousel article h2 a, .carousel article h3 a {
+    color: #fff;
 }
 
 .carousel article.loading {
@@ -2751,6 +2770,7 @@ nav.socials > ul > li > a:hover {
 
 .carousel article p {
     text-align: center;
+    color: #bbb;
 }
 
 /* Wide */
@@ -2910,7 +2930,7 @@ nav.socials > ul > li > a:hover {
 .skill:hover {
     transform: translateY(-10px) scale(1.03);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
-    animation: paused;
+    animation-play-state: paused;
 }
 
 .skill .skill-heading {
@@ -3391,8 +3411,7 @@ nav.socials > ul > li > a:hover {
 
     /* Footer */
     #footer {
-        padding-left: 1em;
-        padding-right: 1em;
+        padding: 1em 2em 4em 2em;
     }
 
     /* Carousel */

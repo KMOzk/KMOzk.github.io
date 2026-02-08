@@ -1,0 +1,22 @@
+/* Custom Socials Styling */
+.custom-socials {
+    background: transparent !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+}
+
+/* Optional: Adjust icon spacing or size if needed since container is gone */
+.custom-socials li {
+    margin: 0 1em !important;
+}
+
+.custom-socials li a {
+    /* Ensure icons themselves stand out */
+    transition: transform 0.2s ease;
+}
+
+.custom-socials li a:hover {
+    transform: scale(1.2);
+    color: #ef8376; /* Match theme hover color */
+}

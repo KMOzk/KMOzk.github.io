@@ -1,150 +1,133 @@
-<!DOCTYPE HTML> <!--Helios by HTML5 UPhtml5up.net | @ajlkn	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)-->
+<!DOCTYPE HTML>
 <html lang="en">
 <head>
-    <title>Music</title>
+    <title>Music | Kenan Özbakan</title>
     <link href="images/musicicon.jpg" rel="icon">
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport"/>
+
+    <!-- CSS -->
     <link href="assets/css/main.css" rel="stylesheet"/>
-    <link href="assets/css/music.css" rel="stylesheet"/>
+    <link href="assets/css/music-redesign.css" rel="stylesheet"/>
+    <link href="assets/css/music.css" rel="stylesheet"/> <!-- Keeping original music.css for player logic compatibility if needed -->
+
     <noscript>
         <link href="assets/css/noscript.css" rel="stylesheet"/>
     </noscript>
-
 </head>
 
-<body class="no-sidebar is-preload">
-<div id="page-wrapper">
+<body class="music-redesign">
 
-    <div id="header">
+<!-- Header & Nav -->
+<div id="header-music">
+    <nav id="nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="music.html">Music</a></li>
+        </ul>
+    </nav>
+</div>
 
-        <div class="inner">
-            <header>
-                <h1><a href="index.html" id="logo">Music</a></h1>
-            </header>
+<!-- Hero Section -->
+<section class="hero-section">
+    <h1 class="hero-title">A collection of sound</h1>
+    <p class="hero-subtitle">
+        Compositions, Sound Design, and Audio Engineering.
+    </p>
+</section>
+
+<div class="content-container">
+
+    <!-- Video Section -->
+    <section class="music-section">
+        <div class="section-header">
+            <h2>Compositions</h2>
+        </div>
+        <div class="video-showcase">
+            <iframe allowfullscreen="allowfullscreen"
+                    height="450"
+                    src="https://www.youtube.com/embed/videoseries?si=F-P9IEWtkKjmuFtj&amp;list=PLc8a2-3writAiVSNR91ZWlzDRecbIQcFv"
+                    style="border:none;"
+                    title="YouTube video player"
+                    width="800"></iframe>
+        </div>
+        <p style="text-align: center; margin-top: 1em; color: #888;">Selected uploads from my YouTube channel.</p>
+    </section>
+
+    <!-- Audio Production Section -->
+    <section class="music-section">
+        <div class="section-header">
+            <h2>Production & Sound Design</h2>
         </div>
 
-        <nav id="nav">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="music.html">Music</a></li>
-            </ul>
-        </nav>
-
-
-    </div>
-
-    <div class="wrapper style1">
-
-        <div class="container">
-
-            <article class="content" id="main">
-                <p>
-                    <iframe allowfullscreen="allowfullscreen"
-                            height="315"
-                            src="https://www.youtube.com/embed/videoseries?si=F-P9IEWtkKjmuFtj&amp;list=PLc8a2-3writAiVSNR91ZWlzDRecbIQcFv" title="YouTube video player" width="500"></iframe>
-                </p>
-                <p>
-                    Some of the music I uploaded to youtube.
-                </p>
-                <section>
-                    <header>
-                        <h3>Abelton 11</h3>
-                    </header>
-                    <p>
-                        I use Abelton to produce the music I combine it with a Alesis VI25
-                    </p>
-                    <p>
-                        <audio controls>
-                            <source src="assets/css/audio/acceptance.wav" type="audio/wav">
-                        </audio>
-                    </p>
-                </section>
-
-                <section>
-                    <header>
-                        <h3>Work progress</h3>
-                    </header>
-                    <p>
-                        At GLU there is an audio recording booth you can use, and I used it to record SFX sounds.
-                    </p>
-
-                    <!-- Images in a flex container -->
-                    <div class="image-container">
-                        <article>
-                            <a class="image featured"><img alt="Microphone recording" src="images/StudioMic.jpg"/></a>
-                            <header>
-                                <h3>Microphone recording</h3>
-                            </header>
-                        </article>
-
-                        <article>
-                            <a class="image featured"><img alt="Setting up the recording" src="images/studio2.jpg"/></a>
-                            <header>
-                                <h3>Setting up the recording</h3>
-                            </header>
-                        </article>
-                    </div>
-                </section>
-            </article>
-            <hr/>
-
-        </div>
-
-    </div>
-
-    <div id="footer">
-        <div class="container">
-            <hr/>
-            <div class="row">
-                <div class="col-12">
-
-                    <section class="contact">
-                        <header>
-                            <h3>Want to be kept updated? Check out the socials!</h3>
-                        </header>
-                        <ul class="icons">
-                            <li><a class="icon brands fa-instagram" href="https://www.instagram.com/kenan.3_8/"><span
-                                    class="label">Instagram</span></a></li>
-                            <li><a class="icon brands fa-linkedin-in"
-                                   href="https://www.linkedin.com/in/kenan%C3%B6zbakan/"><span class="label">Linkedin</span></a></li>
-                            <li><a class="icon brands fa-dribbble" href="https://kenansocial.carrd.co/"><span
-                                    class="label">All socials in 1 place</span></a></li>
-                        </ul>
-
-                    </section>
-
-                    <div class="copyright">
-                        <ul class="menu">
-                            <li>&copy; Kenan Özbakan. All rights reserved.</li>
-                            <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
-                        </ul>
-                    </div>
-
-                </div>
-
+        <div class="audio-showcase">
+            <h3>Ableton Live 11 Workflow</h3>
+            <p>Produced using Ableton Live 11 paired with an Alesis VI25 controller.</p>
+            <div class="audio-track">
+                <audio controls>
+                    <source src="assets/css/audio/acceptance.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                </audio>
             </div>
         </div>
-    </div>
-    <div class="floating-audio-player" id="draggable-player">
-        <div class="drag-handle" id="player-handle">⋮⋮ Drag me</div>
-        <audio controls id="audio-player">
-            <source id="audio-source" src="assets/music/MainMenuMusicShortburn.wav" type="audio/wav">
-            Your browser does not support the audio element.
-        </audio>
-        <div id="current-track">Now Playing: Song 1</div>
-        <div class="playlist">
-            <ul>
-                <li onclick="playSong(0)">Song 1</li>
-                <li onclick="playSong(1)">Song 2</li>
-                <li onclick="playSong(2)">Song 3</li>
-            </ul>
-        </div>
-    </div>
+    </section>
 
+    <!-- Studio Section -->
+    <section class="music-section">
+        <div class="section-header">
+            <h2>Studio & Recording</h2>
+        </div>
+        <p style="margin-bottom: 2em; color: #ccc;">Behind the scenes at the Grafisch Lyceum Utrecht audio recording booth.</p>
+
+        <div class="studio-grid">
+            <article class="photo-card">
+                <img alt="Microphone recording" src="images/StudioMic.jpg"/>
+                <header>
+                    <h3>Microphone Setup</h3>
+                </header>
+            </article>
+
+            <article class="photo-card">
+                <img alt="Setting up the recording" src="images/studio2.jpg"/>
+                <header>
+                    <h3>Recording Session</h3>
+                </header>
+            </article>
+        </div>
+    </section>
 
 </div>
+
+<!-- Footer -->
+<div id="footer">
+    <ul class="social-icons">
+        <li><a class="icon brands fa-instagram" href="https://www.instagram.com/kenan.3_8/"><span class="label">Instagram</span></a></li>
+        <li><a class="icon brands fa-linkedin-in" href="https://www.linkedin.com/in/kenan%C3%B6zbakan/"><span class="label">Linkedin</span></a></li>
+        <li><a class="icon brands fa-dribbble" href="https://kenansocial.carrd.co/"><span class="label">All socials</span></a></li>
+    </ul>
+    <div class="copyright">
+        &copy; Kenan Özbakan. All rights reserved. | Design: <a href="https://html5up.net">HTML5 UP</a>
+    </div>
+</div>
+
+<!-- Floating Player -->
+<div class="floating-audio-player" id="draggable-player">
+    <div class="drag-handle" id="player-handle">⋮⋮ Music Player</div>
+    <audio controls id="audio-player">
+        <source id="audio-source" src="assets/music/MainMenuMusicShortburn.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio>
+    <div id="current-track">Now Playing: Select a track</div>
+    <div class="playlist">
+        <ul>
+            <li onclick="playSong(0)">MainMenuMusicShortburn</li>
+            <li onclick="playSong(1)">Starts</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Scripts -->
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/jquery.dropotron.min.js"></script>
 <script src="assets/js/jquery.scrolly.min.js"></script>

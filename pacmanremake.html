@@ -1,69 +1,92 @@
-<!DOCTYPE HTML><!--Helios by HTML5 UP	html5up.net | @ajlkn	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)-->
-<html lang="en">
+<!DOCTYPE HTML>
+<html lang="nl">
 <head>
-    <title>Pacman Remake - Play Online Pacman Clone | Kenan Özbakan</title>
+    <title>Pacman Remake | Kenan Özbakan</title>
     <link href="images/Pacman.svg" rel="icon">
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
-    <meta name="description" content="Experience a modern Pacman remake developed by Kenan Özbakan. Play online, explore projects, and learn about the game's development.">
-    <meta name="keywords" content="Pacman Remake, Pacman clone, play Pacman online, Unity projects, game development, Kenan Özbakan, Unity games">
+    <meta name="description" content="Ervaar een moderne Pacman-remake ontwikkeld door Kenan Özbakan. Bekijk de mechanics, AI en animaties.">
 
-    <link rel="stylesheet" href="assets/css/main.css"/>
-    <link rel="stylesheet" href="assets/css/prism.css"/>
+    <!-- CSS -->
+    <link href="assets/css/main.css" rel="stylesheet"/>
+    <link href="assets/css/pacman-redesign.css" rel="stylesheet"/>
+    <link href="assets/css/prism.css" rel="stylesheet"/>
+    
     <noscript>
-        <link rel="stylesheet" href="assets/css/noscript.css"/>
+        <link href="assets/css/noscript.css" rel="stylesheet"/>
     </noscript>
 </head>
 
-<body class="no-sidebar is-preload">
-<div id="page-wrapper">
+<body class="pacman-redesign">
 
-    <div id="header">
-        <div class="inner">
-            <header>
-                <h1>Packman - Remake</h1>
-            </header>
+    <!-- Header & Nav -->
+    <nav id="nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li>
+                <a href="projects.html">Projects</a>
+                <ul>
+                    <li class="dropdown-item"><img alt="pacman" class="projects-icon" src="images/Pacman.svg">
+                        <a href="pacmanremake.html">Pacman-remake</a>
+                    </li>
+                    <li class="dropdown-item"><a href="twinstick.html"><img alt="twinnstick" class="projects-icon" src="images/joystick.svg">Twinnstick</a></li>
+                    <li class="dropdown-item"><img alt="galaga" class="projects-icon" src="images/Galaga.ico"><a href="galaga.html">Galaga</a></li>
+                    <li class="dropdown-item"><img alt="Particle" class="projects-icon" src="images/ParticleIcon.jpg"><a href="particleeffect.html">Particle effect</a></li>
+                    <li class="dropdown-item"><img alt="TheWorks" class="projects-icon" src="images/placeholder.jpg"><a href="theworks.html">TheWorks</a></li>
+                    <li class="dropdown-item"><img alt="Teleportation" class="projects-icon" src="images/faviicon.ico"><a href="teleportation.html">Teleportation</a></li>
+                </ul>
+            </li>
+            <li><a href="music.html">Music</a></li>
+            <li><a href="index.html#skills">Skills</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <h1 class="hero-title">Pacman Remake</h1>
+        <p class="hero-subtitle">
+            Een moderne hercreatie van de arcade klassieker, gebouwd in Unity.
+        </p>
+    </section>
+
+    <!-- Game Container -->
+    <section class="game-container">
+        <div class="game-frame">
+            <iframe src="https://itch.io/embed-upload/9646689?color=000000" allowfullscreen="" width="1000" height="600">
+                <a href="https://kenan38.itch.io/pacman-remake">Play Pacman Remake on itch.io</a>
+            </iframe>
         </div>
+    </section>
 
-        <nav id="nav">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="music.html">Music</a></li>
-            </ul>
-        </nav>
+    <!-- Table of Contents -->
+    <nav class="toc-section">
+        <div class="toc-title">Navigatie</div>
+        <ul class="toc-links">
+            <li><a href="#about">Over het Project</a></li>
+            <li><a href="#movement">Movement</a></li>
+            <li><a href="#collectibles">Collectibles</a></li>
+            <li><a href="#health">Player Health</a></li>
+            <li><a href="#enemy-manager">Enemy Manager</a></li>
+            <li><a href="#enemy-movement">Enemy Movement</a></li>
+            <li><a href="#enemy-attack">Enemy Attack</a></li>
+            <li><a href="#animation">Animatie</a></li>
+        </ul>
+    </nav>
 
+    <!-- Content Sections -->
+    <div id="about" class="content-section">
+        <h2>Over het Project</h2>
+        <p>
+            Ik werd uitgedaagd door mijn vrienden om zo snel mogelijk een Pacman-kloon te maken. Hoewel er nog een paar functies ontbreken, is de basis van de gameplay volledig functioneel!
+        </p>
     </div>
 
-    <div class="wrapper style1">
-
-        <article class="container special">
-            <header>
-                <h2>Itch</h2>
-                <p>
-                    <iframe src="https://itch.io/embed-upload/9646689?color=000000" allowfullscreen=""
-                            width="1000" height="600"><a href="https://kenan38.itch.io/pacman-remake">Play Pacman Remake on
-                        itch.io</a></iframe>
-                    <br>
-                </p>
-            </header>
-
-        </article>
-        <div class="container">
-            <article id="main" class="special">
-                <p>
-                    I was challenged by my friends to create a Pacman clone as quickly as possible. Although a few features are still missing, they will be added soon!
-                    Want to know more about Pacman? it is an iconic video game originally developed by Namco. Learn more about its history on <a href="https://en.wikipedia.org/wiki/Pac-Man" target="_blank" rel="noopener">Wikipedia</a>.
-
-                </p>
-                <section>
-                    <header>
-                        <h2>Player</h2>
-                    </header>
-                    <p>
-                        For player movement, I used Rigidbody-based movement and the new Player Input system.
-                    <pre><code class="language-csharp scrollable-code">
-using UnityEngine;
+    <div id="movement" class="content-section">
+        <h2>Player Movement</h2>
+        <p>
+            De KeyInput zijn: WASD, pijltjes en een joystick. Ik gebruik Unity's nieuwe Input System in combinatie met een Rigidbody voor soepele bewegingen.
+        </p>
+        <pre><code class="language-csharp">using UnityEngine;
 using UnityEngine.InputSystem;
 
 [SelectionBase]
@@ -76,7 +99,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _PlayerSpeed;
 
     private void Start()
-    {
+    {      
         _PlayerInput = GetComponent&lt;PlayerInput&gt;();
         _MoveAction = _PlayerInput.actions.FindAction("Move");
 
@@ -91,18 +114,18 @@ public class PlayerMovement : MonoBehaviour
     private void CalculateMovement()
     {
         Vector2 direction = _MoveAction.ReadValue&lt;Vector2&gt;().normalized;
-
-
         Vector3 movement = new Vector3(direction.x, 0f, direction.y);
-
         _Rigidbody.velocity = movement * _PlayerSpeed;
     }
 }</code></pre>
-                    To handle collectible pickups, I used the OnTriggerEnter method to detect collisions with collectible objects.
+    </div>
 
-
-                    <pre><code class="language-csharp scrollable-code">
-using UnityEngine;
+    <div id="collectibles" class="content-section">
+        <h2>Collectibles</h2>
+        <p>
+            Om ervoor te zorgen dat we de pellets kunnen eten is er een simpel script voor geschreven.
+        </p>
+        <pre><code class="language-csharp">using UnityEngine;
 
 public class CollectibleHandler : MonoBehaviour
 {
@@ -111,24 +134,74 @@ public class CollectibleHandler : MonoBehaviour
         if (other.CompareTag("Coin"))
         {
             GameManager.Instance.GetPointValue(other.GetComponent&lt;CollectibleObject&gt;().GetPoints());
-
             Destroy(other.gameObject);
         }
     }
 }</code></pre>
+    </div>
 
-                    </p>
-                </section>
+    <div id="health" class="content-section">
+        <h2>Player Health</h2>
+        <p>
+            Dit script laat zien hoe ik de health van de speler implementeer en communiceer met de GameManager.
+        </p>
+        <pre><code class="language-csharp">using UnityEngine;
 
-                <section>
-                    <header>
-                        <h2>Enemy</h2>
-                    </header>
-                    <p>
-                        For enemy movement, I used Unity's NavMesh component. The EnemyManager script controls when the ghosts can move. I added the ghosts to an Enemies array and looped through each of them to enable their NavMeshAgent.
-                    </p>
-                    <pre><code class="language-csharp scrollable-code">
-using MyBox;
+public class PlayerHealth : MonoBehaviour
+{
+    public void ChangeHealth(int Damage)
+    {
+        GameManager.Instance.PlayerHasDied = true;
+        GameManager.Instance.Lives -= Damage;
+        GameManager.Instance.HandleChangeHealth(this.gameObject);
+    }
+}</code></pre>
+    </div>
+
+    <div id="enemy-manager" class="content-section">
+        <h2>Enemy Manager</h2>
+        <p>
+            Voor de enemies heb ik een EnemyManager die ze beheert bij het begin van het spel, inclusief een start-vertraging.
+        </p>
+        <pre><code class="language-csharp">using MyBox;
+using UnityEngine;
+using UnityEngine.AI;
+using System.Collections;
+
+public class EnemyManager : Singleton&lt;EnemyManager&gt;
+{
+    public float EnemyWaitTime;
+    public GameObject[] Enemies;
+
+    private void Awake()
+    {
+        InitializeSingleton(false);
+        StartSendingEnemies();
+    }
+
+    private void StartSendingEnemies()
+    {
+        StartCoroutine(SendEnemiesWithDelay());
+    }
+
+    private IEnumerator SendEnemiesWithDelay()
+    {
+        foreach (GameObject enemy in Enemies)
+        {
+            yield return new WaitForSeconds(EnemyWaitTime);
+            enemy.GetComponent&lt;NavMeshAgent&gt;().enabled  = true;
+            enemy.GetComponent&lt;EnemyMovement&gt;().CanMove = true;
+        }
+    }
+}</code></pre>
+    </div>
+
+    <div id="enemy-movement" class="content-section">
+        <h2>Enemy Movement</h2>
+        <p>
+            De beweging van de spoken wordt aangestuurd door Unity's NavMesh systeem om het doel (de speler) te vinden.
+        </p>
+        <pre><code class="language-csharp">using MyBox;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -153,7 +226,7 @@ public class EnemyMovement : MonoBehaviour
         if (CanMove) GoToPlayer();
     }
 
-    public void GoToPlayer() => GoToDestination(_Player.transform);
+    public void GoToPlayer() =&gt; GoToDestination(_Player.transform);
 
     private void FindPlayerByTag(string tag)
     {
@@ -164,53 +237,105 @@ public class EnemyMovement : MonoBehaviour
     {
         _EnemyNavmeshAgent.SetDestination(destination.position);
     }
-}
-</code></pre>
-                </section>
-            </article>
-        </div>
+}</code></pre>
     </div>
 
-    <div id="footer">
-            <hr/>
-            <div class="row">
-                <div class="col-12">
+    <div id="enemy-attack" class="content-section">
+        <h2>Enemy Attack</h2>
+        <p>
+            Wanneer een spook de speler raakt, wordt er schade aangericht via de PlayerHealth component.
+        </p>
+        <pre><code class="language-csharp">using UnityEngine;
+using System.Collections;
 
-                    <section class="contact">
-                        <header>
-                            <h3>Want to be kept updated? Check out the socials!</h3>
-                        </header>
-                        <ul class="icons">
-                            <li><a href="https://www.instagram.com/kenan.3_8/"
-                                   class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-                            <li><a href="https://www.linkedin.com/in/kenan%C3%B6zbakan/"
-                                   class="icon brands fa-linkedin-in"><span class="label">Linkedin</span></a></li>
-                            <li><a href="https://kenansocial.carrd.co/" class="icon brands fa-dribbble"><span
-                                    class="label">All socials in 1 place</span></a></li>
-                        </ul>
-                    </section>
+public class EnemyAttack : MonoBehaviour
+{
+    private bool _Attacked = false;
+    [SerializeField] private float _AttackCooldown = 0.5f;
+  
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player") &amp;&amp; _Attacked == false)
+        {
+            _Attacked = true;
+            other.GetComponent&lt;PlayerHealth&gt;().ChangeHealth(1);
+            StartCoroutine(ResetAttackCoroutine());
+        }
+    }
 
-                    <div class="copyright">
-                        <ul class="menu">
-                            <li>&copy; Kenan Özbakan. All rights reserved.</li>
-                            <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
-                        </ul>
-                    </div>
-                </div>
+    private IEnumerator ResetAttackCoroutine()
+    {
+        yield return new WaitForSeconds(_AttackCooldown);
+        _Attacked = false;
+    }
+}</code></pre>
+    </div>
+
+    <div id="animation" class="content-section">
+        <h2>Animatie</h2>
+        <p>
+            Voor de intro sequentie gebruik ik 2 verschillende animaties wat de positie van de spoken en speler aanpast.
+        </p>
+        <div class="animation-grid">
+            <div class="image-container">
+                <img src="images/pac_playerKeyFramespng.png" alt="Player Animation Keyframes">
+            </div>
+            <div class="image-container">
+                <img src="images/pac_EnemyKeyframes.png" alt="Enemy Animation Keyframes">
             </div>
         </div>
     </div>
-</div>
 
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/jquery.dropotron.min.js"></script>
-<script src="assets/js/jquery.scrolly.min.js"></script>
-<script src="assets/js/jquery.scrollex.min.js"></script>
-<script src="assets/js/browser.min.js"></script>
-<script src="assets/js/breakpoints.min.js"></script>
-<script src="assets/js/util.js"></script>
-<script src="assets/js/main.js"></script>
-<script src="assets/js/prism.js"></script>
+    <!-- Footer -->
+    <div id="footer">
+        <ul class="social-icons">
+            <li><a class="icon brands fa-instagram" href="https://www.instagram.com/kenan.3_8/"><span class="label">Instagram</span></a></li>
+            <li><a class="icon brands fa-linkedin-in" href="https://www.linkedin.com/in/kenan%C3%B6zbakan/"><span class="label">Linkedin</span></a></li>
+            <li><a class="icon brands fa-dribbble" href="https://kenansocial.carrd.co/"><span class="label">All socials</span></a></li>
+        </ul>
+        <div class="copyright">
+            &copy; Kenan Özbakan. Alle rechten voorbehouden. | Design: <a href="https://html5up.net">HTML5 UP</a>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.dropotron.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/prism.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '-30% 0px -70% 0px',
+                threshold: 0
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        document.querySelectorAll('.toc-links a').forEach(link => {
+                            link.classList.remove('active');
+                        });
+                        const activeLink = document.querySelector(`.toc-links a[href="#${entry.target.id}"]`);
+                        if (activeLink) {
+                            activeLink.classList.add('active');
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.content-section').forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
 
 </body>
 </html>
