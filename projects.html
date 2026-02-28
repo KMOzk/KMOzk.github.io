@@ -8,6 +8,7 @@
     <meta content="Kenan Özbakan, game development, Unity projects, Pacman remake, Twinstick shooter, particle effects, game programming portfolio" name="keywords">
     <link href="images/unitylogo.jpg" rel="icon">
     <link href="assets/css/main.css" rel="stylesheet">
+    <link href="assets/css/projects-redesign.css" rel="stylesheet">
     <noscript>
         <link href="assets/css/noscript.css" rel="stylesheet">
     </noscript>
@@ -22,14 +23,16 @@
                 <li>
                     <a href="projects.html">Projects</a>
                     <ul>
-                        <li class="dropdown-item"><img alt="pacman" class="projects-icon" src="images/Pacman.svg">
+                        <li class="dropdown-item"><img alt="pacman" class="projects-icon" src="images/logos/Pacman.svg">
                             <a href="pacmanremake.html">Pacman-remake</a>
                         </li>
-                        <li class="dropdown-item"><a href="twinstick.html"><img alt="twinnstick" class="projects-icon" src="images/joystick.svg">Twinnstick</a></li>
-                        <li class="dropdown-item"><img alt="galaga" class="projects-icon" src="images/Galaga.ico"><a href="galaga.html">Galaga</a></li>
-                        <li class="dropdown-item"><img alt="Particle" class="projects-icon" src="images/ParticleIcon.jpg"><a href="particleeffect.html">Particle effect</a></li>
-                        <li class="dropdown-item"><img alt="TheWorks" class="projects-icon" src="images/placeholder.jpg"><a href="theworks.html">TheWorks</a></li>
+                        <li class="dropdown-item"><a href="twinstick.html"><img alt="twinnstick" class="projects-icon" src="images/logos/joystick.svg">Twinnstick</a></li>
+                        <li class="dropdown-item"><img alt="galaga" class="projects-icon" src="images/logos/Galaga.ico"><a href="galaga.html">Galaga</a></li>
+                        <li class="dropdown-item"><img alt="Particle" class="projects-icon" src="images/logos/ParticleIcon.jpg"><a href="particleeffect.html">Particle effect</a></li>
+                        <li class="dropdown-item"><img alt="TheWorks" class="projects-icon" src="images/logos/placeholder.jpg"><a href="theworks.html">TheWorks</a></li>
                         <li class="dropdown-item"><img alt="Teleportation" class="projects-icon" src="images/faviicon.ico"><a href="teleportation.html">Teleportation</a></li>
+                        <li class="dropdown-item"><img alt="TowerDefense" class="projects-icon" src="images/faviicon.ico"><a href="towerdefense.html">Tower Defense</a></li>
+                        <li class="dropdown-item"><img alt="Nan" class="projects-icon" src="images/logos/placeholder.jpg"><a href="nan.html">Nan</a></li>
                     </ul>
                 </li>
                 <li><a href="music.html">Music</a></li>
@@ -39,7 +42,7 @@
 
         <div class="inner">
             <header>
-                <h1><a href="index.html" id="logo">Projects</a></h1>
+                <h1>Projects</h1>
             </header>
         </div>
     </div>
@@ -47,56 +50,155 @@
     <!-- Main Content -->
     <div class="wrapper style1">
         <div class="container">
+
+            <!-- Filter Navigation -->
+            <nav class="filter-nav">
+                <div class="filter-group">
+                    <span class="filter-label">School:</span>
+                    <button class="filter-button active" data-category="school" data-filter="all">All</button>
+                    <button class="filter-button" data-category="school" data-filter="glu">GLU</button>
+                    <button class="filter-button" data-category="school" data-filter="hu">HU</button>
+                </div>
+                <div class="filter-group">
+                    <span class="filter-label">Language:</span>
+                    <button class="filter-button active" data-category="lang" data-filter="all">All</button>
+                    <button class="filter-button" data-category="lang" data-filter="csharp">C#</button>
+                    <button class="filter-button" data-category="lang" data-filter="python">Python</button>
+                    <button class="filter-button" data-category="lang" data-filter="dart">Dart</button>
+                </div>
+            </nav>
+
             <div class="row gtr-200">
                 <div class="col-12-wide col-12-mobile imp-mobile" id="content">
 
-                    <div class="row">
-                        <article class="col-4 col-12-mobile special">
-                            <a class="image featured" href="pacmanremake.html"><img alt="Placeholder project image 1" src="images/pacman.jpg"></a>
+                    <div class="row" id="project-grid">
+                        <article class="col-4 col-12-mobile special" data-lang="csharp" data-school="glu">
+                            <a class="image featured" href="pacmanremake.html"><img alt="Placeholder project image 1" src="images/logos/pacman.jpg"></a>
                             <header>
+                                <div class="tag-container">
+                                    <span class="project-tag school-tag">GLU Project</span>
+                                    <span class="project-tag lang-tag" data-lang="csharp">C#</span>
+                                </div>
                                 <h3><a href="pacmanremake.html">Pacman - remake</a></h3>
                             </header>
                             <p>
                                 I developed this game under a tight deadline, focusing on efficiency without compromising quality. The ghosts use NavMesh for smooth, intelligent movement, while player controls leverage Unity’s new Input System, enhancing responsiveness and flexibility.
-                                <br> <br>
-                                <strong>Check it out:</strong> <a href="https://kenan38.itch.io/pacman-remake">Play it on itch.io</a>
                             </p>
+                            <div class="card-action">
+                                <a href="pacmanremake.html">View details</a>
+                            </div>
                         </article>
-                        <article class="col-4 col-12-mobile special">
-                            <a class="image featured" href="twinstick.html"><img alt="Placeholder project image 2" src="images/joystick.svg"></a>
+                        <article class="col-4 col-12-mobile special" data-lang="csharp" data-school="glu">
+                            <a class="image featured" href="twinstick.html"><img alt="Placeholder project image 2" src="images/logos/joystick.svg"></a>
                             <header>
+                                <div class="tag-container">
+                                    <span class="project-tag school-tag">GLU Project</span>
+                                    <span class="project-tag lang-tag" data-lang="csharp">C#</span>
+                                </div>
                                 <h3><a href="twinstick.html">Twinnstick shooter</a></h3>
                             </header>
                             <p>
                                 The Twinstick Shooter project focuses on precision shooting mechanics, smooth player control, and dynamic enemy AI behavior. This project demonstrates my ability to create engaging gameplay loops and responsive combat mechanics, critical in game design and development.
                             </p>
+                            <div class="card-action">
+                                <a href="twinstick.html">View details</a>
+                            </div>
                         </article>
-                        <article class="col-4 col-12-mobile special">
+                        <article class="col-4 col-12-mobile special" data-lang="csharp" data-school="glu">
                             <a class="image featured" href="particleeffect.html"><img alt="Placeholder project image 3" src="images/particles.jpg"></a>
                             <header>
+                                <div class="tag-container">
+                                    <span class="project-tag school-tag">GLU Project</span>
+                                    <span class="project-tag lang-tag" data-lang="csharp">C#</span>
+                                </div>
                                 <h3><a href="particleeffect.html">Particle effects</a></h3>
                             </header>
                             <p>
                                 This project explores visually appealing particle effects using Unity’s Particle System. The implementation features complex visual effects like explosions, trails, and dynamic environmental reactions, demonstrating my attention to detail and creativity in graphics programming.
                             </p>
+                            <div class="card-action">
+                                <a href="particleeffect.html">View details</a>
+                            </div>
                         </article>
-                        <article class="col-4 col-12-mobile special">
-                            <a class="image featured black-bg" href="galaga.html"><img alt="Placeholder project image 3" src="images/Galaga.ico"></a>
+                        <article class="col-4 col-12-mobile special" data-lang="csharp" data-school="glu">
+                            <a class="image featured black-bg" href="galaga.html"><img alt="Placeholder project image 3" src="images/logos/Galaga.ico"></a>
                             <header>
+                                <div class="tag-container">
+                                    <span class="project-tag school-tag">GLU Project</span>
+                                    <span class="project-tag lang-tag" data-lang="csharp">C#</span>
+                                </div>
                                 <h3><a href="galaga.html">Galaga - remake</a></h3>
                             </header>
                             <p>
                                 This project explores visually appealing particle effects using Unity’s Particle System. The implementation features complex visual effects like explosions, trails, and dynamic environmental reactions, demonstrating my attention to detail and creativity in graphics programming.
                             </p>
+                            <div class="card-action">
+                                <a href="galaga.html">View details</a>
+                            </div>
                         </article>
-                        <article class="col-4 col-12-mobile special">
-                            <a class="image featured" href="teleportation.html"><img alt="Teleportation icon" src="images/faviicon.ico"></a>
+                        <article class="col-4 col-12-mobile special" data-lang="csharp" data-school="glu">
+                            <a class="image featured" href="teleportation.html"><img alt="Teleportation icon" src="images/logos/placeholder.png"></a>
                             <header>
+                                <div class="tag-container">
+                                    <span class="project-tag school-tag">GLU Project</span>
+                                    <span class="project-tag lang-tag" data-lang="csharp">C#</span>
+                                </div>
                                 <h3><a href="teleportation.html">Teleportation</a></h3>
                             </header>
                             <p>
                                 A technical implementation of a teleportation system in Unity, featuring fuel requirements and a cooldown system. This project demonstrates my ability to create complex gameplay mechanics and manage global game states using Singletons.
                             </p>
+                            <div class="card-action">
+                                <a href="teleportation.html">View details</a>
+                            </div>
+                        </article>
+                        <article class="col-4 col-12-mobile special" data-lang="csharp" data-school="glu">
+                            <a class="image featured" href="towerdefense.html"><img alt="Tower Defense icon" src="images/logos/placeholder.png"></a>
+                            <header>
+                                <div class="tag-container">
+                                    <span class="project-tag school-tag">GLU Project</span>
+                                    <span class="project-tag lang-tag" data-lang="csharp">C#</span>
+                                </div>
+                                <h3><a href="towerdefense.html">Tower Defense</a></h3>
+                            </header>
+                            <p>
+                                A strategic foundation featuring grid-based placement and dynamic preview mechanics. This project focuses on intuitive user interaction and robust placement validation logic in Unity.
+                            </p>
+                            <div class="card-action">
+                                <a href="towerdefense.html">View details</a>
+                            </div>
+                        </article>
+                        <article class="col-4 col-12-mobile special" data-lang="python" data-school="hu">
+                            <a class="image featured" href="nan.html"><img alt="Nan project icon" src="images/logos/placeholder.png"></a>
+                            <header>
+                                <div class="tag-container">
+                                    <span class="project-tag school-tag">HU Project (Year 1)</span>
+                                    <span class="project-tag lang-tag" data-lang="python">Python</span>
+                                </div>
+                                <h3><a href="nan.html">Nan - Python Platform</a></h3>
+                            </header>
+                            <p>
+                                A Python-based CLI platform for mini-games, featuring automated user management, JSON data persistence, and dynamic difficulty scaling algorithms.
+                            </p>
+                            <div class="card-action">
+                                <a href="nan.html">View details</a>
+                            </div>
+                        </article>
+                        <article class="col-4 col-12-mobile special" data-lang="dart" data-school="glu">
+                            <a class="image featured" href="theworks.html"><img alt="TheWorks project icon" src="images/logos/placeholder.png"></a>
+                            <header>
+                                <div class="tag-container">
+                                    <span class="project-tag school-tag">GLU Project - DIVD</span>
+                                    <span class="project-tag lang-tag" data-lang="dart">Dart</span>
+                                </div>
+                                <h3><a href="theworks.html">TheWorks - Matching</a></h3>
+                            </header>
+                            <p>
+                                A modern internship matching-platform built for DIVD Works with Flutter and Firebase, connecting students and companies through smart algorithms.
+                            </p>
+                            <div class="card-action">
+                                <a href="theworks.html">View details</a>
+                            </div>
                         </article>
                     </div>
                 </div>
@@ -141,5 +243,60 @@
 <script src="assets/js/breakpoints.min.js"></script>
 <script src="assets/js/util.js"></script>
 <script src="assets/js/main.js"></script>
+
+<script>
+    $(document).ready(function () {
+        var activeFilters = {
+            school: 'all',
+            lang: 'all'
+        };
+
+        // Function to apply filters
+        function applyFilters() {
+            $('#project-grid article').each(function () {
+                var $article = $(this);
+                var schoolMatch = (activeFilters.school === 'all' || $article.attr('data-school') === activeFilters.school);
+                var langMatch = (activeFilters.lang === 'all' || $article.attr('data-lang') === activeFilters.lang);
+
+                if (schoolMatch && langMatch) {
+                    $article.removeClass('hidden').css('opacity', '1');
+                } else {
+                    $article.addClass('hidden').css('opacity', '0');
+                }
+            });
+        }
+
+        // Check for URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const langParam = urlParams.get('lang');
+        const schoolParam = urlParams.get('school');
+
+        if (langParam) {
+            activeFilters.lang = langParam;
+            $('.filter-button[data-category="lang"]').removeClass('active');
+            $('.filter-button[data-category="lang"][data-filter="' + langParam + '"]').addClass('active');
+        }
+        if (schoolParam) {
+            activeFilters.school = schoolParam;
+            $('.filter-button[data-category="school"]').removeClass('active');
+            $('.filter-button[data-category="school"][data-filter="' + schoolParam + '"]').addClass('active');
+        }
+
+        applyFilters();
+
+        $('.filter-button').on('click', function () {
+            var $this = $(this);
+            var category = $this.attr('data-category');
+            var filterValue = $this.attr('data-filter');
+
+            activeFilters[category] = filterValue;
+
+            $('.filter-button[data-category="' + category + '"]').removeClass('active');
+            $this.addClass('active');
+
+            applyFilters();
+        });
+    });
+</script>
 </body>
 </html>

@@ -1,0 +1,222 @@
+<!DOCTYPE HTML>
+<html lang="nl">
+<head>
+    <title>Tower Defense | Kenan Özbakan</title>
+    <link href="images/faviicon.ico" rel="icon">
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport"/>
+    <meta content="Tower Defense - Een strategisch spel met grid-based placement en complexe AI, gebouwd in Unity." name="description">
+
+    <!-- CSS -->
+    <link href="assets/css/main.css" rel="stylesheet"/>
+    <link href="assets/css/towerdefense-redesign.css" rel="stylesheet"/>
+    <link href="assets/css/prism.css" rel="stylesheet"/>
+
+    <noscript>
+        <link href="assets/css/noscript.css" rel="stylesheet"/>
+    </noscript>
+</head>
+
+<body class="towerdefense-redesign">
+
+<!-- Header & Nav -->
+<nav id="nav">
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li>
+            <a href="projects.html">Projects</a>
+            <ul>
+                <li class="dropdown-item"><img alt="pacman" class="projects-icon" src="images/logos/Pacman.svg">
+                    <a href="pacmanremake.html">Pacman-remake</a>
+                </li>
+                <li class="dropdown-item"><a href="twinstick.html"><img alt="twinnstick" class="projects-icon" src="images/logos/joystick.svg">Twinnstick</a></li>
+                <li class="dropdown-item"><img alt="galaga" class="projects-icon" src="images/logos/Galaga.ico"><a href="galaga.html">Galaga</a></li>
+                <li class="dropdown-item"><img alt="Particle" class="projects-icon" src="images/logos/ParticleIcon.jpg"><a href="particleeffect.html">Particle effect</a></li>
+                <li class="dropdown-item"><img alt="TheWorks" class="projects-icon" src="images/logos/placeholder.jpg"><a href="theworks.html">TheWorks</a></li>
+                <li class="dropdown-item"><img alt="Teleportation" class="projects-icon" src="images/faviicon.ico"><a href="teleportation.html">Teleportation</a></li>
+                <li class="dropdown-item"><img alt="TowerDefense" class="projects-icon" src="images/faviicon.ico"><a href="towerdefense.html">Tower Defense</a></li>
+                <li class="dropdown-item"><img alt="Nan" class="projects-icon" src="images/logos/placeholder.jpg"><a href="nan.html">Nan</a></li>
+            </ul>
+        </li>
+        <li><a href="music.html">Music</a></li>
+        <li><a href="index.html#skills">Skills</a></li>
+    </ul>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero-section">
+    <h1 class="hero-title">Tower Defense</h1>
+    <p class="hero-subtitle">
+        Een strategisch fundament met grid-gebaseerde plaatsing en dynamische preview mechanics.
+    </p>
+</section>
+
+<!-- Table of Contents -->
+<nav class="toc-section">
+    <div class="toc-title">Navigatie</div>
+    <ul class="toc-links">
+        <li><a href="#placement">Placement System</a></li>
+        <li><a href="#grid">Grid Snapping</a></li>
+        <li><a href="#validation">Placement Validation</a></li>
+    </ul>
+</nav>
+
+<!-- Content Sections -->
+<div class="content-section" id="placement">
+    <h2>Placement System</h2>
+    <div class="tech-pills">
+        <span class="pill">Unity 3D</span>
+        <span class="pill">C#</span>
+        <span class="pill">Raycasting</span>
+        <span class="pill">Real-time Preview</span>
+    </div>
+    <p>
+        Het hart van dit project is de <code>TowerPlacementManager</code>. Dit systeem stelt spelers in staat om torens intuïtief te plaatsen met een real-time preview die visuele feedback geeft over de geldigheid van de locatie.
+    </p>
+    <p>
+        De preview verandert van kleur op basis van of een locatie geblokkeerd is of niet, wat zorgt voor een naadloze gebruikerservaring.
+    </p>
+    <pre><code class="language-csharp">void HandlePlacementPreview()
+{
+    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+    if (Physics.Raycast(ray, out RaycastHit hit, 1000f, groundLayer))
+    {
+        Vector3 placementPos = hit.point;
+
+        // Snap to grid if needed
+        placementPos = SnapToGrid(placementPos);
+
+        towerPreview.transform.position = placementPos;
+
+        // Check if placement is valid
+        bool isValid = IsValidPlacement(placementPos);
+        UpdatePreviewColor(isValid);
+    }
+}</code></pre>
+</div>
+
+<div class="content-section" id="grid">
+    <h2>Grid Snapping</h2>
+    <p>
+        Om precisie te garanderen, maakt het systeem gebruik van een snapping-algoritme. Dit zorgt ervoor dat alle torens perfect uitgelijnd zijn op een grid van 1x1 eenheden, wat cruciaal is voor de tactische layout van het level.
+    </p>
+    <pre><code class="language-csharp">Vector3 SnapToGrid(Vector3 position)
+{
+    float gridSize = 1f;
+    float x = Mathf.Round(position.x / gridSize) * gridSize;
+    float z = Mathf.Round(position.z / gridSize) * gridSize;
+    return new Vector3(x, position.y, z);
+}</code></pre>
+</div>
+
+<div class="content-section" id="validation">
+    <h2>Placement Validation</h2>
+    <p>
+        Validatie gebeurt via <code>Physics.OverlapSphere</code>, waardoor we direct kunnen zien of een nieuwe toren een bestaand object zou overlappen. Dit voorkomt dat spelers meerdere torens op dezelfde plek bouwen.
+    </p>
+    <pre><code class="language-csharp">bool IsValidPlacement(Vector3 position)
+{
+    // Check if position is blocked by other towers
+    Collider[] colliders = Physics.OverlapSphere(position, 0.5f);
+
+    foreach (var col in colliders)
+    {
+        if (col.CompareTag("Tower"))
+            return false;
+    }
+
+    return true;
+}</code></pre>
+</div>
+
+<div class="content-section">
+    <h2>Volledige Implementatie</h2>
+    <pre><code class="language-csharp">using UnityEngine;
+
+public class TowerPlacementManager : MonoBehaviour
+{
+    [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private GameObject towerPrefab;
+    [SerializeField] private int towerCost = 100;
+    [SerializeField] private Material previewMaterial;
+    [SerializeField] private Color validColor = new Color(0, 1, 0, 0.5f);
+    [SerializeField] private Color invalidColor = new Color(1, 0, 0, 0.5f);
+
+    private GameObject towerPreview;
+    private bool isPlacementMode = false;
+    private Renderer[] previewRenderers;
+
+    void Update()
+    {
+        if (isPlacementMode)
+        {
+            HandlePlacementPreview();
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                TryPlaceTower();
+            }
+
+            if (Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.Escape))
+            {
+                ExitPlacementMode();
+            }
+        }
+    }
+
+    public void EnterPlacementMode(GameObject prefab, int cost)
+    {
+        if (!GameManager.Instance.CanAfford(cost)) return;
+
+        isPlacementMode = true;
+        towerPrefab = prefab;
+        towerCost = cost;
+
+        towerPreview = Instantiate(prefab);
+        SetPreviewMaterial(towerPreview);
+        UpdatePreviewPosition();
+    }
+
+    private void UpdatePreviewPosition()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out RaycastHit hit, 1000f, groundLayer))
+        {
+            Vector3 pos = SnapToGrid(hit.point);
+            towerPreview.transform.position = pos;
+            UpdatePreviewColor(IsValidPlacement(pos));
+        }
+    }
+
+    // ... (rest van de methodes zoals hierboven beschreven)
+}</code></pre>
+</div>
+
+<!-- Footer -->
+<footer id="footer">
+    <div class="container">
+        <ul class="social-icons">
+            <li><a class="icon brands fa-instagram" href="https://www.instagram.com/kenan.3_8/"><span class="label">Instagram</span></a></li>
+            <li><a class="icon brands fa-linkedin-in" href="https://www.linkedin.com/in/kenan%C3%B6zbakan/"><span class="label">LinkedIn</span></a></li>
+        </ul>
+        <div class="copyright">
+            &copy; Kenan Özbakan. Design gebaseerd op <a href="https://html5up.net">HTML5 UP</a>.
+        </div>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.dropotron.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/prism.js"></script>
+
+</body>
+</html>
+

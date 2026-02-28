@@ -1,0 +1,143 @@
+/* Nan Redesign CSS */
+
+body.nan-redesign {
+    background-color: #0d0d0d;
+    color: #e0e0e0;
+    font-family: 'Consolas', 'Courier New', monospace;
+    overflow-x: hidden;
+    /* Retro terminal scanline effect */
+    background-image: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    background-size: 100% 4px, 3px 100%;
+}
+
+/* Header & Nav */
+#nav {
+    background: rgba(0, 0, 0, 0.9);
+    border-bottom: 2px solid #ff4b2b;
+    padding: 1.5em 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+#nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#nav ul li a {
+    color: #888;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 2px;
+    transition: all 0.3s;
+}
+
+#nav ul li a:hover {
+    color: #ff4b2b;
+    text-shadow: 0 0 15px #ff4b2b;
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 5em 1em;
+    background: linear-gradient(to bottom, rgba(255, 75, 43, 0.1), transparent);
+}
+
+.hero-title {
+    font-size: 4em;
+    font-weight: 900;
+    color: #ff4b2b;
+    text-transform: uppercase;
+    text-shadow: 3px 3px 0px #eee, 6px 6px 0px #333;
+    margin-bottom: 0.2em;
+    letter-spacing: 10px;
+}
+
+.hero-subtitle {
+    font-size: 1.2em;
+    color: #666;
+    max-width: 800px;
+    margin: 0 auto;
+    letter-spacing: 1px;
+}
+
+/* Content Sections */
+.content-section {
+    max-width: 1000px;
+    margin: 0 auto 4em auto;
+    padding: 3em;
+    background: rgba(15, 15, 15, 0.95);
+    border: 1px solid #333;
+    border-radius: 4px;
+    position: relative;
+}
+
+.content-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(to right, #ff4b2b, #ff416c);
+}
+
+.content-section h2 {
+    color: #ff4b2b;
+    font-size: 2em;
+    margin-bottom: 1.5em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+}
+
+.content-section h2::after {
+    content: "";
+    flex-grow: 1;
+    height: 1px;
+    background: #333;
+    margin-left: 20px;
+}
+
+.tech-pills {
+    display: flex;
+    gap: 1em;
+    margin-bottom: 2em;
+}
+
+.pill {
+    border: 1px solid #ff4b2b;
+    color: #ff4b2b;
+    padding: 0.3em 1em;
+    font-size: 0.85em;
+    font-weight: bold;
+}
+
+/* Code Blocks */
+pre[class*="language-"] {
+    background: #000 !important;
+    border: 1px solid #222 !important;
+    border-left: 4px solid #ff4b2b !important;
+}
+
+/* Footer */
+#footer {
+    border-top: 1px solid #222;
+    padding: 3em 0;
+    text-align: center;
+    background: #050505;
+}
+
+.copyright {
+    color: #444;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}

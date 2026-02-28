@@ -1,0 +1,139 @@
+<!DOCTYPE HTML>
+<html lang="nl">
+<head>
+    <title>Nan | Kenan Özbakan</title>
+    <link href="images/placeholder.jpg" rel="icon">
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport"/>
+    <meta content="Nan - Een Python-gebaseerd mini-game platform met user management." name="description">
+
+    <!-- CSS -->
+    <link href="assets/css/main.css" rel="stylesheet"/>
+    <link href="assets/css/nan-redesign.css" rel="stylesheet"/>
+    <link href="assets/css/prism.css" rel="stylesheet"/>
+
+    <noscript>
+        <link href="assets/css/noscript.css" rel="stylesheet"/>
+    </noscript>
+</head>
+
+<body class="nan-redesign">
+
+<!-- Header & Nav -->
+<nav id="nav">
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li>
+            <a href="projects.html">Projects</a>
+            <ul>
+                <li class="dropdown-item"><img alt="pacman" class="projects-icon" src="images/logos/Pacman.svg">
+                    <a href="pacmanremake.html">Pacman-remake</a>
+                </li>
+                <li class="dropdown-item"><a href="twinstick.html"><img alt="twinnstick" class="projects-icon" src="images/logos/joystick.svg">Twinnstick</a></li>
+                <li class="dropdown-item"><img alt="galaga" class="projects-icon" src="images/logos/Galaga.ico"><a href="galaga.html">Galaga</a></li>
+                <li class="dropdown-item"><img alt="Particle" class="projects-icon" src="images/logos/ParticleIcon.jpg"><a href="particleeffect.html">Particle effect</a></li>
+                <li class="dropdown-item"><img alt="TheWorks" class="projects-icon" src="images/logos/placeholder.jpg"><a href="theworks.html">TheWorks</a></li>
+                <li class="dropdown-item"><img alt="Teleportation" class="projects-icon" src="images/faviicon.ico"><a href="teleportation.html">Teleportation</a></li>
+                <li class="dropdown-item"><img alt="TowerDefense" class="projects-icon" src="images/faviicon.ico"><a href="towerdefense.html">Tower Defense</a></li>
+                <li class="dropdown-item"><img alt="Nan" class="projects-icon" src="images/logos/placeholder.jpg"><a href="nan.html">Nan</a></li>
+            </ul>
+        </li>
+        <li><a href="music.html">Music</a></li>
+        <li><a href="index.html#skills">Skills</a></li>
+    </ul>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero-section">
+    <h1 class="hero-title">Nan</h1>
+    <p class="hero-subtitle">
+        Een eerstejaars project voor de <strong>Hogeschool Utrecht</strong>. Een Python-gebaseerd platform voor mini-games, inclusief user management en scoresystemen.
+    </p>
+</section>
+
+<!-- Content Sections -->
+<div class="content-section" id="overview">
+    <h2>Project Overzicht</h2>
+    <div class="tech-pills">
+        <span class="pill">Python 3</span>
+        <span class="pill">JSON Data Storage</span>
+        <span class="pill">CLI Architecture</span>
+    </div>
+    <p>
+        <strong>Nan</strong> is een modulaire command-line applicatie die verschillende mini-games (zoals Galgje en Guesser) host. Het systeem bevat een robuuste login- en accountcreatie module die gebruik maakt van JSON-bestanden voor persistente dataopslag.
+    </p>
+</div>
+
+<div class="content-section" id="user-management">
+    <h2>User Management</h2>
+    <p>
+        De kern van de applicatie is het account-systeem. Dit systeem valideert inloggegevens en maakt automatisch nieuwe accounts aan als de gebruiker nog niet bestaat.
+    </p>
+    <pre><code class="language-python">def user_login_create_json(user_name, user_password):
+    file_path = 'account.json'
+
+    with open(file_path, 'r+') as json_file:
+        data = json.load(json_file)
+        accounts = data["accountDetails"]
+
+        for account in accounts:
+            if account["username"] == user_name and account["password"] == user_password:
+                print("User found logging in")
+                choose_game(True, user_name)
+                return
+
+        print("User not found creating account")
+
+        new_entry = {
+            "username": user_name,
+            "password": user_password
+        }
+
+        accounts.append(new_entry)
+        # ... persistent storage logic
+</code></pre>
+</div>
+
+<div class="content-section" id="guesser">
+    <h2>Number Guesser Game</h2>
+    <p>
+        De Guesser game implementeert verschillende moeilijkheidsgraden, scoresystemen en feedback-algoritmes om de speler te adviseren over hun niveau.
+    </p>
+    <pre><code class="language-python">def calculate_score(difficulty_level, user_tries):
+    score = (user_max_tries(difficulty_level) - user_tries) * difficulty_level
+    print("Your score is: " + str(score))
+
+def calculate_difficulty(user_score):
+    low_score = 5
+    normal_score = 12
+
+    if user_score < low_score:
+        return print("Try a lower difficulty")
+    elif low_score <= user_score <= normal_score:
+        return print("Keep this difficulty")
+    else:
+        return print("Advies: je kunt een hogere moeilijkheidsgraad aan!")
+</code></pre>
+</div>
+
+<!-- Footer -->
+<footer id="footer">
+    <div class="container">
+        <div class="copyright">
+            &copy; Kenan Özbakan. Built with Python & passion.
+        </div>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.dropotron.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/prism.js"></script>
+
+</body>
+</html>
+

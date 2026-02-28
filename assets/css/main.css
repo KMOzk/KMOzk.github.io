@@ -2842,7 +2842,7 @@ nav.socials > ul > li > a:hover {
 /* Skills */
 #skills {
     padding: 2em 0;
-    background-image: url("/images/icebackground.jpg");
+    background-image: url("../../images/icebackground.jpg");
     color: #000000;
     text-align: center;
     background-size: cover;
@@ -2924,7 +2924,6 @@ nav.socials > ul > li > a:hover {
     box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1);
     animation: pop 5s ease-in-out infinite, shake 6s infinite;
     animation-play-state: paused;
-    animation-delay: calc(0.5s * (random() * 10));
 }
 
 .skill:hover {

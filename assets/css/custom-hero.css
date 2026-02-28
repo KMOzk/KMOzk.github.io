@@ -105,6 +105,23 @@
     }
 }
 
+#header .hero-text p a {
+    color: #3b82f6;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(59, 130, 246, 0.3);
+    transition: all 0.3s ease;
+}
+
+#header .hero-text p a:hover {
+    color: #60a5fa;
+    border-bottom-color: #60a5fa;
+    text-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+}
+
+#header .hero-text p a strong {
+    color: inherit;
+}
+
 /* Responsive design */
 @media screen and (max-width: 960px) {
     #header .hero-container {
