@@ -10,38 +10,7 @@ body.nan-redesign {
     background-size: 100% 4px, 3px 100%;
 }
 
-/* Header & Nav */
-#nav {
-    background: rgba(0, 0, 0, 0.9);
-    border-bottom: 2px solid #ff4b2b;
-    padding: 1.5em 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-#nav ul {
-    display: flex;
-    justify-content: center;
-    gap: 2.5rem;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-#nav ul li a {
-    color: #888;
-    font-weight: 600;
-    text-transform: uppercase;
-    text-decoration: none;
-    letter-spacing: 2px;
-    transition: all 0.3s;
-}
-
-#nav ul li a:hover {
-    color: #ff4b2b;
-    text-shadow: 0 0 15px #ff4b2b;
-}
+/* Header & Nav removed - now handled by projects-redesign.css */
 
 /* Hero Section */
 .hero-section {
@@ -127,12 +96,74 @@ pre[class*="language-"] {
     border-left: 4px solid #ff4b2b !important;
 }
 
-/* Footer */
-#footer {
-    border-top: 1px solid #222;
-    padding: 3em 0;
-    text-align: center;
-    background: #050505;
+/* TOC Section */
+.toc-section {
+    position: fixed;
+    left: 2em;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 200px;
+    text-align: left;
+    padding: 1.5em;
+    background: rgba(15, 15, 15, 0.9);
+    border: 1px solid #ff4b2b;
+    border-radius: 4px;
+    z-index: 100;
+    box-shadow: 0 0 20px rgba(255, 75, 43, 0.2);
+}
+
+.toc-title {
+    color: #ff4b2b;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1.5em;
+    font-weight: 700;
+    border-bottom: 1px solid rgba(255, 75, 43, 0.3);
+    padding-bottom: 0.5em;
+}
+
+.toc-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2em;
+    list-style: none;
+    padding: 0;
+}
+
+.toc-links li a {
+    color: #666;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85em;
+    transition: all 0.3s ease;
+    display: block;
+    text-transform: uppercase;
+}
+
+.toc-links li a:hover, .toc-links li a.active {
+    color: #ff4b2b;
+    text-shadow: 0 0 8px rgba(255, 75, 43, 0.5);
+    transform: translateX(5px);
+}
+
+/* Responsive TOC */
+@media screen and (max-width: 1280px) {
+    .toc-section {
+        position: static;
+        width: auto;
+        max-width: 1000px;
+        margin: 0 auto 3em;
+        transform: none;
+        text-align: center;
+    }
+    
+    .toc-links {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1.5em;
+    }
 }
 
 .copyright {
