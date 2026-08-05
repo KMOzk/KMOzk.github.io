@@ -2229,13 +2229,10 @@ header .icon.circled {
 
 #header {
     position: relative;
-    background-image: url("../../images/header.jpg");
-    background-size: cover;
-    background-position: center center;
-    background-attachment: fixed;
+    background: transparent;
     color: #fff;
     text-align: center;
-    padding: 6.5em 0 2em 0;
+    padding: 2.5rem 0 1.5rem 0;
     cursor: default;
 }
 
@@ -3376,7 +3373,7 @@ nav.socials > ul > li > a:hover {
 
     body.homepage #header {
         min-height: 0;
-        padding: 5.5em 0 5em 0;
+        padding: 0;
         height: auto;
     }
 

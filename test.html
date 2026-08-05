@@ -36,10 +36,12 @@
 
         body {
             background-color: var(--bg-color);
-            background-image: linear-gradient(rgba(5, 5, 5, 0.85), rgba(5, 5, 5, 0.95)),
-            url("images/header.jpg");
-            background-size: cover;
-            background-position: center top;
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(157, 78, 221, 0.08) 0%, transparent 45%),
+                radial-gradient(circle at 85% 45%, rgba(0, 180, 216, 0.08) 0%, transparent 45%),
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 50px 50px, 50px 50px;
             background-attachment: fixed;
             color: var(--text-main);
             font-family: var(--font-main);
@@ -55,7 +57,7 @@
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 1.2rem 5%;
+            padding: 1rem 5%;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -237,9 +239,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 10rem 10% 4rem;
+            padding: 6.5rem 10% 4rem;
             position: relative;
-            gap: 12rem;
+            gap: 5.5rem;
         }
 
         .hero-content {
@@ -369,7 +371,7 @@
 
         /* Skills Section */
         .section-padding {
-            padding: 4rem 10%;
+            padding: 6rem 10%;
         }
 
         .section-title {
@@ -473,10 +475,16 @@
             display: flex;
             overflow-x: auto;
             scroll-snap-type: x mandatory;
-            gap: 3rem;
-            padding-bottom: 2rem;
+            gap: 2.5rem;
+            padding: 1.5rem 1.5rem 2.5rem 1.5rem;
+            margin: -1.5rem -1.5rem 0 -1.5rem;
             -ms-overflow-style: none;
             scrollbar-width: none;
+        }
+
+        .projects-grid::after {
+            content: '';
+            flex: 0 0 1rem;
         }
 
         .projects-grid::-webkit-scrollbar {
@@ -484,7 +492,7 @@
         }
 
         .project-card {
-            flex: 0 0 min(100%, 380px);
+            flex: 0 0 min(100%, 360px);
             scroll-snap-align: start;
             border-radius: 20px;
             overflow: hidden;
@@ -493,7 +501,8 @@
             border: 1px solid var(--border-glass);
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.4s ease, box-shadow 0.4s ease;
             text-decoration: none;
-            display: block;
+            display: flex;
+            flex-direction: column;
             color: inherit;
         }
 
@@ -622,41 +631,314 @@
             background-color: var(--primary);
             box-shadow: 0 0 15px var(--primary-glow);
             transform: scale(1.2);
+            border: 3px solid var(--bg-color);
+            flex-shrink: 0;
         }
 
-        .right:hover::after {
-            background-color: var(--secondary);
+        .git-dot.blue {
+            background: var(--secondary);
             box-shadow: 0 0 15px rgba(0, 180, 216, 0.5);
-            transform: scale(1.2);
         }
 
-        .timeline-content {
-            padding: 2rem;
+        .git-tag {
+            font-family: var(--font-display);
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--primary);
+            background: rgba(157, 78, 221, 0.12);
+            border: 1px solid rgba(157, 78, 221, 0.3);
+            padding: 0.2rem 0.7rem;
+            border-radius: 12px;
+        }
+
+        /* Horizontal Alternating Branch Timeline */
+        .horizontal-timeline-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            padding: 3rem 0;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .horizontal-timeline-wrapper::-webkit-scrollbar {
+            display: none;
+        }
+
+        .horizontal-timeline-track {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 3.2rem;
+            min-width: max-content;
+            margin: 0 auto;
+            padding: 17rem 4rem;
+            min-height: 600px;
+            box-sizing: border-box;
+        }
+
+        .central-horizontal-line {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 50%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transform: translateY(-50%);
+            z-index: 1;
+            box-shadow: 0 0 14px var(--primary-glow);
+        }
+
+        .ht-node-column {
+            position: relative;
+            z-index: 2;
+            width: 310px;
+            height: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        /* Dot is ALWAYS anchored 100% dead-center on central horizontal line */
+        .ht-dot {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--bg-color);
+            border: 4px solid var(--primary);
+            box-shadow: 0 0 14px var(--primary-glow);
+            z-index: 5;
+            transition: all 0.3s ease;
+        }
+
+        .git-tag.blue {
+            background: var(--bg-color);
+            border: 4px solid var(--primary);
+            box-shadow: 0 0 14px var(--primary-glow);
+            z-index: 5;
+            transition: all 0.3s ease;
+        }
+
+        .ht-dot.blue {
+            border-color: var(--secondary);
+            box-shadow: 0 0 14px rgba(0, 180, 216, 0.6);
+        }
+
+        .ht-dot:hover {
+            background: var(--primary);
+            transform: translate(-50%, -50%) scale(1.3);
+        }
+
+        .ht-dot.blue:hover {
+            background: var(--secondary);
+        }
+
+        /* Top Node Placement: Card and Stem sit ABOVE line */
+        .top-node .ht-stem {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 30px;
+            background: var(--primary);
+            z-index: 3;
+        }
+
+        .top-node .ht-stem.blue {
+            background: var(--secondary);
+        }
+
+        .top-node .ht-card {
+            position: absolute;
+            bottom: 40px;
+            left: 0;
+            right: 0;
+            width: 100%;
+        }
+
+        /* Bottom Node Placement: Card and Stem sit BELOW line */
+        .bottom-node .ht-stem {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 30px;
+            background: var(--primary);
+            z-index: 3;
+        }
+
+        .bottom-node .ht-stem.blue {
+            background: var(--secondary);
+        }
+
+        .bottom-node .ht-card {
+            position: absolute;
+            top: 40px;
+            left: 0;
+            right: 0;
+            width: 100%;
+        }
+
+        /* Card Styles */
+        .ht-card {
             background: var(--surface-glass);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             border: 1px solid var(--border-glass);
             border-radius: 20px;
-            position: relative;
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s ease, box-shadow 0.3s ease;
+            padding: 1.5rem;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            box-sizing: border-box;
         }
 
-        .left:hover .timeline-content {
-            transform: translateX(-10px) translateY(-5px);
+        .ht-card.main-card {
+            border-top: 3px solid var(--primary);
+        }
+
+        .ht-card.main-card.blue {
+            border-top-color: var(--secondary);
+        }
+
+        .ht-card.branch-card {
+            border-style: dashed;
+            border-color: rgba(157, 78, 221, 0.35);
+            background: rgba(157, 78, 221, 0.03);
+        }
+
+        .ht-card.branch-card.blue {
+            border-color: rgba(0, 180, 216, 0.35);
+            background: rgba(0, 180, 216, 0.03);
+        }
+
+        .ht-card:hover {
+            transform: translateY(-6px);
             border-color: var(--primary);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4), 0 0 15px rgba(157, 78, 221, 0.2);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 20px rgba(157, 78, 221, 0.25);
         }
 
-        .right:hover .timeline-content {
-            transform: translateX(10px) translateY(-5px);
+        .ht-card.blue:hover {
             border-color: var(--secondary);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4), 0 0 15px rgba(0, 180, 216, 0.2);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 180, 216, 0.25);
         }
 
-        .timeline-content h3 {
-            font-size: 1.4rem;
-            margin-bottom: 0.5rem;
+        .ht-date {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            background: rgba(157, 78, 221, 0.12);
+            border: 1px solid rgba(157, 78, 221, 0.3);
+            padding: 0.2rem 0.7rem;
+            border-radius: 12px;
+            display: inline-block;
+            margin-bottom: 0.6rem;
+        }
+
+        .ht-date.blue {
+            color: var(--secondary);
+            background: rgba(0, 180, 216, 0.12);
+            border-color: rgba(0, 180, 216, 0.3);
+        }
+
+        .ht-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
             color: var(--text-main);
+            margin-bottom: 0.5rem;
+        }
+
+        .ht-card p {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* Git Branch Fork Track */
+        .git-branch-fork {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin: 0.2rem 0 0.2rem 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .git-branch-fork::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: -12px;
+            width: 1.2rem;
+            height: 28px;
+            border-left: 2px solid var(--primary);
+            border-bottom: 2px solid var(--primary);
+            border-bottom-left-radius: 12px;
+            opacity: 0.7;
+        }
+
+        .git-branch-fork.blue::before {
+            border-color: var(--secondary);
+        }
+
+        .branch-tag-pill {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--primary);
+            background: rgba(157, 78, 221, 0.1);
+            padding: 0.2rem 0.6rem;
+            border-radius: 8px;
+            letter-spacing: 0.5px;
+            text-transform: lowercase;
+        }
+
+        .branch-tag-pill.blue {
+            color: var(--secondary);
+            background: rgba(0, 180, 216, 0.1);
+        }
+
+        .git-branch-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            padding-left: 1.5rem;
+            border-left: 2px dashed rgba(157, 78, 221, 0.3);
+            margin-left: 0.5rem;
+        }
+
+        .git-branch-cards.blue {
+            border-left-color: rgba(0, 180, 216, 0.3);
+        }
+
+        /* Connector Arrow Between Main Nodes */
+        .git-tree-connector {
+            display: flex;
+            align-items: flex-start;
+            padding-top: 0.5rem;
+            width: 50px;
+        }
+
+        .git-connector-line {
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            position: relative;
+            margin-top: 0.5rem;
+        }
+
+        .git-connector-line::after {
+            content: '►';
+            position: absolute;
+            right: -6px;
+            top: -7px;
+            color: var(--secondary);
+            font-size: 0.75rem;
         }
 
         .timeline-content .date {
@@ -796,7 +1078,7 @@
         footer {
             margin-top: auto;
             text-align: center;
-            padding: 3rem 10%;
+            padding: 1.5rem 10%;
             border-top: 1px solid var(--border-glass);
             background: rgba(5, 5, 5, 0.9);
             color: var(--text-muted);
@@ -805,16 +1087,16 @@
         .social-icons-footer {
             display: flex;
             justify-content: center;
-            gap: 1.5rem;
+            gap: 1.2rem;
             list-style: none;
-            margin-bottom: 1.5rem;
+            margin-bottom: 0.8rem;
         }
 
         .social-icons-footer li a {
             color: var(--text-muted);
-            font-size: 1.3rem;
-            width: 44px;
-            height: 44px;
+            font-size: 1.05rem;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.04);
             border: 1px solid var(--border-glass);
@@ -828,8 +1110,8 @@
         .social-icons-footer li a:hover {
             color: var(--primary);
             border-color: var(--primary);
-            transform: translateY(-3px);
-            box-shadow: 0 0 15px var(--primary-glow);
+            transform: translateY(-2px);
+            box-shadow: 0 0 12px var(--primary-glow);
         }
 
         /* Responsive adjustments */
@@ -997,60 +1279,80 @@
 </section>
 
 <!-- Timeline Journey Section -->
-<section class="section-padding" id="journey" style="padding-top: 0;">
+<section class="section-padding" id="journey">
     <h2 class="section-title" data-en="My Journey" data-nl="Mijn Traject">My Journey</h2>
-    <div class="timeline-container">
+    <div class="horizontal-timeline-wrapper">
+        <div class="horizontal-timeline-track">
+            
+            <!-- Central Line Track -->
+            <div class="central-horizontal-line"></div>
 
-        <div class="timeline-item left">
-            <div class="timeline-content">
-                <h3>Grafisch Lyceum Utrecht</h3>
-                <div class="date">2021 - 2026</div>
-                <p data-en="Foundation in media, design, and software development."
-                   data-nl="Basis in media, design en softwareontwikkeling.">Foundation in media, design, and software development.</p>
+            <!-- Node 1: GLU (Top) -->
+            <div class="ht-node-column top-node">
+                <div class="ht-card main-card">
+                    <span class="ht-date">2021 - 2026</span>
+                    <h3>Grafisch Lyceum Utrecht</h3>
+                    <p data-en="Foundation in media, design, and software development."
+                       data-nl="Basis in media, design en softwareontwikkeling.">Foundation in media, design, and software development.</p>
+                </div>
+                <div class="ht-stem"></div>
+                <div class="ht-dot"></div>
             </div>
-        </div>
 
-        <div class="timeline-item left branch">
-            <div class="timeline-content">
-                <h3>Edumersive</h3>
-                <div class="date">February 2024 - July 2024</div>
-                <p data-en="Internship focused on VR and educational immersive experiences."
-                   data-nl="Stage gericht op VR en educatieve meeslepende ervaringen.">Internship focused on VR and educational immersive experiences.</p>
+            <!-- Node 1 Branch A: Edumersive (Bottom) -->
+            <div class="ht-node-column bottom-node">
+                <div class="ht-dot"></div>
+                <div class="ht-stem"></div>
+                <div class="ht-card branch-card">
+                    <span class="ht-date">February 2024 - July 2024</span>
+                    <h3>Edumersive</h3>
+                    <p data-en="Internship focused on VR and educational immersive experiences."
+                       data-nl="Stage gericht op VR en educatieve meeslepende ervaringen.">Internship focused on VR and educational immersive experiences.</p>
+                </div>
             </div>
-        </div>
 
-        <div class="timeline-item left branch">
-            <div class="timeline-content">
-                <h3>DIVD</h3>
-                <div class="date">September 2025 - Current</div>
-                <p data-en="Internship at the Dutch Institute for Vulnerability Disclosure. Working on cybersecurity and securing systems."
-                   data-nl="Stage bij het Dutch Institute for Vulnerability Disclosure. Werken aan cybersecurity en het beveiligen van systemen.">Internship at the Dutch Institute for Vulnerability Disclosure. Working on cybersecurity and securing systems.</p>
+            <!-- Node 1 Branch B: DIVD (Bottom) -->
+            <div class="ht-node-column bottom-node">
+                <div class="ht-dot"></div>
+                <div class="ht-stem"></div>
+                <div class="ht-card branch-card">
+                    <span class="ht-date">September 2025 - Current</span>
+                    <h3>DIVD</h3>
+                    <p data-en="Internship at the Dutch Institute for Vulnerability Disclosure. Working on cybersecurity and securing systems."
+                       data-nl="Stage bij het Dutch Institute for Vulnerability Disclosure. Werken aan cybersecurity en het beveiligen van systemen.">Internship at the Dutch Institute for Vulnerability Disclosure. Working on cybersecurity and securing systems.</p>
+                </div>
             </div>
-        </div>
 
-        <div class="timeline-item right">
-            <div class="timeline-content">
-                <h3>Hogeschool Utrecht</h3>
-                <div class="date">2026 - Current</div>
-                <p data-en="Continuing higher education to deepen my knowledge in software engineering and advanced technologies."
-                   data-nl="Vervolgopleiding HBO om mijn kennis in software engineering en geavanceerde technologieën te verdiepen.">Continuing higher education to deepen my knowledge in software engineering and advanced technologies.</p>
+            <!-- Node 2: Hogeschool Utrecht (Top) -->
+            <div class="ht-node-column top-node">
+                <div class="ht-card main-card blue">
+                    <span class="ht-date blue">2026 - Current</span>
+                    <h3>Hogeschool Utrecht</h3>
+                    <p data-en="Continuing higher education to deepen my knowledge in software engineering and advanced technologies."
+                       data-nl="Vervolgopleiding HBO om mijn kennis in software engineering en geavanceerde technologieën te verdiepen.">Continuing higher education to deepen my knowledge in software engineering and advanced technologies.</p>
+                </div>
+                <div class="ht-stem blue"></div>
+                <div class="ht-dot blue"></div>
             </div>
-        </div>
 
-        <div class="timeline-item right branch">
-            <div class="timeline-content">
-                <h3>Technical Computer Science</h3>
-                <div class="date" data-en="Degree Focus" data-nl="Studiekeuze">Degree Focus</div>
-                <p data-en="Chose Technical Computer Science over Computer Science and Business Management to focus on software architecture, systems engineering, and technical problem-solving."
-                   data-nl="Gekozen voor Technische Informatica (TCS) boven Computer Science en Business Management om te focussen op softwarearchitectuur, systems engineering en technische probleemoplossing.">Chose Technical Computer Science over Computer Science and Business Management to focus on software architecture, systems engineering, and technical problem-solving.</p>
+            <!-- Node 2 Branch A: Technical Computer Science (Bottom) -->
+            <div class="ht-node-column bottom-node">
+                <div class="ht-dot blue"></div>
+                <div class="ht-stem blue"></div>
+                <div class="ht-card branch-card blue">
+                    <span class="ht-date blue" data-en="Degree Focus" data-nl="Studiekeuze">Degree Focus</span>
+                    <h3>Technical Computer Science</h3>
+                    <p data-en="Chose Technical Computer Science over Computer Science and Business Management to focus on software architecture, systems engineering, and technical problem-solving."
+                       data-nl="Gekozen voor Technische Informatica (TCS) boven Computer Science en Business Management om te focussen op softwarearchitectuur, systems engineering en technische probleemoplossing.">Chose Technical Computer Science over Computer Science and Business Management to focus on software architecture, systems engineering, and technical problem-solving.</p>
+                </div>
             </div>
-        </div>
 
+        </div>
     </div>
 </section>
 
 <!-- Featured Projects Section -->
-<section class="section-padding" id="projects" style="padding-top: 0;">
+<section class="section-padding" id="projects">
     <h2 class="section-title" data-en="Featured Projects" data-nl="Uitgelichte Projecten">Featured Projects</h2>
     <div class="projects-grid">
 
