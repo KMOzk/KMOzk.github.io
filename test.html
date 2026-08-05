@@ -4,10 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Kenan Özbakan | Modern Portfolio Redesign</title>
-    <link
-            href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@500;700&display=swap"
-            rel="stylesheet">
+    <title>Kenan Özbakan | Portfolio Redesign</title>
+    <meta content="Explore the game development and software engineering portfolio of Kenan Özbakan." name="description">
+    <link href="images/faviicon.ico" rel="icon">
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link href="assets/css/fontawesome-all.min.css" rel="stylesheet">
+
     <style>
         :root {
             --bg-color: #050505;
@@ -41,6 +45,9 @@
             font-family: var(--font-main);
             line-height: 1.6;
             overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
         /* Navigation */
@@ -48,45 +55,39 @@
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 1.5rem 5%;
+            padding: 1.2rem 5%;
             display: flex;
             justify-content: center;
-            /* Center the links */
             align-items: center;
-            background: rgba(5, 5, 5, 0.7);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            background: rgba(5, 5, 5, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             border-bottom: 1px solid var(--border-glass);
             z-index: 1000;
         }
 
-        .logo {
-            position: absolute;
-            left: 5%;
-            font-family: var(--font-display);
-            font-size: 1.5rem;
-            font-weight: 700;
-            letter-spacing: -1px;
-            color: var(--text-main);
-            text-decoration: none;
-        }
-
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 2.5rem;
             list-style: none;
+            align-items: center;
         }
 
         .nav-links a {
             color: var(--text-muted);
             text-decoration: none;
-            font-weight: 400;
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
             transition: color 0.3s ease;
             position: relative;
         }
 
         .nav-links a:hover {
             color: var(--text-main);
+            text-shadow: 0 0 12px var(--primary-glow);
         }
 
         .nav-links a::after {
@@ -153,6 +154,8 @@
             font-weight: 500;
             padding: 0.75rem 1.4rem;
             text-decoration: none;
+            text-transform: none;
+            letter-spacing: 0.3px;
             transition: all 0.25s ease;
             white-space: nowrap;
         }
@@ -184,14 +187,17 @@
         .lang-toggle {
             position: absolute;
             right: 5%;
-            display: flex;
+            display: inline-flex;
             align-items: center;
-            gap: 0.3rem;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--border-glass);
-            padding: 0.25rem 0.7rem;
+            gap: 0.15rem;
+            background: rgba(18, 18, 26, 0.85);
+            border: 1px solid rgba(157, 78, 221, 0.3);
+            padding: 0.2rem 0.35rem;
             border-radius: 20px;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4), 0 0 10px rgba(157, 78, 221, 0.15);
+            z-index: 1002;
         }
 
         .lang-btn {
@@ -200,25 +206,30 @@
             color: var(--text-muted);
             font-family: var(--font-display);
             font-weight: 600;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
+            letter-spacing: 0.5px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            padding: 0.1rem 0.3rem;
+            transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            padding: 0.25rem 0.6rem;
+            border-radius: 14px;
         }
 
         .lang-btn:hover {
             color: var(--text-main);
+            background: rgba(255, 255, 255, 0.08);
         }
 
         .lang-btn.active {
-            color: var(--primary);
+            color: #ffffff;
+            background: linear-gradient(135deg, #9d4edd, #7b2cbf);
+            box-shadow: 0 2px 10px rgba(157, 78, 221, 0.5);
             font-weight: 700;
-            text-shadow: 0 0 10px var(--primary-glow);
         }
 
         .lang-divider {
-            color: var(--border-glass);
-            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.2);
+            font-size: 0.75rem;
+            margin: 0 0.1rem;
         }
 
         /* Hero Section */
@@ -316,13 +327,10 @@
         }
 
         @keyframes smooth-uppercase {
-
-            0%,
-            100% {
+            0%, 100% {
                 text-transform: lowercase;
                 transform: translateY(0);
             }
-
             50% {
                 text-transform: uppercase;
                 transform: translateY(-5px);
@@ -331,7 +339,7 @@
             }
         }
 
-        /* Hero Image Panel restored from original */
+        /* Hero Image Panel */
         .hero-image-container {
             flex-shrink: 0;
             animation: fadeUp 1s ease-out 0.3s forwards;
@@ -362,7 +370,6 @@
         /* Skills Section */
         .section-padding {
             padding: 4rem 10%;
-            /* reduced padding */
         }
 
         .section-title {
@@ -404,7 +411,6 @@
 
         .skill-card:hover {
             transform: translateY(-15px);
-            /* pronounced "jump" */
             background: rgba(255, 255, 255, 0.08);
             border-color: rgba(255, 255, 255, 0.2);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
@@ -420,25 +426,6 @@
             color: var(--text-main);
             position: relative;
             z-index: 1;
-        }
-
-        .skill-card ul {
-            list-style: none;
-            position: relative;
-            z-index: 1;
-        }
-
-        .skill-card li {
-            margin-bottom: 1rem;
-            color: var(--text-muted);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: color 0.3s ease;
-        }
-
-        .skill-card:hover li {
-            color: var(--text-main);
         }
 
         .skill-logos {
@@ -488,7 +475,6 @@
             scroll-snap-type: x mandatory;
             gap: 3rem;
             padding-bottom: 2rem;
-            /* Hide scrollbar for a cleaner look */
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
@@ -513,7 +499,6 @@
 
         .project-card:hover {
             transform: translateY(-15px) scale(1.02);
-            /* Original "Jumping Cards" feel restored */
             border-color: var(--primary);
             box-shadow: 0 25px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(157, 78, 221, 0.3);
             z-index: 2;
@@ -530,14 +515,6 @@
             color: #555;
             position: relative;
             overflow: hidden;
-        }
-
-        .project-image.unity {
-            background: linear-gradient(45deg, #1a1a2e, #16213e);
-        }
-
-        .project-image.xr {
-            background: linear-gradient(45deg, #0f2027, #203a43);
         }
 
         .project-content {
@@ -579,7 +556,6 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
-
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -772,7 +748,7 @@
             background: rgba(0, 180, 216, 0.02);
         }
 
-        /* Slot Machine Animation with Width Tracking! */
+        /* Slot Machine Animation */
         .slot-machine {
             display: inline-block;
             height: 1.1em;
@@ -800,77 +776,60 @@
             white-space: nowrap;
         }
 
-        .dot {
-            display: inline-block;
-            font-size: 1.3rem;
-            margin-left: -5px;
-        }
-
         @keyframes slotSpin {
-
-            0%,
-            20% {
-                transform: translateY(0);
-            }
-
-            25%,
-            45% {
-                transform: translateY(-1.1em);
-            }
-
-            50%,
-            70% {
-                transform: translateY(-2.2em);
-            }
-
-            75%,
-            95% {
-                transform: translateY(-3.3em);
-            }
-
-            100% {
-                transform: translateY(-4.4em);
-            }
+            0%, 20% { transform: translateY(0); }
+            25%, 45% { transform: translateY(-1.1em); }
+            50%, 70% { transform: translateY(-2.2em); }
+            75%, 95% { transform: translateY(-3.3em); }
+            100% { transform: translateY(-4.4em); }
         }
 
         @keyframes slotWidthTrack {
-
-            0%,
-            20% {
-                width: 5.5em;
-            }
-
-            /* Unity 3D */
-            25%,
-            45% {
-                width: 8.0em;
-            }
-
-            /* XR Solutions */
-            50%,
-            70% {
-                width: 5.5em;
-            }
-
-            /* Game AI */
-            75%,
-            95% {
-                width: 6.5em;
-            }
-
-            /* Web Tech */
-            100% {
-                width: 5.5em;
-            }
-
-            /* Unity 3D */
+            0%, 20% { width: 5.5em; }
+            25%, 45% { width: 8.0em; }
+            50%, 70% { width: 5.5em; }
+            75%, 95% { width: 6.5em; }
+            100% { width: 5.5em; }
         }
 
+        /* Footer */
         footer {
+            margin-top: auto;
             text-align: center;
             padding: 3rem 10%;
             border-top: 1px solid var(--border-glass);
+            background: rgba(5, 5, 5, 0.9);
             color: var(--text-muted);
+        }
+
+        .social-icons-footer {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-icons-footer li a {
+            color: var(--text-muted);
+            font-size: 1.3rem;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-glass);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons-footer li a:hover {
+            color: var(--primary);
+            border-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 0 15px var(--primary-glow);
         }
 
         /* Responsive adjustments */
@@ -880,42 +839,31 @@
                 text-align: center;
                 padding-top: 8rem;
             }
-
             .hero-content {
                 max-width: 100%;
             }
         }
 
         @media screen and (max-width: 768px) {
-            .timeline-container::after {
-                left: 31px;
-            }
-
+            .timeline-container::after { left: 31px; }
             .timeline-item {
                 width: 100%;
                 padding-left: 70px;
                 padding-right: 25px;
             }
-
             .timeline-item::after {
                 left: 21px;
                 right: auto;
             }
-
-            .right {
-                left: 0;
-            }
-
+            .right { left: 0; }
             .left:hover .timeline-content,
             .right:hover .timeline-content {
                 transform: translateY(-5px);
             }
-
             .timeline-item.branch {
                 padding-left: 100px;
                 padding-right: 25px;
             }
-
             .timeline-item.branch::before {
                 left: 31px;
                 width: 40px;
@@ -925,19 +873,15 @@
                 border-left: none;
                 border-top-right-radius: 20px;
                 border-top-left-radius: 0;
-                background: transparent;
             }
-
             .timeline-item.branch::after {
                 left: 61px;
                 right: auto;
             }
-
             .timeline-item.right.branch {
                 padding-left: 100px;
                 padding-right: 25px;
             }
-
             .timeline-item.right.branch::before {
                 left: 31px;
                 width: 40px;
@@ -947,9 +891,7 @@
                 border-left: none;
                 border-top-right-radius: 20px;
                 border-top-left-radius: 0;
-                background: transparent;
             }
-
             .timeline-item.right.branch::after {
                 left: 61px;
                 right: auto;
@@ -961,13 +903,14 @@
 
 <body>
 
+<!-- Header Navigation -->
 <nav>
     <ul class="nav-links">
         <li><a href="#home" data-en="Home" data-nl="Home">Home</a></li>
         <li><a href="#skills" data-en="Skills" data-nl="Vaardigheden">Skills</a></li>
         <li><a href="#journey" data-en="Journey" data-nl="Mijn Traject">Journey</a></li>
         <li class="has-dropdown">
-            <a href="#projects" data-en="Projects" data-nl="Projecten">Projects</a>
+            <a href="projects.html" data-en="Projects" data-nl="Projecten">Projects</a>
             <ul class="dropdown-menu">
                 <li class="dropdown-item"><a href="pacmanremake.html"><img alt="pacman" class="projects-icon" src="images/logos/Pacman.svg">Pacman-remake</a></li>
                 <li class="dropdown-item"><a href="twinstick.html"><img alt="twinnstick" class="projects-icon" src="images/logos/joystick.svg">Twinnstick</a></li>
@@ -979,6 +922,7 @@
                 <li class="dropdown-item"><a href="nan.html"><img alt="Nan" class="projects-icon" src="images/logos/placeholder.jpg">Nan</a></li>
             </ul>
         </li>
+        <li><a href="music.html" data-en="Music" data-nl="Muziek">Music</a></li>
     </ul>
     <div class="lang-toggle">
         <button class="lang-btn active" data-lang-btn="en" onclick="switchLanguage('en')">EN</button>
@@ -987,24 +931,24 @@
     </div>
 </nav>
 
+<!-- Hero Section -->
 <section class="hero" id="home">
     <div class="hero-content">
-        <h1 class="animated-text">Hi, I'm <span class="name-char">K</span><span class="name-char">e</span><span
-                class="name-char">n</span><span class="name-char">a</span><span class="name-char">n</span>.<br>
+        <h1 class="animated-text">Hi, I'm <span class="name-char">K</span><span class="name-char">e</span><span class="name-char">n</span><span class="name-char">a</span><span class="name-char">n</span>.<br>
             <span class="slot-machine">
-                    <span class="slot-wrapper">
-                        <span class="slot-item"><span class="gradient-text">Unity 3D</span></span>
-                        <span class="slot-item"><span class="gradient-text">XR Solutions</span></span>
-                        <span class="slot-item"><span class="gradient-text">Game AI</span></span>
-                        <span class="slot-item"><span class="gradient-text">Web Tech</span></span>
-                        <span class="slot-item"><span class="gradient-text">Unity 3D</span></span>
-                    </span>
+                <span class="slot-wrapper">
+                    <span class="slot-item"><span class="gradient-text">Unity 3D</span></span>
+                    <span class="slot-item"><span class="gradient-text">XR Solutions</span></span>
+                    <span class="slot-item"><span class="gradient-text">Game AI</span></span>
+                    <span class="slot-item"><span class="gradient-text">Web Tech</span></span>
+                    <span class="slot-item"><span class="gradient-text">Unity 3D</span></span>
                 </span>
+            </span>
             <span class="gradient-text">Developer.</span>
         </h1>
         <p data-en="I specialize in crafting immersive experiences through Unity 3D, XR, game AI and web technologies.<br>Bridging the gap between code and interactive art."
-           data-nl="Ik ben gespecialiseerd in het creëren van meeslepende ervaringen met Unity 3D, XR, game AI en webtechnologieën.<br>De brug tussen code en interactieve kunst.">I specialize in crafting immersive experiences through Unity 3D, XR, game AI and web
-            technologies.<br>Bridging the gap between code and interactive art.
+           data-nl="Ik ben gespecialiseerd in het creëren van meeslepende ervaringen met Unity 3D, XR, game AI en webtechnologieën.<br>De brug tussen code en interactieve kunst.">
+            I specialize in crafting immersive experiences through Unity 3D, XR, game AI and web technologies.<br>Bridging the gap between code and interactive art.
         </p>
         <a class="cta-btn" href="#projects" data-en="Explore My Work" data-nl="Bekijk Mijn Werk">Explore My Work</a>
     </div>
@@ -1013,6 +957,7 @@
     </div>
 </section>
 
+<!-- Skills Section -->
 <section class="section-padding" id="skills">
     <h2 class="section-title" data-en="Technical Expertise" data-nl="Technische Expertise">Technical Expertise</h2>
     <div class="skills-grid">
@@ -1021,10 +966,8 @@
             <h3 data-en="Programming" data-nl="Programmeren">Programming</h3>
             <div class="skill-logos">
                 <div class="skill-item"><img alt="C#" src="images/logos/c--4.svg"><span>C#</span></div>
-                <div class="skill-item"><img alt="Dart" src="images/logos/dart-svgrepo-com.svg"><span>Dart</span>
-                </div>
-                <div class="skill-item"><img alt="Python" src="images/logos/pythonlogo.svg"><span>Python</span>
-                </div>
+                <div class="skill-item"><img alt="Dart" src="images/logos/dart-svgrepo-com.svg"><span>Dart</span></div>
+                <div class="skill-item"><img alt="Python" src="images/logos/pythonlogo.svg"><span>Python</span></div>
                 <div class="skill-item"><img alt="HTML" src="images/logos/html-1.svg"><span>HTML & CSS</span></div>
             </div>
         </div>
@@ -1032,22 +975,17 @@
         <div class="skill-card">
             <h3 data-en="Game Dev" data-nl="Game Development">Game Dev</h3>
             <div class="skill-logos">
-                <div class="skill-item"><img alt="Unity" src="images/logos/unity3d-icon.svg"><span>Unity 2D</span>
-                </div>
-                <div class="skill-item"><img alt="Unity" src="images/logos/unity3d-icon.svg"><span>Unity 3D</span>
-                </div>
-                <div class="skill-item"><img alt="Unity" src="images/logos/unity3d-icon.svg"><span>Unity XR</span>
-                </div>
+                <div class="skill-item"><img alt="Unity" src="images/logos/unity3d-icon.svg"><span>Unity 2D</span></div>
+                <div class="skill-item"><img alt="Unity" src="images/logos/unity3d-icon.svg"><span>Unity 3D</span></div>
+                <div class="skill-item"><img alt="Unity" src="images/logos/unity3d-icon.svg"><span>Unity XR</span></div>
             </div>
         </div>
 
         <div class="skill-card">
             <h3 data-en="Tools & Design" data-nl="Tools & Design">Tools & Design</h3>
             <div class="skill-logos">
-                <div class="skill-item"><img alt="Git/GitHub" src="images/logos/github-icon-1.svg"><span>Git /
-                            GitHub</span></div>
-                <div class="skill-item"><img alt="Agile/Scrum" src="images/logos/trello.svg"><span>Agile /
-                            Scrum</span></div>
+                <div class="skill-item"><img alt="Git/GitHub" src="images/logos/github-icon-1.svg"><span>Git / GitHub</span></div>
+                <div class="skill-item"><img alt="Agile/Scrum" src="images/logos/trello.svg"><span>Agile / Scrum</span></div>
                 <div class="skill-item"><img alt="Photoshop" src="images/logos/photoshop.svg"><span>Photoshop</span></div>
                 <div class="skill-item"><img alt="Premiere" src="images/logos/premiere-pro-cc.svg"><span>Premiere</span></div>
                 <div class="skill-item"><img alt="Blender" src="images/logos/blender-1.svg"><span>Blender</span></div>
@@ -1058,6 +996,7 @@
     </div>
 </section>
 
+<!-- Timeline Journey Section -->
 <section class="section-padding" id="journey" style="padding-top: 0;">
     <h2 class="section-title" data-en="My Journey" data-nl="Mijn Traject">My Journey</h2>
     <div class="timeline-container">
@@ -1085,8 +1024,7 @@
                 <h3>DIVD</h3>
                 <div class="date">September 2025 - Current</div>
                 <p data-en="Internship at the Dutch Institute for Vulnerability Disclosure. Working on cybersecurity and securing systems."
-                   data-nl="Stage bij het Dutch Institute for Vulnerability Disclosure. Werken aan cybersecurity en het beveiligen van systemen.">Internship at the Dutch Institute for Vulnerability Disclosure. Working on cybersecurity and
-                    securing systems.</p>
+                   data-nl="Stage bij het Dutch Institute for Vulnerability Disclosure. Werken aan cybersecurity en het beveiligen van systemen.">Internship at the Dutch Institute for Vulnerability Disclosure. Working on cybersecurity and securing systems.</p>
             </div>
         </div>
 
@@ -1095,8 +1033,7 @@
                 <h3>Hogeschool Utrecht</h3>
                 <div class="date">2026 - Current</div>
                 <p data-en="Continuing higher education to deepen my knowledge in software engineering and advanced technologies."
-                   data-nl="Vervolgopleiding HBO om mijn kennis in software engineering en geavanceerde technologieën te verdiepen.">Continuing higher education to deepen my knowledge in software engineering and advanced
-                    technologies.</p>
+                   data-nl="Vervolgopleiding HBO om mijn kennis in software engineering en geavanceerde technologieën te verdiepen.">Continuing higher education to deepen my knowledge in software engineering and advanced technologies.</p>
             </div>
         </div>
 
@@ -1112,19 +1049,17 @@
     </div>
 </section>
 
+<!-- Featured Projects Section -->
 <section class="section-padding" id="projects" style="padding-top: 0;">
     <h2 class="section-title" data-en="Featured Projects" data-nl="Uitgelichte Projecten">Featured Projects</h2>
     <div class="projects-grid">
 
         <a class="project-card" href="pacmanremake.html">
-            <div class="project-image unity"
-                 style="background-image: url('images/logos/pacman.jpg'); background-size: cover; background-position: center;">
-            </div>
+            <div class="project-image unity" style="background-image: url('images/logos/pacman.jpg'); background-size: cover; background-position: center;"></div>
             <div class="project-content">
                 <h3>Pacman Remake</h3>
                 <p data-en="A faithful recreation of the classic arcade hit, developed entirely in Unity to explore core game loop architecture and 2D physics."
-                   data-nl="Een getrouwe hercreatie van de klassieke arcade hit, volledig ontwikkeld in Unity om core game loop architectuur en 2D physics te verkennen.">A faithful recreation of the classic arcade hit, developed entirely in Unity to explore core game
-                    loop architecture and 2D physics.</p>
+                   data-nl="Een getrouwe hercreatie van de klassieke arcade hit, volledig ontwikkeld in Unity om core game loop architectuur en 2D physics te verkennen.">A faithful recreation of the classic arcade hit, developed entirely in Unity to explore core game loop architecture and 2D physics.</p>
                 <div class="tags">
                     <span class="tag">Unity 2D</span>
                     <span class="tag">C#</span>
@@ -1133,14 +1068,11 @@
         </a>
 
         <a class="project-card" href="teleportation.html">
-            <div class="project-image xr"
-                 style="background-image: url('images/teleportation.gif'); background-size: cover; background-position: center;">
-            </div>
+            <div class="project-image xr" style="background-image: url('images/teleportation.gif'); background-size: cover; background-position: center;"></div>
             <div class="project-content">
                 <h3>XR Teleportation</h3>
                 <p data-en="An experimental VR project focusing on smooth locomotion and teleportation mechanics to ensure player comfort in virtual spaces."
-                   data-nl="Een experimenteel VR-project gericht op vloeiende voortbeweging en teleportatiemechanica voor optimaal spelercomfort.">An experimental VR project focusing on smooth locomotion and teleportation mechanics to ensure
-                    player comfort in virtual spaces.</p>
+                   data-nl="Een experimenteel VR-project gericht op vloeiende voortbeweging en teleportatiemechanica voor optimaal spelercomfort.">An experimental VR project focusing on smooth locomotion and teleportation mechanics to ensure player comfort in virtual spaces.</p>
                 <div class="tags">
                     <span class="tag">Unity XR</span>
                     <span class="tag">C#</span>
@@ -1149,14 +1081,11 @@
         </a>
 
         <a class="project-card" href="galaga.html">
-            <div class="project-image"
-                 style="background-image: url('images/logos/Galaga.ico'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #0b0c15;">
-            </div>
+            <div class="project-image" style="background-image: url('images/logos/Galaga.ico'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #0b0c15;"></div>
             <div class="project-content">
                 <h3>Galaga Reloaded</h3>
                 <p data-en="My personal spin on the retro shooter, featuring modern particle effects and an escalating enemy AI system."
-                   data-nl="Mijn persoonlijke variant op de retro shooter, met moderne particle effects en een geavanceerd enemy AI-systeem.">My personal spin on the retro shooter, featuring modern particle effects and an escalating enemy
-                    AI system.</p>
+                   data-nl="Mijn persoonlijke variant op de retro shooter, met moderne particle effects en een geavanceerd enemy AI-systeem.">My personal spin on the retro shooter, featuring modern particle effects and an escalating enemy AI system.</p>
                 <div class="tags">
                     <span class="tag">Unity 2D</span>
                     <span class="tag">Game AI</span>
@@ -1165,9 +1094,7 @@
         </a>
 
         <a class="project-card" href="twinstick.html">
-            <div class="project-image unity"
-                 style="background-image: url('images/logos/joystick.svg'); background-size: cover; background-position: center;">
-            </div>
+            <div class="project-image unity" style="background-image: url('images/logos/joystick.svg'); background-size: cover; background-position: center;"></div>
             <div class="project-content">
                 <h3>Twinnstick shooter</h3>
                 <p data-en="The Twinstick Shooter project focuses on precision shooting mechanics, smooth player control, and dynamic enemy AI behavior."
@@ -1180,9 +1107,7 @@
         </a>
 
         <a class="project-card" href="particleeffect.html">
-            <div class="project-image unity"
-                 style="background-image: url('images/particles.jpg'); background-size: cover; background-position: center;">
-            </div>
+            <div class="project-image unity" style="background-image: url('images/particles.jpg'); background-size: cover; background-position: center;"></div>
             <div class="project-content">
                 <h3>Particle effects</h3>
                 <p data-en="Explores visually appealing particle effects using Unity’s Particle System, featuring complex explosions, trails, and dynamic environmental reactions."
@@ -1197,10 +1122,17 @@
     </div>
 </section>
 
+<!-- Footer -->
 <footer>
-    <p>&copy; 2026 Kenan Özbakan.</p>
+    <ul class="social-icons-footer">
+        <li><a href="https://www.instagram.com/kenan.3_8/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+        <li><a href="https://www.linkedin.com/in/kenan%C3%B6zbakan/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
+        <li><a href="socials.html" aria-label="All Socials"><i class="fas fa-link"></i></a></li>
+    </ul>
+    <p data-en="&copy; Kenan Özbakan. All rights reserved." data-nl="&copy; Kenan Özbakan. Alle rechten voorbehouden.">&copy; Kenan Özbakan. All rights reserved.</p>
 </footer>
 
+<!-- Scripts -->
 <script>
     function switchLanguage(lang) {
         localStorage.setItem('portfolio_lang', lang);

@@ -1,229 +1,1138 @@
-<!DOCTYPE HTML> <!-- Helios by HTML5 UP	html5up.net | @ajlkn Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)-->
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <title>Kenan Özbakan | Game Developer Portfolio - Unity, XR, AI</title>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Kenan Özbakan | Portfolio</title>
+    <meta content="Explore the game development and software engineering portfolio of Kenan Özbakan, specializing in Unity 3D, XR, game AI, and web technologies." name="description">
     <link href="images/faviicon.ico" rel="icon">
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport"/>
-    <meta content="Explore the game development projects by Kenan Özbakan, specializing in Unity, 3D games, XR development, AI implementation, and creative problem-solving." name="description"/>
-    <link href="assets/css/main.css" rel="stylesheet"/>
-    <link href="assets/css/custom-hero.css" rel="stylesheet"/>
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link href="assets/css/fontawesome-all.min.css" rel="stylesheet">
 
-    <noscript>
-        <link href="assets/css/noscript.css" rel="stylesheet"/>
-    </noscript>
+    <style>
+        :root {
+            --bg-color: #050505;
+            --surface: #111111;
+            --surface-glass: rgba(255, 255, 255, 0.05);
+            --border-glass: rgba(255, 255, 255, 0.1);
+            --primary: #9d4edd;
+            --primary-glow: rgba(157, 78, 221, 0.5);
+            --secondary: #00b4d8;
+            --text-main: #ffffff;
+            --text-muted: #a0a0a0;
+            --font-main: 'Outfit', sans-serif;
+            --font-display: 'Space Grotesk', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            background-image: linear-gradient(rgba(5, 5, 5, 0.85), rgba(5, 5, 5, 0.95)),
+            url("images/header.jpg");
+            background-size: cover;
+            background-position: center top;
+            background-attachment: fixed;
+            color: var(--text-main);
+            font-family: var(--font-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.2rem 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(5, 5, 5, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-glass);
+            z-index: 1000;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-main);
+            text-shadow: 0 0 12px var(--primary-glow);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Dropdown Menu in Navigation */
+        .nav-links li {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            opacity: 0;
+            visibility: hidden;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            background: rgba(14, 14, 20, 0.95);
+            border: 1px solid var(--border-glass);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 20px rgba(157, 78, 221, 0.2);
+            border-radius: 14px;
+            padding: 0.6rem 0;
+            min-width: 220px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            list-style: none;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 1001;
+            margin-top: 0.8rem;
+        }
+
+        .nav-links li.has-dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .dropdown-item {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .dropdown-item:first-child {
+            border-top: none;
+        }
+
+        .dropdown-item a {
+            display: flex;
+            align-items: center;
+            color: var(--text-muted);
+            font-family: var(--font-main);
+            font-size: 0.92rem;
+            font-weight: 500;
+            padding: 0.75rem 1.4rem;
+            text-decoration: none;
+            text-transform: none;
+            letter-spacing: 0.3px;
+            transition: all 0.25s ease;
+            white-space: nowrap;
+        }
+
+        .dropdown-item a:hover {
+            color: var(--text-main);
+            background: rgba(157, 78, 221, 0.15);
+            padding-left: 1.7rem;
+        }
+
+        .dropdown-item a::after {
+            display: none;
+        }
+
+        .projects-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 12px;
+            object-fit: contain;
+            transition: transform 0.25s ease;
+            flex-shrink: 0;
+        }
+
+        .dropdown-item a:hover .projects-icon {
+            transform: scale(1.2);
+        }
+
+        /* Language Switcher */
+        .lang-toggle {
+            position: absolute;
+            right: 5%;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.15rem;
+            background: rgba(18, 18, 26, 0.85);
+            border: 1px solid rgba(157, 78, 221, 0.3);
+            padding: 0.2rem 0.35rem;
+            border-radius: 20px;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4), 0 0 10px rgba(157, 78, 221, 0.15);
+            z-index: 1002;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 0.8rem;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            padding: 0.25rem 0.6rem;
+            border-radius: 14px;
+        }
+
+        .lang-btn:hover {
+            color: var(--text-main);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .lang-btn.active {
+            color: #ffffff;
+            background: linear-gradient(135deg, #9d4edd, #7b2cbf);
+            box-shadow: 0 2px 10px rgba(157, 78, 221, 0.5);
+            font-weight: 700;
+        }
+
+        .lang-divider {
+            color: rgba(255, 255, 255, 0.2);
+            font-size: 0.75rem;
+            margin: 0 0.1rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10rem 10% 4rem;
+            position: relative;
+            gap: 12rem;
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 6vw, 5rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            animation: fadeUp 1s ease-out forwards;
+            opacity: 0;
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+            color: var(--text-main);
+            margin-bottom: 2rem;
+            animation: fadeUp 1s ease-out 0.2s forwards;
+            opacity: 0;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-main);
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            border: none;
+            border-radius: 30px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeUp 1s ease-out 0.4s forwards;
+            opacity: 0;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(157, 78, 221, 0.3);
+        }
+
+        .name-char {
+            display: inline-block;
+            text-transform: lowercase;
+            animation: smooth-uppercase 2.5s infinite ease-in-out;
+            transform: translateY(0);
+            color: var(--text-main);
+        }
+
+        .name-char:nth-child(1) {
+            animation-delay: 0s;
+            color: #bca0dc;
+        }
+
+        .name-char:nth-child(2) {
+            animation-delay: 0.2s;
+            color: #a484c4;
+        }
+
+        .name-char:nth-child(3) {
+            animation-delay: 0.4s;
+            color: #8a66ab;
+        }
+
+        .name-char:nth-child(4) {
+            animation-delay: 0.6s;
+            color: #6f4792;
+        }
+
+        .name-char:nth-child(5) {
+            animation-delay: 0.8s;
+            color: #55a0be;
+        }
+
+        @keyframes smooth-uppercase {
+            0%, 100% {
+                text-transform: lowercase;
+                transform: translateY(0);
+            }
+            50% {
+                text-transform: uppercase;
+                transform: translateY(-5px);
+                color: #ffffff;
+                text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            }
+        }
+
+        /* Hero Image Panel */
+        .hero-image-container {
+            flex-shrink: 0;
+            animation: fadeUp 1s ease-out 0.3s forwards;
+            opacity: 0;
+            perspective: 1000px;
+        }
+
+        #heroImage {
+            background-image: url("assets/css/images/headfoto.jpg");
+            text-align: center;
+            background-size: cover;
+            background-position: center;
+            height: 480px;
+            width: 320px;
+            border-radius: 20px;
+            transition: .4s ease;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--border-glass);
+        }
+
+        #heroImage:hover {
+            background-image: url("assets/css/images/pointfoto.jpeg");
+            transform: scale(1.02) rotateY(-5deg);
+            box-shadow: 0 25px 50px rgba(157, 78, 221, 0.2);
+            border-color: var(--primary);
+        }
+
+        /* Skills Section */
+        .section-padding {
+            padding: 4rem 10%;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+        }
+
+        .skill-card {
+            background: var(--surface-glass);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid var(--border-glass);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), background 0.3s ease, border-color 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top right, var(--primary-glow), transparent 60%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-15px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .skill-card:hover::before {
+            opacity: 0.5;
+        }
+
+        .skill-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-main);
+            position: relative;
+            z-index: 1;
+        }
+
+        .skill-logos {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.2rem;
+            position: relative;
+            z-index: 1;
+            margin-top: 1rem;
+        }
+
+        .skill-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            transition: color 0.3s ease;
+            cursor: default;
+        }
+
+        .skill-item img {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+            filter: grayscale(100%) opacity(0.7);
+            transition: filter 0.3s ease, transform 0.3s ease;
+        }
+
+        .skill-item:hover {
+            color: var(--text-main);
+        }
+
+        .skill-item:hover img {
+            transform: scale(1.15);
+            filter: grayscale(0%) opacity(1);
+        }
+
+        .skill-card:hover .skill-item img {
+            filter: grayscale(0%) opacity(1);
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 3rem;
+            padding-bottom: 2rem;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .projects-grid::-webkit-scrollbar {
+            display: none;
+        }
+
+        .project-card {
+            flex: 0 0 min(100%, 380px);
+            scroll-snap-align: start;
+            border-radius: 20px;
+            overflow: hidden;
+            background: rgba(17, 17, 17, 0.8);
+            backdrop-filter: blur(5px);
+            border: 1px solid var(--border-glass);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.4s ease, box-shadow 0.4s ease;
+            text-decoration: none;
+            display: block;
+            color: inherit;
+        }
+
+        .project-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            border-color: var(--primary);
+            box-shadow: 0 25px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(157, 78, 221, 0.3);
+            z-index: 2;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 250px;
+            background-color: #222;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            color: #555;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .project-content p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .project-card:hover .project-content p {
+            color: #ddd;
+        }
+
+        .tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(157, 78, 221, 0.15);
+            color: var(--primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Timeline Section */
+        .timeline-container {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--bg-color);
+            border: 4px solid var(--primary);
+            border-radius: 50%;
+            top: 30px;
+            z-index: 1;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .left::after {
+            right: -10px;
+        }
+
+        .right {
+            left: 50%;
+        }
+
+        .right::after {
+            left: -10px;
+            border-color: var(--secondary);
+        }
+
+        .left:hover::after {
+            background-color: var(--primary);
+            box-shadow: 0 0 15px var(--primary-glow);
+            transform: scale(1.2);
+        }
+
+        .right:hover::after {
+            background-color: var(--secondary);
+            box-shadow: 0 0 15px rgba(0, 180, 216, 0.5);
+            transform: scale(1.2);
+        }
+
+        .timeline-content {
+            padding: 2rem;
+            background: var(--surface-glass);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid var(--border-glass);
+            border-radius: 20px;
+            position: relative;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .left:hover .timeline-content {
+            transform: translateX(-10px) translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4), 0 0 15px rgba(157, 78, 221, 0.2);
+        }
+
+        .right:hover .timeline-content {
+            transform: translateX(10px) translateY(-5px);
+            border-color: var(--secondary);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4), 0 0 15px rgba(0, 180, 216, 0.2);
+        }
+
+        .timeline-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+        }
+
+        .timeline-content .date {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: inline-block;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .left .timeline-content .date {
+            color: var(--primary);
+            border: 1px solid rgba(157, 78, 221, 0.3);
+        }
+
+        .right .timeline-content .date {
+            color: var(--secondary);
+            border: 1px solid rgba(0, 180, 216, 0.3);
+        }
+
+        .timeline-content p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Branch Specific Styles */
+        .timeline-item.branch {
+            padding-right: 80px;
+        }
+
+        .timeline-item.branch::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            right: 0px;
+            width: 40px;
+            height: 50px;
+            border-top: 2px solid var(--primary);
+            border-left: 2px solid var(--primary);
+            border-top-left-radius: 20px;
+            background: transparent;
+            opacity: 0.6;
+        }
+
+        .timeline-item.branch::after {
+            width: 14px;
+            height: 14px;
+            right: 30px;
+            top: 30px;
+            border-width: 3px;
+            border-color: rgba(157, 78, 221, 0.6);
+        }
+
+        .timeline-item.branch .timeline-content {
+            background: rgba(157, 78, 221, 0.02);
+            border-style: dashed;
+            padding: 1.5rem;
+        }
+
+        .timeline-item.branch .timeline-content h3 {
+            font-size: 1.2rem;
+        }
+
+        .timeline-item.right.branch {
+            padding-left: 80px;
+            padding-right: 40px;
+        }
+
+        .timeline-item.right.branch::before {
+            right: auto;
+            left: 0px;
+            border-left: none;
+            border-right: 2px solid var(--secondary);
+            border-top-left-radius: 0;
+            border-top-right-radius: 20px;
+            border-top-color: var(--secondary);
+        }
+
+        .timeline-item.right.branch::after {
+            right: auto;
+            left: 30px;
+            border-color: rgba(0, 180, 216, 0.6);
+        }
+
+        .timeline-item.right.branch .timeline-content {
+            background: rgba(0, 180, 216, 0.02);
+        }
+
+        /* Slot Machine Animation */
+        .slot-machine {
+            display: inline-block;
+            height: 1.1em;
+            line-height: 1.1em;
+            overflow: hidden;
+            vertical-align: bottom;
+            text-align: left;
+            position: relative;
+            top: 0;
+            width: 5.5em;
+            animation: slotWidthTrack 10s infinite cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+
+        .slot-wrapper {
+            display: block;
+            animation: slotSpin 10s infinite cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+
+        .slot-item {
+            display: block;
+            height: 1.1em;
+            line-height: 1.1em;
+            color: inherit;
+            font-weight: inherit;
+            white-space: nowrap;
+        }
+
+        @keyframes slotSpin {
+            0%, 20% { transform: translateY(0); }
+            25%, 45% { transform: translateY(-1.1em); }
+            50%, 70% { transform: translateY(-2.2em); }
+            75%, 95% { transform: translateY(-3.3em); }
+            100% { transform: translateY(-4.4em); }
+        }
+
+        @keyframes slotWidthTrack {
+            0%, 20% { width: 5.5em; }
+            25%, 45% { width: 8.0em; }
+            50%, 70% { width: 5.5em; }
+            75%, 95% { width: 6.5em; }
+            100% { width: 5.5em; }
+        }
+
+        /* Footer */
+        footer {
+            margin-top: auto;
+            text-align: center;
+            padding: 3rem 10%;
+            border-top: 1px solid var(--border-glass);
+            background: rgba(5, 5, 5, 0.9);
+            color: var(--text-muted);
+        }
+
+        .social-icons-footer {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-icons-footer li a {
+            color: var(--text-muted);
+            font-size: 1.3rem;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-glass);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons-footer li a:hover {
+            color: var(--primary);
+            border-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 0 15px var(--primary-glow);
+        }
+
+        /* Responsive adjustments */
+        @media screen and (max-width: 960px) {
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding-top: 8rem;
+            }
+            .hero-content {
+                max-width: 100%;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .timeline-container::after { left: 31px; }
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            .timeline-item::after {
+                left: 21px;
+                right: auto;
+            }
+            .right { left: 0; }
+            .left:hover .timeline-content,
+            .right:hover .timeline-content {
+                transform: translateY(-5px);
+            }
+            .timeline-item.branch {
+                padding-left: 100px;
+                padding-right: 25px;
+            }
+            .timeline-item.branch::before {
+                left: 31px;
+                width: 40px;
+                right: auto;
+                border-top: 2px solid var(--primary);
+                border-right: 2px solid var(--primary);
+                border-left: none;
+                border-top-right-radius: 20px;
+                border-top-left-radius: 0;
+            }
+            .timeline-item.branch::after {
+                left: 61px;
+                right: auto;
+            }
+            .timeline-item.right.branch {
+                padding-left: 100px;
+                padding-right: 25px;
+            }
+            .timeline-item.right.branch::before {
+                left: 31px;
+                width: 40px;
+                right: auto;
+                border-top: 2px solid var(--secondary);
+                border-right: 2px solid var(--secondary);
+                border-left: none;
+                border-top-right-radius: 20px;
+                border-top-left-radius: 0;
+            }
+            .timeline-item.right.branch::after {
+                left: 61px;
+                right: auto;
+                border-color: rgba(0, 180, 216, 0.6);
+            }
+        }
+    </style>
 </head>
-<body class="homepage is-preload">
-<div id="page-wrapper">
 
-    <div id="header">
+<body>
 
-        <nav id="nav">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li>
-                    <a href="projects.html">Projects</a>
-                    <ul>
-                        <li class="dropdown-item">
-                            <a href="pacmanremake.html"><img alt="pacman" class="projects-icon" src="images/logos/Pacman.svg">Pacman-remake</a>
-                        </li>
-                        <li class="dropdown-item"><a href="twinstick.html"><img alt="twinnstick" class="projects-icon" src="images/logos/joystick.svg">Twinnstick</a></li>
-                        <li class="dropdown-item"><a href="galaga.html"><img alt="galaga" class="projects-icon" src="images/logos/Galaga.ico">Galaga</a></li>
-                        <li class="dropdown-item"><a href="particleeffect.html"><img alt="Particle" class="projects-icon" src="images/logos/ParticleIcon.jpg">Particle effect</a></li>
-                        <li class="dropdown-item"><a href="theworks.html"><img alt="TheWorks" class="projects-icon" src="images/logos/placeholder.jpg">TheWorks</a></li>
-                        <li class="dropdown-item"><a href="teleportation.html"><img alt="Teleportation" class="projects-icon" src="images/logos/faviicon.ico">Teleportation</a></li>
-                        <li class="dropdown-item"><a href="towerdefense.html"><img alt="TowerDefense" class="projects-icon" src="images/logos/faviicon.ico">Tower Defense</a></li>
-                        <li class="dropdown-item"><a href="nan.html"><img alt="Nan" class="projects-icon" src="images/logos/placeholder.jpg">Nan</a></li>
-                    </ul>
-                </li>
-                <li><a href="music.html" data-en="Music" data-nl="Muziek">Music</a></li>
-                <li><a href="index.html#skills" data-en="Skills" data-nl="Vaardigheden">Skills</a></li>
+<!-- Header Navigation -->
+<nav>
+    <ul class="nav-links">
+        <li><a href="#home" data-en="Home" data-nl="Home">Home</a></li>
+        <li><a href="#skills" data-en="Skills" data-nl="Vaardigheden">Skills</a></li>
+        <li><a href="#journey" data-en="Journey" data-nl="Mijn Traject">Journey</a></li>
+        <li class="has-dropdown">
+            <a href="projects.html" data-en="Projects" data-nl="Projecten">Projects</a>
+            <ul class="dropdown-menu">
+                <li class="dropdown-item"><a href="pacmanremake.html"><img alt="pacman" class="projects-icon" src="images/logos/Pacman.svg">Pacman-remake</a></li>
+                <li class="dropdown-item"><a href="twinstick.html"><img alt="twinnstick" class="projects-icon" src="images/logos/joystick.svg">Twinnstick</a></li>
+                <li class="dropdown-item"><a href="galaga.html"><img alt="galaga" class="projects-icon" src="images/logos/Galaga.ico">Galaga</a></li>
+                <li class="dropdown-item"><a href="particleeffect.html"><img alt="Particle" class="projects-icon" src="images/logos/ParticleIcon.jpg">Particle effect</a></li>
+                <li class="dropdown-item"><a href="theworks.html"><img alt="TheWorks" class="projects-icon" src="images/logos/placeholder.jpg">TheWorks</a></li>
+                <li class="dropdown-item"><a href="teleportation.html"><img alt="Teleportation" class="projects-icon" src="images/faviicon.ico">Teleportation</a></li>
+                <li class="dropdown-item"><a href="towerdefense.html"><img alt="TowerDefense" class="projects-icon" src="images/faviicon.ico">Tower Defense</a></li>
+                <li class="dropdown-item"><a href="nan.html"><img alt="Nan" class="projects-icon" src="images/logos/placeholder.jpg">Nan</a></li>
             </ul>
-            <div class="lang-toggle">
-                <button class="lang-btn active" data-lang-btn="en" onclick="switchLanguage('en')">EN</button>
-                <span class="lang-divider">/</span>
-                <button class="lang-btn" data-lang-btn="nl" onclick="switchLanguage('nl')">NL</button>
-            </div>
-        </nav>
-
-        <div class="inner">
-            <header class="hero-container">
-                <div class="hero-text">
-                    <h1 class="animated-text"><span>K</span><span>e</span><span>n</span><span>a</span><span>n</span></h1>
-                    <hr/>
-                    <p>
-                        <span id="age-number"></span> years old.<br>
-                        <span class="slot-machine">
-                            <span class="slot-wrapper">
-                                <span class="slot-item">Game</span>
-                                <span class="slot-item">Web</span>
-                                <span class="slot-item">Software</span>
-                                <span class="slot-item">XR</span>
-                                <span class="slot-item">Game</span>
-                            </span>
-                        </span> Developer with creative and technical skills.<br>
-                        Living in Utrecht, with experience at <a href="https://edumersive.nl/"><strong>Edumersive</strong></a> and <a href="theworks.html"><strong>DIVD</strong></a>.<br>
-                        Graduated from <a href="projects.html?school=glu"><strong>Grafisch Lyceum Utrecht</strong></a> and currently studying at <a href="projects.html?school=hu"><strong>Hogeschool Utrecht</strong></a>.<br>
-                        As a team player with a thoughtful and eager-to-learn attitude, I enjoy working collaboratively and find innovative solutions to complex challenges.
-                    </p>
-                </div>
-                <div id="heroImage"></div>
-            </header>
-        </div>
+        </li>
+        <li><a href="music.html" data-en="Music" data-nl="Muziek">Music</a></li>
+    </ul>
+    <div class="lang-toggle">
+        <button class="lang-btn active" data-lang-btn="en" onclick="switchLanguage('en')">EN</button>
+        <span class="lang-divider">/</span>
+        <button class="lang-btn" data-lang-btn="nl" onclick="switchLanguage('nl')">NL</button>
     </div>
+</nav>
 
-    <section class="wrapper style2" id="skills">
-        <div class="container">
-
-            <div class="skills-title">
-                <div class="skills-heading">Skills</div>
-                <div class="skills-subheading">Here are some of the skills I have developed so far!</div>
-            </div>
-
-            <div class="skills-list">
-
-                <div class="skill animate-on-scroll">
-                    <div class="skill-heading">Programming Languages</div>
-                    <ul>
-                        <li><a href="projects.html?lang=csharp"><img alt="C# icon" class="skill-icon" src="images/logos/c--4.svg">C#</a></li>
-                        <li><a href="projects.html?lang=dart"><img alt="Dart icon" class="skill-icon" src="images/logos/dart-svgrepo-com.svg">Dart</a></li>
-                        <li><a href="projects.html?lang=python"><img alt="Python icon" class="skill-icon" src="images/logos/pythonlogo.svg">Python</a></li>
-                        <li><img alt="HTML icon" class="skill-icon" src="images/logos/html-1.svg">HTML</li>
-                        <li><img alt="CSS icon" class="skill-icon" src="images/logos/css-3.svg">CSS</li>
-                    </ul>
-                </div>
-                <div class="skill animate-on-scroll">
-                    <div class="skill-heading">Game Development</div>
-
-                    <ul>
-                        <li><a href="projects.html?lang=csharp"><img alt="Unity logo" class="skill-icon" src="images/logos/unity3d-icon.svg">Unity 2D</a></li>
-
-                        <li><a href="projects.html?lang=csharp"><img alt="Unity logo" class="skill-icon" src="images/logos/unity3d-icon.svg">Unity 3D</a></li>
-
-                        <li><a href="projects.html?lang=csharp"><img alt="Unity logo" class="skill-icon" src="images/logos/unity3d-icon.svg">Unity XR</a></li>
-                    </ul>
-                </div>
-
-                <div class="skill animate-on-scroll" style="animation-delay: 1.2s;">
-                    <div class="skill-heading">Teamwork</div>
-                    <ul>
-                        <li><a href="https://github.com/KMOzk"><img alt="Github logo" class="skill-icon"
-                                                                    src="images/logos/github-icon-1.svg">Github</a></li>
-                        <li><img alt="Trello logo" class="skill-icon" src="images/logos/trello.svg">Trello/ Scrum</li>
-                        <li><img alt="Trello logo" class="skill-icon" src="images/logos/trello.svg">Agile</li>
-                    </ul>
-                </div>
-                <div class="skill animate-on-scroll" style="animation-delay: 1.2s;">
-                    <div class="skill-heading">Design</div>
-                    <ul>
-                        <li><img alt="Photoshop logo" class="skill-icon" src="images/logos/photoshop.svg">Photoshop</li>
-                        <li><img alt="Premiere pro logo" class="skill-icon" src="images/logos/premiere-pro-cc.svg">Premiere
-                            pro
-                        </li>
-                        <li><img alt="Blender logo" class="skill-icon" src="images/logos/blender-1.svg">Blender</li>
-                        <li><img alt="Figma logo" class="skill-icon" src="images/logos/figma-logo.svg">Figma</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="carousel">
-        <section id="banner">
-            <header>
-                <h2>Projects highlights</h2>
-                <p>
-                    Feel free to look around here or on <a href="https://kenan38.itch.io/">itch</a>.
-                </p>
-            </header>
-        </section>
-        <div class="reel">
-
-            <article>
-                <a class="image featured" href="music.html"><img alt="" src="images/logos/musicicon.jpg"/></a>
-                <h2>
-                    <a href="music.html">Music</a>
-                </h2>
-                <p>A couple musical piece's composed in my room :) (or at school, of course).</p>
-            </article>
-
-            <article>
-                <a class="image featured" href="projects.html"><img alt="" src="images/logos/unitylogo.jpg"/></a>
-                <header>
-                    <h3><a href="projects.html">Projects</a></h3>
-                </header>
-                <p>All the projects I have done in Unity so far.</p>
-            </article>
-
-            <article>
-                <a class="image featured" href="pacmanremake.html"><img alt="" src="images/logos/pacman.jpg"/></a>
-                <header>
-                    <h3><a href="pacmanremake.html">Pacman-remake</a></h3>
-                </header>
-                <p>I made packman in unity and posted it on <a href="https://kenan38.itch.io/pacman-remake">itch.</a>
-                </p>
-            </article>
-
-            <article>
-                <a class="image featured" href="particleeffect.html"><img alt="" src="images/particles.jpg"/></a>
-                <header>
-                    <h3><a href="particleeffect.html">Particle Effects</a></h3>
-                </header>
-                <p> Want to see some particles in action?</p>
-            </article>
-
-            <article>
-                <a class="image featured black-bg" href="galaga.html"><img alt="" src="images/logos/Galaga.ico"/></a>
-                <header>
-                    <h3><a href="galaga.html">Galaga Remake</a></h3>
-                </header>
-                <p> Galaga in a new light play it on <a href="https://kenan38.itch.io/galaga-remake">itch!</a></p>
-            </article>
-        </div>
-    </section>
-
-    <div id="footer">
-        <hr/>
-        <header>
-            <h2>Contact</h2>
-            <p>
-                If you have questions, feel free to reach out! <br>
-                I am always reachable via my e-mail kenan[dot]ozbakan[at]com <br> or on
-                <a href="socials.html">another social network I am on.</a>
-            </p>
-        </header>
-        <section class="contact">
-            <ul class="icons">
-                <li><a class="icon brands fa-instagram" href="https://www.instagram.com/kenan.3_8/"><span
-                        class="label">Instagram</span></a></li>
-                <li><a class="icon brands fa-linkedin-in"
-                       href="https://www.linkedin.com/in/kenan%C3%B6zbakan/"><span class="label">Linkedin</span></a>
-                </li>
-                <li><a class="icon brands fa-dribbble" href="socials.html"><span
-                        class="label">All socials in 1 place</span></a>
-                </li>
-            </ul>
-        </section>
-
-        <div class="copyright">
-            <ul class="menu">
-                <li>&copy; Kenan Özbakan. All rights reserved.</li>
-                <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
-            </ul>
-        </div>
+<!-- Hero Section -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h1 class="animated-text">Hi, I'm <span class="name-char">K</span><span class="name-char">e</span><span class="name-char">n</span><span class="name-char">a</span><span class="name-char">n</span>.<br>
+            <span class="slot-machine">
+                <span class="slot-wrapper">
+                    <span class="slot-item"><span class="gradient-text">Unity 3D</span></span>
+                    <span class="slot-item"><span class="gradient-text">XR Solutions</span></span>
+                    <span class="slot-item"><span class="gradient-text">Game AI</span></span>
+                    <span class="slot-item"><span class="gradient-text">Web Tech</span></span>
+                    <span class="slot-item"><span class="gradient-text">Unity 3D</span></span>
+                </span>
+            </span>
+            <span class="gradient-text">Developer.</span>
+        </h1>
+        <p data-en="I specialize in crafting immersive experiences through Unity 3D, XR, game AI and web technologies.<br>Bridging the gap between code and interactive art."
+           data-nl="Ik ben gespecialiseerd in het creëren van meeslepende ervaringen met Unity 3D, XR, game AI en webtechnologieën.<br>De brug tussen code en interactieve kunst.">
+            I specialize in crafting immersive experiences through Unity 3D, XR, game AI and web technologies.<br>Bridging the gap between code and interactive art.
+        </p>
+        <a class="cta-btn" href="#projects" data-en="Explore My Work" data-nl="Bekijk Mijn Werk">Explore My Work</a>
     </div>
+    <div class="hero-image-container">
+        <div id="heroImage"></div>
+    </div>
+</section>
 
-</div>
+<!-- Skills Section -->
+<section class="section-padding" id="skills">
+    <h2 class="section-title" data-en="Technical Expertise" data-nl="Technische Expertise">Technical Expertise</h2>
+    <div class="skills-grid">
 
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/jquery.dropotron.min.js"></script>
-<script src="assets/js/jquery.scrolly.min.js"></script>
-<script src="assets/js/jquery.scrollex.min.js"></script>
-<script src="assets/js/browser.min.js"></script>
-<script src="assets/js/breakpoints.min.js"></script>
-<script src="assets/js/util.js"></script>
-<script src="assets/js/main.js"></script>
+        <div class="skill-card">
+            <h3 data-en="Programming" data-nl="Programmeren">Programming</h3>
+            <div class="skill-logos">
+                <div class="skill-item"><img alt="C#" src="images/logos/c--4.svg"><span>C#</span></div>
+                <div class="skill-item"><img alt="Dart" src="images/logos/dart-svgrepo-com.svg"><span>Dart</span></div>
+                <div class="skill-item"><img alt="Python" src="images/logos/pythonlogo.svg"><span>Python</span></div>
+                <div class="skill-item"><img alt="HTML" src="images/logos/html-1.svg"><span>HTML & CSS</span></div>
+            </div>
+        </div>
 
+        <div class="skill-card">
+            <h3 data-en="Game Dev" data-nl="Game Development">Game Dev</h3>
+            <div class="skill-logos">
+                <div class="skill-item"><img alt="Unity" src="images/logos/unity3d-icon.svg"><span>Unity 2D</span></div>
+                <div class="skill-item"><img alt="Unity" src="images/logos/unity3d-icon.svg"><span>Unity 3D</span></div>
+                <div class="skill-item"><img alt="Unity" src="images/logos/unity3d-icon.svg"><span>Unity XR</span></div>
+            </div>
+        </div>
+
+        <div class="skill-card">
+            <h3 data-en="Tools & Design" data-nl="Tools & Design">Tools & Design</h3>
+            <div class="skill-logos">
+                <div class="skill-item"><img alt="Git/GitHub" src="images/logos/github-icon-1.svg"><span>Git / GitHub</span></div>
+                <div class="skill-item"><img alt="Agile/Scrum" src="images/logos/trello.svg"><span>Agile / Scrum</span></div>
+                <div class="skill-item"><img alt="Photoshop" src="images/logos/photoshop.svg"><span>Photoshop</span></div>
+                <div class="skill-item"><img alt="Premiere" src="images/logos/premiere-pro-cc.svg"><span>Premiere</span></div>
+                <div class="skill-item"><img alt="Blender" src="images/logos/blender-1.svg"><span>Blender</span></div>
+                <div class="skill-item"><img alt="Figma" src="images/logos/figma-logo.svg"><span>Figma</span></div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Timeline Journey Section -->
+<section class="section-padding" id="journey" style="padding-top: 0;">
+    <h2 class="section-title" data-en="My Journey" data-nl="Mijn Traject">My Journey</h2>
+    <div class="timeline-container">
+
+        <div class="timeline-item left">
+            <div class="timeline-content">
+                <h3>Grafisch Lyceum Utrecht</h3>
+                <div class="date">2021 - 2026</div>
+                <p data-en="Foundation in media, design, and software development."
+                   data-nl="Basis in media, design en softwareontwikkeling.">Foundation in media, design, and software development.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item left branch">
+            <div class="timeline-content">
+                <h3>Edumersive</h3>
+                <div class="date">February 2024 - July 2024</div>
+                <p data-en="Internship focused on VR and educational immersive experiences."
+                   data-nl="Stage gericht op VR en educatieve meeslepende ervaringen.">Internship focused on VR and educational immersive experiences.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item left branch">
+            <div class="timeline-content">
+                <h3>DIVD</h3>
+                <div class="date">September 2025 - Current</div>
+                <p data-en="Internship at the Dutch Institute for Vulnerability Disclosure. Working on cybersecurity and securing systems."
+                   data-nl="Stage bij het Dutch Institute for Vulnerability Disclosure. Werken aan cybersecurity en het beveiligen van systemen.">Internship at the Dutch Institute for Vulnerability Disclosure. Working on cybersecurity and securing systems.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item right">
+            <div class="timeline-content">
+                <h3>Hogeschool Utrecht</h3>
+                <div class="date">2026 - Current</div>
+                <p data-en="Continuing higher education to deepen my knowledge in software engineering and advanced technologies."
+                   data-nl="Vervolgopleiding HBO om mijn kennis in software engineering en geavanceerde technologieën te verdiepen.">Continuing higher education to deepen my knowledge in software engineering and advanced technologies.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item right branch">
+            <div class="timeline-content">
+                <h3>Technical Computer Science</h3>
+                <div class="date" data-en="Degree Focus" data-nl="Studiekeuze">Degree Focus</div>
+                <p data-en="Chose Technical Computer Science over Computer Science and Business Management to focus on software architecture, systems engineering, and technical problem-solving."
+                   data-nl="Gekozen voor Technische Informatica (TCS) boven Computer Science en Business Management om te focussen op softwarearchitectuur, systems engineering en technische probleemoplossing.">Chose Technical Computer Science over Computer Science and Business Management to focus on software architecture, systems engineering, and technical problem-solving.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Featured Projects Section -->
+<section class="section-padding" id="projects" style="padding-top: 0;">
+    <h2 class="section-title" data-en="Featured Projects" data-nl="Uitgelichte Projecten">Featured Projects</h2>
+    <div class="projects-grid">
+
+        <a class="project-card" href="pacmanremake.html">
+            <div class="project-image unity" style="background-image: url('images/logos/pacman.jpg'); background-size: cover; background-position: center;"></div>
+            <div class="project-content">
+                <h3>Pacman Remake</h3>
+                <p data-en="A faithful recreation of the classic arcade hit, developed entirely in Unity to explore core game loop architecture and 2D physics."
+                   data-nl="Een getrouwe hercreatie van de klassieke arcade hit, volledig ontwikkeld in Unity om core game loop architectuur en 2D physics te verkennen.">A faithful recreation of the classic arcade hit, developed entirely in Unity to explore core game loop architecture and 2D physics.</p>
+                <div class="tags">
+                    <span class="tag">Unity 2D</span>
+                    <span class="tag">C#</span>
+                </div>
+            </div>
+        </a>
+
+        <a class="project-card" href="teleportation.html">
+            <div class="project-image xr" style="background-image: url('images/teleportation.gif'); background-size: cover; background-position: center;"></div>
+            <div class="project-content">
+                <h3>XR Teleportation</h3>
+                <p data-en="An experimental VR project focusing on smooth locomotion and teleportation mechanics to ensure player comfort in virtual spaces."
+                   data-nl="Een experimenteel VR-project gericht op vloeiende voortbeweging en teleportatiemechanica voor optimaal spelercomfort.">An experimental VR project focusing on smooth locomotion and teleportation mechanics to ensure player comfort in virtual spaces.</p>
+                <div class="tags">
+                    <span class="tag">Unity XR</span>
+                    <span class="tag">C#</span>
+                </div>
+            </div>
+        </a>
+
+        <a class="project-card" href="galaga.html">
+            <div class="project-image" style="background-image: url('images/logos/Galaga.ico'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #0b0c15;"></div>
+            <div class="project-content">
+                <h3>Galaga Reloaded</h3>
+                <p data-en="My personal spin on the retro shooter, featuring modern particle effects and an escalating enemy AI system."
+                   data-nl="Mijn persoonlijke variant op de retro shooter, met moderne particle effects en een geavanceerd enemy AI-systeem.">My personal spin on the retro shooter, featuring modern particle effects and an escalating enemy AI system.</p>
+                <div class="tags">
+                    <span class="tag">Unity 2D</span>
+                    <span class="tag">Game AI</span>
+                </div>
+            </div>
+        </a>
+
+        <a class="project-card" href="twinstick.html">
+            <div class="project-image unity" style="background-image: url('images/logos/joystick.svg'); background-size: cover; background-position: center;"></div>
+            <div class="project-content">
+                <h3>Twinnstick shooter</h3>
+                <p data-en="The Twinstick Shooter project focuses on precision shooting mechanics, smooth player control, and dynamic enemy AI behavior."
+                   data-nl="Het Twinstick Shooter project richt zich op precisie schietmechanica, soepele spelerbesturing en dynamisch enemy AI-gedrag.">The Twinstick Shooter project focuses on precision shooting mechanics, smooth player control, and dynamic enemy AI behavior.</p>
+                <div class="tags">
+                    <span class="tag">Unity 2D</span>
+                    <span class="tag">C#</span>
+                </div>
+            </div>
+        </a>
+
+        <a class="project-card" href="particleeffect.html">
+            <div class="project-image unity" style="background-image: url('images/particles.jpg'); background-size: cover; background-position: center;"></div>
+            <div class="project-content">
+                <h3>Particle effects</h3>
+                <p data-en="Explores visually appealing particle effects using Unity’s Particle System, featuring complex explosions, trails, and dynamic environmental reactions."
+                   data-nl="Verkent visueel aantrekkelijke particle effects met Unity's Particle System, waaronder explosies, trails en dynamische omgevingsreacties.">Explores visually appealing particle effects using Unity’s Particle System, featuring complex explosions, trails, and dynamic environmental reactions.</p>
+                <div class="tags">
+                    <span class="tag">Unity 3D</span>
+                    <span class="tag">VFX</span>
+                </div>
+            </div>
+        </a>
+
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <ul class="social-icons-footer">
+        <li><a href="https://www.instagram.com/kenan.3_8/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+        <li><a href="https://www.linkedin.com/in/kenan%C3%B6zbakan/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
+        <li><a href="socials.html" aria-label="All Socials"><i class="fas fa-link"></i></a></li>
+    </ul>
+    <p data-en="&copy; Kenan Özbakan. All rights reserved." data-nl="&copy; Kenan Özbakan. Alle rechten voorbehouden.">&copy; Kenan Özbakan. All rights reserved.</p>
+</footer>
+
+<!-- Scripts -->
 <script>
     function switchLanguage(lang) {
         localStorage.setItem('portfolio_lang', lang);
@@ -245,4 +1154,5 @@
 </script>
 
 </body>
+
 </html>
