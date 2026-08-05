@@ -11,6 +11,7 @@
     <!-- CSS -->
     <link href="assets/css/main.css" rel="stylesheet"/>
     <link href="assets/css/pacman-redesign.css" rel="stylesheet"/>
+    <link href="assets/css/projects-redesign.css" rel="stylesheet"/>
     <link href="assets/css/prism.css" rel="stylesheet"/>
     
     <noscript>
@@ -20,7 +21,11 @@
 
 <body class="pacman-redesign">
 
-    <!-- Header & Navigation Bar (Preserved) -->
+<div id="page-wrapper">
+
+    <div id="header">
+
+    <!-- Header & Nav -->
     <nav id="nav">
         <ul>
             <li><a href="index.html">Home</a></li>
@@ -46,6 +51,7 @@
             <button class="lang-btn" data-lang-btn="nl" onclick="switchLanguage('nl')">NL</button>
         </div>
     </nav>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero-section">
@@ -80,6 +86,7 @@
             <li><a href="#animation" data-en="Animation" data-nl="Animatie">Animatie</a></li>
         </ul>
     </nav>
+    </div>
 
     <!-- Main Content Sections -->
     <main>
@@ -397,15 +404,15 @@ public class EnemyAttack : MonoBehaviour
     </div>
 
     <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.dropotron.min.js"></script>
-    <script src="assets/js/jquery.scrolly.min.js"></script>
-    <script src="assets/js/jquery.scrollex.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/prism.js"></script>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.dropotron.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/prism.js"></script>
 
     <script>
         // Language Switcher Functionality
@@ -471,5 +478,6 @@ public class EnemyAttack : MonoBehaviour
         });
     </script>
 
+</div>
 </body>
 </html>

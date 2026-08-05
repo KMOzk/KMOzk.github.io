@@ -10,6 +10,7 @@
     <!-- CSS -->
     <link href="assets/css/main.css" rel="stylesheet"/>
     <link href="assets/css/galaga-redesign.css" rel="stylesheet"/>
+    <link href="assets/css/projects-redesign.css" rel="stylesheet"/>
     <link href="assets/css/prism.css" rel="stylesheet"/>
     
     <noscript>
@@ -18,34 +19,37 @@
 </head>
 <body class="galaga-redesign">
 
+<div id="page-wrapper">
+
+    <div id="header">
+
     <!-- Header & Nav -->
-    <nav id="nav">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li>
-                <a href="projects.html">Projects</a>
+            <nav id="nav">
                 <ul>
-                    <li class="dropdown-item">
-                        <a href="pacmanremake.html"><img alt="pacman" class="projects-icon" src="images/logos/Pacman.svg">Pacman-remake</a>
+                    <li><a href="index.html">Home</a></li>
+                    <li>
+                        <a href="projects.html">Projects</a>
+                        <ul>
+                            <li class="dropdown-item"><a href="pacmanremake.html"><img alt="pacman" class="projects-icon" src="images/logos/Pacman.svg">Pacman-remake</a></li>
+                            <li class="dropdown-item"><a href="twinstick.html"><img alt="twinnstick" class="projects-icon" src="images/logos/joystick.svg">Twinnstick</a></li>
+                            <li class="dropdown-item"><a href="galaga.html"><img alt="galaga" class="projects-icon" src="images/logos/Galaga.ico">Galaga</a></li>
+                            <li class="dropdown-item"><a href="particleeffect.html"><img alt="Particle" class="projects-icon" src="images/logos/ParticleIcon.jpg">Particle effect</a></li>
+                            <li class="dropdown-item"><a href="theworks.html"><img alt="TheWorks" class="projects-icon" src="images/logos/placeholder.jpg">TheWorks</a></li>
+                            <li class="dropdown-item"><a href="teleportation.html"><img alt="Teleportation" class="projects-icon" src="images/logos/faviicon.ico">Teleportation</a></li>
+                            <li class="dropdown-item"><a href="towerdefense.html"><img alt="TowerDefense" class="projects-icon" src="images/logos/faviicon.ico">Tower Defense</a></li>
+                            <li class="dropdown-item"><a href="nan.html"><img alt="Nan" class="projects-icon" src="images/logos/placeholder.jpg">Nan</a></li>
+                        </ul>
                     </li>
-                    <li class="dropdown-item"><a href="twinstick.html"><img alt="twinnstick" class="projects-icon" src="images/logos/joystick.svg">Twinnstick</a></li>
-                    <li class="dropdown-item"><a href="galaga.html"><img alt="galaga" class="projects-icon" src="images/logos/Galaga.ico">Galaga</a></li>
-                    <li class="dropdown-item"><a href="particleeffect.html"><img alt="Particle" class="projects-icon" src="images/logos/ParticleIcon.jpg">Particle effect</a></li>
-                    <li class="dropdown-item"><a href="theworks.html"><img alt="TheWorks" class="projects-icon" src="images/logos/placeholder.jpg">TheWorks</a></li>
-                    <li class="dropdown-item"><a href="teleportation.html"><img alt="Teleportation" class="projects-icon" src="images/faviicon.ico">Teleportation</a></li>
-                    <li class="dropdown-item"><a href="towerdefense.html"><img alt="TowerDefense" class="projects-icon" src="images/faviicon.ico">Tower Defense</a></li>
-                    <li class="dropdown-item"><a href="nan.html"><img alt="Nan" class="projects-icon" src="images/logos/placeholder.jpg">Nan</a></li>
+                    <li><a href="music.html" data-en="Music" data-nl="Muziek">Music</a></li>
+                    <li><a href="index.html#skills" data-en="Skills" data-nl="Vaardigheden">Skills</a></li>
                 </ul>
-            </li>
-            <li><a href="music.html" data-en="Music" data-nl="Muziek">Music</a></li>
-            <li><a href="index.html#skills" data-en="Skills" data-nl="Vaardigheden">Skills</a></li>
-        </ul>
-        <div class="lang-toggle">
-            <button class="lang-btn active" data-lang-btn="en" onclick="switchLanguage('en')">EN</button>
-            <span class="lang-divider">/</span>
-            <button class="lang-btn" data-lang-btn="nl" onclick="switchLanguage('nl')">NL</button>
+                <div class="lang-toggle">
+                    <button class="lang-btn active" data-lang-btn="en" onclick="switchLanguage('en')">EN</button>
+                    <span class="lang-divider">/</span>
+                    <button class="lang-btn" data-lang-btn="nl" onclick="switchLanguage('nl')">NL</button>
+                </div>
+            </nav>
         </div>
-    </nav>
 
     <!-- Hero Section -->
     <section class="hero-section">
@@ -77,6 +81,7 @@
             <li><a href="#manager">Game Manager</a></li>
         </ul>
     </nav>
+    </div>
 
     <!-- Content Sections -->
     <div id="about" class="content-section">
@@ -334,15 +339,15 @@ public class EnemyManager : ScriptableObject
     </div>
 
     <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.dropotron.min.js"></script>
-    <script src="assets/js/jquery.scrolly.min.js"></script>
-    <script src="assets/js/jquery.scrollex.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/prism.js"></script>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.dropotron.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/prism.js"></script>
 
     <script>
         function switchLanguage(lang) {
@@ -388,6 +393,8 @@ public class EnemyManager : ScriptableObject
         });
     </script>
 
+</div>
 </body>
 </html>
+
 

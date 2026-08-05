@@ -10,6 +10,7 @@
     <!-- CSS -->
     <link href="assets/css/main.css" rel="stylesheet"/>
     <link href="assets/css/teleportation-redesign.css" rel="stylesheet"/>
+    <link href="assets/css/projects-redesign.css" rel="stylesheet"/>
     <link href="assets/css/prism.css" rel="stylesheet"/>
 
     <noscript>
@@ -19,20 +20,29 @@
 
 <body class="teleport-redesign">
 
+<div id="page-wrapper">
+
+    <div id="header">
+
 <!-- Header & Nav -->
-<nav id="nav">
-    <ul>
-        <li><a href="index.html">Home</a></li>
-        <li>
-            <a href="projects.html">Projects</a>
+        <nav id="nav">
             <ul>
-                <li class="dropdown-item"><img alt="pacman" class="projects-icon" src="images/logos/Pacman.svg">
-                    <a href="pacmanremake.html">Pacman-remake</a>
+                <li><a href="index.html">Home</a></li>
+                <li>
+                    <a href="projects.html">Projects</a>
+                    <ul>
+                        <li class="dropdown-item"><a href="pacmanremake.html"><img alt="pacman" class="projects-icon" src="images/logos/Pacman.svg">Pacman-remake</a></li>
+                        <li class="dropdown-item"><a href="twinstick.html"><img alt="twinnstick" class="projects-icon" src="images/logos/joystick.svg">Twinnstick</a></li>
+                        <li class="dropdown-item"><a href="galaga.html"><img alt="galaga" class="projects-icon" src="images/logos/Galaga.ico">Galaga</a></li>
+                        <li class="dropdown-item"><a href="particleeffect.html"><img alt="Particle" class="projects-icon" src="images/logos/ParticleIcon.jpg">Particle effect</a></li>
+                        <li class="dropdown-item"><a href="theworks.html"><img alt="TheWorks" class="projects-icon" src="images/logos/placeholder.jpg">TheWorks</a></li>
+                        <li class="dropdown-item"><a href="teleportation.html"><img alt="Teleportation" class="projects-icon" src="images/logos/faviicon.ico">Teleportation</a></li>
+                        <li class="dropdown-item"><a href="towerdefense.html"><img alt="TowerDefense" class="projects-icon" src="images/logos/faviicon.ico">Tower Defense</a></li>
+                        <li class="dropdown-item"><a href="nan.html"><img alt="Nan" class="projects-icon" src="images/logos/placeholder.jpg">Nan</a></li>
+                    </ul>
                 </li>
-                <li class="dropdown-item"><a href="twinstick.html"><img alt="twinnstick" class="projects-icon" src="images/logos/joystick.svg">Twinnstick</a></li>
-                <li class="dropdown-item"><img alt="galaga" class="projects-icon" src="images/logos/Galaga.ico"><a href="galaga.html">Galaga</a></li>
-                <li class="dropdown-item"><img alt="Particle" class="projects-icon" src="images/logos/ParticleIcon.jpg"><a href="particleeffect.html">Particle effect</a></li>
-                <li class="dropdown-item"><img alt="TheWorks" class="projects-icon" src="images/logos/placeholder.jpg"><a href="theworks.html">TheWorks</a></li>
+                <li><a href="music.html">Music</a></li>
+                <li><a href="index.html#skills">Skills</a></li>
             </ul>
         </li>
         <li><a href="music.html" data-en="Music" data-nl="Muziek">Music</a></li>
@@ -44,6 +54,7 @@
         <button class="lang-btn" data-lang-btn="nl" onclick="switchLanguage('nl')">NL</button>
     </div>
 </nav>
+    </div>
 
 <!-- Hero Section -->
 <section class="hero-section">
@@ -62,6 +73,7 @@
         <li><a href="#script">Teleporter Script</a></li>
     </ul>
 </nav>
+    </div>
 
 <!-- Content Sections -->
 <div class="content-section" id="about">
@@ -246,6 +258,8 @@
     });
 </script>
 
+</div>
 </body>
 </html>
+
 
