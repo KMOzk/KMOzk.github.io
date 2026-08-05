@@ -5,7 +5,8 @@
     <link href="images/Pacman.svg" rel="icon">
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
-    <meta name="description" content="Ervaar een moderne Pacman-remake ontwikkeld door Kenan Özbakan. Bekijk de mechanics, AI en animaties.">
+    <meta name="description" content="Ervaar een moderne Pacman-remake ontwikkeld door Kenan Özbakan in Unity. Bekijk de mechanics, AI en animaties.">
+    <meta name="keywords" content="Pacman Remake, Unity 2D, C#, Game Development, Kenan Özbakan, NavMesh AI">
 
     <!-- CSS -->
     <link href="assets/css/main.css" rel="stylesheet"/>
@@ -19,76 +20,98 @@
 
 <body class="pacman-redesign">
 
-    <!-- Header & Nav -->
+    <!-- Header & Navigation Bar (Preserved) -->
     <nav id="nav">
         <ul>
             <li><a href="index.html">Home</a></li>
             <li>
                 <a href="projects.html">Projects</a>
                 <ul>
-                    <li class="dropdown-item"><img alt="pacman" class="projects-icon" src="images/logos/Pacman.svg">
-                        <a href="pacmanremake.html">Pacman-remake</a>
-                    </li>
+                    <li class="dropdown-item"><a href="pacmanremake.html"><img alt="pacman" class="projects-icon" src="images/logos/Pacman.svg">Pacman-remake</a></li>
                     <li class="dropdown-item"><a href="twinstick.html"><img alt="twinnstick" class="projects-icon" src="images/logos/joystick.svg">Twinnstick</a></li>
-                    <li class="dropdown-item"><img alt="galaga" class="projects-icon" src="images/logos/Galaga.ico"><a href="galaga.html">Galaga</a></li>
-                    <li class="dropdown-item"><img alt="Particle" class="projects-icon" src="images/logos/ParticleIcon.jpg"><a href="particleeffect.html">Particle effect</a></li>
-                    <li class="dropdown-item"><img alt="TheWorks" class="projects-icon" src="images/logos/placeholder.jpg"><a href="theworks.html">TheWorks</a></li>
-                    <li class="dropdown-item"><img alt="Teleportation" class="projects-icon" src="images/faviicon.ico"><a href="teleportation.html">Teleportation</a></li>
-                    <li class="dropdown-item"><img alt="TowerDefense" class="projects-icon" src="images/faviicon.ico"><a href="towerdefense.html">Tower Defense</a></li>
-                    <li class="dropdown-item"><img alt="Nan" class="projects-icon" src="images/logos/placeholder.jpg"><a href="nan.html">Nan</a></li>
+                    <li class="dropdown-item"><a href="galaga.html"><img alt="galaga" class="projects-icon" src="images/logos/Galaga.ico">Galaga</a></li>
+                    <li class="dropdown-item"><a href="particleeffect.html"><img alt="Particle" class="projects-icon" src="images/logos/ParticleIcon.jpg">Particle effect</a></li>
+                    <li class="dropdown-item"><a href="theworks.html"><img alt="TheWorks" class="projects-icon" src="images/logos/placeholder.jpg">TheWorks</a></li>
+                    <li class="dropdown-item"><a href="teleportation.html"><img alt="Teleportation" class="projects-icon" src="images/faviicon.ico">Teleportation</a></li>
+                    <li class="dropdown-item"><a href="towerdefense.html"><img alt="TowerDefense" class="projects-icon" src="images/faviicon.ico">Tower Defense</a></li>
+                    <li class="dropdown-item"><a href="nan.html"><img alt="Nan" class="projects-icon" src="images/logos/placeholder.jpg">Nan</a></li>
                 </ul>
             </li>
-            <li><a href="music.html">Music</a></li>
-            <li><a href="index.html#skills">Skills</a></li>
+            <li><a href="music.html" data-en="Music" data-nl="Muziek">Music</a></li>
+            <li><a href="index.html#skills" data-en="Skills" data-nl="Vaardigheden">Skills</a></li>
         </ul>
+        <div class="lang-toggle">
+            <button class="lang-btn active" data-lang-btn="en" onclick="switchLanguage('en')">EN</button>
+            <span class="lang-divider">/</span>
+            <button class="lang-btn" data-lang-btn="nl" onclick="switchLanguage('nl')">NL</button>
+        </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero-section">
+        <div class="hero-badge-container">
+            <span class="hero-badge">Unity 2D</span>
+            <span class="hero-badge blue">NavMesh AI</span>
+            <span class="hero-badge">C# Architecture</span>
+        </div>
         <h1 class="hero-title">Pacman Remake</h1>
-        <p class="hero-subtitle">
-            Een moderne hercreatie van de arcade klassieker, gebouwd in Unity.
+        <p class="hero-subtitle"
+           data-en="A modern recreation of the classic arcade hit, developed in Unity featuring advanced pathfinding, dynamic input support, and tight gameplay mechanics."
+           data-nl="Een moderne hercreatie van de klassieke arcade hit, ontwikkeld in Unity met geavanceerde pathfinding, dynamic input support en strakke gameplay mechanics.">
+            Een moderne hercreatie van de klassieke arcade hit, ontwikkeld in Unity met geavanceerde pathfinding, dynamic input support en strakke gameplay mechanics.
         </p>
-    </section>
-
-    <!-- Game Container -->
-    <section class="game-container">
-        <div class="game-frame">
-            <iframe src="https://itch.io/embed-upload/9646689?color=000000" allowfullscreen="" width="1000" height="600">
-                <a href="https://kenan38.itch.io/pacman-remake">Play Pacman Remake on itch.io</a>
-            </iframe>
+        <div class="hero-actions">
+            <a href="https://kenan38.itch.io/pacman-remake" target="_blank" class="btn-primary" data-en="▶ Play on itch.io" data-nl="▶ Speel op itch.io">▶ Speel op itch.io</a>
+            <a href="#about" class="btn-secondary" data-en="View Code Snippets" data-nl="Bekijk Code Snippets">Bekijk Code Snippets</a>
         </div>
     </section>
 
-    <!-- Table of Contents -->
+    <!-- Floating Table of Contents -->
     <nav class="toc-section">
-        <div class="toc-title">Navigatie</div>
+        <div class="toc-title" data-en="Navigation" data-nl="Navigatie">Navigatie</div>
         <ul class="toc-links">
-            <li><a href="#about">Over het Project</a></li>
-            <li><a href="#movement">Movement</a></li>
-            <li><a href="#collectibles">Collectibles</a></li>
-            <li><a href="#health">Player Health</a></li>
-            <li><a href="#enemy-manager">Enemy Manager</a></li>
-            <li><a href="#enemy-movement">Enemy Movement</a></li>
-            <li><a href="#enemy-attack">Enemy Attack</a></li>
-            <li><a href="#animation">Animatie</a></li>
+            <li><a href="#about" data-en="About Project" data-nl="Over het Project">Over het Project</a></li>
+            <li><a href="#movement" data-en="Movement" data-nl="Movement">Movement</a></li>
+            <li><a href="#collectibles" data-en="Collectibles" data-nl="Collectibles">Collectibles</a></li>
+            <li><a href="#health" data-en="Player Health" data-nl="Player Health">Player Health</a></li>
+            <li><a href="#enemy-manager" data-en="Enemy Manager" data-nl="Enemy Manager">Enemy Manager</a></li>
+            <li><a href="#enemy-movement" data-en="Enemy Movement" data-nl="Enemy Movement">Enemy Movement</a></li>
+            <li><a href="#enemy-attack" data-en="Enemy Attack" data-nl="Enemy Attack">Enemy Attack</a></li>
+            <li><a href="#animation" data-en="Animation" data-nl="Animatie">Animatie</a></li>
         </ul>
     </nav>
 
-    <!-- Content Sections -->
-    <div id="about" class="content-section">
-        <h2>Over het Project</h2>
-        <p>
-            Ik werd uitgedaagd door mijn vrienden om zo snel mogelijk een Pacman-kloon te maken. Hoewel er nog een paar functies ontbreken, is de basis van de gameplay volledig functioneel!
-        </p>
-    </div>
+    <!-- Main Content Sections -->
+    <main>
+        <div id="about" class="content-section">
+            <div class="content-header">
+                <h2 data-en="About Project" data-nl="Over het Project">Over het Project</h2>
+                <span class="section-tag" data-en="Overview" data-nl="Overzicht">Overzicht</span>
+            </div>
+            <p data-en="I was challenged by my friends to develop a fully functional Pacman clone as fast as possible. Although a few expansions are missing, the core gameplay loop – including player input, ghost AI, and collectibles – is fully operational!"
+               data-nl="Ik werd uitgedaagd door mijn vrienden om zo snel mogelijk een volledig functionele Pacman-kloon te ontwikkelen. Hoewel er nog een paar uitbreidingen ontbreken, is de core loop van de gameplay – inclusief spelerinvoer, ghost AI en collectibles – volledig operationeel!">
+                Ik werd uitgedaagd door mijn vrienden om zo snel mogelijk een volledig functionele Pacman-kloon te ontwikkelen. Hoewel er nog een paar uitbreidingen ontbreken, is de core loop van de gameplay – inclusief spelerinvoer, ghost AI en collectibles – volledig operationeel!
+            </p>
+        </div>
 
-    <div id="movement" class="content-section">
-        <h2>Player Movement</h2>
-        <p>
-            De KeyInput zijn: WASD, pijltjes en een joystick. Ik gebruik Unity's nieuwe Input System in combinatie met een Rigidbody voor soepele bewegingen.
-        </p>
-        <pre><code class="language-csharp">using UnityEngine;
+        <div id="movement" class="content-section">
+            <div class="content-header">
+                <h2 data-en="Player Movement" data-nl="Player Movement">Player Movement</h2>
+                <span class="section-tag" data-en="Input System" data-nl="Input System">Input System</span>
+            </div>
+            <p data-en="KeyInput supports WASD, arrow keys, and joysticks. I use Unity's new Input System combined with a Rigidbody for responsive, smooth movement."
+               data-nl="De KeyInput ondersteunt WASD, pijltoetsen en joysticks. Ik gebruik Unity's nieuwe Input System in combinatie met een Rigidbody voor responsieve, soepele bewegingen.">
+                De KeyInput ondersteunt WASD, pijltoetsen en joysticks. Ik gebruik Unity's nieuwe Input System in combinatie met een Rigidbody voor responsieve, soepele bewegingen.
+            </p>
+            <div class="code-wrapper">
+                <div class="code-header">
+                    <span class="code-title">PlayerMovement.cs</span>
+                    <div>
+                        <span class="code-lang">C#</span>
+                        <button class="copy-btn" onclick="copyCode(this)" data-en="Copy" data-nl="Kopiëren">Kopiëren</button>
+                    </div>
+                </div>
+                <pre><code class="language-csharp">using UnityEngine;
 using UnityEngine.InputSystem;
 
 [SelectionBase]
@@ -102,10 +125,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {      
-        _PlayerInput = GetComponent&lt;PlayerInput&gt;();
+        _PlayerInput = GetComponent<PlayerInput>();
         _MoveAction = _PlayerInput.actions.FindAction("Move");
 
-        _Rigidbody = GetComponent&lt;Rigidbody&gt;();
+        _Rigidbody = GetComponent<Rigidbody>();
     }
 
     private void Update()
@@ -115,19 +138,32 @@ public class PlayerMovement : MonoBehaviour
 
     private void CalculateMovement()
     {
-        Vector2 direction = _MoveAction.ReadValue&lt;Vector2&gt;().normalized;
+        Vector2 direction = _MoveAction.ReadValue<Vector2>().normalized;
         Vector3 movement = new Vector3(direction.x, 0f, direction.y);
         _Rigidbody.velocity = movement * _PlayerSpeed;
     }
 }</code></pre>
-    </div>
+            </div>
+        </div>
 
-    <div id="collectibles" class="content-section">
-        <h2>Collectibles</h2>
-        <p>
-            Om ervoor te zorgen dat we de pellets kunnen eten is er een simpel script voor geschreven.
-        </p>
-        <pre><code class="language-csharp">using UnityEngine;
+        <div id="collectibles" class="content-section">
+            <div class="content-header">
+                <h2 data-en="Collectibles" data-nl="Collectibles">Collectibles</h2>
+                <span class="section-tag" data-en="Triggers & Score" data-nl="Triggers & Score">Triggers & Score</span>
+            </div>
+            <p data-en="To ensure the player can collect pellets and score points, a lightweight trigger handler script was created."
+               data-nl="Om ervoor te zorgen dat de speler de pellets kan verzamelen en punten scoort, is er een lichtgewicht trigger-handler geschreven.">
+                Om ervoor te zorgen dat de speler de pellets kan verzamelen en punten scoort, is er een lichtgewicht trigger-handler geschreven.
+            </p>
+            <div class="code-wrapper">
+                <div class="code-header">
+                    <span class="code-title">CollectibleHandler.cs</span>
+                    <div>
+                        <span class="code-lang">C#</span>
+                        <button class="copy-btn" onclick="copyCode(this)" data-en="Copy" data-nl="Kopiëren">Kopiëren</button>
+                    </div>
+                </div>
+                <pre><code class="language-csharp">using UnityEngine;
 
 public class CollectibleHandler : MonoBehaviour
 {
@@ -135,19 +171,32 @@ public class CollectibleHandler : MonoBehaviour
     {
         if (other.CompareTag("Coin"))
         {
-            GameManager.Instance.GetPointValue(other.GetComponent&lt;CollectibleObject&gt;().GetPoints());
+            GameManager.Instance.GetPointValue(other.GetComponent<CollectibleObject>().GetPoints());
             Destroy(other.gameObject);
         }
     }
 }</code></pre>
-    </div>
+            </div>
+        </div>
 
-    <div id="health" class="content-section">
-        <h2>Player Health</h2>
-        <p>
-            Dit script laat zien hoe ik de health van de speler implementeer en communiceer met de GameManager.
-        </p>
-        <pre><code class="language-csharp">using UnityEngine;
+        <div id="health" class="content-section">
+            <div class="content-header">
+                <h2 data-en="Player Health" data-nl="Player Health">Player Health</h2>
+                <span class="section-tag" data-en="Game State" data-nl="Game State">Game State</span>
+            </div>
+            <p data-en="This script processes player lives and communicates directly with the central GameManager when damage is taken."
+               data-nl="Dit script verwerkt de levens van de speler en communiceert direct met de centrale GameManager bij opgelopen schade.">
+                Dit script verwerkt de levens van de speler en communiceert direct met de centrale GameManager bij opgelopen schade.
+            </p>
+            <div class="code-wrapper">
+                <div class="code-header">
+                    <span class="code-title">PlayerHealth.cs</span>
+                    <div>
+                        <span class="code-lang">C#</span>
+                        <button class="copy-btn" onclick="copyCode(this)" data-en="Copy" data-nl="Kopiëren">Kopiëren</button>
+                    </div>
+                </div>
+                <pre><code class="language-csharp">using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -158,19 +207,32 @@ public class PlayerHealth : MonoBehaviour
         GameManager.Instance.HandleChangeHealth(this.gameObject);
     }
 }</code></pre>
-    </div>
+            </div>
+        </div>
 
-    <div id="enemy-manager" class="content-section">
-        <h2>Enemy Manager</h2>
-        <p>
-            Voor de enemies heb ik een EnemyManager die ze beheert bij het begin van het spel, inclusief een start-vertraging.
-        </p>
-        <pre><code class="language-csharp">using MyBox;
+        <div id="enemy-manager" class="content-section">
+            <div class="content-header">
+                <h2 data-en="Enemy Manager" data-nl="Enemy Manager">Enemy Manager</h2>
+                <span class="section-tag" data-en="Singleton & Coroutine" data-nl="Singleton & Coroutine">Singleton & Coroutine</span>
+            </div>
+            <p data-en="The EnemyManager manages ghosts at game start, including a controlled spawn delay via a Coroutine."
+               data-nl="De EnemyManager beheert de spoken bij het begin van het spel, inclusief een gecontroleerde start-vertraging via een Coroutine.">
+                De EnemyManager beheert de spoken bij het begin van het spel, inclusief een gecontroleerde start-vertraging via een Coroutine.
+            </p>
+            <div class="code-wrapper">
+                <div class="code-header">
+                    <span class="code-title">EnemyManager.cs</span>
+                    <div>
+                        <span class="code-lang">C#</span>
+                        <button class="copy-btn" onclick="copyCode(this)" data-en="Copy" data-nl="Kopiëren">Kopiëren</button>
+                    </div>
+                </div>
+                <pre><code class="language-csharp">using MyBox;
 using UnityEngine;
 using UnityEngine.AI;
 using System.Collections;
 
-public class EnemyManager : Singleton&lt;EnemyManager&gt;
+public class EnemyManager : Singleton<EnemyManager>
 {
     public float EnemyWaitTime;
     public GameObject[] Enemies;
@@ -191,19 +253,32 @@ public class EnemyManager : Singleton&lt;EnemyManager&gt;
         foreach (GameObject enemy in Enemies)
         {
             yield return new WaitForSeconds(EnemyWaitTime);
-            enemy.GetComponent&lt;NavMeshAgent&gt;().enabled  = true;
-            enemy.GetComponent&lt;EnemyMovement&gt;().CanMove = true;
+            enemy.GetComponent<NavMeshAgent>().enabled = true;
+            enemy.GetComponent<EnemyMovement>().CanMove = true;
         }
     }
 }</code></pre>
-    </div>
+            </div>
+        </div>
 
-    <div id="enemy-movement" class="content-section">
-        <h2>Enemy Movement</h2>
-        <p>
-            De beweging van de spoken wordt aangestuurd door Unity's NavMesh systeem om het doel (de speler) te vinden.
-        </p>
-        <pre><code class="language-csharp">using MyBox;
+        <div id="enemy-movement" class="content-section">
+            <div class="content-header">
+                <h2 data-en="Enemy Movement" data-nl="Enemy Movement">Enemy Movement</h2>
+                <span class="section-tag" data-en="NavMesh Pathfinding" data-nl="NavMesh Pathfinding">NavMesh Pathfinding</span>
+            </div>
+            <p data-en="Ghost movement is dynamically driven via Unity's NavMeshAgent to chase the player around the maze."
+               data-nl="De beweging van de spoken wordt dynamisch aangestuurd via Unity's NavMeshAgent om de speler over het speelveld te achtervolgen.">
+                De beweging van de spoken wordt dynamisch aangestuurd via Unity's NavMeshAgent om de speler over het speelveld te achtervolgen.
+            </p>
+            <div class="code-wrapper">
+                <div class="code-header">
+                    <span class="code-title">EnemyMovement.cs</span>
+                    <div>
+                        <span class="code-lang">C#</span>
+                        <button class="copy-btn" onclick="copyCode(this)" data-en="Copy" data-nl="Kopiëren">Kopiëren</button>
+                    </div>
+                </div>
+                <pre><code class="language-csharp">using MyBox;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -219,7 +294,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void Start()
     {
-        _EnemyNavmeshAgent = GetComponent&lt;NavMeshAgent&gt;();
+        _EnemyNavmeshAgent = GetComponent<NavMeshAgent>();
         FindPlayerByTag(_PlayerString);
     }
 
@@ -228,7 +303,7 @@ public class EnemyMovement : MonoBehaviour
         if (CanMove) GoToPlayer();
     }
 
-    public void GoToPlayer() =&gt; GoToDestination(_Player.transform);
+    public void GoToPlayer() => GoToDestination(_Player.transform);
 
     private void FindPlayerByTag(string tag)
     {
@@ -240,14 +315,27 @@ public class EnemyMovement : MonoBehaviour
         _EnemyNavmeshAgent.SetDestination(destination.position);
     }
 }</code></pre>
-    </div>
+            </div>
+        </div>
 
-    <div id="enemy-attack" class="content-section">
-        <h2>Enemy Attack</h2>
-        <p>
-            Wanneer een spook de speler raakt, wordt er schade aangericht via de PlayerHealth component.
-        </p>
-        <pre><code class="language-csharp">using UnityEngine;
+        <div id="enemy-attack" class="content-section">
+            <div class="content-header">
+                <h2 data-en="Enemy Attack" data-nl="Enemy Attack">Enemy Attack</h2>
+                <span class="section-tag" data-en="Cooldown System" data-nl="Cooldown System">Cooldown System</span>
+            </div>
+            <p data-en="When a ghost contacts the player, it deals damage and triggers a cooldown timer to prevent multiple rapid hits."
+               data-nl="Wanneer een spook in aanraking komt met de speler, voert het schade uit en activeert het een cooldown-timer om meervoudige hits te voorkomen.">
+                Wanneer een spook in aanraking komt met de speler, voert het schade uit en activeert het een cooldown-timer om meervoudige hits te voorkomen.
+            </p>
+            <div class="code-wrapper">
+                <div class="code-header">
+                    <span class="code-title">EnemyAttack.cs</span>
+                    <div>
+                        <span class="code-lang">C#</span>
+                        <button class="copy-btn" onclick="copyCode(this)" data-en="Copy" data-nl="Kopiëren">Kopiëren</button>
+                    </div>
+                </div>
+                <pre><code class="language-csharp">using UnityEngine;
 using System.Collections;
 
 public class EnemyAttack : MonoBehaviour
@@ -257,10 +345,10 @@ public class EnemyAttack : MonoBehaviour
   
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") &amp;&amp; _Attacked == false)
+        if (other.CompareTag("Player") && _Attacked == false)
         {
             _Attacked = true;
-            other.GetComponent&lt;PlayerHealth&gt;().ChangeHealth(1);
+            other.GetComponent<PlayerHealth>().ChangeHealth(1);
             StartCoroutine(ResetAttackCoroutine());
         }
     }
@@ -271,32 +359,40 @@ public class EnemyAttack : MonoBehaviour
         _Attacked = false;
     }
 }</code></pre>
-    </div>
-
-    <div id="animation" class="content-section">
-        <h2>Animatie</h2>
-        <p>
-            Voor de intro sequentie gebruik ik 2 verschillende animaties wat de positie van de spoken en speler aanpast.
-        </p>
-        <div class="animation-grid">
-            <div class="image-container">
-                <img src="images/pac_playerKeyFramespng.png" alt="Player Animation Keyframes">
-            </div>
-            <div class="image-container">
-                <img src="images/pac_EnemyKeyframes.png" alt="Enemy Animation Keyframes">
             </div>
         </div>
-    </div>
+
+        <div id="animation" class="content-section">
+            <div class="content-header">
+                <h2 data-en="Animation Keyframes" data-nl="Animatie Keyframes">Animatie Keyframes</h2>
+                <span class="section-tag" data-en="Timeline & Clips" data-nl="Timeline & Clips">Timeline & Clips</span>
+            </div>
+            <p data-en="For the intro sequence, specific animation keyframes align the starting positions of the player and ghosts."
+               data-nl="Voor de introductie-sequentie zijn specifieke animatie-keyframes gebruikt die de startposities van de speler en de spoken afstemmen.">
+                Voor de introductie-sequentie zijn specifieke animatie-keyframes gebruikt die de startposities van de speler en de spoken afstemmen.
+            </p>
+            <div class="animation-grid">
+                <div class="animation-card">
+                    <img src="images/pac_playerKeyFramespng.png" alt="Player Animation Keyframes">
+                    <div class="animation-caption" data-en="Player Movement Animation Keyframes" data-nl="Player Movement Animatie Keyframes">Player Movement Animation Keyframes</div>
+                </div>
+                <div class="animation-card">
+                    <img src="images/pac_EnemyKeyframes.png" alt="Enemy Animation Keyframes">
+                    <div class="animation-caption" data-en="Enemy Patrol & Spawn Animation Keyframes" data-nl="Spoken Patrol & Spawn Animatie Keyframes">Enemy Patrol & Spawn Animation Keyframes</div>
+                </div>
+            </div>
+        </div>
+    </main>
 
     <!-- Footer -->
     <div id="footer">
         <ul class="social-icons">
-            <li><a class="icon brands fa-instagram" href="https://www.instagram.com/kenan.3_8/"><span class="label">Instagram</span></a></li>
-            <li><a class="icon brands fa-linkedin-in" href="https://www.linkedin.com/in/kenan%C3%B6zbakan/"><span class="label">Linkedin</span></a></li>
-            <li><a class="icon brands fa-dribbble" href="https://kenansocial.carrd.co/"><span class="label">All socials</span></a></li>
+            <li><a class="icon brands fa-instagram" href="https://www.instagram.com/kenan.3_8/" target="_blank" aria-label="Instagram"><span class="label">Instagram</span></a></li>
+            <li><a class="icon brands fa-linkedin-in" href="https://www.linkedin.com/in/kenan%C3%B6zbakan/" target="_blank" aria-label="LinkedIn"><span class="label">LinkedIn</span></a></li>
+            <li><a class="icon brands fa-dribbble" href="socials.html" aria-label="All Socials"><span class="label">All socials</span></a></li>
         </ul>
-        <div class="copyright">
-            &copy; Kenan Özbakan. Alle rechten voorbehouden. | Design: <a href="https://html5up.net">HTML5 UP</a>
+        <div class="copyright" data-en="&copy; Kenan Özbakan. All rights reserved." data-nl="&copy; Kenan Özbakan. Alle rechten voorbehouden.">
+            &copy; Kenan Özbakan. Alle rechten voorbehouden.
         </div>
     </div>
 
@@ -312,10 +408,46 @@ public class EnemyAttack : MonoBehaviour
     <script src="assets/js/prism.js"></script>
 
     <script>
+        // Language Switcher Functionality
+        function switchLanguage(lang) {
+            localStorage.setItem('portfolio_lang', lang);
+            document.querySelectorAll('[data-en][data-nl]').forEach(el => {
+                const text = el.getAttribute(`data-${lang}`);
+                if (text) {
+                    el.innerHTML = text;
+                }
+            });
+            document.querySelectorAll('[data-lang-btn]').forEach(btn => {
+                btn.classList.toggle('active', btn.getAttribute('data-lang-btn') === lang);
+            });
+        }
+
+        // Copy Code Snippet Functionality
+        function copyCode(button) {
+            const wrapper = button.closest('.code-wrapper');
+            const code = wrapper.querySelector('code').innerText;
+            const currentLang = localStorage.getItem('portfolio_lang') || 'en';
+            navigator.clipboard.writeText(code).then(() => {
+                const originalText = button.innerText;
+                button.innerText = currentLang === 'nl' ? 'Gekopieerd!' : 'Copied!';
+                button.style.color = '#00ff66';
+                button.style.borderColor = '#00ff66';
+                setTimeout(() => {
+                    button.innerText = originalText;
+                    button.style.color = '';
+                    button.style.borderColor = '';
+                }, 2000);
+            });
+        }
+
+        // Active Navigation Highlight via Intersection Observer
         document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('portfolio_lang') || 'en';
+            switchLanguage(savedLang);
+
             const observerOptions = {
                 root: null,
-                rootMargin: '-30% 0px -70% 0px',
+                rootMargin: '-20% 0px -60% 0px',
                 threshold: 0
             };
 
@@ -341,4 +473,3 @@ public class EnemyAttack : MonoBehaviour
 
 </body>
 </html>
-

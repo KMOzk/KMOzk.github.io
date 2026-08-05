@@ -1,95 +1,224 @@
-<!DOCTYPE HTML> <!--	Helios by HTML5 UP	html5up.net | @ajlkn Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)-->
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<!DOCTYPE HTML>
+<html lang="en">
 <head>
-    <title>Kenan's Socials</title>
-    <link href="images/faviicon.ico" rel="icon">
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport"/>
+    <title>Social Networks | Kenan Özbakan</title>
+    <meta name="description" content="Connect with Kenan Özbakan across LinkedIn, GitHub, Instagram, YouTube, and Discord.">
+    <link href="images/faviicon.ico" rel="icon">
+
+    <!-- CSS -->
     <link href="assets/css/main.css" rel="stylesheet"/>
+    <link href="assets/css/socials-redesign.css" rel="stylesheet"/>
 
     <noscript>
         <link href="assets/css/noscript.css" rel="stylesheet"/>
     </noscript>
 </head>
-<body class="homepage is-preload socials">
+<body class="socials">
 <div id="page-wrapper">
 
-    <header>
-        <nav class="socials" id="nav">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="music.html">Music</a></li>
-            </ul>
-        </nav>
+    <!-- Header & Navigation Bar -->
+    <nav id="nav">
+        <ul>
+            <li><a href="index.html" data-en="Home" data-nl="Home">Home</a></li>
+            <li class="has-dropdown">
+                <a href="projects.html" data-en="Projects" data-nl="Projecten">Projects</a>
+                <ul>
+                    <li class="dropdown-item"><a href="pacmanremake.html"><img alt="pacman" class="projects-icon" src="images/logos/Pacman.svg">Pacman-remake</a></li>
+                    <li class="dropdown-item"><a href="twinstick.html"><img alt="twinnstick" class="projects-icon" src="images/logos/joystick.svg">Twinnstick</a></li>
+                    <li class="dropdown-item"><a href="galaga.html"><img alt="galaga" class="projects-icon" src="images/logos/Galaga.ico">Galaga</a></li>
+                    <li class="dropdown-item"><a href="particleeffect.html"><img alt="Particle" class="projects-icon" src="images/logos/ParticleIcon.jpg">Particle effect</a></li>
+                    <li class="dropdown-item"><a href="theworks.html"><img alt="TheWorks" class="projects-icon" src="images/logos/placeholder.jpg">TheWorks</a></li>
+                    <li class="dropdown-item"><a href="teleportation.html"><img alt="Teleportation" class="projects-icon" src="images/faviicon.ico">Teleportation</a></li>
+                    <li class="dropdown-item"><a href="towerdefense.html"><img alt="TowerDefense" class="projects-icon" src="images/faviicon.ico">Tower Defense</a></li>
+                    <li class="dropdown-item"><a href="nan.html"><img alt="Nan" class="projects-icon" src="images/logos/placeholder.jpg">Nan</a></li>
+                </ul>
+            </li>
+            <li><a href="music.html" data-en="Music" data-nl="Muziek">Music</a></li>
+            <li><a href="index.html#skills" data-en="Skills" data-nl="Vaardigheden">Skills</a></li>
+        </ul>
+        <div class="lang-toggle">
+            <button class="lang-btn active" data-lang-btn="en" onclick="switchLanguage('en')">EN</button>
+            <span class="lang-divider">/</span>
+            <button class="lang-btn" data-lang-btn="nl" onclick="switchLanguage('nl')">NL</button>
+        </div>
+    </nav>
+
+    <!-- Header Title -->
+    <header class="socials-header">
+        <h1 class="socials-title" data-en="Social Networks" data-nl="Sociale Netwerken">Social Networks</h1>
+        <p class="socials-subtitle" data-en="Connect with me across social platforms, developer hubs, and channels." data-nl="Maak verbinding via sociale platforms, developer hubs en kanalen.">
+            Connect with me across social platforms, developer hubs, and channels.
+        </p>
     </header>
 
-    <section id="content socials">
-        <header>
-            <h2 class="socials">All the social networks I am on!
-            </h2>
-        </header>
-    </section>
+    <!-- Social Cards Section -->
+    <main class="socials-container">
+        <div class="socials-grid">
 
-    <section class="carousel" id="socials-grid">
-        <div class="reel">
-            <article>
-                <a class="image featured" href="https://www.instagram.com/kenan.3_8/"><img alt="Instagram icon" src="images/instaIcon.jpeg"/></a>
-                <h3>
-                    <a href="https://www.instagram.com/kenan.3_8/">Instagram</a>
-                </h3>
-            </article>
+            <!-- LinkedIn -->
+            <a class="social-card linkedin" href="https://www.linkedin.com/in/kenan%C3%B6zbakan/" target="_blank" rel="noopener">
+                <div class="social-card-header">
+                    <div class="social-icon-wrapper">
+                        <i class="fab fa-linkedin-in"></i>
+                    </div>
+                    <div class="social-card-info">
+                        <h3>LinkedIn</h3>
+                        <span class="handle">in/kenanözbakan</span>
+                    </div>
+                </div>
+                <div class="social-card-body">
+                    <p data-en="Professional profile, career history, education milestones, and software engineering networking." data-nl="Professioneel profiel, werkervaring, opleidingen en software engineering netwerk.">
+                        Professional profile, career history, education milestones, and software engineering networking.
+                    </p>
+                </div>
+                <div class="social-card-footer">
+                    <span data-en="Connect on LinkedIn" data-nl="Connecten op LinkedIn">Connect on LinkedIn</span>
+                </div>
+            </a>
 
-            <article>
-                <a class="image featured" href="https://www.youtube.com/@Kenan.3_8"><img alt="Youtube icon" src="images/iconmonstr-youtube-6-240.jpeg"/></a>
+            <!-- GitHub -->
+            <a class="social-card github" href="https://github.com/KMOzk" target="_blank" rel="noopener">
+                <div class="social-card-header">
+                    <div class="social-icon-wrapper">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <div class="social-card-info">
+                        <h3>GitHub</h3>
+                        <span class="handle">@KMOzk</span>
+                    </div>
+                </div>
+                <div class="social-card-body">
+                    <p data-en="Explore open-source repositories, Unity game projects, Python algorithms, and code experiments." data-nl="Verkent open-source repositories, Unity gameprojecten, Python algoritmen en code experimenten.">
+                        Explore open-source repositories, Unity game projects, Python algorithms, and code experiments.
+                    </p>
+                </div>
+                <div class="social-card-footer">
+                    <span data-en="View Repositories" data-nl="Bekijk Repositories">View Repositories</span>
+                </div>
+            </a>
 
-                <h3><a href="https://www.youtube.com/@Kenan.3_8">Youtube</a></h3>
+            <!-- Instagram -->
+            <a class="social-card instagram" href="https://www.instagram.com/kenan.3_8/" target="_blank" rel="noopener">
+                <div class="social-card-header">
+                    <div class="social-icon-wrapper">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <div class="social-card-info">
+                        <h3>Instagram</h3>
+                        <span class="handle">@kenan.3_8</span>
+                    </div>
+                </div>
+                <div class="social-card-body">
+                    <p data-en="Follow along for personal updates, game development clips, behind-the-scenes content, and media." data-nl="Volg voor persoonlijke updates, game dev clips, behind-the-scenes content en media.">
+                        Follow along for personal updates, game development clips, behind-the-scenes content, and media.
+                    </p>
+                </div>
+                <div class="social-card-footer">
+                    <span data-en="Follow on Instagram" data-nl="Volgen op Instagram">Follow on Instagram</span>
+                </div>
+            </a>
 
-            </article>
+            <!-- YouTube -->
+            <a class="social-card youtube" href="https://www.youtube.com/@Kenan.3_8" target="_blank" rel="noopener">
+                <div class="social-card-header">
+                    <div class="social-icon-wrapper">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                    <div class="social-card-info">
+                        <h3>YouTube</h3>
+                        <span class="handle">@Kenan.3_8</span>
+                    </div>
+                </div>
+                <div class="social-card-body">
+                    <p data-en="Watch game project showcases, gameplay trailers, animation previews, and technical walkthroughs." data-nl="Bekijk gameproject showcases, gameplay trailers, animatie previews en technische walkthroughs.">
+                        Watch game project showcases, gameplay trailers, animation previews, and technical walkthroughs.
+                    </p>
+                </div>
+                <div class="social-card-footer">
+                    <span data-en="Subscribe on YouTube" data-nl="Abonneren op YouTube">Subscribe on YouTube</span>
+                </div>
+            </a>
 
-            <article>
-                <a class="image featured" href=""><img alt="LinkedIn icon" src="images/iconmonstr-linkedin-3-240.jpeg"/></a>
+            <!-- Discord -->
+            <div class="social-card discord">
+                <div class="social-card-header">
+                    <div class="social-icon-wrapper">
+                        <i class="fab fa-discord"></i>
+                    </div>
+                    <div class="social-card-info">
+                        <h3>Discord</h3>
+                        <span class="handle">kenan.3_8</span>
+                    </div>
+                </div>
+                <div class="social-card-body">
+                    <p data-en="Add me on Discord for direct messages, developer discussions, and quick collaboration." data-nl="Voeg me toe op Discord voor berichten, developer discussies en directe samenwerking.">
+                        Add me on Discord for direct messages, developer discussions, and quick collaboration.
+                    </p>
+                </div>
+                <div class="social-card-footer">
+                    <span data-en="User Tag" data-nl="Gebruikersnaam">User Tag</span>
+                    <button class="copy-btn-inline" onclick="copyDiscordTag(this)" data-en="Copy Username" data-nl="Kopiëren">Copy Username</button>
+                </div>
+            </div>
 
-                <h3><a href="projects.html">LinkedIn</a></h3>
-
-            </article>
-
-            <article>
-                <a class="image featured" href="https://github.com/KMOzk"><img alt="" src="images/iconmonstr-github-1-240.jpeg"/></a>
-
-                <h3><a href="https://github.com/KMOzk">Github</a></h3>
-
-            </article>
-            <article>
-                <a class="image featured"><img alt="" src="images/iconmonstr-discord-1.svg"/></a>
-
-                <h3>Discord</h3>
-                <a>kenan.3_8</a>
-            </article>
         </div>
-    </section>
+    </main>
 
+    <!-- Footer -->
     <div id="footer">
-        <div class="copyright">
-            <ul class="menu">
-                <br>
-                <li>&copy; Kenan Özbakan. All rights reserved.</li>
-                <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
-            </ul>
+        <div class="copyright" data-en="&copy; Kenan Özbakan. All rights reserved." data-nl="&copy; Kenan Özbakan. Alle rechten voorbehouden.">
+            &copy; Kenan Özbakan. All rights reserved.
         </div>
     </div>
+
 </div>
 
+<!-- Scripts -->
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/jquery.dropotron.min.js"></script>
-<script src="assets/js/jquery.scrolly.min.js"></script>
-<script src="assets/js/jquery.scrollex.min.js"></script>
 <script src="assets/js/browser.min.js"></script>
 <script src="assets/js/breakpoints.min.js"></script>
 <script src="assets/js/util.js"></script>
 <script src="assets/js/main.js"></script>
-<script src="assets/js/moment.js"></script>
+
+<script>
+    // Copy Discord Tag
+    function copyDiscordTag(button) {
+        navigator.clipboard.writeText("kenan.3_8").then(() => {
+            const currentLang = localStorage.getItem('portfolio_lang') || 'en';
+            const originalText = button.innerText;
+            button.innerText = currentLang === 'nl' ? 'Gekopieerd!' : 'Copied!';
+            button.style.background = '#10b981';
+            button.style.borderColor = '#10b981';
+            setTimeout(() => {
+                button.innerText = originalText;
+                button.style.background = '';
+                button.style.borderColor = '';
+            }, 2000);
+        });
+    }
+
+    // Language Switcher Functionality
+    function switchLanguage(lang) {
+        localStorage.setItem('portfolio_lang', lang);
+        document.querySelectorAll('[data-en][data-nl]').forEach(el => {
+            const text = el.getAttribute(`data-${lang}`);
+            if (text) {
+                el.innerHTML = text;
+            }
+        });
+        document.querySelectorAll('[data-lang-btn]').forEach(btn => {
+            btn.classList.toggle('active', btn.getAttribute('data-lang-btn') === lang);
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const savedLang = localStorage.getItem('portfolio_lang') || 'en';
+        switchLanguage(savedLang);
+    });
+</script>
 
 </body>
 </html>
-

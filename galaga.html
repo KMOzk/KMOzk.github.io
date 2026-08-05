@@ -25,27 +25,34 @@
             <li>
                 <a href="projects.html">Projects</a>
                 <ul>
-                    <li class="dropdown-item"><img alt="pacman" class="projects-icon" src="images/logos/Pacman.svg">
-                        <a href="pacmanremake.html">Pacman-remake</a>
+                    <li class="dropdown-item">
+                        <a href="pacmanremake.html"><img alt="pacman" class="projects-icon" src="images/logos/Pacman.svg">Pacman-remake</a>
                     </li>
                     <li class="dropdown-item"><a href="twinstick.html"><img alt="twinnstick" class="projects-icon" src="images/logos/joystick.svg">Twinnstick</a></li>
-                    <li class="dropdown-item"><img alt="galaga" class="projects-icon" src="images/logos/Galaga.ico"><a href="galaga.html">Galaga</a></li>
-                    <li class="dropdown-item"><img alt="Particle" class="projects-icon" src="images/logos/ParticleIcon.jpg"><a href="particleeffect.html">Particle effect</a></li>
-                    <li class="dropdown-item"><img alt="TheWorks" class="projects-icon" src="images/logos/placeholder.jpg"><a href="theworks.html">TheWorks</a></li>
-                    <li class="dropdown-item"><img alt="Teleportation" class="projects-icon" src="images/faviicon.ico"><a href="teleportation.html">Teleportation</a></li>
-                    <li class="dropdown-item"><img alt="TowerDefense" class="projects-icon" src="images/faviicon.ico"><a href="towerdefense.html">Tower Defense</a></li>
-                    <li class="dropdown-item"><img alt="Nan" class="projects-icon" src="images/logos/placeholder.jpg"><a href="nan.html">Nan</a></li>
+                    <li class="dropdown-item"><a href="galaga.html"><img alt="galaga" class="projects-icon" src="images/logos/Galaga.ico">Galaga</a></li>
+                    <li class="dropdown-item"><a href="particleeffect.html"><img alt="Particle" class="projects-icon" src="images/logos/ParticleIcon.jpg">Particle effect</a></li>
+                    <li class="dropdown-item"><a href="theworks.html"><img alt="TheWorks" class="projects-icon" src="images/logos/placeholder.jpg">TheWorks</a></li>
+                    <li class="dropdown-item"><a href="teleportation.html"><img alt="Teleportation" class="projects-icon" src="images/faviicon.ico">Teleportation</a></li>
+                    <li class="dropdown-item"><a href="towerdefense.html"><img alt="TowerDefense" class="projects-icon" src="images/faviicon.ico">Tower Defense</a></li>
+                    <li class="dropdown-item"><a href="nan.html"><img alt="Nan" class="projects-icon" src="images/logos/placeholder.jpg">Nan</a></li>
                 </ul>
             </li>
-            <li><a href="music.html">Music</a></li>
-            <li><a href="index.html#skills">Skills</a></li>
+            <li><a href="music.html" data-en="Music" data-nl="Muziek">Music</a></li>
+            <li><a href="index.html#skills" data-en="Skills" data-nl="Vaardigheden">Skills</a></li>
         </ul>
+        <div class="lang-toggle">
+            <button class="lang-btn active" data-lang-btn="en" onclick="switchLanguage('en')">EN</button>
+            <span class="lang-divider">/</span>
+            <button class="lang-btn" data-lang-btn="nl" onclick="switchLanguage('nl')">NL</button>
+        </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero-section">
         <h1 class="hero-title">Galaga Remake</h1>
-        <p class="hero-subtitle">
+        <p class="hero-subtitle"
+           data-en="A retro arcade experience, rebuilt using modern Unity techniques."
+           data-nl="Een retro arcade-ervaring, opnieuw opgebouwd met moderne Unity technieken.">
             Een retro arcade-ervaring, opnieuw opgebouwd met moderne Unity technieken.
         </p>
     </section>
@@ -319,7 +326,7 @@ public class EnemyManager : ScriptableObject
         <ul class="social-icons">
             <li><a class="icon brands fa-instagram" href="https://www.instagram.com/kenan.3_8/"><span class="label">Instagram</span></a></li>
             <li><a class="icon brands fa-linkedin-in" href="https://www.linkedin.com/in/kenan%C3%B6zbakan/"><span class="label">Linkedin</span></a></li>
-            <li><a class="icon brands fa-dribbble" href="https://kenansocial.carrd.co/"><span class="label">All socials</span></a></li>
+            <li><a class="icon brands fa-dribbble" href="socials.html"><span class="label">All socials</span></a></li>
         </ul>
         <div class="copyright">
             &copy; Kenan Özbakan. Alle rechten voorbehouden. | Design: <a href="https://html5up.net">HTML5 UP</a>
@@ -338,7 +345,23 @@ public class EnemyManager : ScriptableObject
     <script src="assets/js/prism.js"></script>
 
     <script>
+        function switchLanguage(lang) {
+            localStorage.setItem('portfolio_lang', lang);
+            document.querySelectorAll('[data-en][data-nl]').forEach(el => {
+                const text = el.getAttribute(`data-${lang}`);
+                if (text) {
+                    el.innerHTML = text;
+                }
+            });
+            document.querySelectorAll('[data-lang-btn]').forEach(btn => {
+                btn.classList.toggle('active', btn.getAttribute('data-lang-btn') === lang);
+            });
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('portfolio_lang') || 'en';
+            switchLanguage(savedLang);
+
             const observerOptions = {
                 root: null,
                 rootMargin: '-30% 0px -70% 0px',

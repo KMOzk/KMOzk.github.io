@@ -1,67 +1,78 @@
-<!DOCTYPE HTML><!-- Helios by HTML5 UP html5up.net | @ajlkn Free for personal and commercial use under the CCA 3.0 license (html5up.net/license) -->
+<!DOCTYPE HTML>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport">
     <title>Projects | Kenan Özbakan Portfolio</title>
-    <meta content="Explore Kenan Özbakan's projects, including a Pacman remake, Twinstick shooter, and innovative particle effects. Each project demonstrates creativity and technical expertise." name="description">
+    <meta content="Explore Kenan Özbakan's projects, including a Pacman remake, Twinstick shooter, and innovative particle effects." name="description">
     <meta content="Kenan Özbakan, game development, Unity projects, Pacman remake, Twinstick shooter, particle effects, game programming portfolio" name="keywords">
     <link href="images/unitylogo.jpg" rel="icon">
+    
+    <!-- CSS -->
     <link href="assets/css/main.css" rel="stylesheet">
     <link href="assets/css/projects-redesign.css" rel="stylesheet">
+    
     <noscript>
         <link href="assets/css/noscript.css" rel="stylesheet">
     </noscript>
 </head>
+
 <body class="left-sidebar is-preload">
 <div id="page-wrapper">
 
+    <!-- Header & Navigation -->
     <div id="header">
         <nav id="nav">
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li>
-                    <a href="projects.html">Projects</a>
+                <li><a href="index.html" data-en="Home" data-nl="Home">Home</a></li>
+                <li class="has-dropdown">
+                    <a href="projects.html" data-en="Projects" data-nl="Projecten">Projects</a>
                     <ul>
-                        <li class="dropdown-item"><img alt="pacman" class="projects-icon" src="images/logos/Pacman.svg">
-                            <a href="pacmanremake.html">Pacman-remake</a>
-                        </li>
+                        <li class="dropdown-item"><a href="pacmanremake.html"><img alt="pacman" class="projects-icon" src="images/logos/Pacman.svg">Pacman-remake</a></li>
                         <li class="dropdown-item"><a href="twinstick.html"><img alt="twinnstick" class="projects-icon" src="images/logos/joystick.svg">Twinnstick</a></li>
-                        <li class="dropdown-item"><img alt="galaga" class="projects-icon" src="images/logos/Galaga.ico"><a href="galaga.html">Galaga</a></li>
-                        <li class="dropdown-item"><img alt="Particle" class="projects-icon" src="images/logos/ParticleIcon.jpg"><a href="particleeffect.html">Particle effect</a></li>
-                        <li class="dropdown-item"><img alt="TheWorks" class="projects-icon" src="images/logos/placeholder.jpg"><a href="theworks.html">TheWorks</a></li>
-                        <li class="dropdown-item"><img alt="Teleportation" class="projects-icon" src="images/faviicon.ico"><a href="teleportation.html">Teleportation</a></li>
-                        <li class="dropdown-item"><img alt="TowerDefense" class="projects-icon" src="images/faviicon.ico"><a href="towerdefense.html">Tower Defense</a></li>
-                        <li class="dropdown-item"><img alt="Nan" class="projects-icon" src="images/logos/placeholder.jpg"><a href="nan.html">Nan</a></li>
+                        <li class="dropdown-item"><a href="galaga.html"><img alt="galaga" class="projects-icon" src="images/logos/Galaga.ico">Galaga</a></li>
+                        <li class="dropdown-item"><a href="particleeffect.html"><img alt="Particle" class="projects-icon" src="images/logos/ParticleIcon.jpg">Particle effect</a></li>
+                        <li class="dropdown-item"><a href="theworks.html"><img alt="TheWorks" class="projects-icon" src="images/logos/placeholder.jpg">TheWorks</a></li>
+                        <li class="dropdown-item"><a href="teleportation.html"><img alt="Teleportation" class="projects-icon" src="images/faviicon.ico">Teleportation</a></li>
+                        <li class="dropdown-item"><a href="towerdefense.html"><img alt="TowerDefense" class="projects-icon" src="images/faviicon.ico">Tower Defense</a></li>
+                        <li class="dropdown-item"><a href="nan.html"><img alt="Nan" class="projects-icon" src="images/logos/placeholder.jpg">Nan</a></li>
                     </ul>
                 </li>
-                <li><a href="music.html">Music</a></li>
-                <li><a href="index.html#skills">Skills</a></li>
+                <li><a href="music.html" data-en="Music" data-nl="Muziek">Music</a></li>
+                <li><a href="index.html#skills" data-en="Skills" data-nl="Vaardigheden">Skills</a></li>
             </ul>
+            <div class="lang-toggle">
+                <button class="lang-btn active" data-lang-btn="en" onclick="switchLanguage('en')">EN</button>
+                <span class="lang-divider">/</span>
+                <button class="lang-btn" data-lang-btn="nl" onclick="switchLanguage('nl')">NL</button>
+            </div>
         </nav>
 
         <div class="inner">
             <header>
-                <h1>Projects</h1>
+                <h1 data-en="Featured Projects" data-nl="Uitgelichte Projecten">Featured Projects</h1>
+                <p class="header-subtitle" data-en="A showcase of game development, software engineering, and XR projects built at GLU & HU." data-nl="Een overzicht van game development, software engineering en XR-projecten ontwikkeld op het GLU & HU.">
+                    A showcase of game development, software engineering, and XR projects built at GLU & HU.
+                </p>
             </header>
         </div>
     </div>
 
-    <!-- Main Content -->
+    <!-- Main Content & Projects Grid -->
     <div class="wrapper style1">
         <div class="container">
 
-            <!-- Filter Navigation -->
+            <!-- Interactive Filter Navigation -->
             <nav class="filter-nav">
                 <div class="filter-group">
-                    <span class="filter-label">School:</span>
-                    <button class="filter-button active" data-category="school" data-filter="all">All</button>
+                    <span class="filter-label" data-en="School:" data-nl="School:">School:</span>
+                    <button class="filter-button active" data-category="school" data-filter="all" data-en="All" data-nl="Alle">All</button>
                     <button class="filter-button" data-category="school" data-filter="glu">GLU</button>
                     <button class="filter-button" data-category="school" data-filter="hu">HU</button>
                 </div>
                 <div class="filter-group">
-                    <span class="filter-label">Language:</span>
-                    <button class="filter-button active" data-category="lang" data-filter="all">All</button>
+                    <span class="filter-label" data-en="Tech Stack:" data-nl="Technologie:">Tech Stack:</span>
+                    <button class="filter-button active" data-category="lang" data-filter="all" data-en="All" data-nl="Alle">All</button>
                     <button class="filter-button" data-category="lang" data-filter="csharp">C#</button>
                     <button class="filter-button" data-category="lang" data-filter="python">Python</button>
                     <button class="filter-button" data-category="lang" data-filter="dart">Dart</button>
@@ -72,88 +83,105 @@
                 <div class="col-12-wide col-12-mobile imp-mobile" id="content">
 
                     <div class="row" id="project-grid">
+                        
+                        <!-- Pacman Remake -->
                         <article class="col-4 col-12-mobile special" data-lang="csharp" data-school="glu">
-                            <a class="image featured" href="pacmanremake.html"><img alt="Placeholder project image 1" src="images/logos/pacman.jpg"></a>
+                            <a class="image featured" href="pacmanremake.html"><img alt="Pacman Remake" src="images/logos/pacman.jpg"></a>
                             <header>
                                 <div class="tag-container">
                                     <span class="project-tag school-tag">GLU Project</span>
                                     <span class="project-tag lang-tag" data-lang="csharp">C#</span>
                                 </div>
-                                <h3><a href="pacmanremake.html">Pacman - remake</a></h3>
+                                <h3><a href="pacmanremake.html">Pacman Remake</a></h3>
                             </header>
-                            <p>
-                                I developed this game under a tight deadline, focusing on efficiency without compromising quality. The ghosts use NavMesh for smooth, intelligent movement, while player controls leverage Unity’s new Input System, enhancing responsiveness and flexibility.
+                            <p data-en="Developed under a tight deadline, focusing on architectural efficiency. Ghosts utilize NavMesh AI for intelligent movement, while controls leverage Unity's Input System."
+                               data-nl="Ontwikkeld onder een strakke deadline met focus op architectonische efficiëntie. Spoken gebruiken NavMesh AI voor slimme beweging, gecombineerd met Unity's Input System.">
+                                Developed under a tight deadline, focusing on architectural efficiency. Ghosts utilize NavMesh AI for intelligent movement, while controls leverage Unity's Input System.
                             </p>
                             <div class="card-action">
-                                <a href="pacmanremake.html">View details</a>
+                                <a href="pacmanremake.html" data-en="View details" data-nl="Bekijk details">View details</a>
                             </div>
                         </article>
+
+                        <!-- Twinstick Shooter -->
                         <article class="col-4 col-12-mobile special" data-lang="csharp" data-school="glu">
-                            <a class="image featured" href="twinstick.html"><img alt="Placeholder project image 2" src="images/logos/joystick.svg"></a>
+                            <a class="image featured" href="twinstick.html"><img alt="Twinnstick Shooter" src="images/logos/joystick.svg"></a>
                             <header>
                                 <div class="tag-container">
                                     <span class="project-tag school-tag">GLU Project</span>
                                     <span class="project-tag lang-tag" data-lang="csharp">C#</span>
                                 </div>
-                                <h3><a href="twinstick.html">Twinnstick shooter</a></h3>
+                                <h3><a href="twinstick.html">Twinnstick Shooter</a></h3>
                             </header>
-                            <p>
-                                The Twinstick Shooter project focuses on precision shooting mechanics, smooth player control, and dynamic enemy AI behavior. This project demonstrates my ability to create engaging gameplay loops and responsive combat mechanics, critical in game design and development.
+                            <p data-en="Focuses on precision shooting mechanics, responsive dual-stick controls, and escalating enemy AI waves for intense top-down arcade action."
+                               data-nl="Focust op precisie schietmechanica, responsieve dual-stick besturing en opbouwende enemy AI-golven voor een intens tops-down arcadegevoel.">
+                                Focuses on precision shooting mechanics, responsive dual-stick controls, and escalating enemy AI waves for intense top-down arcade action.
                             </p>
                             <div class="card-action">
-                                <a href="twinstick.html">View details</a>
+                                <a href="twinstick.html" data-en="View details" data-nl="Bekijk details">View details</a>
                             </div>
                         </article>
+
+                        <!-- Particle Effects -->
                         <article class="col-4 col-12-mobile special" data-lang="csharp" data-school="glu">
-                            <a class="image featured" href="particleeffect.html"><img alt="Placeholder project image 3" src="images/particles.jpg"></a>
+                            <a class="image featured" href="particleeffect.html"><img alt="Particle Effects" src="images/particles.jpg"></a>
                             <header>
                                 <div class="tag-container">
                                     <span class="project-tag school-tag">GLU Project</span>
                                     <span class="project-tag lang-tag" data-lang="csharp">C#</span>
                                 </div>
-                                <h3><a href="particleeffect.html">Particle effects</a></h3>
+                                <h3><a href="particleeffect.html">Particle Effects</a></h3>
                             </header>
-                            <p>
-                                This project explores visually appealing particle effects using Unity’s Particle System. The implementation features complex visual effects like explosions, trails, and dynamic environmental reactions, demonstrating my attention to detail and creativity in graphics programming.
+                            <p data-en="Explores visually stunning particle systems in Unity, featuring realistic explosions, dynamic force field trails, and environmental reactions."
+                               data-nl="Verkent visueel verbluffende particle systems in Unity, waaronder realistisch explosie-effecten, krachtveld-trails en omgevingsreacties.">
+                                Explores visually stunning particle systems in Unity, featuring realistic explosions, dynamic force field trails, and environmental reactions.
                             </p>
                             <div class="card-action">
-                                <a href="particleeffect.html">View details</a>
+                                <a href="particleeffect.html" data-en="View details" data-nl="Bekijk details">View details</a>
                             </div>
                         </article>
+
+                        <!-- Galaga Remake -->
                         <article class="col-4 col-12-mobile special" data-lang="csharp" data-school="glu">
-                            <a class="image featured black-bg" href="galaga.html"><img alt="Placeholder project image 3" src="images/logos/Galaga.ico"></a>
+                            <a class="image featured black-bg" href="galaga.html"><img alt="Galaga Remake" src="images/logos/Galaga.ico"></a>
                             <header>
                                 <div class="tag-container">
                                     <span class="project-tag school-tag">GLU Project</span>
                                     <span class="project-tag lang-tag" data-lang="csharp">C#</span>
                                 </div>
-                                <h3><a href="galaga.html">Galaga - remake</a></h3>
+                                <h3><a href="galaga.html">Galaga Reloaded</a></h3>
                             </header>
-                            <p>
-                                This project explores visually appealing particle effects using Unity’s Particle System. The implementation features complex visual effects like explosions, trails, and dynamic environmental reactions, demonstrating my attention to detail and creativity in graphics programming.
+                            <p data-en="A modern spin on the retro space shooter, featuring enhanced particle visual effects, smooth flight physics, and dynamic formation AI."
+                               data-nl="Een moderne variant op de retro space shooter met vernieuwde particle effecten, vloeiende vliegmechanica en dynamische formatie-AI.">
+                                A modern spin on the retro space shooter, featuring enhanced particle visual effects, smooth flight physics, and dynamic formation AI.
                             </p>
                             <div class="card-action">
-                                <a href="galaga.html">View details</a>
+                                <a href="galaga.html" data-en="View details" data-nl="Bekijk details">View details</a>
                             </div>
                         </article>
+
+                        <!-- Teleportation -->
                         <article class="col-4 col-12-mobile special" data-lang="csharp" data-school="glu">
-                            <a class="image featured" href="teleportation.html"><img alt="Teleportation icon" src="images/logos/placeholder.png"></a>
+                            <a class="image featured" href="teleportation.html"><img alt="Teleportation VR" src="images/teleportation.gif"></a>
                             <header>
                                 <div class="tag-container">
                                     <span class="project-tag school-tag">GLU Project</span>
                                     <span class="project-tag lang-tag" data-lang="csharp">C#</span>
                                 </div>
-                                <h3><a href="teleportation.html">Teleportation</a></h3>
+                                <h3><a href="teleportation.html">XR Teleportation</a></h3>
                             </header>
-                            <p>
-                                A technical implementation of a teleportation system in Unity, featuring fuel requirements and a cooldown system. This project demonstrates my ability to create complex gameplay mechanics and manage global game states using Singletons.
+                            <p data-en="Technical implementation of a VR locomotion system in Unity, featuring arc trajectory preview, fuel constraints, and cooldown management."
+                               data-nl="Technische implementatie van een VR-locomotionsysteem in Unity met boogtraject-previews, brandstoflimieten en cooldown-beheer.">
+                                Technical implementation of a VR locomotion system in Unity, featuring arc trajectory preview, fuel constraints, and cooldown management.
                             </p>
                             <div class="card-action">
-                                <a href="teleportation.html">View details</a>
+                                <a href="teleportation.html" data-en="View details" data-nl="Bekijk details">View details</a>
                             </div>
                         </article>
+
+                        <!-- Tower Defense -->
                         <article class="col-4 col-12-mobile special" data-lang="csharp" data-school="glu">
-                            <a class="image featured" href="towerdefense.html"><img alt="Tower Defense icon" src="images/logos/placeholder.png"></a>
+                            <a class="image featured" href="towerdefense.html"><img alt="Tower Defense" src="images/logos/joystick.svg"></a>
                             <header>
                                 <div class="tag-container">
                                     <span class="project-tag school-tag">GLU Project</span>
@@ -161,15 +189,18 @@
                                 </div>
                                 <h3><a href="towerdefense.html">Tower Defense</a></h3>
                             </header>
-                            <p>
-                                A strategic foundation featuring grid-based placement and dynamic preview mechanics. This project focuses on intuitive user interaction and robust placement validation logic in Unity.
+                            <p data-en="A strategic foundation featuring grid placement, dynamic placement validation, and wave management mechanics in Unity."
+                               data-nl="Een strategisch fundament met grid-gebaseerde plaatsing, dynamische plaatsingsvalidatie en wave-management in Unity.">
+                                A strategic foundation featuring grid placement, dynamic placement validation, and wave management mechanics in Unity.
                             </p>
                             <div class="card-action">
-                                <a href="towerdefense.html">View details</a>
+                                <a href="towerdefense.html" data-en="View details" data-nl="Bekijk details">View details</a>
                             </div>
                         </article>
+
+                        <!-- Nan Python -->
                         <article class="col-4 col-12-mobile special" data-lang="python" data-school="hu">
-                            <a class="image featured" href="nan.html"><img alt="Nan project icon" src="images/logos/placeholder.png"></a>
+                            <a class="image featured" href="nan.html"><img alt="Nan Python Platform" src="images/logos/pythonlogo.svg"></a>
                             <header>
                                 <div class="tag-container">
                                     <span class="project-tag school-tag">HU Project (Year 1)</span>
@@ -177,15 +208,18 @@
                                 </div>
                                 <h3><a href="nan.html">Nan - Python Platform</a></h3>
                             </header>
-                            <p>
-                                A Python-based CLI platform for mini-games, featuring automated user management, JSON data persistence, and dynamic difficulty scaling algorithms.
+                            <p data-en="A Python CLI gaming platform featuring automated user authentication, JSON data persistence, and dynamic difficulty calculation algorithms."
+                               data-nl="Een Python CLI gameplatform met geautomatiseerde gebruikersauthenticatie, JSON-datapersistentie en dynamische moeilijkheidsgraad-algoritmen.">
+                                A Python CLI gaming platform featuring automated user authentication, JSON data persistence, and dynamic difficulty calculation algorithms.
                             </p>
                             <div class="card-action">
-                                <a href="nan.html">View details</a>
+                                <a href="nan.html" data-en="View details" data-nl="Bekijk details">View details</a>
                             </div>
                         </article>
+
+                        <!-- TheWorks Dart/Flutter -->
                         <article class="col-4 col-12-mobile special" data-lang="dart" data-school="glu">
-                            <a class="image featured" href="theworks.html"><img alt="TheWorks project icon" src="images/logos/placeholder.png"></a>
+                            <a class="image featured" href="theworks.html"><img alt="TheWorks Matching Platform" src="images/logos/trello.svg"></a>
                             <header>
                                 <div class="tag-container">
                                     <span class="project-tag school-tag">GLU Project - DIVD</span>
@@ -193,42 +227,31 @@
                                 </div>
                                 <h3><a href="theworks.html">TheWorks - Matching</a></h3>
                             </header>
-                            <p>
-                                A modern internship matching-platform built for DIVD Works with Flutter and Firebase, connecting students and companies through smart algorithms.
+                            <p data-en="An internship matching platform built for DIVD Works using Flutter & Firebase, connecting students with organizations."
+                               data-nl="Een stage-matchingplatform gebouwd voor DIVD Works met Flutter & Firebase, dat studenten koppelt aan organisaties.">
+                                An internship matching platform built for DIVD Works using Flutter & Firebase, connecting students with organizations.
                             </p>
                             <div class="card-action">
-                                <a href="theworks.html">View details</a>
+                                <a href="theworks.html" data-en="View details" data-nl="Bekijk details">View details</a>
                             </div>
                         </article>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Footer -->
     <div id="footer">
         <div class="container">
-            <hr>
-            <div class="row">
-                <div class="col-12">
-                    <section class="contact">
-                        <header>
-                            <h3>Stay Updated! Connect through My Socials</h3>
-                        </header>
-                        <ul class="icons">
-                            <li><a aria-label="Kenan's Instagram" class="icon brands fa-instagram" href="https://www.instagram.com/kenan.3_8/"><span class="label">Instagram</span></a></li>
-                            <li><a aria-label="Kenan's LinkedIn" class="icon brands fa-linkedin-in" href="https://www.linkedin.com/in/kenan%C3%B6zbakan/"><span class="label">LinkedIn</span></a></li>
-                            <li><a aria-label="Kenan's social links" class="icon brands fa-dribbble" href="https://kenansocial.carrd.co/"><span class="label">All Socials</span></a></li>
-                        </ul>
-                    </section>
-
-                    <div class="copyright">
-                        <ul class="menu">
-                            <li>&copy; Kenan Özbakan. All rights reserved.</li>
-                            <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
-                        </ul>
-                    </div>
-                </div>
+            <ul class="icons">
+                <li><a aria-label="Instagram" class="icon brands fa-instagram" href="https://www.instagram.com/kenan.3_8/" target="_blank"><span class="label">Instagram</span></a></li>
+                <li><a aria-label="LinkedIn" class="icon brands fa-linkedin-in" href="https://www.linkedin.com/in/kenan%C3%B6zbakan/" target="_blank"><span class="label">LinkedIn</span></a></li>
+                <li><a aria-label="All Socials" class="icon brands fa-dribbble" href="socials.html"><span class="label">All Socials</span></a></li>
+            </ul>
+            <div class="copyright" data-en="&copy; Kenan Özbakan. All rights reserved." data-nl="&copy; Kenan Özbakan. Alle rechten voorbehouden.">
+                &copy; Kenan Özbakan. All rights reserved.
             </div>
         </div>
     </div>
@@ -245,13 +268,29 @@
 <script src="assets/js/main.js"></script>
 
 <script>
+    function switchLanguage(lang) {
+        localStorage.setItem('portfolio_lang', lang);
+        document.querySelectorAll('[data-en][data-nl]').forEach(el => {
+            const text = el.getAttribute(`data-${lang}`);
+            if (text) {
+                el.innerHTML = text;
+            }
+        });
+        document.querySelectorAll('[data-lang-btn]').forEach(btn => {
+            btn.classList.toggle('active', btn.getAttribute('data-lang-btn') === lang);
+        });
+    }
+
     $(document).ready(function () {
+        const savedLang = localStorage.getItem('portfolio_lang') || 'en';
+        switchLanguage(savedLang);
+
         var activeFilters = {
             school: 'all',
             lang: 'all'
         };
 
-        // Function to apply filters
+        // Function to apply category filters
         function applyFilters() {
             $('#project-grid article').each(function () {
                 var $article = $(this);
