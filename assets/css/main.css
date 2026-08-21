@@ -2229,7 +2229,12 @@ header .icon.circled {
 
 #header {
     position: relative;
-    background: transparent;
+    background-image: 
+        linear-gradient(rgba(5, 5, 8, 0.82), rgba(5, 5, 8, 0.94)),
+        url("../../images/header.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
     color: #fff;
     text-align: center;
     padding: 2.5rem 0 1.5rem 0;

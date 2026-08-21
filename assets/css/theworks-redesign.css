@@ -42,11 +42,12 @@ body.theworks-redesign {
     display: flex;
     flex-direction: column;
     background-image: 
-        radial-gradient(circle at 15% 15%, rgba(204, 190, 150, 0.08) 0%, transparent 45%),
-        radial-gradient(circle at 85% 45%, rgba(48, 58, 90, 0.25) 0%, transparent 45%),
-        linear-gradient(rgba(204, 190, 150, 0.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(204, 190, 150, 0.02) 1px, transparent 1px) !important;
-    background-size: 100% 100%, 100% 100%, 50px 50px, 50px 50px !important;
+        linear-gradient(rgba(7, 10, 18, 0.85), rgba(7, 10, 18, 0.92)),
+        radial-gradient(circle at 15% 15%, rgba(204, 190, 150, 0.12) 0%, transparent 45%),
+        radial-gradient(circle at 85% 45%, rgba(48, 58, 90, 0.3) 0%, transparent 45%),
+        url("../../images/header.jpg") !important;
+    background-size: cover !important;
+    background-position: center top !important;
     background-attachment: fixed !important;
 }
 

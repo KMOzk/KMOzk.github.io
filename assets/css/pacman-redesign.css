@@ -37,11 +37,12 @@ body.pacman-redesign {
     padding: 0;
     line-height: 1.6;
     background-image: 
-        radial-gradient(circle at 15% 15%, rgba(255, 238, 0, 0.04) 0%, transparent 45%),
-        radial-gradient(circle at 85% 60%, rgba(0, 229, 255, 0.04) 0%, transparent 45%),
-        linear-gradient(rgba(255, 238, 0, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 238, 0, 0.03) 1px, transparent 1px);
-    background-size: 100% 100%, 100% 100%, 50px 50px, 50px 50px;
+        linear-gradient(rgba(6, 6, 9, 0.85), rgba(6, 6, 9, 0.92)),
+        radial-gradient(circle at 15% 15%, rgba(255, 238, 0, 0.08) 0%, transparent 45%),
+        radial-gradient(circle at 85% 60%, rgba(0, 229, 255, 0.08) 0%, transparent 45%),
+        url("../../images/header.jpg");
+    background-size: cover;
+    background-position: center top;
     background-attachment: fixed;
 }
 

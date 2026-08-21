@@ -38,11 +38,12 @@ body.teleport-redesign {
     display: flex;
     flex-direction: column;
     background-image: 
-        radial-gradient(circle at 15% 15%, rgba(0, 242, 254, 0.06) 0%, transparent 45%),
-        radial-gradient(circle at 85% 55%, rgba(79, 172, 254, 0.06) 0%, transparent 45%),
-        linear-gradient(rgba(0, 242, 254, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 242, 254, 0.03) 1px, transparent 1px) !important;
-    background-size: 100% 100%, 100% 100%, 50px 50px, 50px 50px !important;
+        linear-gradient(rgba(6, 6, 9, 0.85), rgba(6, 6, 9, 0.92)),
+        radial-gradient(circle at 15% 15%, rgba(0, 242, 254, 0.12) 0%, transparent 45%),
+        radial-gradient(circle at 85% 55%, rgba(79, 172, 254, 0.12) 0%, transparent 45%),
+        url("../../images/header.jpg") !important;
+    background-size: cover !important;
+    background-position: center top !important;
     background-attachment: fixed !important;
 }
 

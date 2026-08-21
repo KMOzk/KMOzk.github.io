@@ -37,12 +37,14 @@
         body {
             background-color: var(--bg-color);
             background-image: 
-                radial-gradient(circle at 15% 15%, rgba(157, 78, 221, 0.08) 0%, transparent 45%),
-                radial-gradient(circle at 85% 45%, rgba(0, 180, 216, 0.08) 0%, transparent 45%),
-                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-            background-size: 100% 100%, 100% 100%, 50px 50px, 50px 50px;
+                linear-gradient(rgba(5, 5, 8, 0.85), rgba(5, 5, 8, 0.92)),
+                radial-gradient(circle at 15% 15%, rgba(157, 78, 221, 0.15) 0%, transparent 45%),
+                radial-gradient(circle at 85% 45%, rgba(0, 180, 216, 0.15) 0%, transparent 45%),
+                url("images/header.jpg");
+            background-size: cover;
+            background-position: center top;
             background-attachment: fixed;
+            background-repeat: no-repeat;
             color: var(--text-main);
             font-family: var(--font-main);
             line-height: 1.6;
@@ -558,6 +560,40 @@
             border-radius: 20px;
             font-size: 0.85rem;
             font-weight: 600;
+        }
+
+        /* View All Projects Button */
+        .view-all-container {
+            text-align: center;
+            margin-top: 3.5rem;
+        }
+
+        .view-all-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            background: linear-gradient(135deg, rgba(157, 78, 221, 0.2), rgba(0, 180, 216, 0.2));
+            border: 1px solid var(--primary-glow);
+            color: var(--text-main);
+            text-decoration: none;
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.05rem;
+            padding: 0.95rem 2.4rem;
+            border-radius: 30px;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4), 0 0 15px rgba(157, 78, 221, 0.2);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .view-all-btn:hover {
+            background: linear-gradient(135deg, #9d4edd, #00b4d8);
+            color: #ffffff;
+            border-color: transparent;
+            transform: translateY(-4px) scale(1.04);
+            box-shadow: 0 15px 35px rgba(157, 78, 221, 0.5), 0 0 25px rgba(0, 180, 216, 0.4);
         }
 
         @keyframes fadeUp {
@@ -1202,6 +1238,7 @@
                 <li class="dropdown-item"><a href="teleportation.html"><img alt="Teleportation" class="projects-icon" src="images/faviicon.ico">Teleportation</a></li>
                 <li class="dropdown-item"><a href="towerdefense.html"><img alt="TowerDefense" class="projects-icon" src="images/faviicon.ico">Tower Defense</a></li>
                 <li class="dropdown-item"><a href="nan.html"><img alt="Nan" class="projects-icon" src="images/logos/placeholder.jpg">Nan</a></li>
+                <li class="dropdown-item"><a href="steam.html"><img alt="Steam" class="projects-icon" src="images/logos/pythonlogo.svg">Steam (Python)</a></li>
             </ul>
         </li>
         <li><a href="music.html" data-en="Music" data-nl="Muziek">Music</a></li>
@@ -1421,6 +1458,14 @@
             </div>
         </a>
 
+    </div>
+
+    <div class="view-all-container">
+        <a href="projects.html" class="view-all-btn"
+           data-en="View All Projects →"
+           data-nl="Bekijk Alle Projecten →">
+            View All Projects →
+        </a>
     </div>
 </section>
 

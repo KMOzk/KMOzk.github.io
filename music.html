@@ -1,15 +1,15 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-    <title>Music | Kenan Özbakan</title>
-    <link href="images/musicicon.jpg" rel="icon">
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport"/>
+    <title>Music & Sound Design | Kenan Özbakan</title>
+    <meta content="Music compositions, sound design, game audio, and audio engineering produced by Kenan Özbakan." name="description">
+    <link href="images/musicicon.jpg" rel="icon">
 
     <!-- CSS -->
     <link href="assets/css/main.css" rel="stylesheet"/>
     <link href="assets/css/music-redesign.css" rel="stylesheet"/>
-    <link href="assets/css/music.css" rel="stylesheet"/> <!-- Keeping original music.css for player logic compatibility if needed -->
 
     <noscript>
         <link href="assets/css/noscript.css" rel="stylesheet"/>
@@ -18,126 +18,420 @@
 
 <body class="music-redesign">
 
-<!-- Header & Nav -->
-<div id="header-music">
-    <nav id="nav">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="music.html">Music</a></li>
-        </ul>
-    </nav>
-</div>
+<div id="page-wrapper">
 
-<!-- Hero Section -->
-<section class="hero-section">
-    <h1 class="hero-title">A collection of sound</h1>
-    <p class="hero-subtitle">
-        Compositions, Sound Design, and Audio Engineering.
-    </p>
-</section>
+    <!-- Header Navigation -->
+    <div id="header">
+        <nav id="nav">
+            <ul>
+                <li><a href="index.html" data-en="Home" data-nl="Home">Home</a></li>
+                <li class="has-dropdown">
+                    <a href="projects.html" data-en="Projects" data-nl="Projecten">Projects</a>
+                    <ul>
+                        <li class="dropdown-item"><a href="pacmanremake.html"><img alt="pacman" class="projects-icon" src="images/logos/Pacman.svg">Pacman-remake</a></li>
+                        <li class="dropdown-item"><a href="twinstick.html"><img alt="twinnstick" class="projects-icon" src="images/logos/joystick.svg">Twinnstick</a></li>
+                        <li class="dropdown-item"><a href="galaga.html"><img alt="galaga" class="projects-icon" src="images/logos/Galaga.ico">Galaga</a></li>
+                        <li class="dropdown-item"><a href="particleeffect.html"><img alt="Particle" class="projects-icon" src="images/logos/ParticleIcon.jpg">Particle effect</a></li>
+                        <li class="dropdown-item"><a href="theworks.html"><img alt="TheWorks" class="projects-icon" src="images/logos/placeholder.jpg">TheWorks</a></li>
+                        <li class="dropdown-item"><a href="teleportation.html"><img alt="Teleportation" class="projects-icon" src="images/faviicon.ico">Teleportation</a></li>
+                        <li class="dropdown-item"><a href="towerdefense.html"><img alt="TowerDefense" class="projects-icon" src="images/faviicon.ico">Tower Defense</a></li>
+                        <li class="dropdown-item"><a href="nan.html"><img alt="Nan" class="projects-icon" src="images/logos/placeholder.jpg">Nan</a></li>
+                        <li class="dropdown-item"><a href="steam.html"><img alt="Steam" class="projects-icon" src="images/logos/pythonlogo.svg">Steam (Python)</a></li>
+                    </ul>
+                </li>
+                <li><a href="music.html" data-en="Music" data-nl="Muziek">Music</a></li>
+                <li><a href="index.html#skills" data-en="Skills" data-nl="Vaardigheden">Skills</a></li>
+            </ul>
+            <div class="lang-toggle">
+                <button class="lang-btn active" data-lang-btn="en" onclick="switchLanguage('en')">EN</button>
+                <span class="lang-divider">/</span>
+                <button class="lang-btn" data-lang-btn="nl" onclick="switchLanguage('nl')">NL</button>
+            </div>
+        </nav>
+    </div>
 
-<div class="content-container">
-
-    <!-- Video Section -->
-    <section class="music-section">
-        <div class="section-header">
-            <h2>Compositions</h2>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-badge-container">
+            <span class="hero-badge">Ableton Live 11</span>
+            <span class="hero-badge cyan">Sound Design</span>
+            <span class="hero-badge">Game Audio</span>
+            <span class="hero-badge cyan">Alesis VI25</span>
         </div>
-        <div class="video-showcase">
-            <iframe allowfullscreen="allowfullscreen"
-                    height="450"
-                    src="https://www.youtube.com/embed/videoseries?si=F-P9IEWtkKjmuFtj&amp;list=PLc8a2-3writAiVSNR91ZWlzDRecbIQcFv"
-                    style="border:none;"
-                    title="YouTube video player"
-                    width="800"></iframe>
-        </div>
-        <p style="text-align: center; margin-top: 1em; color: #888;">Selected uploads from my YouTube channel.</p>
+        <h1 class="hero-title" data-en="Music & Audio" data-nl="Muziek & Audio">Music & Audio</h1>
+        <p class="hero-subtitle"
+           data-en="A collection of original compositions, game audio soundscapes, synthesized sound design, and studio recording booth sessions."
+           data-nl="Een verzameling van originele composities, game-audio soundscapes, gesynthetiseerd geluidsontwerp en studio-opnamesessies.">
+            A collection of original compositions, game audio soundscapes, synthesized sound design, and studio recording booth sessions.
+        </p>
     </section>
 
-    <!-- Audio Production Section -->
-    <section class="music-section">
-        <div class="section-header">
-            <h2>Production & Sound Design</h2>
-        </div>
+    <!-- Main Content Container -->
+    <div class="content-container">
 
-        <div class="audio-showcase">
-            <h3>Ableton Live 11 Workflow</h3>
-            <p>Produced using Ableton Live 11 paired with an Alesis VI25 controller.</p>
-            <div class="audio-track">
-                <audio controls>
-                    <source src="assets/css/audio/acceptance.wav" type="audio/wav">
-                    Your browser does not support the audio element.
-                </audio>
+        <!-- Interactive Audio Synthesizer Deck Section -->
+        <section class="music-section">
+            <div class="section-header">
+                <h2 data-en="Audio Production Showcase" data-nl="Audio Producties">Audio Production Showcase</h2>
+                <span class="section-tag" data-en="Audio Deck" data-nl="Audio Deck">Audio Deck</span>
+            </div>
+            
+            <div class="audio-deck-container">
+                <!-- Main Player Deck -->
+                <div class="deck-main-player">
+                    <div class="deck-track-info">
+                        <div class="album-art">🎵</div>
+                        <div class="track-details">
+                            <h3 id="player-track-title">Acceptance</h3>
+                            <p id="player-track-desc"
+                               data-en="Produced in Ableton Live 11 with Alesis VI25 controller"
+                               data-nl="Geproduceerd in Ableton Live 11 met Alesis VI25 controller">
+                                Produced in Ableton Live 11 with Alesis VI25 controller
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Equalizer Visualizer -->
+                    <div class="equalizer-visualizer" id="eq-container">
+                        <div class="eq-bar"></div>
+                        <div class="eq-bar"></div>
+                        <div class="eq-bar"></div>
+                        <div class="eq-bar"></div>
+                        <div class="eq-bar"></div>
+                        <div class="eq-bar"></div>
+                        <div class="eq-bar"></div>
+                        <div class="eq-bar"></div>
+                        <div class="eq-bar"></div>
+                        <div class="eq-bar"></div>
+                        <div class="eq-bar"></div>
+                        <div class="eq-bar"></div>
+                    </div>
+
+                    <!-- Controls & Scrubber -->
+                    <div class="deck-controls">
+                        <div class="scrubber-container">
+                            <span class="time-display" id="time-current">0:00</span>
+                            <div class="scrubber-bar" id="scrubber" onclick="seekTrack(event)">
+                                <div class="scrubber-fill" id="scrubber-fill"></div>
+                            </div>
+                            <span class="time-display" id="time-duration">0:00</span>
+                        </div>
+
+                        <div class="control-bottom-row">
+                            <div class="control-buttons">
+                                <button class="deck-btn" onclick="prevTrack()" title="Previous">⏮</button>
+                                <button class="deck-btn play-btn" id="master-play-btn" onclick="togglePlay()" title="Play / Pause">▶</button>
+                                <button class="deck-btn" onclick="nextTrack()" title="Next">⏭</button>
+                            </div>
+
+                            <div class="volume-container">
+                                <button class="vol-btn" id="vol-btn" onclick="toggleMute()" title="Mute / Unmute">🔊</button>
+                                <input class="vol-slider" id="volume-slider" max="1" min="0" oninput="changeVolume(this.value)" step="0.01" type="range" value="0.8"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hidden Audio Element -->
+                    <audio id="main-audio-element" src="assets/css/audio/acceptance.wav"></audio>
+                </div>
+
+                <!-- Playlist Selector -->
+                <div class="deck-playlist">
+                    <div class="playlist-header" data-en="Playlist Queue" data-nl="Aptest Afspeellijst">Playlist Queue</div>
+                    <ul class="playlist-items" id="playlist-ul">
+                        <li class="playlist-item active" onclick="loadTrack(0)">
+                            <div>
+                                <div class="item-name">Acceptance</div>
+                                <div style="font-size: 0.78rem; color: var(--text-muted);">Ableton Live 11</div>
+                            </div>
+                            <span class="item-duration">HQ</span>
+                        </li>
+                        <li class="playlist-item" onclick="loadTrack(1)">
+                            <div>
+                                <div class="item-name">Main Menu Theme</div>
+                                <div style="font-size: 0.78rem; color: var(--text-muted);">Game Audio</div>
+                            </div>
+                            <span class="item-duration">HQ</span>
+                        </li>
+                        <li class="playlist-item" onclick="loadTrack(2)">
+                            <div>
+                                <div class="item-name">Starts</div>
+                                <div style="font-size: 0.78rem; color: var(--text-muted);">Composition</div>
+                            </div>
+                            <span class="item-duration">HQ</span>
+                        </li>
+                        <li class="playlist-item" onclick="loadTrack(3)">
+                            <div>
+                                <div class="item-name">Bowler Start</div>
+                                <div style="font-size: 0.78rem; color: var(--text-muted);">Sound Design SFX</div>
+                            </div>
+                            <span class="item-duration">HQ</span>
+                        </li>
+                        <li class="playlist-item" onclick="loadTrack(4)">
+                            <div>
+                                <div class="item-name">Playstation Vibe</div>
+                                <div style="font-size: 0.78rem; color: var(--text-muted);">Retro Synthesizer</div>
+                            </div>
+                            <span class="item-duration">HQ</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- YouTube Video Compositions Section -->
+        <section class="music-section">
+            <div class="section-header">
+                <h2 data-en="Video Compositions Showcase" data-nl="Video Composities">Video Compositions Showcase</h2>
+                <span class="section-tag cyan" data-en="YouTube Playlist" data-nl="YouTube Playlist">YouTube Playlist</span>
+            </div>
+            <div class="video-showcase">
+                <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                        src="https://www.youtube.com/embed/videoseries?si=F-P9IEWtkKjmuFtj&amp;list=PLc8a2-3writAiVSNR91ZWlzDRecbIQcFv"
+                        title="Kenan Özbakan YouTube Music Compositions Playlist">
+                </iframe>
+            </div>
+            <p class="video-caption"
+               data-en="Selected original music releases, synth explorations, and video uploads from my YouTube channel."
+               data-nl="Selectie van originele muziekreleases, synth-exploraties en video-uploads van mijn YouTube-kanaal.">
+                Selected original music releases, synth explorations, and video uploads from my YouTube channel.
+            </p>
+        </section>
+
+        <!-- Studio & Recording Booth Section -->
+        <section class="music-section">
+            <div class="section-header">
+                <h2 data-en="Studio & Recording Sessions" data-nl="Studio & Opnamesessies">Studio & Recording Sessions</h2>
+                <span class="section-tag" data-en="Studio Booth" data-nl="Studio Cirkel">Studio Booth</span>
+            </div>
+            <p style="margin-bottom: 2rem; color: var(--text-secondary);"
+               data-en="Behind-the-scenes recording sessions inside the Grafisch Lyceum Utrecht specialized acoustic booth."
+               data-nl="Achter de schermen opnamesessies in de akoestische studiocabine van het Grafisch Lyceum Utrecht.">
+                Behind-the-scenes recording sessions inside the Grafisch Lyceum Utrecht specialized acoustic booth.
+            </p>
+
+            <div class="studio-grid">
+                <article class="photo-card">
+                    <img alt="Microphone Setup" src="images/StudioMic.jpg"/>
+                    <div class="photo-card-info">
+                        <h3 data-en="Acoustic Microphone Setup" data-nl="Microfoon Opstelling">Acoustic Microphone Setup</h3>
+                        <p data-en="Precision vocal and instrument recording booth setup with studio condenser microphones."
+                           data-nl="Precisie zang- en instrumentopnames in de studio met condensatormicrofoons.">
+                            Precision vocal and instrument recording booth setup with studio condenser microphones.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="photo-card">
+                    <img alt="Recording Session" src="images/studio2.jpg"/>
+                    <div class="photo-card-info">
+                        <h3 data-en="Live Recording Booth Session" data-nl="Live Opnamesessie">Live Recording Booth Session</h3>
+                        <p data-en="Sound engineering and real-time audio tracking at Grafisch Lyceum Utrecht studio."
+                           data-nl="Sound engineering en real-time audiotracking in de studio van het Grafisch Lyceum Utrecht.">
+                            Sound engineering and real-time audio tracking at Grafisch Lyceum Utrecht studio.
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="container">
+            <div class="copyright" data-en="&copy; Kenan Özbakan. Produced with Ableton Live & Alesis VI25." data-nl="&copy; Kenan Özbakan. Geproduceerd met Ableton Live & Alesis VI25.">
+                &copy; Kenan Özbakan. Produced with Ableton Live & Alesis VI25.
             </div>
         </div>
-    </section>
+    </footer>
 
-    <!-- Studio Section -->
-    <section class="music-section">
-        <div class="section-header">
-            <h2>Studio & Recording</h2>
-        </div>
-        <p style="margin-bottom: 2em; color: #ccc;">Behind the scenes at the Grafisch Lyceum Utrecht audio recording booth.</p>
-
-        <div class="studio-grid">
-            <article class="photo-card">
-                <img alt="Microphone recording" src="images/StudioMic.jpg"/>
-                <header>
-                    <h3>Microphone Setup</h3>
-                </header>
-            </article>
-
-            <article class="photo-card">
-                <img alt="Setting up the recording" src="images/studio2.jpg"/>
-                <header>
-                    <h3>Recording Session</h3>
-                </header>
-            </article>
-        </div>
-    </section>
-
-</div>
-
-<!-- Footer -->
-<div id="footer">
-    <ul class="social-icons">
-        <li><a class="icon brands fa-instagram" href="https://www.instagram.com/kenan.3_8/"><span class="label">Instagram</span></a></li>
-        <li><a class="icon brands fa-linkedin-in" href="https://www.linkedin.com/in/kenan%C3%B6zbakan/"><span class="label">Linkedin</span></a></li>
-        <li><a class="icon brands fa-dribbble" href="socials.html"><span class="label">All socials</span></a></li>
-    </ul>
-    <div class="copyright">
-        &copy; Kenan Özbakan. All rights reserved. | Design: <a href="https://html5up.net">HTML5 UP</a>
-    </div>
-</div>
-
-<!-- Floating Player -->
-<div class="floating-audio-player" id="draggable-player">
-    <div class="drag-handle" id="player-handle">⋮⋮ Music Player</div>
-    <audio controls id="audio-player">
-        <source id="audio-source" src="assets/music/MainMenuMusicShortburn.wav" type="audio/wav">
-        Your browser does not support the audio element.
-    </audio>
-    <div id="current-track">Now Playing: Select a track</div>
-    <div class="playlist">
-        <ul>
-            <li onclick="playSong(0)">MainMenuMusicShortburn</li>
-            <li onclick="playSong(1)">Starts</li>
-        </ul>
-    </div>
 </div>
 
 <!-- Scripts -->
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/jquery.dropotron.min.js"></script>
-<script src="assets/js/jquery.scrolly.min.js"></script>
-<script src="assets/js/jquery.scrollex.min.js"></script>
 <script src="assets/js/browser.min.js"></script>
 <script src="assets/js/breakpoints.min.js"></script>
 <script src="assets/js/util.js"></script>
 <script src="assets/js/main.js"></script>
-<script src="assets/js/music.js"></script>
+
+<script>
+    // Playlist Data
+    const tracks = [
+        {
+            title: "Acceptance",
+            descEn: "Produced in Ableton Live 11 with Alesis VI25 controller",
+            descNl: "Geproduceerd in Ableton Live 11 met Alesis VI25 controller",
+            src: "assets/css/audio/acceptance.wav"
+        },
+        {
+            title: "Main Menu Theme",
+            descEn: "Atmospheric game menu theme composition",
+            descNl: "Sfeervolle game menu-thema compositie",
+            src: "assets/music/MainMenuMusicShortburn.wav"
+        },
+        {
+            title: "Starts",
+            descEn: "Original electronic music composition",
+            descNl: "Originele elektronische muziekcompositie",
+            src: "assets/music/starts.wav"
+        },
+        {
+            title: "Bowler Start",
+            descEn: "Dynamic sound design and custom audio SFX",
+            descNl: "Dynamisch geluidsontwerp en aangepaste audio SFX",
+            src: "assets/css/audio/BowlerStart.wav"
+        },
+        {
+            title: "Playstation Vibe",
+            descEn: "Retro Playstation-inspired synthesizer track",
+            descNl: "Retro Playstation-geïnspireerde synthesizer track",
+            src: "assets/css/audio/playstatinon.wav"
+        }
+    ];
+
+    let currentTrackIndex = 0;
+    const audio = document.getElementById('main-audio-element');
+    const playBtn = document.getElementById('master-play-btn');
+    const trackTitle = document.getElementById('player-track-title');
+    const trackDesc = document.getElementById('player-track-desc');
+    const scrubberFill = document.getElementById('scrubber-fill');
+    const timeCurrent = document.getElementById('time-current');
+    const timeDuration = document.getElementById('time-duration');
+    const eqBars = document.querySelectorAll('.eq-bar');
+    const playlistItems = document.querySelectorAll('.playlist-item');
+
+    function formatTime(seconds) {
+        if (isNaN(seconds)) return "0:00";
+        const mins = Math.floor(seconds / 60);
+        const secs = Math.floor(seconds % 60);
+        return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+    }
+
+    function loadTrack(index) {
+        currentTrackIndex = index;
+        const track = tracks[index];
+        audio.src = track.src;
+        trackTitle.innerText = track.title;
+        
+        const currentLang = localStorage.getItem('portfolio_lang') || 'en';
+        trackDesc.innerText = currentLang === 'nl' ? track.descNl : track.descEn;
+        trackDesc.setAttribute('data-en', track.descEn);
+        trackDesc.setAttribute('data-nl', track.descNl);
+
+        playlistItems.forEach((item, i) => {
+            item.classList.toggle('active', i === index);
+        });
+
+        playTrack();
+    }
+
+    function playTrack() {
+        audio.play().then(() => {
+            playBtn.innerText = '⏸';
+            eqBars.forEach(bar => bar.classList.add('playing'));
+        }).catch(err => {
+            console.log("Autoplay blocked or audio load error", err);
+        });
+    }
+
+    function pauseTrack() {
+        audio.pause();
+        playBtn.innerText = '▶';
+        eqBars.forEach(bar => bar.classList.remove('playing'));
+    }
+
+    function togglePlay() {
+        if (audio.paused) {
+            playTrack();
+        } else {
+            pauseTrack();
+        }
+    }
+
+    function prevTrack() {
+        let prev = currentTrackIndex - 1;
+        if (prev < 0) prev = tracks.length - 1;
+        loadTrack(prev);
+    }
+
+    function nextTrack() {
+        let next = currentTrackIndex + 1;
+        if (next >= tracks.length) next = 0;
+        loadTrack(next);
+    }
+
+    function seekTrack(e) {
+        const scrubber = document.getElementById('scrubber');
+        const rect = scrubber.getBoundingClientRect();
+        const clickX = e.clientX - rect.left;
+        const width = rect.width;
+        if (audio.duration) {
+            audio.currentTime = (clickX / width) * audio.duration;
+        }
+    }
+
+    let lastVolume = 0.8;
+    function changeVolume(val) {
+        audio.volume = parseFloat(val);
+        const volBtn = document.getElementById('vol-btn');
+        if (val == 0) {
+            volBtn.innerText = '🔇';
+        } else if (val < 0.5) {
+            volBtn.innerText = '🔉';
+        } else {
+            volBtn.innerText = '🔊';
+        }
+    }
+
+    function toggleMute() {
+        const slider = document.getElementById('volume-slider');
+        if (audio.volume > 0) {
+            lastVolume = audio.volume;
+            audio.volume = 0;
+            slider.value = 0;
+            document.getElementById('vol-btn').innerText = '🔇';
+        } else {
+            audio.volume = lastVolume;
+            slider.value = lastVolume;
+            changeVolume(lastVolume);
+        }
+    }
+
+    audio.addEventListener('timeupdate', () => {
+        if (audio.duration) {
+            const pct = (audio.currentTime / audio.duration) * 100;
+            scrubberFill.style.width = pct + '%';
+            timeCurrent.innerText = formatTime(audio.currentTime);
+            timeDuration.innerText = formatTime(audio.duration);
+        }
+    });
+
+    audio.addEventListener('ended', () => {
+        nextTrack();
+    });
+
+    // Language Switcher
+    function switchLanguage(lang) {
+        localStorage.setItem('portfolio_lang', lang);
+        document.querySelectorAll('[data-en][data-nl]').forEach(el => {
+            const text = el.getAttribute(`data-${lang}`);
+            if (text) {
+                el.innerHTML = text;
+            }
+        });
+        document.querySelectorAll('[data-lang-btn]').forEach(btn => {
+            btn.classList.toggle('active', btn.getAttribute('data-lang-btn') === lang);
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const savedLang = localStorage.getItem('portfolio_lang') || 'en';
+        switchLanguage(savedLang);
+    });
+</script>
 
 </body>
 </html>
-
