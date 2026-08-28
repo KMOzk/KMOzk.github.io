@@ -1,266 +1,254 @@
-<!DOCTYPE HTML> <!-- Helios by HTML5 UP	html5up.net | @ajlkn Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)-->
+<!DOCTYPE HTML>
 <html lang="en">
 <head>
-    <title>Kenan Özbakan | Freelance Developer Portfolio - Unity, XR, AI</title>
-    <link href="images/faviicon.ico" rel="icon">
+    <title>Stitch Design Redesign | Test</title>
     <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport"/>
-    <meta content="Kenan Özbakan – freelance game & web developer uit Utrecht. Gespecialiseerd in Unity, XR en webdevelopment. HBO-ICT student aan de Hogeschool Utrecht. Bekijk mijn projecten of neem contact op voor een samenwerking." name="description">
-    <link href="assets/css/main.css" rel="stylesheet"/>
-    <link href="assets/css/index-redesign.css" rel="stylesheet"/>
-    <meta content="Kenan Özbakan | Freelance Game & Web Developer Utrecht" property="og:title">
-    <meta content="Freelance game & web developer gespecialiseerd in Unity, XR en webdevelopment. HBO-ICT student aan de Hogeschool Utrecht. Bekijk projecten en neem contact op." property="og:description">
-    <meta content="website" property="og:type">
-    <meta content="https://kmozk.github.io" property="og:url">
-    <meta content="https://kmozk.github.io/images/og-image.jpg" property="og:image">
-
-    <meta content="summary_large_image" name="twitter:card">
-    <meta content="Kenan Özbakan | Freelance Developer" name="twitter:title">
-    <meta content="Game & web development, Unity, XR, HBO-ICT student in Utrecht." name="twitter:description">
-    <meta content="https://kmozk.github.io/images/og-image.jpg" name="twitter:image">
-
-    <link href="assets/css/noscript.css" rel="stylesheet"/>
-    </noscript>
-    <link href="test.css" rel="stylesheet"/>
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "Person",
-            "name": "Kenan Özbakan",
-            "jobTitle": "Freelance Game & Web Developer",
-            "url": "https://kmozk.github.io",
-            "image": "https://kmozk.github.io/images/profile.jpg",
-            "description": "Freelance game & web developer uit Utrecht, gespecialiseerd in Unity, XR en webdevelopment. HBO-ICT student aan de Hogeschool Utrecht.",
-            "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Utrecht",
-                "addressCountry": "NL"
-            },
-            "affiliation": {
-                "@type": "CollegeOrUniversity",
-                "name": "Hogeschool Utrecht",
-                "url": "https://www.hu.nl/"
-            },
-            "sameAs": [
-                "https://github.com/KMOzk",
-                "https://www.linkedin.com/in/kenan%C3%B6zbakan/"
-            ]
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <style>
+        :root {
+            --primary: #4285F4;
+            --primary-variant: #1a73e8;
+            --accent: #34A853;
+            --bg: #0a0b10;
+            --surface: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-main: #f8f9fa;
+            --text-muted: #9aa0a6;
+            --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
         }
-    </script>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg);
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(66, 133, 244, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(52, 168, 83, 0.1) 0%, transparent 40%);
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .stitch-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        /* Nav */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            background: rgba(10, 11, 16, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--glass-border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: -1px;
+            color: var(--primary);
+        }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            margin-bottom: 6rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(66, 133, 244, 0.1);
+            border: 1px solid rgba(66, 133, 244, 0.2);
+            border-radius: 20px;
+            color: var(--primary);
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #fff 0%, #9aa0a6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+        }
+
+        /* Grid */
+        .design-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--primary);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(66, 133, 244, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Editor Simulation */
+        .editor-box {
+            margin-top: 6rem;
+            background: #000;
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            font-family: var(--font-mono);
+            position: relative;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+
+        .editor-header {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .dot { width: 12px; height: 12px; border-radius: 50%; }
+        .red { background: #ff5f56; }
+        .yellow { background: #ffbd2e; }
+        .green { background: #27c93f; }
+
+        .code-line {
+            color: #d1d1d1;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .keyword { color: #c678dd; }
+        .string { color: #98c379; }
+        .comment { color: #5c6370; font-style: italic; }
+
+        @media (max-width: 768px) {
+            .stitch-container { padding: 2rem 1.5rem; }
+            h1 { font-size: 2.5rem; }
+        }
+    </style>
 </head>
-<body class="homepage is-preload index-redesign">
-<div id="page-wrapper">
+<body>
 
-    <nav id="nav">
-        <ul>
-            <li><a href="index.html" data-lang-key="nav_home">Home</a></li>
-            <li>
-                <a href="projects.html" data-lang-key="nav_projects">Projects</a>
-                <ul>
-                    <li class="dropdown-item"><img alt="pacman" class="projects-icon" src="images/logos/Pacman.svg">
-                        <a href="pacmanremake.html">Pacman-remake</a>
-                    </li>
-                    <li class="dropdown-item"><a href="twinstick.html"><img alt="twinnstick" class="projects-icon" src="images/logos/joystick.svg">Twinnstick</a></li>
-                    <li class="dropdown-item"><img alt="galaga" class="projects-icon" src="images/logos/Galaga.ico"><a href="galaga.html">Galaga</a></li>
-                    <li class="dropdown-item"><img alt="Particle" class="projects-icon" src="images/logos/ParticleIcon.jpg"><a href="particleeffect.html">Particle effect</a></li>
-                    <li class="dropdown-item"><img alt="TheWorks" class="projects-icon" src="images/logos/placeholder.jpg"><a href="theworks.html">TheWorks</a></li>
-                </ul>
-            </li>
-            <li><a href="music.html" data-lang-key="nav_music">Music</a></li>
-            <li><a href="#skills" data-lang-key="nav_skills">Skills</a></li>
-            <li>
-                <a href="#" data-lang-key="nav_language">Language</a>
-                <ul>
-                    <li><a href="#" onclick="setLanguage('en')">English</a></li>
-                    <li><a href="#" onclick="setLanguage('nl')">Nederlands</a></li>
-                    <li><a href="#" onclick="setLanguage('de')">Deutsch</a></li>
-                    <li><a href="#" onclick="setLanguage('tr')">Türkçe</a></li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
+<nav>
+    <div class="logo">STITCH // REDESIGN</div>
+    <div class="nav-links">
+        <span style="color: var(--text-muted); font-size: 0.9rem;">v3.0.0-beta</span>
+    </div>
+</nav>
 
-    <div id="header">
+<div class="stitch-container">
+    <section class="hero">
+        <span class="badge">Powered by Gemini 3.0</span>
+        <h1>Design at the speed of thought.</h1>
+        <p class="subtitle">Generate high-fidelity UIs, design systems, and functional prototypes using natural language and image inputs.</p>
+    </section>
 
-        <div class="inner">
-            <header class="hero-container">
-                <div class="hero-text">
-                    <h1 class="animated-text"><span>K</span><span>e</span><span>n</span><span>a</span><span>n</span></h1>
-                    <hr/>
-                    <p data-lang-key="hero_bio">
-                        <span id="age-number"></span> years old.<br>
-                        Game developer with creative and technical skills.<br>
-                        Living in Utrecht, where I study at the Grafisch Lyceum Utrecht.<br>
-                        As a team player with a thoughtful and eager-to-learn attitude, I enjoy working collaboratively and constantly seek new insights.<br>
-                        Thanks to my ability to think 'out of the box,' I find innovative solutions to complex challenges.
-                    </p>
-                </div>
-                <div id="heroImage"></div>
-            </header>
+    <div class="design-grid">
+        <div class="card">
+            <div class="icon">✨</div>
+            <h3>Vibe Design</h3>
+            <p>Skip the wireframes. Describe the "feel" and business objective, and let Stitch explore the creative direction on an infinite canvas.</p>
+        </div>
+        <div class="card">
+            <div class="icon">🔗</div>
+            <h3>URL Extraction</h3>
+            <p>Paste any URL to decompose its visual language. Instantly extract palettes, typography, and component libraries.</p>
+        </div>
+        <div class="card">
+            <div class="icon">📄</div>
+            <h3>DESIGN.md</h3>
+            <p>Export your design rules into a machine-readable format that AI coding agents can follow with perfect precision.</p>
         </div>
     </div>
 
-    <section class="wrapper style2" id="skills">
-        <div class="container">
-
-            <div class="skills-title">
-                <div class="skills-heading" data-lang-key="skills_heading">Skills</div>
-                <div class="skills-subheading" data-lang-key="skills_subheading">Here are some of the skills I have developed so far!</div>
-            </div>
-
-            <div class="skills-list">
-
-                <div class="skill animate-on-scroll">
-                    <div class="skill-heading" data-lang-key="skills_prog">Programming Languages</div>
-                    <ul>
-                        <li><img alt="C# icon" class="skill-icon" src="images/logos/c--4.svg">C#</li>
-
-                        <li><img alt="HTML icon" class="skill-icon" src="images/logos/html-1.svg">HTML</li>
-                        <li><img alt="CSS icon" class="skill-icon" src="images/logos/css-3.svg">CSS</li>
-                    </ul>
-                </div>
-                <div class="skill animate-on-scroll">
-                    <div class="skill-heading" data-lang-key="skills_game">Game Development</div>
-
-                    <ul>
-                        <li><a href="galaga.html"><img alt="Unity logo" class="skill-icon" src="images/logos/unity3d-icon.svg">Unity 2D</a></li>
-
-                        <li><a href="projects.html"><img alt="Unity logo" class="skill-icon"
-                                                         src="images/logos/unity3d-icon.svg">Unity 3D</a></li>
-
-                        <li><img alt="Unity logo" class="skill-icon" src="images/logos/unity3d-icon.svg">Unity XR</li>
-                    </ul>
-                </div>
-
-                <div class="skill animate-on-scroll" style="animation-delay: 1.2s;">
-                    <div class="skill-heading" data-lang-key="skills_team">Teamwork</div>
-                    <ul>
-                        <li><a href="https://github.com/KMOzk"><img alt="Github logo" class="skill-icon"
-                                                                    src="images/logos/github-icon-1.svg">Github</a></li>
-                        <li><img alt="Trello logo" class="skill-icon" src="images/logos/trello.svg">Trello/ Scrum</li>
-                        <li><img alt="Trello logo" class="skill-icon" src="images/logos/trello.svg">Agile</li>
-                    </ul>
-                </div>
-                <div class="skill animate-on-scroll" style="animation-delay: 1.2s;">
-                    <div class="skill-heading" data-lang-key="skills_design">Design</div>
-                    <ul>
-                        <li><img alt="Photoshop logo" class="skill-icon" src="images/logos/photoshop.svg">Photoshop</li>
-                        <li><img alt="Premiere pro logo" class="skill-icon" src="images/logos/premiere-pro-cc.svg">Premiere
-                            pro
-                        </li>
-                        <li><img alt="Blender logo" class="skill-icon" src="images/logos/blender-1.svg">Blender</li>
-                    </ul>
-                </div>
-            </div>
+    <div class="editor-box">
+        <div class="editor-header">
+            <div class="dot red"></div>
+            <div class="dot yellow"></div>
+            <div class="dot green"></div>
         </div>
-    </section>
-
-    <section class="carousel">
-        <section id="banner">
-            <header>
-                <h2 data-lang-key="projects_heading">Projects highlights</h2>
-                <p data-lang-key="projects_intro">
-                    Feel free to look around here or on <a href="https://kenan38.itch.io/">itch</a>.
-                </p>
-            </header>
-        </section>
-        <div class="reel">
-
-            <article>
-                <a class="image featured" href="music.html"><img alt="" src="images/logos/musicicon.jpg"/></a>
-                <h2>
-                    <a href="music.html">Music</a>
-                </h2>
-                <p>A couple musical piece's composed in my room :) (or at school, of course).</p>
-            </article>
-
-            <article>
-                <a class="image featured" href="projects.html"><img alt="" src="images/logos/unitylogo.jpg"/></a>
-                <header>
-                    <h3><a href="projects.html">Projects</a></h3>
-                </header>
-                <p>All the projects I have done in Unity so far.</p>
-            </article>
-
-            <article>
-                <a class="image featured" href="pacmanremake.html"><img alt="" src="images/pacman.jpg"/></a>
-                <header>
-                    <h3><a href="pacmanremake.html">Pacman-remake</a></h3>
-                </header>
-                <p>I made packman in unity and posted it on <a href="https://kenan38.itch.io/pacman-remake">itch.</a>
-                </p>
-            </article>
-
-            <article>
-                <a class="image featured" href="particleeffect.html"><img alt="" src="images/particles.jpg"/></a>
-                <header>
-                    <h3><a href="particleeffect.html">Particle Effects</a></h3>
-                </header>
-                <p> Want to see some particles in action?</p>
-            </article>
-
-            <article>
-                <a class="image featured black-bg" href="galaga.html"><img alt="" src="images/logos/Galaga.ico"/></a>
-                <header>
-                    <h3><a href="particleeffect.html">Galaga Remake</a></h3>
-                </header>
-                <p> Galaga in a new light play it on <a href="https://kenan38.itch.io/galaga-remake">itch!</a></p>
-            </article>
-
-            <article>
-                <a class="image featured" href="theworks.html"><img alt="" src="images/logos/placeholder.jpg"/></a>
-                <header>
-                    <h3><a href="theworks.html" data-lang-key="project_theworks_title">TheWorks</a></h3>
-                </header>
-                <p data-lang-key="project_theworks_desc">A Flutter based project where the goal is to match students with companies to get an internship.</p>
-            </article>
-        </div>
-    </section>
-
-    <div id="footer">
-        <hr/>
-        <header>
-            <h2 data-lang-key="contact_heading">Contact</h2>
-            <p data-lang-key="contact_text">
-                If you have questions, feel free to reach out! <br>
-                I am always reachable via my e-mail kenan[dot]ozbakan[at]com <br> or on
-                <a href="https://kenansocial.carrd.co/">another social network I am on.</a>
-            </p>
-        </header>
-        <section class="contact">
-            <ul class="icons custom-socials">
-                <li><a class="icon brands fa-instagram" href="https://www.instagram.com/kenan.3_8/"><span
-                        class="label">Instagram</span></a></li>
-                <li><a class="icon brands fa-linkedin-in"
-                       href="https://www.linkedin.com/in/kenan%C3%B6zbakan/"><span class="label">Linkedin</span></a>
-                </li>
-                <li><a class="icon brands fa-dribbble" href="https://kenansocial.carrd.co/"><span
-                        class="label">All socials in 1 place</span></a>
-                </li>
-            </ul>
-        </section>
-
-        <div class="copyright">
-            <ul class="menu">
-                <li>&copy; Kenan Özbakan. All rights reserved.</li>
-                <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
-            </ul>
-        </div>
+        <code class="code-line"><span class="comment">// Redesigning test.html using Stitch patterns</span></code>
+        <code class="code-line"><span class="keyword">const</span> designSystem = {</code>
+        <code class="code-line">&nbsp;&nbsp;vibe: <span class="string">"hyper-modern"</span>,</code>
+        <code class="code-line">&nbsp;&nbsp;surface: <span class="string">"glassmorphism"</span>,</code>
+        <code class="code-line">&nbsp;&nbsp;fidelity: <span class="string">"ultra-high"</span></code>
+        <code class="code-line">};</code>
+        <code class="code-line"><span class="keyword">export default</span> Stitch.generate(designSystem);</code>
     </div>
-
 </div>
-
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/jquery.dropotron.min.js"></script>
-<script src="assets/js/jquery.scrolly.min.js"></script>
-<script src="assets/js/jquery.scrollex.min.js"></script>
-<script src="assets/js/browser.min.js"></script>
-<script src="assets/js/breakpoints.min.js"></script>
-<script src="assets/js/util.js"></script>
-<script src="assets/js/main.js"></script>
-<script src="assets/js/lang.js"></script>
-
 
 </body>
 </html>
-

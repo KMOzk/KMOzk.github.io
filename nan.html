@@ -50,7 +50,7 @@
 <section class="hero-section">
     <h1 class="hero-title">Nan</h1>
     <p class="hero-subtitle">
-        Een eerstejaars project voor de <strong>Hogeschool Utrecht</strong>. Een Python-gebaseerd platform voor mini-games, inclusief user management en scoresystemen.
+        Een eerstejaars project voor de <strong>Hogeschool Utrecht</strong>. Een Python-gebaseerd platform voor mini-games, inclusief user management, scoresystemen en API-integraties.
     </p>
 </section>
 
@@ -60,85 +60,138 @@
     <ul class="toc-links">
         <li><a href="#overview">Project Overzicht</a></li>
         <li><a href="#learned">Geleerde Vaardigheden</a></li>
-        <li><a href="#user-management">User Management</a></li>
         <li><a href="#guesser">Guesser Game</a></li>
+        <li><a href="#user-management">User Management</a></li>
+        <li><a href="#galgje">Hangman (Galgje)</a></li>
+        <li><a href="#api-integration">API Integration</a></li>
     </ul>
 </nav>
 
 <!-- Content Sections -->
 <div class="content-section" id="overview">
     <h2>Project Overzicht</h2>
+    <div class="image-container">
+        <img src="images/nan/title.jpg" alt="Nan Title Screen" class="project-image">
+    </div>
     <div class="tech-pills">
         <span class="pill">Python 3</span>
         <span class="pill">JSON Data Storage</span>
+        <span class="pill">REST APIs</span>
         <span class="pill">CLI Architecture</span>
     </div>
     <p>
-        <strong>Nan</strong> is een modulaire command-line applicatie die verschillende mini-games (zoals Galgje en Guesser) host. Het systeem bevat een robuuste login- en accountcreatie module die gebruik maakt van JSON-bestanden voor persistente dataopslag.
+        <strong>Nan</strong> is een modulaire command-line applicatie die verschillende mini-games host, waaronder:
     </p>
+    <ul>
+        <li><strong>Guesser:</strong> Raad het getal met verschillende moeilijkheidsgraden.</li>
+        <li><strong>Galgje (Hangman):</strong> Raad het woord uit een dynamische woordenlijst.</li>
+        <li><strong>Animal Facts:</strong> Een quiz gebaseerd op de OpenTDB API.</li>
+        <li><strong>Weather Guesser:</strong> Raad de temperatuur in een stad via de OpenWeather API.</li>
+        <li><strong>Rekenmenen:</strong> Een wiskunde trainer met aanpasbare sommen.</li>
+    </ul>
+    <div class="image-container">
+        <img src="images/nan/gamechoice.jpg" alt="Nan Game Selection" class="project-image">
+    </div>
 </div>
 
 <div class="content-section" id="learned">
     <h2>Geleerde Vaardigheden</h2>
     <div class="tech-pills">
         <span class="pill">Python 3</span>
+        <span class="pill">API Integration</span>
         <span class="pill">Data Handling</span>
-        <span class="pill">Logic Design</span>
+        <span class="pill">Modular Design</span>
     </div>
     <p>
-        Tijdens dit eerstejaars project aan de HU heb ik de fundamenten van <strong>Python</strong> onder de knie gekregen. Ik heb geleerd hoe ik gestructureerde code schrijf, hoe ik omga met externe data via JSON, en hoe ik complexe game-logica kan implementeren in een CLI-omgeving.
+        Tijdens dit project heb ik de fundamenten van <strong>Python</strong> verder uitgediept. Ik heb geleerd hoe ik externe API's (zoals OpenWeather en OpenTDB) integreer, hoe ik een modulair systeem bouw met verschillende Python-bestanden, en hoe ik complexe game-logica combineer met persistente dataopslag in JSON.
     </p>
 </div>
 
-<div class="content-section" id="user-management">
-    <h2>User Management</h2>
+<div class="content-section" id="guesser">
+    <h2>Guesser Game</h2>
     <p>
-        De kern van de applicatie is het account-systeem. Dit systeem valideert inloggegevens en maakt automatisch nieuwe accounts aan als de gebruiker nog niet bestaat.
+        In het Guesser spel moet de speler een getal raden binnen een bepaald bereik. Het spel geeft feedback of het getal hoger of lager is.
     </p>
-    <pre><code class="language-python">def user_login_create_json(user_name, user_password):
-    file_path = 'account.json'
+    <div class="animation-grid">
+        <div class="image-container">
+            <img src="images/nan/gues1.jpg" alt="Guesser Gameplay 1" class="project-image">
+        </div>
+        <div class="image-container">
+            <img src="images/nan/gues2.jpg" alt="Guesser Gameplay 2" class="project-image">
+        </div>
+    </div>
+</div>
 
+<div class="content-section" id="user-management">
+    <h2>User Management & Scoring</h2>
+    <p>
+        Het systeem bevat een uitgebreid account-beheer dat niet alleen inlogs valideert, maar ook high-scores bijhoudt voor de verschillende games.
+    </p>
+    <pre><code class="language-python">def user_account_handler(user_name, user_password):
+    file_path = "account.json"
     with open(file_path, 'r+') as json_file:
         data = json.load(json_file)
         accounts = data["accountDetails"]
 
-        for account in accounts:
-            if account["username"] == user_name and account["password"] == user_password:
-                print("User found logging in")
-                choose_game(True, user_name)
-                return
+        for user_account in accounts:
+            if user_account["username"] == user_name and user_account["password"] == user_password:
+                print(f"User found logging in, Welcome {user_name}")
+                return True
 
         print("User not found creating account")
-
-        new_entry = {
-            "username": user_name,
-            "password": user_password
-        }
-
+        new_entry = {"username": user_name, "password": user_password}
         accounts.append(new_entry)
-        # ... persistent storage logic
+        
+        json_file.seek(0)
+        json.dump(data, json_file, indent=2)
+        json_file.truncate()
 </code></pre>
 </div>
 
-<div class="content-section" id="guesser">
-    <h2>Number Guesser Game</h2>
+<div class="content-section" id="galgje">
+    <h2>Hangman (Galgje)</h2>
     <p>
-        De Guesser game implementeert verschillende moeilijkheidsgraden, scoresystemen en feedback-algoritmes om de speler te adviseren over hun niveau.
+        In Galgje wordt de voortgang visueel bijgehouden en kunnen gebruikers de woordenlijst dynamisch aanpassen door woorden toe te voegen of te verwijderen.
     </p>
-    <pre><code class="language-python">def calculate_score(difficulty_level, user_tries):
-    score = (user_max_tries(difficulty_level) - user_tries) * difficulty_level
-    print("Your score is: " + str(score))
+    <div class="animation-grid">
+        <div class="image-container">
+            <img src="images/nan/galgjetitle.jpg" alt="Hangman Title" class="project-image">
+        </div>
+        <div class="image-container">
+            <img src="images/nan/hangguess.jpg" alt="Hangman Gameplay" class="project-image">
+        </div>
+    </div>
+    <pre><code class="language-python">def show_progress(word, guessed_letters):
+    display = []
+    for letter in word:
+        if letter in guessed_letters:
+            display.append(letter.upper())
+        else:
+            display.append("_")
+    return " ".join(display)
 
-def calculate_difficulty(user_score):
-    low_score = 5
-    normal_score = 12
+def calculate_score(lives_left, difficulty):
+    return lives_left * difficulty
+</code></pre>
+</div>
 
-    if user_score < low_score:
-        return print("Try a lower difficulty")
-    elif low_score <= user_score <= normal_score:
-        return print("Keep this difficulty")
-    else:
-        return print("Advies: je kunt een hogere moeilijkheidsgraad aan!")
+<div class="content-section" id="api-integration">
+    <h2>API Integration</h2>
+    <p>
+        Voor de Animal Facts quiz wordt de <code>requests</code> library gebruikt om vragen op te halen van een externe API. Dit introduceerde concepten zoals JSON parsing en HTTP status codes.
+    </p>
+    <pre><code class="language-python">import requests
+
+def start_api_animal(user_name):
+    response = requests.get("https://opentdb.com/api.php?amount=10&category=27&type=boolean")
+    data = response.json()
+    questions = data.get("results", [])
+
+    for item in questions:
+        question_text = html.unescape(item["question"])
+        correct_answer = item["correct_answer"]
+        user_answer = input(f"{question_text} (True/False): ")
+        # ... logic to check answer and update score
 </code></pre>
 </div>
 
