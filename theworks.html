@@ -1,16 +1,15 @@
 <!DOCTYPE HTML>
-<html lang="nl">
+<html lang="en">
 <head>
-    <title>TheWorks | Kenan Özbakan</title>
-    <link href="images/logos/placeholder.jpg" rel="icon">
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport"/>
-    <meta content="TheWorks - Een geavanceerd matchingplatform voor studenten en bedrijven, gebouwd voor DIVD Works met Flutter en Firebase." name="description">
+    <title>TheWorks | Kenan Özbakan</title>
+    <meta content="TheWorks - An advanced internship matching platform connecting students and companies, built for DIVD Works with Flutter and Firebase." name="description">
+    <link href="images/logos/placeholder.jpg" rel="icon">
 
     <!-- CSS -->
     <link href="assets/css/main.css" rel="stylesheet"/>
     <link href="assets/css/theworks-redesign.css" rel="stylesheet"/>
-    <link href="assets/css/projects-redesign.css" rel="stylesheet"/>
     <link href="assets/css/prism.css" rel="stylesheet"/>
 
     <noscript>
@@ -22,97 +21,132 @@
 
 <div id="page-wrapper">
 
+    <!-- Header Navigation -->
     <div id="header">
-
-<!-- Header & Nav -->
         <nav id="nav">
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li>
-                    <a href="projects.html">Projects</a>
+                <li><a href="index.html" data-en="Home" data-nl="Home">Home</a></li>
+                <li class="has-dropdown">
+                    <a href="projects.html" data-en="Projects" data-nl="Projecten">Projects</a>
                     <ul>
                         <li class="dropdown-item"><a href="pacmanremake.html"><img alt="pacman" class="projects-icon" src="images/logos/Pacman.svg">Pacman-remake</a></li>
                         <li class="dropdown-item"><a href="twinstick.html"><img alt="twinnstick" class="projects-icon" src="images/logos/joystick.svg">Twinnstick</a></li>
                         <li class="dropdown-item"><a href="galaga.html"><img alt="galaga" class="projects-icon" src="images/logos/Galaga.ico">Galaga</a></li>
                         <li class="dropdown-item"><a href="particleeffect.html"><img alt="Particle" class="projects-icon" src="images/logos/ParticleIcon.jpg">Particle effect</a></li>
                         <li class="dropdown-item"><a href="theworks.html"><img alt="TheWorks" class="projects-icon" src="images/logos/placeholder.jpg">TheWorks</a></li>
-                        <li class="dropdown-item"><a href="teleportation.html"><img alt="Teleportation" class="projects-icon" src="images/logos/faviicon.ico">Teleportation</a></li>
-                        <li class="dropdown-item"><a href="towerdefense.html"><img alt="TowerDefense" class="projects-icon" src="images/logos/faviicon.ico">Tower Defense</a></li>
+                        <li class="dropdown-item"><a href="teleportation.html"><img alt="Teleportation" class="projects-icon" src="images/faviicon.ico">Teleportation</a></li>
+                        <li class="dropdown-item"><a href="towerdefense.html"><img alt="TowerDefense" class="projects-icon" src="images/faviicon.ico">Tower Defense</a></li>
                         <li class="dropdown-item"><a href="nan.html"><img alt="Nan" class="projects-icon" src="images/logos/placeholder.jpg">Nan</a></li>
+                        <li class="dropdown-item"><a href="steam.html"><img alt="Steam" class="projects-icon" src="images/logos/pythonlogo.svg">Steam (Python)</a></li>
                     </ul>
                 </li>
-                <li><a href="music.html">Music</a></li>
-                <li><a href="index.html#skills">Skills</a></li>
+                <li><a href="music.html" data-en="Music" data-nl="Muziek">Music</a></li>
+                <li><a href="index.html#skills" data-en="Skills" data-nl="Vaardigheden">Skills</a></li>
             </ul>
+            <div class="lang-toggle">
+                <button class="lang-btn active" data-lang-btn="en" onclick="switchLanguage('en')">EN</button>
+                <span class="lang-divider">/</span>
+                <button class="lang-btn" data-lang-btn="nl" onclick="switchLanguage('nl')">NL</button>
+            </div>
         </nav>
     </div>
 
-<!-- Hero Section -->
-<section class="hero-section">
-    <h1 class="hero-title">TheWorks</h1>
-    <p class="hero-subtitle">
-        Een modern internship matching-platform gebouwd voor <strong>DIVD Works</strong> dat studenten en bedrijven verbindt via slimme algoritmes.
-    </p>
-</section>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-badge-container">
+            <span class="hero-badge">DIVD Works</span>
+            <span class="hero-badge blue">Flutter & Dart</span>
+            <span class="hero-badge">Cloud Firestore</span>
+            <span class="hero-badge blue">Matching System</span>
+        </div>
+        <h1 class="hero-title">TheWorks</h1>
+        <p class="hero-subtitle"
+           data-en="A modern internship matching platform built for DIVD Works that connects talented students with innovative companies via smart tag-relevance algorithms."
+           data-nl="Een modern internship matching-platform gebouwd voor DIVD Works dat studenten en bedrijven verbindt via slimme tag-relevantie algoritmes.">
+            A modern internship matching platform built for DIVD Works that connects talented students with innovative companies via smart tag-relevance algorithms.
+        </p>
+    </section>
 
-<!-- Table of Contents -->
-<nav class="toc-section">
-    <div class="toc-title">Navigatie</div>
-    <ul class="toc-links">
-        <li><a href="#overview">Over het Project</a></li>
-        <li><a href="#learned">Geleerde Vaardigheden</a></li>
-        <li><a href="#algorithm">Matching Algoritme</a></li>
-        <li><a href="#auth">Authenticatie</a></li>
-        <li><a href="#models">Data Structuur</a></li>
-    </ul>
-</nav>
-    </div>
+    <!-- Floating Table of Contents -->
+    <nav class="toc-section">
+        <div class="toc-title" data-en="Navigation" data-nl="Navigatie">Navigation</div>
+        <ul class="toc-links">
+            <li><a href="#overview" data-en="Project Overview" data-nl="Over het Project">Project Overview</a></li>
+            <li><a href="#learned" data-en="Skills Learned" data-nl="Geleerde Vaardigheden">Skills Learned</a></li>
+            <li><a href="#algorithm" data-en="Matching Algorithm" data-nl="Matching Algoritme">Matching Algorithm</a></li>
+            <li><a href="#auth" data-en="Authentication" data-nl="Authenticatie">Authentication</a></li>
+            <li><a href="#models" data-en="Data Architecture" data-nl="Data Structuur">Data Architecture</a></li>
+        </ul>
+    </nav>
 
-<!-- Content Sections -->
-<div class="content-section" id="overview">
-    <h2>Over het Project</h2>
-    <div class="tech-pills">
-        <span class="pill">Flutter</span>
-        <span class="pill">Firebase Auth</span>
-        <span class="pill">Cloud Firestore</span>
-        <span class="pill">Cross-Platform</span>
-    </div>
-    <p>
-        TheWorks is een mobiele applicatie ontworpen om de zoektocht naar stages te moderniseren. Gebouwd met <strong>Flutter</strong> voor een naadloze ervaring op zowel iOS als Android, fungeert de app als een brug tussen talentvolle studenten en innovatieve bedrijven.
-    </p>
-    <p>
-        Het systeem maakt gebruik van een real-time database via <strong>Google Firebase</strong> om directe matching en profielupdates mogelijk te maken.
-    </p>
-</div>
+    <!-- Main Content -->
+    <main>
+        <div class="content-section" id="overview">
+            <div class="content-header">
+                <h2 data-en="Project Overview" data-nl="Over het Project">Project Overview</h2>
+                <span class="section-tag" data-en="Overview" data-nl="Overzicht">Overview</span>
+            </div>
+            <div class="tech-pills">
+                <span class="pill">Flutter</span>
+                <span class="pill">Firebase Auth</span>
+                <span class="pill">Cloud Firestore</span>
+                <span class="pill">Cross-Platform</span>
+            </div>
+            <p data-en="<strong>TheWorks</strong> is a mobile application designed to modernize the internship search experience. Built with <strong>Flutter</strong> for seamless cross-platform performance on iOS and Android, the app acts as a bridge between ambitious tech students and pioneering companies."
+               data-nl="<strong>TheWorks</strong> is een mobiele applicatie ontworpen om de zoektocht naar stages te moderniseren. Gebouwd met <strong>Flutter</strong> voor een naadloze ervaring op zowel iOS als Android, fungeert de app als een brug tussen talentvolle studenten en innovatieve bedrijven.">
+                <strong>TheWorks</strong> is a mobile application designed to modernize the internship search experience. Built with <strong>Flutter</strong> for seamless cross-platform performance on iOS and Android, the app acts as a bridge between ambitious tech students and pioneering companies.
+            </p>
+            <p data-en="The system relies on a real-time database architecture powered by <strong>Google Firebase</strong> to deliver instant project matching, dynamic search filtering, and live profile updates."
+               data-nl="Het systeem maakt gebruik van een real-time database via <strong>Google Firebase</strong> om directe matching, dynamische zoekfilters en live profielupdates mogelijk te maken.">
+                The system relies on a real-time database architecture powered by <strong>Google Firebase</strong> to deliver instant project matching, dynamic search filtering, and live profile updates.
+            </p>
+        </div>
 
-<div class="content-section" id="learned">
-    <h2>Geleerde Vaardigheden</h2>
-    <div class="tech-pills">
-        <span class="pill">Dart</span>
-        <span class="pill">UX Design</span>
-        <span class="pill">Firestore</span>
-    </div>
-    <p>
-        Tijdens de ontwikkeling van TheWorks heb ik mijn expertise in mobiele ontwikkeling aanzienlijk uitgebreid. Ik heb diepgaande kennis opgedaan van de programmeertaal <strong>Dart</strong> en het Flutter-framework. 
-    </p>
-    <p>
-        Daarnaast heb ik geleerd hoe ik complexe data-architecturen kan opzetten in <strong>Google Firestore</strong> en hoe ik een intuïtieve <strong>User Experience (UX)</strong> kan ontwerpen die aansluit bij de behoeften van zowel studenten als bedrijven.
-    </p>
-</div>
+        <div class="content-section" id="learned">
+            <div class="content-header">
+                <h2 data-en="Skills Learned" data-nl="Geleerde Vaardigheden">Skills Learned</h2>
+                <span class="section-tag" data-en="Expertise" data-nl="Expertise">Expertise</span>
+            </div>
+            <div class="tech-pills">
+                <span class="pill">Dart</span>
+                <span class="pill">UX Design</span>
+                <span class="pill">Firestore</span>
+            </div>
+            <p data-en="During the engineering of TheWorks, I significantly expanded my mobile development expertise. I mastered the <strong>Dart programming language</strong> and Flutter state management techniques."
+               data-nl="Tijdens de ontwikkeling van TheWorks heb ik mijn expertise in mobiele ontwikkeling aanzienlijk uitgebreid. Ik heb diepgaande kennis opgedaan van de programmeertaal <strong>Dart</strong> en het Flutter-framework.">
+                During the engineering of TheWorks, I significantly expanded my mobile development expertise. I mastered the <strong>Dart programming language</strong> and Flutter state management techniques.
+            </p>
+            <p data-en="Additionally, I designed scalable data schemas in <strong>Google Firestore</strong> and crafted an intuitive <strong>User Experience (UX)</strong> tailored specifically to the needs of both job-seeking students and corporate recruiters."
+               data-nl="Daarnaast heb ik geleerd hoe ik complexe data-architecturen kan opzetten in <strong>Google Firestore</strong> en hoe ik een intuïtieve <strong>User Experience (UX)</strong> kan ontwerpen die aansluit bij de behoeften van zowel studenten als bedrijven.">
+                Additionally, I designed scalable data schemas in <strong>Google Firestore</strong> and crafted an intuitive <strong>User Experience (UX)</strong> tailored specifically to the needs of both job-seeking students and corporate recruiters.
+            </p>
+        </div>
 
-<div class="content-section" id="algorithm">
-    <h2>Matching Algoritme</h2>
-    <p>
-        Een kernonderdeel van de applicatie is het algoritme dat projecten rangschikt op basis van de vaardigheden (tags) van de gebruiker. Dit wordt gedaan door tags uit te breiden op basis van implicaties (bijv. 'Front-end' impliceert 'HTML/CSS') en vervolgens een relevantiescore te berekenen.
-    </p>
-    <pre><code class="language-dart">List&lt;(Project, int)&gt; sortProjectsByTags(List&lt;Project&gt; projects, List&lt;String&gt; userTags) {
+        <div class="content-section" id="algorithm">
+            <div class="content-header">
+                <h2 data-en="Tag-Based Matching Algorithm" data-nl="Matching Algoritme">Tag-Based Matching Algorithm</h2>
+                <span class="section-tag" data-en="Algorithm" data-nl="Algoritme">Algorithm</span>
+            </div>
+            <p data-en="A cornerstone of the application is the custom matching algorithm that ranks available projects based on candidate skill tags. It expands user tags hierarchically (e.g., 'Front-end' implies 'HTML/CSS') and calculates a relevance score for optimal pairing."
+               data-nl="Een kernonderdeel van de applicatie is het algoritme dat projecten rangschikt op basis van de vaardigheden (tags) van de gebruiker. Dit wordt gedaan door tags uit te breiden op basis van implicaties (bijv. 'Front-end' impliceert 'HTML/CSS') en vervolgens een relevantiescore te berekenen.">
+                A cornerstone of the application is the custom matching algorithm that ranks available projects based on candidate skill tags. It expands user tags hierarchically (e.g., 'Front-end' implies 'HTML/CSS') and calculates a relevance score for optimal pairing.
+            </p>
+            <div class="code-wrapper">
+                <div class="code-header">
+                    <span class="code-title">matching_service.dart</span>
+                    <div>
+                        <span class="code-lang">Dart</span>
+                        <button class="copy-btn" onclick="copyCode(this)" data-en="Copy" data-nl="Kopiëren">Copy</button>
+                    </div>
+                </div>
+                <pre><code class="language-dart">List<(Project, int)> sortProjectsByTags(List<Project> projects, List<String> userTags) {
   if (userTags.isEmpty) {
     return projects.map((p) => (p, 0)).toList();
   }
 
   final expandedUserTags = expandTags(userTags);
-  final List&lt;(Project, int)&gt; matches = [];
-  final List&lt;Project&gt; others = [];
+  final List<(Project, int)> matches = [];
+  final List<Project> others = [];
 
   for (final project in projects) {
     int score = 0;
@@ -131,40 +165,66 @@
   matches.sort((a, b) => b.$2.compareTo(a.$2));
   return [...matches, ...others.map((p) => (p, 0))];
 }</code></pre>
-</div>
+            </div>
+        </div>
 
-<div class="content-section" id="auth">
-    <h2>Veilige Authenticatie</h2>
-    <p>
-        Voor het beheer van gebruikersaccounts wordt gebruik gemaakt van <strong>Firebase Authentication</strong>. Dit ondersteunt het veilig inloggen, registreren en wachtwoordherstel, terwijl de integriteit van de gebruikersgegevens gewaarborgd blijft.
-    </p>
-    <pre><code class="language-dart">class AuthService {
+        <div class="content-section" id="auth">
+            <div class="content-header">
+                <h2 data-en="Secure Authentication" data-nl="Veilige Authenticatie">Secure Authentication</h2>
+                <span class="section-tag" data-en="Security" data-nl="Beveiliging">Security</span>
+            </div>
+            <p data-en="User credentials and access controls are secured using <strong>Firebase Authentication</strong>, providing encrypted sign-in, user registration, and automated password recovery flows."
+               data-nl="Voor het beheer van gebruikersaccounts wordt gebruik gemaakt van <strong>Firebase Authentication</strong>. Dit ondersteunt het veilig inloggen, registreren en wachtwoordherstel, terwijl de integriteit van de gebruikersgegevens gewaarborgd blijft.">
+                User credentials and access controls are secured using <strong>Firebase Authentication</strong>, providing encrypted sign-in, user registration, and automated password recovery flows.
+            </p>
+            <div class="code-wrapper">
+                <div class="code-header">
+                    <span class="code-title">auth_service.dart</span>
+                    <div>
+                        <span class="code-lang">Dart</span>
+                        <button class="copy-btn" onclick="copyCode(this)" data-en="Copy" data-nl="Kopiëren">Copy</button>
+                    </div>
+                </div>
+                <pre><code class="language-dart">class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  Future&lt;UserCredential&gt; signIn({required String email, required String password}) async {
+  Future<UserCredential> signIn({required String email, required String password}) async {
     return await _auth.signInWithEmailAndPassword(
         email: email, password: password);
   }
 
-  Future&lt;UserCredential&gt; createAccount({required String email, required String password, required String displayName}) async {
+  Future<UserCredential> createAccount({required String email, required String password, required String displayName}) async {
     var user = await _auth.createUserWithEmailAndPassword(
         email: email, password: password);
     user.user!.updateDisplayName(displayName);
     return user;
   }
 }</code></pre>
-</div>
+            </div>
+        </div>
 
-<div class="content-section" id="models">
-    <h2>Data Structuur</h2>
-    <p>
-        De applicatie maakt gebruik van sterk getypeerde data-modellen in Dart om consistentie te garanderen tussen de Firestore documenten en de UI-laag. Hieronder ziet u het model voor een 'Project'.
-    </p>
-    <pre><code class="language-dart">class Project {
+        <div class="content-section" id="models">
+            <div class="content-header">
+                <h2 data-en="Data Architecture" data-nl="Data Structuur">Data Architecture</h2>
+                <span class="section-tag" data-en="Data Models" data-nl="Data Modellen">Data Models</span>
+            </div>
+            <p data-en="The app employs strongly typed Dart data models to ensure full type safety and seamless serialization between Cloud Firestore JSON documents and the Flutter UI layer."
+               data-nl="De applicatie maakt gebruik van sterk getypeerde data-modellen in Dart om consistentie te garanderen tussen de Firestore documenten en de UI-laag. Hieronder ziet u het model voor een 'Project'.">
+                The app employs strongly typed Dart data models to ensure full type safety and seamless serialization between Cloud Firestore JSON documents and the Flutter UI layer.
+            </p>
+            <div class="code-wrapper">
+                <div class="code-header">
+                    <span class="code-title">project_model.dart</span>
+                    <div>
+                        <span class="code-lang">Dart</span>
+                        <button class="copy-btn" onclick="copyCode(this)" data-en="Copy" data-nl="Kopiëren">Copy</button>
+                    </div>
+                </div>
+                <pre><code class="language-dart">class Project {
   final String? id;
   final String name;
   final String description;
-  final List&lt;String&gt; tags;
+  final List<String> tags;
   final String companyName;
   final String locationType;
 
@@ -177,7 +237,7 @@
     required this.locationType,
   });
 
-  Map&lt;String, dynamic&gt; toMap() {
+  Map<String, dynamic> toMap() {
     return {
       'name': name,
       'description': description,
@@ -188,25 +248,24 @@
     };
   }
 }</code></pre>
-</div>
+            </div>
+        </div>
+    </main>
 
-<!-- Footer -->
-<div id="footer">
-    <ul class="social-icons">
-        <li><a class="icon brands fa-instagram" href="https://www.instagram.com/kenan.3_8/"><span class="label">Instagram</span></a></li>
-        <li><a class="icon brands fa-linkedin-in" href="https://www.linkedin.com/in/kenan%C3%B6zbakan/"><span class="label">Linkedin</span></a></li>
-        <li><a class="icon brands fa-dribbble" href="https://kenansocial.carrd.co/"><span class="label">All socials</span></a></li>
-    </ul>
-    <div class="copyright">
-        &copy; Kenan Özbakan. Alle rechten voorbehouden. | Design: <a href="https://html5up.net">HTML5 UP</a>
-    </div>
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="container">
+            <div class="copyright" data-en="&copy; Kenan Özbakan. Built with Flutter & Firebase for DIVD Works." data-nl="&copy; Kenan Özbakan. Gebouwd met Flutter & Firebase voor DIVD Works.">
+                &copy; Kenan Özbakan. Built with Flutter & Firebase for DIVD Works.
+            </div>
+        </div>
+    </footer>
+
 </div>
 
 <!-- Scripts -->
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/jquery.dropotron.min.js"></script>
-<script src="assets/js/jquery.scrolly.min.js"></script>
-<script src="assets/js/jquery.scrollex.min.js"></script>
 <script src="assets/js/browser.min.js"></script>
 <script src="assets/js/breakpoints.min.js"></script>
 <script src="assets/js/util.js"></script>
@@ -214,7 +273,42 @@
 <script src="assets/js/prism.js"></script>
 
 <script>
+    // Copy Code Function
+    function copyCode(button) {
+        const wrapper = button.closest('.code-wrapper');
+        const code = wrapper.querySelector('code').innerText;
+        const currentLang = localStorage.getItem('portfolio_lang') || 'en';
+        navigator.clipboard.writeText(code).then(() => {
+            const originalText = button.innerText;
+            button.innerText = currentLang === 'nl' ? 'Gekopieerd!' : 'Copied!';
+            button.style.color = '#CCBE96';
+            button.style.borderColor = '#CCBE96';
+            setTimeout(() => {
+                button.innerText = originalText;
+                button.style.color = '';
+                button.style.borderColor = '';
+            }, 2000);
+        });
+    }
+
+    // Language Switcher Function
+    function switchLanguage(lang) {
+        localStorage.setItem('portfolio_lang', lang);
+        document.querySelectorAll('[data-en][data-nl]').forEach(el => {
+            const text = el.getAttribute(`data-${lang}`);
+            if (text) {
+                el.innerHTML = text;
+            }
+        });
+        document.querySelectorAll('[data-lang-btn]').forEach(btn => {
+            btn.classList.toggle('active', btn.getAttribute('data-lang-btn') === lang);
+        });
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
+        const savedLang = localStorage.getItem('portfolio_lang') || 'en';
+        switchLanguage(savedLang);
+
         const observerOptions = {
             root: null,
             rootMargin: '-30% 0px -70% 0px',
@@ -241,7 +335,5 @@
     });
 </script>
 
-</div>
 </body>
 </html>
-

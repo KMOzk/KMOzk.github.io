@@ -1,32 +1,37 @@
 /* ==========================================================================
-   NAN (PYTHON PLATFORM) PAGE REDESIGN - FUTURISTIC CYBER TERMINAL THEME
+   STEAM PYTHON PROJECT PAGE REDESIGN - STEAM BLUE & PYTHON GOLD THEME
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&family=Fira+Code:wght@400;500;600&display=swap');
 
 :root {
-    --primary: #e3b341;
-    --primary-glow: rgba(227, 179, 65, 0.4);
-    --secondary: #00b4d8;
-    --secondary-glow: rgba(0, 180, 216, 0.4);
-    --accent-green: #10b981;
+    --steam-blue: #00adff;
+    --steam-dark-blue: #1b2838;
+    --python-blue: #3776ab;
+    --python-gold: #ffd43b;
     
-    --bg-dark: #060609;
-    --surface-glass: rgba(18, 18, 26, 0.8);
+    --primary-gradient: linear-gradient(135deg, #00adff, #3776ab);
+    --secondary-gradient: linear-gradient(135deg, #3776ab, #ffd43b);
+    
+    --glow-blue: rgba(0, 173, 255, 0.45);
+    --glow-gold: rgba(255, 212, 59, 0.45);
+    
+    --bg-dark: #070b14;
+    --surface-glass: rgba(15, 25, 42, 0.85);
     --border-glass: rgba(255, 255, 255, 0.08);
-    --border-glow: rgba(227, 179, 65, 0.3);
+    --border-glow: rgba(0, 173, 255, 0.35);
     
-    --text-primary: #f0f0f5;
-    --text-secondary: #a0a0b8;
-    --text-muted: #6e6e85;
+    --text-primary: #f8fafc;
+    --text-secondary: #cbd5e1;
+    --text-muted: #94a3b8;
     
     --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
     --font-display: 'Space Grotesk', sans-serif;
-    --font-code: 'Fira Code', 'Consolas', monospace;
+    --font-code: 'Fira Code', monospace;
 }
 
 /* Reset & Base Body */
-body.nan-redesign {
+body.steam-redesign {
     background-color: var(--bg-dark) !important;
     color: var(--text-primary);
     font-family: var(--font-sans);
@@ -38,9 +43,9 @@ body.nan-redesign {
     display: flex;
     flex-direction: column;
     background-image: 
-        linear-gradient(rgba(6, 6, 9, 0.85), rgba(6, 6, 9, 0.92)),
-        radial-gradient(circle at 15% 15%, rgba(227, 179, 65, 0.12) 0%, transparent 45%),
-        radial-gradient(circle at 85% 55%, rgba(0, 180, 216, 0.12) 0%, transparent 45%),
+        linear-gradient(rgba(7, 11, 20, 0.88), rgba(7, 11, 20, 0.94)),
+        radial-gradient(circle at 15% 15%, rgba(0, 173, 255, 0.12) 0%, transparent 45%),
+        radial-gradient(circle at 85% 55%, rgba(255, 212, 59, 0.12) 0%, transparent 45%),
         url("../../images/header.jpg") !important;
     background-size: cover !important;
     background-position: center top !important;
@@ -59,10 +64,10 @@ main {
     flex: 1 0 auto;
 }
 
-/* Navigation Bar Overrides */
+/* Navigation Bar */
 #nav {
-    background: rgba(6, 6, 9, 0.85);
-    padding: 1.2rem 0;
+    background: rgba(7, 11, 20, 0.88);
+    padding: 1rem 0;
     border-bottom: 1px solid var(--border-glass);
     z-index: 1000;
     position: sticky;
@@ -75,7 +80,7 @@ main {
 /* Hero Section */
 .hero-section {
     text-align: center;
-    padding: 2.2rem 1.5rem 1.2rem;
+    padding: 2.5rem 1.5rem 1.5rem;
     max-width: 900px;
     margin: 0 auto;
     position: relative;
@@ -85,13 +90,13 @@ main {
     display: flex;
     justify-content: center;
     gap: 0.8rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem;
     flex-wrap: wrap;
 }
 
 .hero-badge {
-    background: rgba(227, 179, 65, 0.12);
-    color: var(--primary);
+    background: rgba(0, 173, 255, 0.12);
+    color: var(--steam-blue);
     border: 1px solid var(--border-glow);
     padding: 0.35rem 1rem;
     border-radius: 20px;
@@ -101,31 +106,31 @@ main {
     letter-spacing: 0.5px;
 }
 
-.hero-badge.blue {
-    background: rgba(0, 180, 216, 0.12);
-    color: var(--secondary);
-    border-color: rgba(0, 180, 216, 0.3);
+.hero-badge.gold {
+    background: rgba(255, 212, 59, 0.12);
+    color: var(--python-gold);
+    border-color: rgba(255, 212, 59, 0.35);
 }
 
 .hero-title {
     font-family: var(--font-display);
-    font-size: clamp(3rem, 6vw, 4.8rem);
+    font-size: clamp(2.8rem, 5.5vw, 4.5rem);
     font-weight: 800;
     color: #ffffff;
     letter-spacing: 2px;
     text-transform: uppercase;
     margin-bottom: 0.8rem;
-    background: linear-gradient(135deg, #ffffff 40%, var(--primary) 100%);
+    background: linear-gradient(135deg, #ffffff 40%, var(--steam-blue) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 0 25px var(--primary-glow));
+    filter: drop-shadow(0 0 25px var(--glow-blue));
 }
 
 .hero-subtitle {
     font-size: 1.15rem;
     color: var(--text-secondary);
     max-width: 750px;
-    margin: 0 auto 2rem;
+    margin: 0 auto 1.5rem;
     line-height: 1.7;
 }
 
@@ -137,18 +142,18 @@ main {
     transform: translateY(-50%);
     width: 220px;
     padding: 1.5rem;
-    background: rgba(12, 12, 18, 0.85);
+    background: rgba(15, 25, 42, 0.85);
     border: 1px solid var(--border-glow);
     border-radius: 18px;
     z-index: 100;
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(227, 179, 65, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 173, 255, 0.15);
 }
 
 .toc-title {
     font-family: var(--font-display);
-    color: var(--primary);
+    color: var(--steam-blue);
     font-size: 0.82rem;
     text-transform: uppercase;
     letter-spacing: 1.5px;
@@ -167,7 +172,7 @@ main {
 }
 
 .toc-links li a {
-    color: var(--text-muted);
+    color: #64748b;
     text-decoration: none;
     font-family: var(--font-sans);
     font-weight: 500;
@@ -180,14 +185,14 @@ main {
 
 .toc-links li a:hover,
 .toc-links li a.active {
-    color: var(--primary);
-    text-shadow: 0 0 10px var(--primary-glow);
+    color: var(--steam-blue);
+    text-shadow: 0 0 10px var(--glow-blue);
     transform: translateX(4px);
 }
 
 /* Content Sections */
 .content-section {
-    max-width: 900px;
+    max-width: 950px;
     margin: 0 auto 3rem auto;
     padding: 2.5rem;
     background: var(--surface-glass);
@@ -201,7 +206,7 @@ main {
 
 .content-section:hover {
     border-color: var(--border-glow);
-    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5), 0 0 20px rgba(227, 179, 65, 0.15);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5), 0 0 25px rgba(0, 173, 255, 0.18);
 }
 
 .content-header {
@@ -221,16 +226,72 @@ main {
     margin: 0;
 }
 
+.content-section h3 {
+    font-family: var(--font-display);
+    color: var(--python-gold);
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 2rem 0 1rem 0;
+}
+
 .section-tag {
     font-size: 0.8rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: var(--primary);
-    background: rgba(227, 179, 65, 0.12);
+    color: var(--steam-blue);
+    background: rgba(0, 173, 255, 0.12);
     padding: 0.3rem 0.8rem;
     border-radius: 12px;
-    border: 1px solid rgba(227, 179, 65, 0.3);
+    border: 1px solid rgba(0, 173, 255, 0.3);
+}
+
+.section-tag.gold {
+    color: var(--python-gold);
+    background: rgba(255, 212, 59, 0.12);
+    border-color: rgba(255, 212, 59, 0.3);
+}
+
+/* Hardware Spec Grid Cards */
+.hardware-spec-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin: 1.8rem 0;
+}
+
+.hardware-card {
+    background: rgba(10, 18, 32, 0.8);
+    border: 1px solid var(--border-glass);
+    border-radius: 16px;
+    padding: 1.4rem;
+    transition: all 0.3s ease;
+}
+
+.hardware-card:hover {
+    border-color: var(--border-glow);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 0 0 15px rgba(0, 173, 255, 0.2);
+    transform: translateY(-4px);
+}
+
+.hardware-card-icon {
+    font-size: 2rem;
+    margin-bottom: 0.8rem;
+    display: block;
+}
+
+.hardware-card h4 {
+    font-family: var(--font-display);
+    color: var(--steam-blue);
+    font-size: 1.1rem;
+    margin: 0 0 0.4rem 0;
+}
+
+.hardware-card p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.5;
 }
 
 .tech-pills {
@@ -241,13 +302,19 @@ main {
 }
 
 .pill {
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid var(--border-glass);
-    color: var(--text-secondary);
+    background: rgba(0, 173, 255, 0.12);
+    border: 1px solid rgba(0, 173, 255, 0.3);
+    color: var(--steam-blue);
     padding: 0.3rem 0.9rem;
     font-size: 0.82rem;
     font-weight: 600;
     border-radius: 20px;
+}
+
+.pill.gold {
+    background: rgba(255, 212, 59, 0.12);
+    border-color: rgba(255, 212, 59, 0.3);
+    color: var(--python-gold);
 }
 
 .content-section p {
@@ -257,13 +324,18 @@ main {
     margin-bottom: 1.5rem;
 }
 
-.content-section p strong {
-    color: var(--text-primary);
+.content-section p code {
+    background: rgba(0, 173, 255, 0.15);
+    color: var(--steam-blue);
+    padding: 0.15rem 0.45rem;
+    border-radius: 6px;
+    font-family: var(--font-code);
+    font-size: 0.9rem;
 }
 
 /* Code Snippet Wrapper */
 .code-wrapper {
-    background: #0a0a0f;
+    background: #060a12;
     border: 1px solid var(--border-glass);
     border-radius: 14px;
     overflow: hidden;
@@ -272,7 +344,7 @@ main {
 }
 
 .code-header {
-    background: rgba(20, 20, 30, 0.8);
+    background: rgba(15, 25, 42, 0.9);
     padding: 0.75rem 1.2rem;
     display: flex;
     align-items: center;
@@ -289,8 +361,8 @@ main {
 .code-lang {
     font-size: 0.75rem;
     font-weight: 700;
-    color: var(--primary);
-    background: rgba(227, 179, 65, 0.15);
+    color: var(--python-gold);
+    background: rgba(255, 212, 59, 0.15);
     padding: 0.2rem 0.6rem;
     border-radius: 6px;
     margin-right: 0.6rem;
@@ -310,9 +382,10 @@ main {
 }
 
 .copy-btn:hover {
-    background: var(--primary);
-    border-color: var(--primary);
-    color: #000;
+    background: var(--steam-blue);
+    border-color: var(--steam-blue);
+    color: #ffffff;
+    box-shadow: 0 0 10px var(--glow-blue);
 }
 
 pre[class*="language-"] {
@@ -327,7 +400,7 @@ pre[class*="language-"] {
 
 /* Footer */
 #footer {
-    background: rgba(6, 6, 9, 0.9);
+    background: rgba(7, 11, 20, 0.95);
     padding: 2.5rem 1.5rem;
     text-align: center;
     border-top: 1px solid var(--border-glass);
@@ -335,7 +408,7 @@ pre[class*="language-"] {
 }
 
 .copyright {
-    color: var(--text-muted);
+    color: #64748b;
     font-size: 0.9rem;
 }
 
@@ -344,7 +417,7 @@ pre[class*="language-"] {
     .toc-section {
         position: static;
         width: auto;
-        max-width: 900px;
+        max-width: 950px;
         margin: 0 auto 3rem;
         transform: none;
         text-align: center;

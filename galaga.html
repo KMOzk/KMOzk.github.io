@@ -1,104 +1,151 @@
 <!DOCTYPE HTML>
-<html lang="nl">
+<html lang="en">
 <head>
-    <title>Galaga Remake | Kenan Özbakan</title>
-    <link href="images/Galaga.ico" rel="icon">
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport"/>
-    <meta content="Bekijk de Galaga remake van Kenan Özbakan - een project uit het begin van zijn studie met Scriptable Objects en event-systemen." name="description">
+    <title>Galaga Remake | Kenan Özbakan</title>
+    <meta content="Galaga Remake - A retro arcade space shooter rebuilt in Unity using ScriptableObjects, C# UnityEvents, and Singleton Game Managers." name="description">
+    <link href="images/Galaga.ico" rel="icon">
 
     <!-- CSS -->
     <link href="assets/css/main.css" rel="stylesheet"/>
     <link href="assets/css/galaga-redesign.css" rel="stylesheet"/>
-    <link href="assets/css/projects-redesign.css" rel="stylesheet"/>
     <link href="assets/css/prism.css" rel="stylesheet"/>
-    
+
     <noscript>
         <link href="assets/css/noscript.css" rel="stylesheet"/>
     </noscript>
 </head>
+
 <body class="galaga-redesign">
 
 <div id="page-wrapper">
 
+    <!-- Header Navigation -->
     <div id="header">
-
-    <!-- Header & Nav -->
-            <nav id="nav">
+        <nav id="nav">
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li>
-                    <a href="projects.html">Projects</a>
+                <li><a href="index.html" data-en="Home" data-nl="Home">Home</a></li>
+                <li class="has-dropdown">
+                    <a href="projects.html" data-en="Projects" data-nl="Projecten">Projects</a>
                     <ul>
                         <li class="dropdown-item"><a href="pacmanremake.html"><img alt="pacman" class="projects-icon" src="images/logos/Pacman.svg">Pacman-remake</a></li>
                         <li class="dropdown-item"><a href="twinstick.html"><img alt="twinnstick" class="projects-icon" src="images/logos/joystick.svg">Twinnstick</a></li>
                         <li class="dropdown-item"><a href="galaga.html"><img alt="galaga" class="projects-icon" src="images/logos/Galaga.ico">Galaga</a></li>
                         <li class="dropdown-item"><a href="particleeffect.html"><img alt="Particle" class="projects-icon" src="images/logos/ParticleIcon.jpg">Particle effect</a></li>
                         <li class="dropdown-item"><a href="theworks.html"><img alt="TheWorks" class="projects-icon" src="images/logos/placeholder.jpg">TheWorks</a></li>
-                        <li class="dropdown-item"><a href="teleportation.html"><img alt="Teleportation" class="projects-icon" src="images/logos/faviicon.ico">Teleportation</a></li>
-                        <li class="dropdown-item"><a href="towerdefense.html"><img alt="TowerDefense" class="projects-icon" src="images/logos/faviicon.ico">Tower Defense</a></li>
+                        <li class="dropdown-item"><a href="teleportation.html"><img alt="Teleportation" class="projects-icon" src="images/faviicon.ico">Teleportation</a></li>
+                        <li class="dropdown-item"><a href="towerdefense.html"><img alt="TowerDefense" class="projects-icon" src="images/faviicon.ico">Tower Defense</a></li>
                         <li class="dropdown-item"><a href="nan.html"><img alt="Nan" class="projects-icon" src="images/logos/placeholder.jpg">Nan</a></li>
+                        <li class="dropdown-item"><a href="steam.html"><img alt="Steam" class="projects-icon" src="images/logos/pythonlogo.svg">Steam (Python)</a></li>
                     </ul>
                 </li>
-                <li><a href="music.html">Music</a></li>
-                <li><a href="index.html#skills">Skills</a></li>
+                <li><a href="music.html" data-en="Music" data-nl="Muziek">Music</a></li>
+                <li><a href="index.html#skills" data-en="Skills" data-nl="Vaardigheden">Skills</a></li>
             </ul>
+            <div class="lang-toggle">
+                <button class="lang-btn active" data-lang-btn="en" onclick="switchLanguage('en')">EN</button>
+                <span class="lang-divider">/</span>
+                <button class="lang-btn" data-lang-btn="nl" onclick="switchLanguage('nl')">NL</button>
+            </div>
         </nav>
     </div>
 
     <!-- Hero Section -->
     <section class="hero-section">
+        <div class="hero-badge-container">
+            <span class="hero-badge">Unity 2D</span>
+            <span class="hero-badge purple">ScriptableObjects</span>
+            <span class="hero-badge">Unity Events</span>
+            <a href="https://kenan38.itch.io/galaga-remake" target="_blank" rel="noopener noreferrer" class="hero-badge itch-btn">🎮 Play on itch.io</a>
+        </div>
         <h1 class="hero-title">Galaga Remake</h1>
-        <p class="hero-subtitle">
-            Een retro arcade-ervaring, opnieuw opgebouwd met moderne Unity technieken.
+        <p class="hero-subtitle"
+           data-en="A classic 1981 arcade space shooter experience, engineered in Unity using ScriptableObject data containers and event-driven architecture."
+           data-nl="Een klassieke 1981 arcade space shooter ervaring, gebouwd in Unity met ScriptableObject datacontainers en event-driven architectuur.">
+            A classic 1981 arcade space shooter experience, engineered in Unity using ScriptableObject data containers and event-driven architecture.
         </p>
     </section>
 
-    <!-- Game Container -->
+    <!-- Game Showcase Action Banner -->
     <section class="game-container">
-        <div class="game-frame">
-            <iframe frameborder="0" src="https://itch.io/embed-upload/9635616?color=003701" allowfullscreen="" width="960" height="620">
-                <a href="https://kenan38.itch.io/galaga-remake">Play Galaga Remake on itch.io</a>
-            </iframe>
+        <div class="arcade-banner-card">
+            <div class="arcade-banner-content">
+                <span class="arcade-icon">👾</span>
+                <h2 data-en="Play Galaga Remake" data-nl="Speel Galaga Remake">Play Galaga Remake</h2>
+                <p data-en="Experience the classic space shooter rebuild directly in your browser on itch.io."
+                   data-nl="Ervaar de klassieke space shooter-remake rechtstreeks in je browser op itch.io.">
+                    Experience the classic space shooter rebuild directly in your browser on itch.io.
+                </p>
+                <a href="https://kenan38.itch.io/galaga-remake" target="_blank" rel="noopener noreferrer" class="itch-banner-btn"
+                   data-en="🚀 Launch Game on itch.io"
+                   data-nl="🚀 Start Game op itch.io">
+                    🚀 Launch Game on itch.io
+                </a>
+            </div>
         </div>
     </section>
 
-    <!-- Table of Contents -->
+    <!-- Floating Table of Contents -->
     <nav class="toc-section">
-        <div class="toc-title">Navigatie</div>
+        <div class="toc-title" data-en="Navigation" data-nl="Navigatie">Navigation</div>
         <ul class="toc-links">
-            <li><a href="#about">Over het Project</a></li>
-            <li><a href="#player">Player Behaviour</a></li>
-            <li><a href="#enemy">Enemy Behaviour</a></li>
-            <li><a href="#spawner">Enemy Spawner</a></li>
-            <li><a href="#manager">Game Manager</a></li>
+            <li><a href="#about" data-en="About Project" data-nl="Over het Project">About Project</a></li>
+            <li><a href="#player" data-en="Player Behaviour" data-nl="Player Gedrag">Player Behaviour</a></li>
+            <li><a href="#enemy" data-en="Enemy Behaviour" data-nl="Enemy Gedrag">Enemy Behaviour</a></li>
+            <li><a href="#spawner" data-en="Enemy Spawner" data-nl="Enemy Spawner">Enemy Spawner</a></li>
+            <li><a href="#manager" data-en="Game Manager" data-nl="Game Manager">Game Manager</a></li>
         </ul>
     </nav>
-    </div>
 
-    <!-- Content Sections -->
-    <div id="about" class="content-section">
-        <h2>Over het Project</h2>
-        <p>
-            Een afgerond project gebaseerd op Galaga, waarin ik een Scriptable Object en het event-systeem heb geïmplementeerd. 
-            Dit project heb ik aan het begin van mijn schoolcarrière gemaakt als een manier om de basis van Unity en C# onder de knie te krijgen.
-        </p>
-        <p>
-            Met de ervaring die ik inmiddels heb opgedaan, zie ik hoe de code anders en efficiënter had kunnen worden geschreven, maar het blijft een waardevol leerproject.
-        </p>
-    </div>
+    <!-- Main Content -->
+    <main>
+        <!-- About Section -->
+        <div class="content-section" id="about">
+            <div class="content-header">
+                <h2 data-en="About the Project" data-nl="Over het Project">About the Project</h2>
+                <span class="section-tag" data-en="Overview" data-nl="Overzicht">Overview</span>
+            </div>
+            <div class="tech-pills">
+                <span class="pill">Unity 2D</span>
+                <span class="pill purple">C#</span>
+                <span class="pill">ScriptableObjects</span>
+                <span class="pill purple">Singleton Pattern</span>
+            </div>
+            <p data-en="This project is an early-curriculum <strong>Galaga arcade remake</strong> created to master Unity 2D physics, UnityEvent communications, and ScriptableObject data decoupling."
+               data-nl="Dit is een afgerond project gebaseerd op Galaga, waarin ik ScriptableObjects en het event-systeem heb geïmplementeerd om de basis van Unity en C# onder de knie te krijgen.">
+                This project is an early-curriculum <strong>Galaga arcade remake</strong> created to master Unity 2D physics, UnityEvent communications, and ScriptableObject data decoupling.
+            </p>
+            <p data-en="While reflective of early architectural patterns, it established essential game development fundamentals including Coroutine wave spawners, interface damage handling, and persistent score systems."
+               data-nl="Met de ervaring die ik inmiddels heb opgedaan zie ik hoe de code efficiënter kan worden geschreven, maar het blijft een waardevol fundamenteel leerproject.">
+                While reflective of early architectural patterns, it established essential game development fundamentals including Coroutine wave spawners, interface damage handling, and persistent score systems.
+            </p>
+        </div>
 
-    <div id="player" class="content-section">
-        <h2>Player Behaviour</h2>
-        <p>
-            In deze vroege versie van de remake heeft de speler nog een 'God class' structuur. Het beheert beweging, schieten en schade in één script.
-        </p>
-        <pre><code class="language-csharp">namespace com.GLU.GD.P5.ScriptableObjects
+        <!-- Player Behaviour Section -->
+        <div class="content-section" id="player">
+            <div class="content-header">
+                <h2 data-en="Player Behaviour & Controls" data-nl="Player Gedrag & Besturing">Player Behaviour & Controls</h2>
+                <span class="section-tag" data-en="Player Code" data-nl="Player Code">Player Code</span>
+            </div>
+            <p data-en="The <code>PlayerBehaviour</code> script manages player 2D horizontal input movement, bullet instantiation via RigidBody2D impulses, and damage handling through the <code>IDamagable</code> interface."
+               data-nl="Het <code>PlayerBehaviour</code> script beheert horizontale beweging van de speler, kogel-instantieering via Rigidbody2D impulsen en schadeafhandeling via de <code>IDamagable</code> interface.">
+                The <code>PlayerBehaviour</code> script manages player 2D horizontal input movement, bullet instantiation via RigidBody2D impulses, and damage handling through the <code>IDamagable</code> interface.
+            </p>
+
+            <div class="code-wrapper">
+                <div class="code-header">
+                    <span class="code-title">PlayerBehaviour.cs</span>
+                    <div>
+                        <span class="code-lang">C#</span>
+                        <button class="copy-btn" onclick="copyCode(this)" data-en="Copy" data-nl="Kopiëren">Copy</button>
+                    </div>
+                </div>
+                <pre><code class="language-csharp">namespace com.GLU.GD.P5.ScriptableObjects
 {
     public class PlayerBehaviour : MonoBehaviour, IDamagable
     {
         private float health = 1;
-
         public float Health => health;
         public PlayerManager playerManager;
 
@@ -110,8 +157,7 @@
         [Space]
         [SerializeField] private GameObject bullet;
         [SerializeField] private Transform bulletSpawnOrigin;
-
-        [Space][SerializeField] private GameObject explosionEffect;
+        [SerializeField] private GameObject explosionEffect;
 
         private void Start()
         { 
@@ -138,7 +184,6 @@
             if (health == 0)
             {
                 PlayerDied.Invoke();
-
                 DeathAudio.Play();
                 Destroy(this.gameObject);
                 other.DoDamage(float.PositiveInfinity, this);
@@ -147,12 +192,23 @@
         }
     }
 }</code></pre>
+            </div>
 
-        <h3>Player Data (ScriptableObject)</h3>
-        <p>
-            Door gebruik te maken van ScriptableObjects kon ik variabelen zoals snelheid eenvoudig aanpassen buiten de scripts om.
-        </p>
-        <pre><code class="language-csharp">using UnityEngine;
+            <h3 data-en="Player Data (ScriptableObject)" data-nl="Player Data (ScriptableObject)">Player Data (ScriptableObject)</h3>
+            <p data-en="Utilizing ScriptableObjects decouples tuning parameters (movement speed, bullet velocity) from code execution, enabling designer-friendly tweaking in the Unity Inspector."
+               data-nl="Door gebruik te maken van ScriptableObjects kunnen variabelen zoals snelheid eenvoudig buiten de scripts om worden aangepast in de Unity Inspector.">
+                Utilizing ScriptableObjects decouples tuning parameters (movement speed, bullet velocity) from code execution, enabling designer-friendly tweaking in the Unity Inspector.
+            </p>
+
+            <div class="code-wrapper">
+                <div class="code-header">
+                    <span class="code-title">PlayerManager.cs</span>
+                    <div>
+                        <span class="code-lang">C#</span>
+                        <button class="copy-btn" onclick="copyCode(this)" data-en="Copy" data-nl="Kopiëren">Copy</button>
+                    </div>
+                </div>
+                <pre><code class="language-csharp">using UnityEngine;
 
 [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/PlayerManager", order = 1)]
 public class PlayerManager : ScriptableObject
@@ -160,14 +216,29 @@ public class PlayerManager : ScriptableObject
     public float moveSpeed = 2;
     public float bulletSpeed = 20;
 }</code></pre>
-    </div>
+            </div>
+        </div>
 
-    <div id="enemy" class="content-section">
-        <h2>Enemy Behaviour</h2>
-        <p>
-            De vijanden maken ook gebruik van ScriptableObjects voor hun data en communiceren via Unity Events voor score-updates.
-        </p>
-        <pre><code class="language-csharp">namespace com.GLU.GD.P5.ScriptableObjects
+        <!-- Enemy Behaviour Section -->
+        <div class="content-section" id="enemy">
+            <div class="content-header">
+                <h2 data-en="Enemy Behaviour & Events" data-nl="Enemy Gedrag & Events">Enemy Behaviour & Events</h2>
+                <span class="section-tag" data-en="AI & Scoring" data-nl="AI & Scoring">AI & Scoring</span>
+            </div>
+            <p data-en="Enemy entities utilize Coroutines for descent movements and communicate score increases to the UI via UnityEvent callbacks."
+               data-nl="Vijanden maken gebruik van Coroutines voor hun bewegingspatroon en communiceren score-updates via Unity Events met het UI-systeem.">
+                Enemy entities utilize Coroutines for descent movements and communicate score increases to the UI via UnityEvent callbacks.
+            </p>
+
+            <div class="code-wrapper">
+                <div class="code-header">
+                    <span class="code-title">EnemyBehaviour.cs</span>
+                    <div>
+                        <span class="code-lang">C#</span>
+                        <button class="copy-btn" onclick="copyCode(this)" data-en="Copy" data-nl="Kopiëren">Copy</button>
+                    </div>
+                </div>
+                <pre><code class="language-csharp">namespace com.GLU.GD.P5.ScriptableObjects
 {
     public class EnemyBehaviour : MonoBehaviour, IDamagable
     {
@@ -177,7 +248,6 @@ public class PlayerManager : ScriptableObject
         public EnemyManager enemyManager;
         [SerializeField] private UnityEvent EnemyDied;
         [SerializeField] private UnityEvent ScoreUpdate;
-
         [SerializeField] private GameObject explosionEffect;
         
         void Start()
@@ -206,16 +276,20 @@ public class PlayerManager : ScriptableObject
                 Instantiate(explosionEffect, transform.position, Quaternion.identity);
             }
         }
-        
-        public void ScoreDead()
-        {
-            UiManager.Instance.EnemyDeathScoreRecieved(UiManager.Instance.enemyDeathScore);
-        }
     }
 }</code></pre>
+            </div>
 
-        <h3>Enemy Data (ScriptableObject)</h3>
-        <pre><code class="language-csharp">using UnityEngine;
+            <h3 data-en="Enemy Data (ScriptableObject)" data-nl="Enemy Data (ScriptableObject)">Enemy Data (ScriptableObject)</h3>
+            <div class="code-wrapper">
+                <div class="code-header">
+                    <span class="code-title">EnemyManager.cs</span>
+                    <div>
+                        <span class="code-lang">C#</span>
+                        <button class="copy-btn" onclick="copyCode(this)" data-en="Copy" data-nl="Kopiëren">Copy</button>
+                    </div>
+                </div>
+                <pre><code class="language-csharp">using UnityEngine;
 
 [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/EnemyManager", order = 1)]
 public class EnemyManager : ScriptableObject
@@ -223,14 +297,29 @@ public class EnemyManager : ScriptableObject
     public float maxHealth = 10;
     public float moveSpeed = 2;
 }</code></pre>
-    </div>
+            </div>
+        </div>
 
-    <div id="spawner" class="content-section">
-        <h2>Enemy Spawner</h2>
-        <p>
-            Een eenvoudige spawner die vijanden op willekeurige posities genereert met behulp van een Coroutine.
-        </p>
-        <pre><code class="language-csharp">namespace com.GLU.GD.P5.ScriptableObjects
+        <!-- Enemy Spawner Section -->
+        <div class="content-section" id="spawner">
+            <div class="content-header">
+                <h2 data-en="Wave Enemy Spawner" data-nl="Enemy Spawner">Wave Enemy Spawner</h2>
+                <span class="section-tag" data-en="Coroutines" data-nl="Coroutines">Coroutines</span>
+            </div>
+            <p data-en="A Coroutine-driven wave spawner that continuously instantiates enemy prefabs at randomized spawn anchor points."
+               data-nl="Een Coroutine-gestuurde spawner die continu vijanden genereert op willekeurige spawn-punten.">
+                A Coroutine-driven wave spawner that continuously instantiates enemy prefabs at randomized spawn anchor points.
+            </p>
+
+            <div class="code-wrapper">
+                <div class="code-header">
+                    <span class="code-title">EnemySpawner.cs</span>
+                    <div>
+                        <span class="code-lang">C#</span>
+                        <button class="copy-btn" onclick="copyCode(this)" data-en="Copy" data-nl="Kopiëren">Copy</button>
+                    </div>
+                </div>
+                <pre><code class="language-csharp">namespace com.GLU.GD.P5.ScriptableObjects
 {
     public class EnemySpawner : MonoBehaviour
     {
@@ -254,14 +343,29 @@ public class EnemyManager : ScriptableObject
         }
     }
 }</code></pre>
-    </div>
+            </div>
+        </div>
 
-    <div id="manager" class="content-section">
-        <h2>Game Manager</h2>
-        <p>
-            De <code>GameManager</code> is een Singleton die de levens van de speler, scores en respawning beheert.
-        </p>
-        <pre><code class="language-csharp">namespace com.GLU.GD.P5.ScriptableObjects
+        <!-- Game Manager Section -->
+        <div class="content-section" id="manager">
+            <div class="content-header">
+                <h2 data-en="Game Manager Singleton" data-nl="Game Manager Singleton">Game Manager Singleton</h2>
+                <span class="section-tag" data-en="State System" data-nl="Systeem">State System</span>
+            </div>
+            <p data-en="The persistent <code>GameManager</code> Singleton tracks player lives, high scores across scenes, and triggers player respawning workflows."
+               data-nl="De <code>GameManager</code> is een Singleton die de levens van de speler, de topscore en het herladen van de scene beheert.">
+                The persistent <code>GameManager</code> Singleton tracks player lives, high scores across scenes, and triggers player respawning workflows.
+            </p>
+
+            <div class="code-wrapper">
+                <div class="code-header">
+                    <span class="code-title">GameManager.cs</span>
+                    <div>
+                        <span class="code-lang">C#</span>
+                        <button class="copy-btn" onclick="copyCode(this)" data-en="Copy" data-nl="Kopiëren">Copy</button>
+                    </div>
+                </div>
+                <pre><code class="language-csharp">namespace com.GLU.GD.P5.ScriptableObjects
 {
     public class GameManager : MonoBehaviour
     {
@@ -296,7 +400,6 @@ public class EnemyManager : ScriptableObject
         public void PlayerIsDead()
         {
             PlayerLives--;
-
             HighScoreBeforeDeath += UiManager.Instance.HighScore;
 
             if (PlayerLives > 0)
@@ -317,61 +420,92 @@ public class EnemyManager : ScriptableObject
         }
     }
 }</code></pre>
-    </div>
+            </div>
+        </div>
+    </main>
 
     <!-- Footer -->
-    <div id="footer">
-        <ul class="social-icons">
-            <li><a class="icon brands fa-instagram" href="https://www.instagram.com/kenan.3_8/"><span class="label">Instagram</span></a></li>
-            <li><a class="icon brands fa-linkedin-in" href="https://www.linkedin.com/in/kenan%C3%B6zbakan/"><span class="label">Linkedin</span></a></li>
-            <li><a class="icon brands fa-dribbble" href="https://kenansocial.carrd.co/"><span class="label">All socials</span></a></li>
-        </ul>
-        <div class="copyright">
-            &copy; Kenan Özbakan. Alle rechten voorbehouden. | Design: <a href="https://html5up.net">HTML5 UP</a>
+    <footer id="footer">
+        <div class="container">
+            <div class="copyright" data-en="&copy; Kenan Özbakan. Built with Unity 2D & C#." data-nl="&copy; Kenan Özbakan. Gebouwd met Unity 2D & C#.">
+                &copy; Kenan Özbakan. Built with Unity 2D & C#.
+            </div>
         </div>
-    </div>
+    </footer>
 
-    <!-- Scripts -->
+</div>
+
+<!-- Scripts -->
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/jquery.dropotron.min.js"></script>
-<script src="assets/js/jquery.scrolly.min.js"></script>
-<script src="assets/js/jquery.scrollex.min.js"></script>
 <script src="assets/js/browser.min.js"></script>
 <script src="assets/js/breakpoints.min.js"></script>
 <script src="assets/js/util.js"></script>
 <script src="assets/js/main.js"></script>
 <script src="assets/js/prism.js"></script>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const observerOptions = {
-                root: null,
-                rootMargin: '-30% 0px -70% 0px',
-                threshold: 0
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        document.querySelectorAll('.toc-links a').forEach(link => {
-                            link.classList.remove('active');
-                        });
-                        const activeLink = document.querySelector(`.toc-links a[href="#${entry.target.id}"]`);
-                        if (activeLink) {
-                            activeLink.classList.add('active');
-                        }
-                    }
-                });
-            }, observerOptions);
-
-            document.querySelectorAll('.content-section').forEach(section => {
-                observer.observe(section);
-            });
+<script>
+    // Copy Code Function
+    function copyCode(button) {
+        const wrapper = button.closest('.code-wrapper');
+        const code = wrapper.querySelector('code').innerText;
+        const currentLang = localStorage.getItem('portfolio_lang') || 'en';
+        navigator.clipboard.writeText(code).then(() => {
+            const originalText = button.innerText;
+            button.innerText = currentLang === 'nl' ? 'Gekopieerd!' : 'Copied!';
+            button.style.color = '#ff0055';
+            button.style.borderColor = '#ff0055';
+            setTimeout(() => {
+                button.innerText = originalText;
+                button.style.color = '';
+                button.style.borderColor = '';
+            }, 2000);
         });
-    </script>
+    }
 
-</div>
+    // Language Switcher Function
+    function switchLanguage(lang) {
+        localStorage.setItem('portfolio_lang', lang);
+        document.querySelectorAll('[data-en][data-nl]').forEach(el => {
+            const text = el.getAttribute(`data-${lang}`);
+            if (text) {
+                el.innerHTML = text;
+            }
+        });
+        document.querySelectorAll('[data-lang-btn]').forEach(btn => {
+            btn.classList.toggle('active', btn.getAttribute('data-lang-btn') === lang);
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const savedLang = localStorage.getItem('portfolio_lang') || 'en';
+        switchLanguage(savedLang);
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '-30% 0px -70% 0px',
+            threshold: 0
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    document.querySelectorAll('.toc-links a').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    const activeLink = document.querySelector(`.toc-links a[href="#${entry.target.id}"]`);
+                    if (activeLink) {
+                        activeLink.classList.add('active');
+                    }
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.content-section').forEach(section => {
+            observer.observe(section);
+        });
+    });
+</script>
+
 </body>
 </html>
-
-

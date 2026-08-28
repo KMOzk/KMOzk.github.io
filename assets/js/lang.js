@@ -15,7 +15,7 @@ const translations = {
         'projects_heading': 'Projects highlights',
         'projects_intro': 'Feel free to look around here or on <a href="https://kenan38.itch.io/">itch</a>.',
         'contact_heading': 'Contact',
-        'contact_text': 'If you have questions, feel free to reach out! <br>I am always reachable via my e-mail kenan[dot]ozbakan[at]com <br> or on <a href="https://kenansocial.carrd.co/">another social network I am on.</a>',
+        'contact_text': 'If you have questions, feel free to reach out! <br>I am always reachable via my e-mail kenan[dot]ozbakan[at]com <br> or on <a href="socials.html">my socials page.</a>',
         'project_theworks_title': 'TheWorks',
         'project_theworks_desc': 'A Flutter based project where the goal is to match students with companies to get an internship.'
     },
@@ -35,7 +35,7 @@ const translations = {
         'projects_heading': 'Project hoogtepunten',
         'projects_intro': 'Kijk gerust rond hier of op <a href="https://kenan38.itch.io/">itch</a>.',
         'contact_heading': 'Contact',
-        'contact_text': 'Als je vragen hebt, neem gerust contact op! <br>Ik ben altijd bereikbaar via mijn e-mail kenan[dot]ozbakan[at]com <br> of op <a href="https://kenansocial.carrd.co/">een ander sociaal netwerk waar ik op zit.</a>',
+        'contact_text': 'Als je vragen hebt, neem gerust contact op! <br>Ik ben altijd bereikbaar via mijn e-mail kenan[dot]ozbakan[at]com <br> of op <a href="socials.html">mijn socials pagina.</a>',
         'project_theworks_title': 'TheWorks',
         'project_theworks_desc': 'Een op Flutter gebaseerd project met als doel studenten te matchen met bedrijven voor een stage.'
     },
@@ -55,7 +55,7 @@ const translations = {
         'projects_heading': 'Projekt-Highlights',
         'projects_intro': 'Schauen Sie sich gerne hier oder auf <a href="https://kenan38.itch.io/">itch</a> um.',
         'contact_heading': 'Kontakt',
-        'contact_text': 'Wenn Sie Fragen haben, melden Sie sich gerne! <br>Ich bin immer über meine E-Mail kenan[dot]ozbakan[at]com erreichbar <br> oder über <a href="https://kenansocial.carrd.co/">ein anderes soziales Netzwerk, auf dem ich bin.</a>',
+        'contact_text': 'Wenn Sie Fragen haben, melden Sie sich gerne! <br>Ich bin immer über meine E-Mail kenan[dot]ozbakan[at]com erreichbar <br> oder über <a href="socials.html">meine Socials-Seite.</a>',
         'project_theworks_title': 'TheWorks',
         'project_theworks_desc': 'Ein auf Flutter basierendes Projekt, das Studenten mit Unternehmen für Praktika zusammenbringen soll.'
     },
@@ -75,7 +75,7 @@ const translations = {
         'projects_heading': 'Öne Çıkan Projeler',
         'projects_intro': 'Burada veya <a href="https://kenan38.itch.io/">itch</a> üzerinde etrafa bakmaktan çekinmeyin.',
         'contact_heading': 'İletişim',
-        'contact_text': 'Sorularınız varsa, iletişime geçmekten çekinmeyin! <br>Bana her zaman kenan[dot]ozbakan[at]com e-posta adresimden <br> veya <a href="https://kenansocial.carrd.co/">bulunduğum başka bir sosyal ağ üzerinden ulaşabilirsiniz.</a>',
+        'contact_text': 'Sorularınız varsa, iletişime geçmekten çekinmeyin! <br>Bana her zaman kenan[dot]ozbakan[at]com e-posta adresimden <br> veya <a href="socials.html">sosyal medya sayfam üzerinden ulaşabilirsiniz.</a>',
         'project_theworks_title': 'TheWorks',
         'project_theworks_desc': 'Öğrencileri staj için şirketlerle eşleştirmeyi amaçlayan Flutter tabanlı bir proje.'
     }

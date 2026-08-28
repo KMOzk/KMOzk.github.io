@@ -1,16 +1,15 @@
 <!DOCTYPE HTML>
-<html lang="nl">
+<html lang="en">
 <head>
-    <title>Teleportation | Kenan Özbakan</title>
-    <link href="images/faviicon.ico" rel="icon">
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport"/>
-    <meta content="Ontdek de teleportatie systemen ontwikkeld door Kenan Özbakan in Unity." name="description">
+    <title>XR Teleportation | Kenan Özbakan</title>
+    <meta content="Explore the XR Teleportation mechanics developed in Unity C# by Kenan Özbakan, featuring fuel requirements and custom cooldown logic." name="description">
+    <link href="images/faviicon.ico" rel="icon">
 
     <!-- CSS -->
     <link href="assets/css/main.css" rel="stylesheet"/>
     <link href="assets/css/teleportation-redesign.css" rel="stylesheet"/>
-    <link href="assets/css/projects-redesign.css" rel="stylesheet"/>
     <link href="assets/css/prism.css" rel="stylesheet"/>
 
     <noscript>
@@ -22,147 +21,175 @@
 
 <div id="page-wrapper">
 
+    <!-- Header Navigation -->
     <div id="header">
-
-<!-- Header & Nav -->
         <nav id="nav">
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li>
-                    <a href="projects.html">Projects</a>
+                <li><a href="index.html" data-en="Home" data-nl="Home">Home</a></li>
+                <li class="has-dropdown">
+                    <a href="projects.html" data-en="Projects" data-nl="Projecten">Projects</a>
                     <ul>
                         <li class="dropdown-item"><a href="pacmanremake.html"><img alt="pacman" class="projects-icon" src="images/logos/Pacman.svg">Pacman-remake</a></li>
                         <li class="dropdown-item"><a href="twinstick.html"><img alt="twinnstick" class="projects-icon" src="images/logos/joystick.svg">Twinnstick</a></li>
                         <li class="dropdown-item"><a href="galaga.html"><img alt="galaga" class="projects-icon" src="images/logos/Galaga.ico">Galaga</a></li>
                         <li class="dropdown-item"><a href="particleeffect.html"><img alt="Particle" class="projects-icon" src="images/logos/ParticleIcon.jpg">Particle effect</a></li>
                         <li class="dropdown-item"><a href="theworks.html"><img alt="TheWorks" class="projects-icon" src="images/logos/placeholder.jpg">TheWorks</a></li>
-                        <li class="dropdown-item"><a href="teleportation.html"><img alt="Teleportation" class="projects-icon" src="images/logos/faviicon.ico">Teleportation</a></li>
-                        <li class="dropdown-item"><a href="towerdefense.html"><img alt="TowerDefense" class="projects-icon" src="images/logos/faviicon.ico">Tower Defense</a></li>
+                        <li class="dropdown-item"><a href="teleportation.html"><img alt="Teleportation" class="projects-icon" src="images/faviicon.ico">Teleportation</a></li>
+                        <li class="dropdown-item"><a href="towerdefense.html"><img alt="TowerDefense" class="projects-icon" src="images/faviicon.ico">Tower Defense</a></li>
                         <li class="dropdown-item"><a href="nan.html"><img alt="Nan" class="projects-icon" src="images/logos/placeholder.jpg">Nan</a></li>
+                        <li class="dropdown-item"><a href="steam.html"><img alt="Steam" class="projects-icon" src="images/logos/pythonlogo.svg">Steam (Python)</a></li>
                     </ul>
                 </li>
-                <li><a href="music.html">Music</a></li>
-                <li><a href="index.html#skills">Skills</a></li>
+                <li><a href="music.html" data-en="Music" data-nl="Muziek">Music</a></li>
+                <li><a href="index.html#skills" data-en="Skills" data-nl="Vaardigheden">Skills</a></li>
             </ul>
+            <div class="lang-toggle">
+                <button class="lang-btn active" data-lang-btn="en" onclick="switchLanguage('en')">EN</button>
+                <span class="lang-divider">/</span>
+                <button class="lang-btn" data-lang-btn="nl" onclick="switchLanguage('nl')">NL</button>
+            </div>
         </nav>
     </div>
 
-<!-- Hero Section -->
-<section class="hero-section">
-    <h1 class="hero-title">Teleportation</h1>
-    <p class="hero-subtitle">
-        Een technisch overzicht van teleportatie mechanics in Unity.
-    </p>
-</section>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-badge-container">
+            <span class="hero-badge">Unity XR</span>
+            <span class="hero-badge purple">C# System</span>
+            <span class="hero-badge">Locomotion</span>
+        </div>
+        <h1 class="hero-title">XR Teleportation</h1>
+        <p class="hero-subtitle"
+           data-en="A technical showcase of a VR locomotion and teleportation system built in Unity, featuring fuel constraints, character controller safety, and custom cooldown management."
+           data-nl="Een technisch overzicht van een VR teleportatiesysteem gebouwd in Unity, met brandstofvereisten, character controller veiligheid en custom cooldown management.">
+            A technical showcase of a VR locomotion and teleportation system built in Unity, featuring fuel constraints, character controller safety, and custom cooldown management.
+        </p>
+    </section>
 
-<!-- Table of Contents -->
-<nav class="toc-section">
-    <div class="toc-title">Navigatie</div>
-    <ul class="toc-links">
-        <li><a href="#about">Over het Project</a></li>
-        <li><a href="#manager">Teleport Manager</a></li>
-        <li><a href="#script">Teleporter Script</a></li>
-    </ul>
-</nav>
-    </div>
+    <!-- Floating Table of Contents -->
+    <nav class="toc-section">
+        <div class="toc-title" data-en="Navigation" data-nl="Navigatie">Navigation</div>
+        <ul class="toc-links">
+            <li><a href="#about" data-en="About Project" data-nl="Over het Project">About Project</a></li>
+            <li><a href="#manager" data-en="Teleport Manager" data-nl="Teleport Manager">Teleport Manager</a></li>
+            <li><a href="#script" data-en="Teleporter Script" data-nl="Teleporter Script">Teleporter Script</a></li>
+        </ul>
+    </nav>
 
-<!-- Content Sections -->
-<div class="content-section" id="about">
-    <h2>Over het Project</h2>
-    <div class="image-container" style="width: 100%; margin-bottom: 2em; border: 1px solid rgba(0, 188, 212, 0.3); border-radius: 8px; overflow: hidden;">
-        <img src="images/teleportation.gif" alt="Teleportation Demonstration" style="width: 100%; display: block;" />
-    </div>
-    <p>
-        Voor een groepsproject had ik een teleporter gemaakt. Waarmee het de voorwarden had dat er ook nog een cooldown op zat en dat heb ik gedaan.
-    </p>
-</div>
+    <!-- Main Content -->
+    <main>
+        <div class="content-section" id="about">
+            <div class="content-header">
+                <h2 data-en="About the Project" data-nl="Over het Project">About the Project</h2>
+                <span class="section-tag" data-en="VR Demo" data-nl="VR Demo">VR Demo</span>
+            </div>
+            <div class="media-container">
+                <span class="media-overlay-tag" data-en="● LIVE MECHANIC DEMO" data-nl="● LIVE MECHANISME DEMO">● LIVE MECHANIC DEMO</span>
+                <img src="images/teleportation.gif" alt="Teleportation Mechanic Demonstration" />
+            </div>
+            <p data-en="Developed for a collaborative group project, this teleportation mechanic prevents player motion sickness while adding tactical depth. The system requires fuel activation and enforces a custom cooldown timer before subsequent teleportation jumps can occur."
+               data-nl="Ontwikkeld voor een groepsproject. Dit teleportatiemechanisme voorkomt bewegingsziekte in VR en voegt tactische diepte toe door brandstofvereisten en een cooldown-timer af te dwingen.">
+                Developed for a collaborative group project, this teleportation mechanic prevents player motion sickness while adding tactical depth. The system requires fuel activation and enforces a custom cooldown timer before subsequent teleportation jumps can occur.
+            </p>
+        </div>
 
-<div class="content-section" id="manager">
-    <h2>Teleport Manager</h2>
-    <p>
-        De <code>TeleportManager</code> fungeert als een singleton die de globale status van teleportatie beheert, zoals de brandstofstatus en de cooldown-tijd.
-    </p>
-    <pre><code class="language-csharp">public class TeleportManager : MonoBehaviour
+        <div class="content-section" id="manager">
+            <div class="content-header">
+                <h2 data-en="Teleport Manager Singleton" data-nl="Teleport Manager Singleton">Teleport Manager Singleton</h2>
+                <span class="section-tag" data-en="Architecture" data-nl="Architectuur">Architecture</span>
+            </div>
+            <p data-en="The <code>TeleportManager</code> operates as a central Singleton script that maintains the global teleportation state, managing fuel reserves, cooldown status, and player target transforms."
+               data-nl="De <code>TeleportManager</code> fungeert als een centrale Singleton die de globale teleportatiestatus beheert, inclusief brandstofreserves, cooldown-status en speler-doellocaties.">
+                The <code>TeleportManager</code> operates as a central Singleton script that maintains the global teleportation state, managing fuel reserves, cooldown status, and player target transforms.
+            </p>
+            <div class="code-wrapper">
+                <div class="code-header">
+                    <span class="code-title">TeleportManager.cs</span>
+                    <div>
+                        <span class="code-lang">C#</span>
+                        <button class="copy-btn" onclick="copyCode(this)" data-en="Copy" data-nl="Kopiëren">Copy</button>
+                    </div>
+                </div>
+                <pre><code class="language-csharp">public class TeleportManager : MonoBehaviour
 {
     public static TeleportManager Instance;
 
-    // These bools check if the player can teleport or not.
+    // Checks if the player can teleport or not
     public bool isFueled   = false;
     public bool isCooldown = false;
 
-    /// &lt;summary&gt;
-    /// We don't want the player to keep teleporting so with this we can control the time in which he can teleport.
-    /// &lt;/summary&gt;
+    /// <summary>
+    /// Controls the cooldown time between teleportation jumps.
+    /// </summary>
     public float       cooldownTime;
 
-    /// &lt;summary&gt;
-    /// We want to teleport the right GameObject.
-    /// &lt;/summary&gt;
+    /// <summary>
+    /// Reference to the player GameObject
+    /// </summary>
     public GameObject  player;
     
     public Transform[] otherTeleportations;
 
     private void Awake()
     {
-        // Checks if there is already a singleton in the scene and removes itself.
+        // Enforces Singleton pattern across the scene
         if (Instance == null) { Instance = this; }
         else { Destroy(gameObject); }
     }
 }</code></pre>
-</div>
+            </div>
+        </div>
 
-<div class="content-section" id="script">
-    <h2>Teleporter Script</h2>
-    <p>
-        Het <code>TeleporterScript</code> wordt op de teleportatiepads geplaatst en regelt de interactie met de speler, inclusief de input en de cooldown-logica.
-    </p>
-    <pre><code class="language-csharp">public class TeleporterScript : MonoBehaviour
+        <div class="content-section" id="script">
+            <div class="content-header">
+                <h2 data-en="Teleporter Pad Script" data-nl="Teleporter Pad Script">Teleporter Pad Script</h2>
+                <span class="section-tag" data-en="Player Interaction" data-nl="Speler Interactie">Player Interaction</span>
+            </div>
+            <p data-en="Attached to individual teleportation pads, the <code>TeleporterScript</code> handles trigger detection, fuel cell collision checks, and safely toggles the <code>CharacterController</code> during position updates to prevent physics glitches."
+               data-nl="Geplaatst op de teleportatiepads. Het <code>TeleporterScript</code> regelt triggerdetectie, brandstofcelbotsingen en schakelt de <code>CharacterController</code> tijdelijk uit tijdens de verplaatsing.">
+                Attached to individual teleportation pads, the <code>TeleporterScript</code> handles trigger detection, fuel cell collision checks, and safely toggles the <code>CharacterController</code> during position updates to prevent physics glitches.
+            </p>
+            <div class="code-wrapper">
+                <div class="code-header">
+                    <span class="code-title">TeleporterScript.cs</span>
+                    <div>
+                        <span class="code-lang">C#</span>
+                        <button class="copy-btn" onclick="copyCode(this)" data-en="Copy" data-nl="Kopiëren">Copy</button>
+                    </div>
+                </div>
+                <pre><code class="language-csharp">public class TeleporterScript : MonoBehaviour
 {
-    /// &lt;summary&gt;
-    /// This bool checks if the player is standing on the teleport.
-    /// &lt;/summary&gt;
     public bool isStandingOn = false;
- 
-    /// &lt;summary&gt;
-    /// This is so you can say which number you want to teleport to.
-    /// &lt;/summary&gt;
+
     [SerializeField] private int teleportNumber;
- 
+
     private void Update()
     {
-        // These sequence of checks is for to teleporter to work.
         if (TeleportManager.Instance != null)
         {
-            if (TeleportManager.Instance.isFueled &amp;&amp; isStandingOn &amp;&amp; !TeleportManager.Instance.isCooldown &amp;&amp; Input.GetKeyDown(KeyCode.T))
+            if (TeleportManager.Instance.isFueled && isStandingOn && !TeleportManager.Instance.isCooldown && Input.GetKeyDown(KeyCode.T))
             {
                 TeleportPlayer(teleportNumber);
             }
         }
 
-        if (!TeleportManager.Instance.isFueled &amp;&amp; Input.GetKeyDown(KeyCode.T))
+        if (!TeleportManager.Instance.isFueled && Input.GetKeyDown(KeyCode.T))
         {
             TextManager.Instance.WhatToDisplay(TextManager.Instance.dialogueCell2[4]);
         }
     }
 
-    /// &lt;summary&gt;
-    /// This function is to teleport the player to the designated number given.
-    /// &lt;/summary&gt;
-    /// &lt;param name="numberToTeleport"&gt;&lt;/param&gt;
     private void TeleportPlayer(int numberToTeleport)
     {
-        TeleportManager.Instance.player.GetComponent&lt;CharacterController&gt;().enabled = false;
+        // Disable CharacterController to prevent physics collision bugs
+        TeleportManager.Instance.player.GetComponent<CharacterController>().enabled = false;
 
         TeleportManager.Instance.player.transform.position = TeleportManager.Instance.otherTeleportations[numberToTeleport].position;
         StartCoroutine(Cooldown());
 
-        TeleportManager.Instance.player.GetComponent&lt;CharacterController&gt;().enabled = true;
+        TeleportManager.Instance.player.GetComponent<CharacterController>().enabled = true;
     }
 
-    /// &lt;summary&gt;
-    /// We don't want the player to infinitely keep teleporting so with this cooldown we stop that from happening.
-    /// &lt;/summary&gt;
-    /// &lt;returns&gt;&lt;/returns&gt;
     private IEnumerator Cooldown()
     {
         TeleportManager.Instance.isCooldown = true;
@@ -172,7 +199,6 @@
 
     private void OnCollisionEnter(Collision other)
     {
-        // For this check it is to see if the teleporter is getting fueled.
         if (other.gameObject.CompareTag("FuelCell"))
         {
             TeleportManager.Instance.isFueled = true;
@@ -180,25 +206,24 @@
         }
     }
 }</code></pre>
-</div>
+            </div>
+        </div>
+    </main>
 
-<!-- Footer -->
-<div id="footer">
-    <ul class="social-icons">
-        <li><a class="icon brands fa-instagram" href="https://www.instagram.com/kenan.3_8/"><span class="label">Instagram</span></a></li>
-        <li><a class="icon brands fa-linkedin-in" href="https://www.linkedin.com/in/kenan%C3%B6zbakan/"><span class="label">Linkedin</span></a></li>
-        <li><a class="icon brands fa-dribbble" href="https://kenansocial.carrd.co/"><span class="label">All socials</span></a></li>
-    </ul>
-    <div class="copyright">
-        &copy; Kenan Özbakan. Alle rechten voorbehouden. | Design: <a href="https://html5up.net">HTML5 UP</a>
-    </div>
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="container">
+            <div class="copyright" data-en="&copy; Kenan Özbakan. Built with Unity XR & C#." data-nl="&copy; Kenan Özbakan. Gebouwd met Unity XR & C#.">
+                &copy; Kenan Özbakan. Built with Unity XR & C#.
+            </div>
+        </div>
+    </footer>
+
 </div>
 
 <!-- Scripts -->
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/jquery.dropotron.min.js"></script>
-<script src="assets/js/jquery.scrolly.min.js"></script>
-<script src="assets/js/jquery.scrollex.min.js"></script>
 <script src="assets/js/browser.min.js"></script>
 <script src="assets/js/breakpoints.min.js"></script>
 <script src="assets/js/util.js"></script>
@@ -206,7 +231,42 @@
 <script src="assets/js/prism.js"></script>
 
 <script>
+    // Copy Code Function
+    function copyCode(button) {
+        const wrapper = button.closest('.code-wrapper');
+        const code = wrapper.querySelector('code').innerText;
+        const currentLang = localStorage.getItem('portfolio_lang') || 'en';
+        navigator.clipboard.writeText(code).then(() => {
+            const originalText = button.innerText;
+            button.innerText = currentLang === 'nl' ? 'Gekopieerd!' : 'Copied!';
+            button.style.color = '#00f2fe';
+            button.style.borderColor = '#00f2fe';
+            setTimeout(() => {
+                button.innerText = originalText;
+                button.style.color = '';
+                button.style.borderColor = '';
+            }, 2000);
+        });
+    }
+
+    // Language Switcher Function
+    function switchLanguage(lang) {
+        localStorage.setItem('portfolio_lang', lang);
+        document.querySelectorAll('[data-en][data-nl]').forEach(el => {
+            const text = el.getAttribute(`data-${lang}`);
+            if (text) {
+                el.innerHTML = text;
+            }
+        });
+        document.querySelectorAll('[data-lang-btn]').forEach(btn => {
+            btn.classList.toggle('active', btn.getAttribute('data-lang-btn') === lang);
+        });
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
+        const savedLang = localStorage.getItem('portfolio_lang') || 'en';
+        switchLanguage(savedLang);
+
         const observerOptions = {
             root: null,
             rootMargin: '-30% 0px -70% 0px',
@@ -233,8 +293,5 @@
     });
 </script>
 
-</div>
 </body>
 </html>
-
-
